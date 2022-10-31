@@ -144,6 +144,78 @@
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"path" : "cmake/add_resources.cmake"
+		},
+		{
+			"path" : "cmake/FindGLFW3.cmake"
+		},
+		{
+			"path" : "cmake/FindGLEW.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "cmake/FindGLM.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindOpenGL.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindOpenMP.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeParseImplicitLinkInfo.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageMessage.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",

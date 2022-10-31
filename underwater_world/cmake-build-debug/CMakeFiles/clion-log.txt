@@ -1,4 +1,9 @@
 C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/ninja/win/ninja.exe -G Ninja -S "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world" -B "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug"
+-- Found GLFW3: C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/lib/mingw/libglfw3.a
+FIND_PATH C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include
+-- Found GLEW: C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include
+-- GLEW_LIBRARIES: C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/lib/mingw/libglew32.a
+-- GLM_INCLUDE_DIR = C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug
