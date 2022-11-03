@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world
+# Install script for directory: C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/_install")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/_install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,21 +34,21 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/mingw/bin/objdump.exe")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." TYPE EXECUTABLE FILES "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/underwater_world.exe")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." TYPE EXECUTABLE FILES "C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/underwater_world.exe")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/./underwater_world.exe" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/./underwater_world.exe")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "C:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/mingw/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/./underwater_world.exe")
+      execute_process(COMMAND "C:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/mingw/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/./underwater_world.exe")
     endif()
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." TYPE DIRECTORY FILES "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/data/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." TYPE DIRECTORY FILES "C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/data/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -59,5 +59,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

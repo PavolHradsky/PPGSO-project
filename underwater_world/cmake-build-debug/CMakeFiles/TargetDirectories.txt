@@ -1,9 +1,9 @@
-C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/shaders.dir
-C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/ppgso.dir
-C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/underwater_world.dir
-C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/list_install_components.dir
-C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/install.dir
-C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/install/local.dir
-C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/install/strip.dir
+C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/shaders.dir
+C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/ppgso.dir
+C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/underwater_world.dir
+C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/list_install_components.dir
+C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/install.dir
+C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/install/local.dir
+C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/CMakeFiles/install/strip.dir

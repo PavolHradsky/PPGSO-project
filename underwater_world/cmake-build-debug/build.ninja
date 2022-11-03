@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/cmake-build-debug/
+cmake_ninja_workdir = C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/
 # =============================================================================
 # Object build statements for STATIC_LIBRARY target shaders
 
@@ -49,59 +49,59 @@ cmake_ninja_workdir = C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-pr
 
 build cmake_object_order_depends_target_shaders: phony || shaders/color_frag_glsl.cpp shaders/color_frag_glsl.h shaders/color_vert_glsl.cpp shaders/color_vert_glsl.h shaders/convolution_frag_glsl.cpp shaders/convolution_frag_glsl.h shaders/convolution_vert_glsl.cpp shaders/convolution_vert_glsl.h shaders/diffuse_frag_glsl.cpp shaders/diffuse_frag_glsl.h shaders/diffuse_vert_glsl.cpp shaders/diffuse_vert_glsl.h shaders/texture_frag_glsl.cpp shaders/texture_frag_glsl.h shaders/texture_vert_glsl.cpp shaders/texture_vert_glsl.h
 
-build CMakeFiles/shaders.dir/shaders/color_vert_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_vert_glsl.cpp || cmake_object_order_depends_target_shaders
+build CMakeFiles/shaders.dir/shaders/color_vert_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_vert_glsl.cpp || cmake_object_order_depends_target_shaders
   DEP_FILE = CMakeFiles\shaders.dir\shaders\color_vert_glsl.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\shaders.dir
   OBJECT_FILE_DIR = CMakeFiles\shaders.dir\shaders
 
-build CMakeFiles/shaders.dir/shaders/color_frag_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_frag_glsl.cpp || cmake_object_order_depends_target_shaders
+build CMakeFiles/shaders.dir/shaders/color_frag_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_frag_glsl.cpp || cmake_object_order_depends_target_shaders
   DEP_FILE = CMakeFiles\shaders.dir\shaders\color_frag_glsl.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\shaders.dir
   OBJECT_FILE_DIR = CMakeFiles\shaders.dir\shaders
 
-build CMakeFiles/shaders.dir/shaders/convolution_vert_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_vert_glsl.cpp || cmake_object_order_depends_target_shaders
+build CMakeFiles/shaders.dir/shaders/convolution_vert_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_vert_glsl.cpp || cmake_object_order_depends_target_shaders
   DEP_FILE = CMakeFiles\shaders.dir\shaders\convolution_vert_glsl.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\shaders.dir
   OBJECT_FILE_DIR = CMakeFiles\shaders.dir\shaders
 
-build CMakeFiles/shaders.dir/shaders/convolution_frag_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_frag_glsl.cpp || cmake_object_order_depends_target_shaders
+build CMakeFiles/shaders.dir/shaders/convolution_frag_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_frag_glsl.cpp || cmake_object_order_depends_target_shaders
   DEP_FILE = CMakeFiles\shaders.dir\shaders\convolution_frag_glsl.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\shaders.dir
   OBJECT_FILE_DIR = CMakeFiles\shaders.dir\shaders
 
-build CMakeFiles/shaders.dir/shaders/diffuse_vert_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_vert_glsl.cpp || cmake_object_order_depends_target_shaders
+build CMakeFiles/shaders.dir/shaders/diffuse_vert_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_vert_glsl.cpp || cmake_object_order_depends_target_shaders
   DEP_FILE = CMakeFiles\shaders.dir\shaders\diffuse_vert_glsl.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\shaders.dir
   OBJECT_FILE_DIR = CMakeFiles\shaders.dir\shaders
 
-build CMakeFiles/shaders.dir/shaders/diffuse_frag_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_frag_glsl.cpp || cmake_object_order_depends_target_shaders
+build CMakeFiles/shaders.dir/shaders/diffuse_frag_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_frag_glsl.cpp || cmake_object_order_depends_target_shaders
   DEP_FILE = CMakeFiles\shaders.dir\shaders\diffuse_frag_glsl.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\shaders.dir
   OBJECT_FILE_DIR = CMakeFiles\shaders.dir\shaders
 
-build CMakeFiles/shaders.dir/shaders/texture_vert_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_vert_glsl.cpp || cmake_object_order_depends_target_shaders
+build CMakeFiles/shaders.dir/shaders/texture_vert_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_vert_glsl.cpp || cmake_object_order_depends_target_shaders
   DEP_FILE = CMakeFiles\shaders.dir\shaders\texture_vert_glsl.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\shaders.dir
   OBJECT_FILE_DIR = CMakeFiles\shaders.dir\shaders
 
-build CMakeFiles/shaders.dir/shaders/texture_frag_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_frag_glsl.cpp || cmake_object_order_depends_target_shaders
+build CMakeFiles/shaders.dir/shaders/texture_frag_glsl.cpp.obj: CXX_COMPILER__shaders_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_frag_glsl.cpp || cmake_object_order_depends_target_shaders
   DEP_FILE = CMakeFiles\shaders.dir\shaders\texture_frag_glsl.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\shaders.dir
   OBJECT_FILE_DIR = CMakeFiles\shaders.dir\shaders
 
@@ -130,67 +130,67 @@ build libshaders.a: CXX_STATIC_LIBRARY_LINKER__shaders_Debug CMakeFiles/shaders.
 
 build cmake_object_order_depends_target_ppgso: phony || CMakeFiles/ppgso.dir
 
-build CMakeFiles/ppgso.dir/ppgso/mesh.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/ppgso/mesh.cpp || cmake_object_order_depends_target_ppgso
+build CMakeFiles/ppgso.dir/ppgso/mesh.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso/mesh.cpp || cmake_object_order_depends_target_ppgso
   DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\ppgso.dir\ppgso\mesh.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/ppgso" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\ppgso.dir
   OBJECT_FILE_DIR = CMakeFiles\ppgso.dir\ppgso
 
-build CMakeFiles/ppgso.dir/ppgso/tiny_obj_loader.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/ppgso/tiny_obj_loader.cpp || cmake_object_order_depends_target_ppgso
+build CMakeFiles/ppgso.dir/ppgso/tiny_obj_loader.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso/tiny_obj_loader.cpp || cmake_object_order_depends_target_ppgso
   DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\ppgso.dir\ppgso\tiny_obj_loader.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/ppgso" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\ppgso.dir
   OBJECT_FILE_DIR = CMakeFiles\ppgso.dir\ppgso
 
-build CMakeFiles/ppgso.dir/ppgso/shader.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/ppgso/shader.cpp || cmake_object_order_depends_target_ppgso
+build CMakeFiles/ppgso.dir/ppgso/shader.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso/shader.cpp || cmake_object_order_depends_target_ppgso
   DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\ppgso.dir\ppgso\shader.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/ppgso" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\ppgso.dir
   OBJECT_FILE_DIR = CMakeFiles\ppgso.dir\ppgso
 
-build CMakeFiles/ppgso.dir/ppgso/image.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/ppgso/image.cpp || cmake_object_order_depends_target_ppgso
+build CMakeFiles/ppgso.dir/ppgso/image.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso/image.cpp || cmake_object_order_depends_target_ppgso
   DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\ppgso.dir\ppgso\image.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/ppgso" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\ppgso.dir
   OBJECT_FILE_DIR = CMakeFiles\ppgso.dir\ppgso
 
-build CMakeFiles/ppgso.dir/ppgso/image_bmp.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/ppgso/image_bmp.cpp || cmake_object_order_depends_target_ppgso
+build CMakeFiles/ppgso.dir/ppgso/image_bmp.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso/image_bmp.cpp || cmake_object_order_depends_target_ppgso
   DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\ppgso.dir\ppgso\image_bmp.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/ppgso" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\ppgso.dir
   OBJECT_FILE_DIR = CMakeFiles\ppgso.dir\ppgso
 
-build CMakeFiles/ppgso.dir/ppgso/image_raw.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/ppgso/image_raw.cpp || cmake_object_order_depends_target_ppgso
+build CMakeFiles/ppgso.dir/ppgso/image_raw.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso/image_raw.cpp || cmake_object_order_depends_target_ppgso
   DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\ppgso.dir\ppgso\image_raw.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/ppgso" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\ppgso.dir
   OBJECT_FILE_DIR = CMakeFiles\ppgso.dir\ppgso
 
-build CMakeFiles/ppgso.dir/ppgso/texture.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/ppgso/texture.cpp || cmake_object_order_depends_target_ppgso
+build CMakeFiles/ppgso.dir/ppgso/texture.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso/texture.cpp || cmake_object_order_depends_target_ppgso
   DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\ppgso.dir\ppgso\texture.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/ppgso" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\ppgso.dir
   OBJECT_FILE_DIR = CMakeFiles\ppgso.dir\ppgso
 
-build CMakeFiles/ppgso.dir/ppgso/window.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/ppgso/window.cpp || cmake_object_order_depends_target_ppgso
+build CMakeFiles/ppgso.dir/ppgso/window.cpp.obj: CXX_COMPILER__ppgso_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso/window.cpp || cmake_object_order_depends_target_ppgso
   DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\ppgso.dir\ppgso\window.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/ppgso" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world" -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\ppgso.dir
   OBJECT_FILE_DIR = CMakeFiles\ppgso.dir\ppgso
 
@@ -217,82 +217,93 @@ build libppgso.a: CXX_STATIC_LIBRARY_LINKER__ppgso_Debug CMakeFiles/ppgso.dir/pp
 #############################################
 # Order-only phony target for underwater_world
 
-build cmake_object_order_depends_target_underwater_world: phony || cmake_object_order_depends_target_shaders
+build cmake_object_order_depends_target_underwater_world: phony || cmake_object_order_depends_target_ppgso cmake_object_order_depends_target_shaders
 
-build CMakeFiles/underwater_world.dir/src/main.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/src/main.cpp || cmake_object_order_depends_target_underwater_world
+build CMakeFiles/underwater_world.dir/src/main.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/src/main.cpp || cmake_object_order_depends_target_underwater_world
+  DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\underwater_world.dir\src\main.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\underwater_world.dir
   OBJECT_FILE_DIR = CMakeFiles\underwater_world.dir\src
 
-build CMakeFiles/underwater_world.dir/src/Water.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/src/Water.cpp || cmake_object_order_depends_target_underwater_world
+build CMakeFiles/underwater_world.dir/src/Water.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/src/Water.cpp || cmake_object_order_depends_target_underwater_world
+  DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\underwater_world.dir\src\Water.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\underwater_world.dir
   OBJECT_FILE_DIR = CMakeFiles\underwater_world.dir\src
 
-build CMakeFiles/underwater_world.dir/src/Bubble.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/src/Bubble.cpp || cmake_object_order_depends_target_underwater_world
+build CMakeFiles/underwater_world.dir/src/Bubble.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/src/Bubble.cpp || cmake_object_order_depends_target_underwater_world
+  DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\underwater_world.dir\src\Bubble.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\underwater_world.dir
   OBJECT_FILE_DIR = CMakeFiles\underwater_world.dir\src
 
-build CMakeFiles/underwater_world.dir/src/Fish.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/src/Fish.cpp || cmake_object_order_depends_target_underwater_world
+build CMakeFiles/underwater_world.dir/src/Fish.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/src/Fish.cpp || cmake_object_order_depends_target_underwater_world
+  DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\underwater_world.dir\src\Fish.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\underwater_world.dir
   OBJECT_FILE_DIR = CMakeFiles\underwater_world.dir\src
 
-build CMakeFiles/underwater_world.dir/src/Boat.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/src/Boat.cpp || cmake_object_order_depends_target_underwater_world
+build CMakeFiles/underwater_world.dir/src/Boat.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/src/Boat.cpp || cmake_object_order_depends_target_underwater_world
+  DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\underwater_world.dir\src\Boat.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\underwater_world.dir
   OBJECT_FILE_DIR = CMakeFiles\underwater_world.dir\src
 
-build CMakeFiles/underwater_world.dir/src/DrownedBoat.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/src/DrownedBoat.cpp || cmake_object_order_depends_target_underwater_world
+build CMakeFiles/underwater_world.dir/src/DrownedBoat.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/src/DrownedBoat.cpp || cmake_object_order_depends_target_underwater_world
+  DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\underwater_world.dir\src\DrownedBoat.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\underwater_world.dir
   OBJECT_FILE_DIR = CMakeFiles\underwater_world.dir\src
 
-build CMakeFiles/underwater_world.dir/src/Dolphin.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/src/Dolphin.cpp || cmake_object_order_depends_target_underwater_world
+build CMakeFiles/underwater_world.dir/src/Dolphin.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/src/Dolphin.cpp || cmake_object_order_depends_target_underwater_world
+  DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\underwater_world.dir\src\Dolphin.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\underwater_world.dir
   OBJECT_FILE_DIR = CMakeFiles\underwater_world.dir\src
 
-build CMakeFiles/underwater_world.dir/src/Plant.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/src/Plant.cpp || cmake_object_order_depends_target_underwater_world
+build CMakeFiles/underwater_world.dir/src/Plant.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/src/Plant.cpp || cmake_object_order_depends_target_underwater_world
+  DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\underwater_world.dir\src\Plant.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\underwater_world.dir
   OBJECT_FILE_DIR = CMakeFiles\underwater_world.dir\src
 
-build CMakeFiles/underwater_world.dir/src/Camera.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/src/Camera.cpp || cmake_object_order_depends_target_underwater_world
+build CMakeFiles/underwater_world.dir/src/Camera.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/src/Camera.cpp || cmake_object_order_depends_target_underwater_world
+  DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\underwater_world.dir\src\Camera.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\underwater_world.dir
   OBJECT_FILE_DIR = CMakeFiles\underwater_world.dir\src
 
-build CMakeFiles/underwater_world.dir/src/Scene.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/src/Scene.cpp || cmake_object_order_depends_target_underwater_world
+build CMakeFiles/underwater_world.dir/src/Scene.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/src/Scene.cpp || cmake_object_order_depends_target_underwater_world
+  DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\underwater_world.dir\src\Scene.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\underwater_world.dir
   OBJECT_FILE_DIR = CMakeFiles\underwater_world.dir\src
 
-build CMakeFiles/underwater_world.dir/src/Terrain.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/peter/OneDrive/Documents/Projekt$ ppgso/PPGSO-project/underwater_world/src/Terrain.cpp || cmake_object_order_depends_target_underwater_world
+build CMakeFiles/underwater_world.dir/src/Terrain.cpp.obj: CXX_COMPILER__underwater_world_Debug C$:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/src/Terrain.cpp || cmake_object_order_depends_target_underwater_world
+  DEFINES = -DGLEW_STATIC -DGLM_FORCE_RADIANS
   DEP_FILE = CMakeFiles\underwater_world.dir\src\Terrain.cpp.obj.d
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14
-  INCLUDES = -I"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug"
+  INCLUDES = -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/ppgso -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/dependencies/include -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world -IC:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
   OBJECT_DIR = CMakeFiles\underwater_world.dir
   OBJECT_FILE_DIR = CMakeFiles\underwater_world.dir\src
 
@@ -304,11 +315,11 @@ build CMakeFiles/underwater_world.dir/src/Terrain.cpp.obj: CXX_COMPILER__underwa
 #############################################
 # Link the executable underwater_world.exe
 
-build underwater_world.exe: CXX_EXECUTABLE_LINKER__underwater_world_Debug CMakeFiles/underwater_world.dir/src/main.cpp.obj CMakeFiles/underwater_world.dir/src/Water.cpp.obj CMakeFiles/underwater_world.dir/src/Bubble.cpp.obj CMakeFiles/underwater_world.dir/src/Fish.cpp.obj CMakeFiles/underwater_world.dir/src/Boat.cpp.obj CMakeFiles/underwater_world.dir/src/DrownedBoat.cpp.obj CMakeFiles/underwater_world.dir/src/Dolphin.cpp.obj CMakeFiles/underwater_world.dir/src/Plant.cpp.obj CMakeFiles/underwater_world.dir/src/Camera.cpp.obj CMakeFiles/underwater_world.dir/src/Scene.cpp.obj CMakeFiles/underwater_world.dir/src/Terrain.cpp.obj | libshaders.a || libshaders.a
+build underwater_world.exe: CXX_EXECUTABLE_LINKER__underwater_world_Debug CMakeFiles/underwater_world.dir/src/main.cpp.obj CMakeFiles/underwater_world.dir/src/Water.cpp.obj CMakeFiles/underwater_world.dir/src/Bubble.cpp.obj CMakeFiles/underwater_world.dir/src/Fish.cpp.obj CMakeFiles/underwater_world.dir/src/Boat.cpp.obj CMakeFiles/underwater_world.dir/src/DrownedBoat.cpp.obj CMakeFiles/underwater_world.dir/src/Dolphin.cpp.obj CMakeFiles/underwater_world.dir/src/Plant.cpp.obj CMakeFiles/underwater_world.dir/src/Camera.cpp.obj CMakeFiles/underwater_world.dir/src/Scene.cpp.obj CMakeFiles/underwater_world.dir/src/Terrain.cpp.obj | libppgso.a libshaders.a ../dependencies/lib/mingw/libglfw3.a ../dependencies/lib/mingw/libglew32.a || libppgso.a libshaders.a
   FLAGS = -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter
-  LINK_LIBRARIES = libshaders.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = libppgso.a  libshaders.a  ../dependencies/lib/mingw/libglfw3.a  ../dependencies/lib/mingw/libglew32.a  -lopengl32  -lglu32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\underwater_world.dir
-  POST_BUILD = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -E copy_directory "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/data/" "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug""
+  POST_BUILD = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -E copy_directory C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/data/ C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug"
   PRE_LINK = cd .
   TARGET_FILE = underwater_world.exe
   TARGET_IMPLIB = libunderwater_world.dll.a
@@ -319,7 +330,7 @@ build underwater_world.exe: CXX_EXECUTABLE_LINKER__underwater_world_Debug CMakeF
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -330,7 +341,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe --regenerate-during-build -S"C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world" -B"C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug""
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe --regenerate-during-build -SC:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world -BC:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -348,7 +359,7 @@ build list_install_components: phony
 # Utility command for install
 
 build CMakeFiles/install.util: CUSTOM_COMMAND all
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake"
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -P cmake_install.cmake"
   DESC = Install the project...
   pool = console
   restat = 1
@@ -360,7 +371,7 @@ build install: phony CMakeFiles/install.util
 # Utility command for install/local
 
 build CMakeFiles/install/local.util: CUSTOM_COMMAND all
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -372,7 +383,7 @@ build install/local: phony CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -384,8 +395,8 @@ build install/strip: phony CMakeFiles/install/strip.util
 # Custom command for shaders\color_vert_glsl.cpp
 
 build shaders/color_vert_glsl.cpp shaders/color_vert_glsl.h | ${cmake_ninja_workdir}shaders/color_vert_glsl.cpp ${cmake_ninja_workdir}shaders/color_vert_glsl.h: CUSTOM_COMMAND ../shader/color_vert.glsl
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe "-DOUTPUT_C=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_vert_glsl.cpp" "-DOUTPUT_H=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_vert_glsl.h" -DSYMBOL=color_vert_glsl "-DINPUT_FILE=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/color_vert.glsl" -P "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake/bin2c.cmake""
-  DESC = Generating resource from C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/color_vert.glsl
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DOUTPUT_C=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_vert_glsl.cpp -DOUTPUT_H=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_vert_glsl.h -DSYMBOL=color_vert_glsl -DINPUT_FILE=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/color_vert.glsl -P C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake/bin2c.cmake"
+  DESC = Generating resource from C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/color_vert.glsl
   restat = 1
 
 
@@ -393,8 +404,8 @@ build shaders/color_vert_glsl.cpp shaders/color_vert_glsl.h | ${cmake_ninja_work
 # Custom command for shaders\color_frag_glsl.cpp
 
 build shaders/color_frag_glsl.cpp shaders/color_frag_glsl.h | ${cmake_ninja_workdir}shaders/color_frag_glsl.cpp ${cmake_ninja_workdir}shaders/color_frag_glsl.h: CUSTOM_COMMAND ../shader/color_frag.glsl
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe "-DOUTPUT_C=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_frag_glsl.cpp" "-DOUTPUT_H=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_frag_glsl.h" -DSYMBOL=color_frag_glsl "-DINPUT_FILE=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/color_frag.glsl" -P "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake/bin2c.cmake""
-  DESC = Generating resource from C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/color_frag.glsl
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DOUTPUT_C=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_frag_glsl.cpp -DOUTPUT_H=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_frag_glsl.h -DSYMBOL=color_frag_glsl -DINPUT_FILE=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/color_frag.glsl -P C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake/bin2c.cmake"
+  DESC = Generating resource from C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/color_frag.glsl
   restat = 1
 
 
@@ -402,8 +413,8 @@ build shaders/color_frag_glsl.cpp shaders/color_frag_glsl.h | ${cmake_ninja_work
 # Custom command for shaders\convolution_vert_glsl.cpp
 
 build shaders/convolution_vert_glsl.cpp shaders/convolution_vert_glsl.h | ${cmake_ninja_workdir}shaders/convolution_vert_glsl.cpp ${cmake_ninja_workdir}shaders/convolution_vert_glsl.h: CUSTOM_COMMAND ../shader/convolution_vert.glsl
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe "-DOUTPUT_C=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_vert_glsl.cpp" "-DOUTPUT_H=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_vert_glsl.h" -DSYMBOL=convolution_vert_glsl "-DINPUT_FILE=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/convolution_vert.glsl" -P "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake/bin2c.cmake""
-  DESC = Generating resource from C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/convolution_vert.glsl
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DOUTPUT_C=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_vert_glsl.cpp -DOUTPUT_H=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_vert_glsl.h -DSYMBOL=convolution_vert_glsl -DINPUT_FILE=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/convolution_vert.glsl -P C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake/bin2c.cmake"
+  DESC = Generating resource from C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/convolution_vert.glsl
   restat = 1
 
 
@@ -411,8 +422,8 @@ build shaders/convolution_vert_glsl.cpp shaders/convolution_vert_glsl.h | ${cmak
 # Custom command for shaders\convolution_frag_glsl.cpp
 
 build shaders/convolution_frag_glsl.cpp shaders/convolution_frag_glsl.h | ${cmake_ninja_workdir}shaders/convolution_frag_glsl.cpp ${cmake_ninja_workdir}shaders/convolution_frag_glsl.h: CUSTOM_COMMAND ../shader/convolution_frag.glsl
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe "-DOUTPUT_C=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_frag_glsl.cpp" "-DOUTPUT_H=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_frag_glsl.h" -DSYMBOL=convolution_frag_glsl "-DINPUT_FILE=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/convolution_frag.glsl" -P "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake/bin2c.cmake""
-  DESC = Generating resource from C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/convolution_frag.glsl
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DOUTPUT_C=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_frag_glsl.cpp -DOUTPUT_H=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_frag_glsl.h -DSYMBOL=convolution_frag_glsl -DINPUT_FILE=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/convolution_frag.glsl -P C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake/bin2c.cmake"
+  DESC = Generating resource from C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/convolution_frag.glsl
   restat = 1
 
 
@@ -420,8 +431,8 @@ build shaders/convolution_frag_glsl.cpp shaders/convolution_frag_glsl.h | ${cmak
 # Custom command for shaders\diffuse_vert_glsl.cpp
 
 build shaders/diffuse_vert_glsl.cpp shaders/diffuse_vert_glsl.h | ${cmake_ninja_workdir}shaders/diffuse_vert_glsl.cpp ${cmake_ninja_workdir}shaders/diffuse_vert_glsl.h: CUSTOM_COMMAND ../shader/diffuse_vert.glsl
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe "-DOUTPUT_C=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_vert_glsl.cpp" "-DOUTPUT_H=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_vert_glsl.h" -DSYMBOL=diffuse_vert_glsl "-DINPUT_FILE=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/diffuse_vert.glsl" -P "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake/bin2c.cmake""
-  DESC = Generating resource from C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/diffuse_vert.glsl
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DOUTPUT_C=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_vert_glsl.cpp -DOUTPUT_H=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_vert_glsl.h -DSYMBOL=diffuse_vert_glsl -DINPUT_FILE=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/diffuse_vert.glsl -P C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake/bin2c.cmake"
+  DESC = Generating resource from C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/diffuse_vert.glsl
   restat = 1
 
 
@@ -429,8 +440,8 @@ build shaders/diffuse_vert_glsl.cpp shaders/diffuse_vert_glsl.h | ${cmake_ninja_
 # Custom command for shaders\diffuse_frag_glsl.cpp
 
 build shaders/diffuse_frag_glsl.cpp shaders/diffuse_frag_glsl.h | ${cmake_ninja_workdir}shaders/diffuse_frag_glsl.cpp ${cmake_ninja_workdir}shaders/diffuse_frag_glsl.h: CUSTOM_COMMAND ../shader/diffuse_frag.glsl
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe "-DOUTPUT_C=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_frag_glsl.cpp" "-DOUTPUT_H=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_frag_glsl.h" -DSYMBOL=diffuse_frag_glsl "-DINPUT_FILE=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/diffuse_frag.glsl" -P "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake/bin2c.cmake""
-  DESC = Generating resource from C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/diffuse_frag.glsl
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DOUTPUT_C=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_frag_glsl.cpp -DOUTPUT_H=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_frag_glsl.h -DSYMBOL=diffuse_frag_glsl -DINPUT_FILE=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/diffuse_frag.glsl -P C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake/bin2c.cmake"
+  DESC = Generating resource from C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/diffuse_frag.glsl
   restat = 1
 
 
@@ -438,8 +449,8 @@ build shaders/diffuse_frag_glsl.cpp shaders/diffuse_frag_glsl.h | ${cmake_ninja_
 # Custom command for shaders\texture_vert_glsl.cpp
 
 build shaders/texture_vert_glsl.cpp shaders/texture_vert_glsl.h | ${cmake_ninja_workdir}shaders/texture_vert_glsl.cpp ${cmake_ninja_workdir}shaders/texture_vert_glsl.h: CUSTOM_COMMAND ../shader/texture_vert.glsl
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe "-DOUTPUT_C=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_vert_glsl.cpp" "-DOUTPUT_H=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_vert_glsl.h" -DSYMBOL=texture_vert_glsl "-DINPUT_FILE=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/texture_vert.glsl" -P "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake/bin2c.cmake""
-  DESC = Generating resource from C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/texture_vert.glsl
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DOUTPUT_C=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_vert_glsl.cpp -DOUTPUT_H=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_vert_glsl.h -DSYMBOL=texture_vert_glsl -DINPUT_FILE=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/texture_vert.glsl -P C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake/bin2c.cmake"
+  DESC = Generating resource from C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/texture_vert.glsl
   restat = 1
 
 
@@ -447,8 +458,8 @@ build shaders/texture_vert_glsl.cpp shaders/texture_vert_glsl.h | ${cmake_ninja_
 # Custom command for shaders\texture_frag_glsl.cpp
 
 build shaders/texture_frag_glsl.cpp shaders/texture_frag_glsl.h | ${cmake_ninja_workdir}shaders/texture_frag_glsl.cpp ${cmake_ninja_workdir}shaders/texture_frag_glsl.h: CUSTOM_COMMAND ../shader/texture_frag.glsl
-  COMMAND = cmd.exe /C "cd /D "C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\cmake-build-debug" && C:\Users\peter\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe "-DOUTPUT_C=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_frag_glsl.cpp" "-DOUTPUT_H=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_frag_glsl.h" -DSYMBOL=texture_frag_glsl "-DINPUT_FILE=C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/texture_frag.glsl" -P "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake/bin2c.cmake""
-  DESC = Generating resource from C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/shader/texture_frag.glsl
+  COMMAND = cmd.exe /C "cd /D C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world\cmake-build-debug && C:\Users\hrads\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\222.4167.35\bin\cmake\win\bin\cmake.exe -DOUTPUT_C=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_frag_glsl.cpp -DOUTPUT_H=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_frag_glsl.h -DSYMBOL=texture_frag_glsl -DINPUT_FILE=C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/texture_frag.glsl -P C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake/bin2c.cmake"
+  DESC = Generating resource from C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/shader/texture_frag.glsl
   restat = 1
 
 # =============================================================================
@@ -466,7 +477,7 @@ build underwater_world: phony underwater_world.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug
+# Folder: C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world/cmake-build-debug
 
 build all: phony libshaders.a libppgso.a underwater_world.exe
 
@@ -477,14 +488,14 @@ build all: phony libshaders.a libppgso.a underwater_world.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../cmake/FindGLEW.cmake ../cmake/FindGLFW3.cmake ../cmake/FindGLM.cmake ../cmake/add_resources.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCInformation.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCXXInformation.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeGenericSystem.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeRCInformation.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-C.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-CXX.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindOpenGL.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindOpenMP.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageMessage.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-windres.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeRCCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../cmake/FindGLEW.cmake ../cmake/FindGLFW3.cmake ../cmake/FindGLM.cmake ../cmake/add_resources.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCInformation.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCXXInformation.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeGenericSystem.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeRCInformation.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-C.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-CXX.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindOpenGL.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindOpenMP.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageMessage.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-windres.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeRCCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt ../cmake/FindGLEW.cmake ../cmake/FindGLFW3.cmake ../cmake/FindGLM.cmake ../cmake/add_resources.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCInformation.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCXXInformation.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeGenericSystem.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeRCInformation.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-C.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-CXX.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindOpenGL.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindOpenMP.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageMessage.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-windres.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake C$:/Users/peter/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeRCCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../cmake/FindGLEW.cmake ../cmake/FindGLFW3.cmake ../cmake/FindGLM.cmake ../cmake/add_resources.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCInformation.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCXXInformation.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeGenericSystem.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeRCInformation.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-C.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU-CXX.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Compiler/GNU.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindOpenGL.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindOpenMP.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/FindPackageMessage.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-C.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-GNU.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows-windres.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/Windows.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake C$:/Users/hrads/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/win/share/cmake-3.23/Modules/SelectLibraryConfigurations.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeRCCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
 
 
 #############################################
