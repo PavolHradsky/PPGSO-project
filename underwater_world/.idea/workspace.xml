@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="CMakePresetLoader"><![CDATA[{
   "useNewFormat": true
 }]]></component>
+=======
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+>>>>>>> e61e531c7cf25430ffde0ae73bef550be4275376
   <component name="CMakeReloadState">
     <option name="reloaded" value="true" />
   </component>
@@ -13,13 +19,21 @@
       <config projectName="underwater_world" targetName="underwater_world" />
     </generated>
   </component>
+<<<<<<< HEAD
   <component name="CMakeSettings" AUTO_RELOAD="true">
+=======
+  <component name="CMakeSettings">
+>>>>>>> e61e531c7cf25430ffde0ae73bef550be4275376
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="a89551f5-d8d9-415f-b895-40952ad8deff" name="Changes" comment="added folder shader, updated CMakeList.txt to link ppgso and glm, created test window" />
+=======
+    <list default="true" id="630f5fa0-e689-42b7-aeb0-17a956e2dcb1" name="Changes" comment="added files" />
+>>>>>>> e61e531c7cf25430ffde0ae73bef550be4275376
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +54,11 @@
     <option name="majorVersion" value="2022" />
     <option name="minorVersion" value="2.3" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="2H2WSzRQKcaLiGBHQ40soQvO7bL" />
+=======
+  <component name="ProjectId" id="2F5GReOqhpRCOi7XmV7aYfnPaFl" />
+>>>>>>> e61e531c7cf25430ffde0ae73bef550be4275376
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -54,11 +72,16 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+<<<<<<< HEAD
     "last_opened_file_path": "C:/Users/hrads/Documents/Programming/5semester/PPGSO/PPGSO-project/underwater_world"
+=======
+    "last_opened_file_path": "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world"
+>>>>>>> e61e531c7cf25430ffde0ae73bef550be4275376
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+<<<<<<< HEAD
       <recent name="C:\Users\hrads\Documents\Programming\5semester\PPGSO\PPGSO-project\underwater_world" />
     </key>
   </component>
@@ -66,6 +89,21 @@
     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+=======
+      <recent name="C:\Users\peter\CLionProjects\underwater_world" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\peter\OneDrive\Documents\Projekt ppgso\PPGSO-project\underwater_world\data\models" />
+      <recent name="C:\Users\peter\CLionProjects\underwater_world\cmake-build-debug\CMakeFiles\underwater_world.dir\src" />
+      <recent name="C:\Users\peter\CLionProjects\underwater_world\src" />
+      <recent name="C:\Users\peter\CLionProjects\underwater_world" />
+    </key>
+  </component>
+  <component name="RunManager" selected="CMake Application.underwater_world">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+>>>>>>> e61e531c7cf25430ffde0ae73bef550be4275376
       </method>
     </configuration>
     <configuration name="ppgso" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="underwater_world" TARGET_NAME="ppgso" CONFIG_NAME="Debug">
@@ -92,6 +130,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="a89551f5-d8d9-415f-b895-40952ad8deff" name="Changes" comment="" />
       <created>1667483662891</created>
       <option name="number" value="Default" />
@@ -105,6 +144,26 @@
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
       <updated>1667484466023</updated>
+=======
+      <changelist id="630f5fa0-e689-42b7-aeb0-17a956e2dcb1" name="Changes" comment="" />
+      <created>1663774524795</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1663774524795</updated>
+      <workItem from="1663774526640" duration="1063000" />
+      <workItem from="1663781164387" duration="639000" />
+      <workItem from="1663830807861" duration="555000" />
+      <workItem from="1663835340361" duration="543000" />
+      <workItem from="1667225862989" duration="1002000" />
+      <workItem from="1667227575240" duration="4149000" />
+    </task>
+    <task id="LOCAL-00001" summary="added files">
+      <created>1667229385020</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667229385020</updated>
+>>>>>>> e61e531c7cf25430ffde0ae73bef550be4275376
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
@@ -124,7 +183,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+<<<<<<< HEAD
     <MESSAGE value="added folder shader, updated CMakeList.txt to link ppgso and glm, created test window" />
     <option name="LAST_COMMIT_MESSAGE" value="added folder shader, updated CMakeList.txt to link ppgso and glm, created test window" />
+=======
+    <MESSAGE value="added files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added files" />
+>>>>>>> e61e531c7cf25430ffde0ae73bef550be4275376
   </component>
 </project>

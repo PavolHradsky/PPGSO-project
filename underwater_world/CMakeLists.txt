@@ -103,7 +103,7 @@ target_include_directories(ppgso PUBLIC ppgso
 # TARGETS
 #
 
-add_executable(underwater_world src/main.cpp src/Water.cpp src/Water.h src/Bubble.cpp src/Bubble.h src/Fish.cpp src/Fish.h src/Boat.cpp src/Boat.h src/DrownedBoat.cpp src/DrownedBoat.h src/Dolphin.cpp src/Dolphin.h src/Plant.cpp src/Plant.h src/Camera.cpp src/Camera.h src/Scene.cpp src/Scene.h src/Terrain.cpp src/Terrain.h)
+add_executable(underwater_world src/main.cpp src/Water.cpp src/Water.h src/Bubble.cpp src/Bubble.h src/Fish.cpp src/Fish.h src/Boat.cpp src/Boat.h src/DrownedBoat.cpp src/DrownedBoat.h src/Dolphin.cpp src/Dolphin.h src/Plant.cpp src/Plant.h src/Camera.cpp src/Camera.h src/Scene.cpp src/Scene.h src/Terrain.cpp src/Terrain.h src/Object.cpp src/Object.h)
 
 target_link_libraries(underwater_world ppgso shaders)
 install(TARGETS underwater_world DESTINATION .)
