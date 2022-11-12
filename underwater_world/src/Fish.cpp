@@ -1,8 +1,5 @@
-//
-// Created by peter on 31. 10. 2022.
-//
-
 #include "Fish.h"
+#include "Scene.h"
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
 #include <shaders/diffuse_vert_glsl.h>

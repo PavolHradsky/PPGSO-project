@@ -1,57 +1,57 @@
 # ninja log v5
-17	2719	6891878954045916	CMakeFiles/ppgso.dir/ppgso/image_bmp.cpp.obj	871283b234210826
-5922	6678	6891878993847648	CMakeFiles/shaders.dir/shaders/texture_vert_glsl.cpp.obj	7ba264068e5dd958
+1959	6474	6895187249295501	CMakeFiles/ppgso.dir/ppgso/image_bmp.cpp.obj	871283b234210826
+829	1319	6895187197856236	CMakeFiles/shaders.dir/shaders/texture_vert_glsl.cpp.obj	7ba264068e5dd958
 9250	9624	6891879022572830	underwater_world.exe	c88c217da7c0f8eb
 4268	4593	6891878972965927	shaders/texture_frag_glsl.h	688c54ba48ab200f
-4	250	6895186627978724	build.ninja	e8159741ea0ba96c
+4	250	6898874915025394	build.ninja	e8159741ea0ba96c
 6244	6361	6891878990725928	CMakeFiles/underwater_world.dir/src/Bubble.cpp.obj	44209d83d9730ce1
-6624	9247	6891879019629247	CMakeFiles/underwater_world.dir/src/main.cpp.obj	ca2ac25e68c8c11f
+6634	9673	6895187281382631	CMakeFiles/underwater_world.dir/src/main.cpp.obj	ca2ac25e68c8c11f
 6361	6483	6891878991765963	CMakeFiles/underwater_world.dir/src/Water.cpp.obj	8dc04f335ee2f2a3
-4871	5894	6891878985945921	CMakeFiles/shaders.dir/shaders/color_frag_glsl.cpp.obj	4d0f6aa4f2cab9e5
+16	828	6895187192936241	CMakeFiles/shaders.dir/shaders/color_frag_glsl.cpp.obj	4d0f6aa4f2cab9e5
 3101	3521	6891878961625931	shaders/color_frag_glsl.cpp	8dff948ab4d204b5
 3891	4268	6891878968385903	C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_vert_glsl.h	c2713d86a4e5350
 3101	3521	6891878961625931	shaders/color_frag_glsl.h	8dff948ab4d204b5
-6045	8236	6891879009475922	libppgso.a	3b14a8f120363702
+8491	9445	6895187279095963	libppgso.a	3b14a8f120363702
 3522	3757	6891878964436643	shaders/convolution_vert_glsl.cpp	b8d360c11b4d3cd4
-5227	6244	6891878989286873	CMakeFiles/shaders.dir/shaders/convolution_vert_glsl.cpp.obj	158f44fa820c08a0
+19	832	6895187192936241	CMakeFiles/shaders.dir/shaders/convolution_vert_glsl.cpp.obj	158f44fa820c08a0
 4268	4593	6891878972965927	C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_frag_glsl.h	688c54ba48ab200f
 3522	3757	6891878964436643	shaders/convolution_vert_glsl.h	b8d360c11b4d3cd4
 6636	6834	6891878995425914	CMakeFiles/underwater_world.dir/src/Fish.cpp.obj	3256bb4d0d37e32f
-6771	7976	6891879006895928	libshaders.a	241771913739a243
+1319	1958	6895187204215483	libshaders.a	241771913739a243
 4594	4870	6891878975196845	shaders/convolution_frag_glsl.cpp	276c430c26086ea4
-25	2830	6891878954775920	CMakeFiles/ppgso.dir/ppgso/image.cpp.obj	f03616b7abc1f15e
+1237	6634	6895187249485494	CMakeFiles/ppgso.dir/ppgso/image.cpp.obj	f03616b7abc1f15e
 4594	4870	6891878975196845	shaders/convolution_frag_glsl.h	276c430c26086ea4
-6835	7298	6891878999995929	CMakeFiles/underwater_world.dir/src/Camera.cpp.obj	b12e5213977ff58a
-4891	5903	6891878985735933	CMakeFiles/shaders.dir/shaders/color_vert_glsl.cpp.obj	56178eaa8d9e58de
+38	4822	6895225758948167	CMakeFiles/underwater_world.dir/src/Camera.cpp.obj	b12e5213977ff58a
+6	836	6895187192936241	CMakeFiles/shaders.dir/shaders/color_vert_glsl.cpp.obj	56178eaa8d9e58de
 4538	4806	6891878974415925	shaders/diffuse_vert_glsl.cpp	6e9d423ddd802784
-5903	6661	6891878993698937	CMakeFiles/shaders.dir/shaders/diffuse_vert_glsl.cpp.obj	e3a561b2ac6f6518
+13	1150	6895187196146249	CMakeFiles/shaders.dir/shaders/diffuse_vert_glsl.cpp.obj	e3a561b2ac6f6518
 4538	4806	6891878974415925	shaders/diffuse_vert_glsl.h	6e9d423ddd802784
 2830	3100	6891878957765919	shaders/color_vert_glsl.cpp	73743606bcbec46f
 2830	3100	6891878957765919	shaders/color_vert_glsl.h	73743606bcbec46f
-3	5954	6891878986346190	CMakeFiles/ppgso.dir/ppgso/mesh.cpp.obj	e8d0f29d5933af44
+978	8052	6895187264775493	CMakeFiles/ppgso.dir/ppgso/mesh.cpp.obj	e8d0f29d5933af44
 3758	3890	6891878965915923	shaders/diffuse_frag_glsl.cpp	48bcf3f125b145aa
 3758	3890	6891878965915923	shaders/diffuse_frag_glsl.h	48bcf3f125b145aa
 3891	4268	6891878968385903	shaders/texture_vert_glsl.cpp	c2713d86a4e5350
 3891	4268	6891878968385903	shaders/texture_vert_glsl.h	c2713d86a4e5350
-6678	6913	6891878995845915	CMakeFiles/underwater_world.dir/src/Plant.cpp.obj	577c919f2812c5e6
-2655	4538	6891878972175941	CMakeFiles/ppgso.dir/ppgso/texture.cpp.obj	6f46aa61907b388
+8095	8222	6895187266829242	CMakeFiles/underwater_world.dir/src/Plant.cpp.obj	577c919f2812c5e6
+5600	7441	6895187259055502	CMakeFiles/ppgso.dir/ppgso/texture.cpp.obj	6f46aa61907b388
 4268	4593	6891878972965927	shaders/texture_frag_glsl.cpp	688c54ba48ab200f
-4885	5922	6891878986045924	CMakeFiles/shaders.dir/shaders/convolution_frag_glsl.cpp.obj	8962ed88671ec7a7
-6662	6865	6891878995536602	CMakeFiles/underwater_world.dir/src/Boat.cpp.obj	ca2f2432b3544411
-6913	7351	6891879000345916	CMakeFiles/underwater_world.dir/src/Dolphin.cpp.obj	4e1a111fd3f4dbd4
-6483	6624	6891878993355927	CMakeFiles/underwater_world.dir/src/DrownedBoat.cpp.obj	f75f7922c5f31a24
-5895	6635	6891878993405941	CMakeFiles/shaders.dir/shaders/diffuse_frag_glsl.cpp.obj	9496b459267891e2
-5958	6771	6891878994808870	CMakeFiles/shaders.dir/shaders/texture_frag_glsl.cpp.obj	50451a641bd313b
+10	1143	6895187196086255	CMakeFiles/shaders.dir/shaders/convolution_frag_glsl.cpp.obj	8962ed88671ec7a7
+7705	7920	6895187263615476	CMakeFiles/underwater_world.dir/src/Boat.cpp.obj	ca2f2432b3544411
+7442	7705	6895187261675490	CMakeFiles/underwater_world.dir/src/Dolphin.cpp.obj	4e1a111fd3f4dbd4
+7920	8094	6895187265465499	CMakeFiles/underwater_world.dir/src/DrownedBoat.cpp.obj	f75f7922c5f31a24
+23	978	6895187194446256	CMakeFiles/shaders.dir/shaders/diffuse_frag_glsl.cpp.obj	9496b459267891e2
+832	1236	6895187197026389	CMakeFiles/shaders.dir/shaders/texture_frag_glsl.cpp.obj	50451a641bd313b
 3522	3757	6891878964436643	C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_vert_glsl.cpp	b8d360c11b4d3cd4
 4538	4806	6891878974415925	C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_vert_glsl.cpp	6e9d423ddd802784
-21	2651	6891878953465928	CMakeFiles/ppgso.dir/ppgso/image_raw.cpp.obj	57ea85d334160c42
-13	5220	6891878979075914	CMakeFiles/ppgso.dir/ppgso/shader.cpp.obj	9d62e8373f1eaf82
-8	6044	6891878987315931	CMakeFiles/ppgso.dir/ppgso/tiny_obj_loader.cpp.obj	ddb03051f77eefea
-6865	7334	6891879000247019	CMakeFiles/underwater_world.dir/src/Scene.cpp.obj	c08e4c7f3f03f4cf
-7298	7425	6891879001375935	CMakeFiles/underwater_world.dir/src/Terrain.cpp.obj	d4282d44c5296cb2
+1151	5600	6895187240395513	CMakeFiles/ppgso.dir/ppgso/image_raw.cpp.obj	57ea85d334160c42
+1144	7868	6895187263077048	CMakeFiles/ppgso.dir/ppgso/shader.cpp.obj	9d62e8373f1eaf82
+836	8455	6895187267186077	CMakeFiles/ppgso.dir/ppgso/tiny_obj_loader.cpp.obj	ddb03051f77eefea
+91	3643	6895227383361444	CMakeFiles/underwater_world.dir/src/Scene.cpp.obj	c08e4c7f3f03f4cf
+8485	8615	6895187270785946	CMakeFiles/underwater_world.dir/src/Terrain.cpp.obj	d4282d44c5296cb2
 3758	3890	6891878965915923	C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_frag_glsl.h	48bcf3f125b145aa
 4538	4806	6891878974415925	C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/diffuse_vert_glsl.h	6e9d423ddd802784
-2720	4859	6891878975246474	CMakeFiles/ppgso.dir/ppgso/window.cpp.obj	197af5cedda5d4cf
+6474	8490	6895187267916309	CMakeFiles/ppgso.dir/ppgso/window.cpp.obj	197af5cedda5d4cf
 2830	3100	6891878957765919	C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_vert_glsl.cpp	73743606bcbec46f
 2830	3100	6891878957765919	C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_vert_glsl.h	73743606bcbec46f
 3101	3521	6891878961625931	C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/color_frag_glsl.cpp	8dff948ab4d204b5
@@ -62,33 +62,9 @@
 4268	4593	6891878972965927	C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/texture_frag_glsl.cpp	688c54ba48ab200f
 4594	4870	6891878975196845	C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_frag_glsl.cpp	276c430c26086ea4
 4594	4870	6891878975196845	C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug/shaders/convolution_frag_glsl.h	276c430c26086ea4
-16	828	6895187192936241	CMakeFiles/shaders.dir/shaders/color_frag_glsl.cpp.obj	4d0f6aa4f2cab9e5
-19	832	6895187192936241	CMakeFiles/shaders.dir/shaders/convolution_vert_glsl.cpp.obj	158f44fa820c08a0
-6	836	6895187192936241	CMakeFiles/shaders.dir/shaders/color_vert_glsl.cpp.obj	56178eaa8d9e58de
-23	978	6895187194446256	CMakeFiles/shaders.dir/shaders/diffuse_frag_glsl.cpp.obj	9496b459267891e2
-10	1143	6895187196086255	CMakeFiles/shaders.dir/shaders/convolution_frag_glsl.cpp.obj	8962ed88671ec7a7
-13	1150	6895187196146249	CMakeFiles/shaders.dir/shaders/diffuse_vert_glsl.cpp.obj	e3a561b2ac6f6518
-832	1236	6895187197026389	CMakeFiles/shaders.dir/shaders/texture_frag_glsl.cpp.obj	50451a641bd313b
-829	1319	6895187197856236	CMakeFiles/shaders.dir/shaders/texture_vert_glsl.cpp.obj	7ba264068e5dd958
-1319	1958	6895187204215483	libshaders.a	241771913739a243
-1151	5600	6895187240395513	CMakeFiles/ppgso.dir/ppgso/image_raw.cpp.obj	57ea85d334160c42
-1959	6474	6895187249295501	CMakeFiles/ppgso.dir/ppgso/image_bmp.cpp.obj	871283b234210826
-1237	6634	6895187249485494	CMakeFiles/ppgso.dir/ppgso/image.cpp.obj	f03616b7abc1f15e
-5600	7441	6895187259055502	CMakeFiles/ppgso.dir/ppgso/texture.cpp.obj	6f46aa61907b388
-7442	7705	6895187261675490	CMakeFiles/underwater_world.dir/src/Dolphin.cpp.obj	4e1a111fd3f4dbd4
-1144	7868	6895187263077048	CMakeFiles/ppgso.dir/ppgso/shader.cpp.obj	9d62e8373f1eaf82
-7705	7920	6895187263615476	CMakeFiles/underwater_world.dir/src/Boat.cpp.obj	ca2f2432b3544411
-978	8052	6895187264775493	CMakeFiles/ppgso.dir/ppgso/mesh.cpp.obj	e8d0f29d5933af44
-7920	8094	6895187265465499	CMakeFiles/underwater_world.dir/src/DrownedBoat.cpp.obj	f75f7922c5f31a24
-8095	8222	6895187266829242	CMakeFiles/underwater_world.dir/src/Plant.cpp.obj	577c919f2812c5e6
-836	8455	6895187267186077	CMakeFiles/ppgso.dir/ppgso/tiny_obj_loader.cpp.obj	ddb03051f77eefea
-6474	8490	6895187267916309	CMakeFiles/ppgso.dir/ppgso/window.cpp.obj	197af5cedda5d4cf
-8054	8496	6895187269535475	CMakeFiles/underwater_world.dir/src/Camera.cpp.obj	b12e5213977ff58a
-8485	8615	6895187270785946	CMakeFiles/underwater_world.dir/src/Terrain.cpp.obj	d4282d44c5296cb2
-8491	9445	6895187279095963	libppgso.a	3b14a8f120363702
-6634	9673	6895187281382631	CMakeFiles/underwater_world.dir/src/main.cpp.obj	ca2ac25e68c8c11f
-8222	9946	6895187284125944	CMakeFiles/underwater_world.dir/src/Scene.cpp.obj	c08e4c7f3f03f4cf
 8496	10135	6895187285975938	CMakeFiles/underwater_world.dir/src/Object.cpp.obj	b11c70865d45791b
-35	4350	6895225755604899	CMakeFiles/underwater_world.dir/src/Scene.cpp.obj	c08e4c7f3f03f4cf
-38	4822	6895225758948167	CMakeFiles/underwater_world.dir/src/Camera.cpp.obj	b12e5213977ff58a
-91	3643	6895227383361444	CMakeFiles/underwater_world.dir/src/Scene.cpp.obj	c08e4c7f3f03f4cf
+12	5000	6898875091685397	CMakeFiles/underwater_world.dir/src/Scene_aboveSea.cpp.obj	9e3cd430ee2f3248
+112	21971	6899141731116462	CMakeFiles/underwater_world.dir/src/Fish.cpp.obj	3256bb4d0d37e32f
+115	23331	6899141735605782	CMakeFiles/underwater_world.dir/src/Scene.cpp.obj	c08e4c7f3f03f4cf
+14	23756	6899141746886325	CMakeFiles/underwater_world.dir/src/Scene_aboveSea.cpp.obj	9e3cd430ee2f3248
+23758	44049	6899141943719227	underwater_world.exe	208f8a691fa53155

@@ -81,8 +81,8 @@
 },
 {
   "directory": "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug",
-  "command": "C:\\Users\\peter\\AppData\\Local\\JetBrains\\Toolbox\\apps\\CLion\\ch-0\\222.4345.21\\bin\\mingw\\bin\\g++.exe -DGLEW_STATIC -DGLM_FORCE_RADIANS -I\"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/ppgso\" -I\"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include\" -I\"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world\" -I\"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug\" -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14 -o CMakeFiles\\underwater_world.dir\\src\\main.cpp.obj -c \"C:\\Users\\peter\\OneDrive\\Documents\\Projekt ppgso\\PPGSO-project\\underwater_world\\src\\main.cpp\"",
-  "file": "C:\\Users\\peter\\OneDrive\\Documents\\Projekt ppgso\\PPGSO-project\\underwater_world\\src\\main.cpp"
+  "command": "C:\\Users\\peter\\AppData\\Local\\JetBrains\\Toolbox\\apps\\CLion\\ch-0\\222.4345.21\\bin\\mingw\\bin\\g++.exe -DGLEW_STATIC -DGLM_FORCE_RADIANS -I\"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/ppgso\" -I\"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/dependencies/include\" -I\"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world\" -I\"C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug\" -fopenmp -g -Wpedantic -Wall -Wno-c++98-compat -Wextra -Wno-sign-conversion -Wno-unused-parameter -std=gnu++14 -o CMakeFiles\\underwater_world.dir\\src\\Scene_aboveSea.cpp.obj -c \"C:\\Users\\peter\\OneDrive\\Documents\\Projekt ppgso\\PPGSO-project\\underwater_world\\src\\Scene_aboveSea.cpp\"",
+  "file": "C:\\Users\\peter\\OneDrive\\Documents\\Projekt ppgso\\PPGSO-project\\underwater_world\\src\\Scene_aboveSea.cpp"
 },
 {
   "directory": "C:/Users/peter/OneDrive/Documents/Projekt ppgso/PPGSO-project/underwater_world/cmake-build-debug",
