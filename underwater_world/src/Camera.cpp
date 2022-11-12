@@ -9,6 +9,7 @@ Camera::Camera(float fow, float ratio, float near, float far) {
 }
 
 void Camera::update() {
+
     viewMatrix = lookAt(position, position-back, up);
 }
 

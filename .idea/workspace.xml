@@ -21,7 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="10c89984-403d-4021-a0b6-3b81849e0231" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/underwater_world/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/underwater_world/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/underwater_world/cmake-build-debug/CMakeFiles/underwater_world.dir/src/Camera.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/cmake-build-debug/CMakeFiles/underwater_world.dir/src/Camera.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/underwater_world/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/underwater_world/cmake-build-debug/underwater_world.exe" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/cmake-build-debug/underwater_world.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/underwater_world/src/Camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/src/Camera.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/underwater_world/src/Scene_aboveSea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/src/Scene_aboveSea.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +104,7 @@
       <workItem from="1668184282078" duration="112000" />
       <workItem from="1668210528390" duration="573000" />
       <workItem from="1668211626900" duration="23000" />
+      <workItem from="1668270757673" duration="5514000" />
     </task>
     <servers />
   </component>
