@@ -12,6 +12,9 @@
 #include <shaders/color_vert_glsl.h>
 #include <shaders/color_frag_glsl.h>
 #include "Scene.h"
+#include "Camera.h"
+#include "Water.h"
+#include "Dolphin.h"
 
 const unsigned int SIZE = 512;
 
@@ -23,8 +26,18 @@ private:
     void initScene() {
         scene.objects.clear();
 
+        scene.lightDirection = {0, 0, 1};
+
         auto camera = std::make_unique<Camera>();
+        camera->position = {0, 0, -10};
         scene.camera = std::move(camera);
+
+        auto water = std::make_unique<Water>();
+        water->position = {0, 0, 10};
+        scene.objects.push_back(std::move(water));
+
+        auto dolphin = std::make_unique<Dolphin>();
+        scene.objects.push_back(std::move(dolphin));
     }
 public:
     MyWindow() : Window{"Test Project", SIZE, SIZE} {
@@ -33,7 +46,8 @@ public:
         // Enable depth test
         glEnable(GL_DEPTH_TEST);
         // Accept fragment if it closer to the camera than the former one
-        glDepthFunc(GL_LESS);
+//        glDepthFunc(GL_LESS);
+        glDepthFunc(GL_LEQUAL);
         // enable backface culling
         glEnable(GL_CULL_FACE);
         // enable blending
