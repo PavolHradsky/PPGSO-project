@@ -33,7 +33,7 @@ void Water::render(Scene &scene) {
     shader->setUniform("ProjectionMatrix", glm::mat4{1.0f});
     shader->setUniform("Texture", *texture);
     mesh->render();
-
+    //glDrawElements(GL_TRIANGLES, mesh.size() * 3, GL_UNSIGNED_INT, nullptr);
     glDepthMask(GL_TRUE);
 }
 

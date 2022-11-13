@@ -5,19 +5,38 @@
 
 class Camera {
 public:
-    glm::vec3 up{0,1,0};
-    glm::vec3 position{0,0,0};
-    glm::vec3 back{0,0,-1};
+    // Camera position
+    bool firstFollow = true;
+    glm::vec3 position{0, 0, 0};
+    glm::vec3 positionOffset{0, 0, 0};
+    glm::vec3 offset{0, 2.5, 0};
+    glm::vec3 rotation{0, 0, 0};
+    glm::vec3 up{0, 1, 0};
+
+    float distanceY = 2;
+    float distanceZ = 5;
+    glm::vec3 startPos;
+    glm::vec3 destPos;
+    glm::vec3 startPosLookAt;
+    glm::vec3 destPosLookAt;
+    float t;
+    // Camera mode
+    enum Mode {
+        MOVING,
+        ROTATING,
+        FOLLOW
+    } mode = FOLLOW;
+    // Camera matrices
 
     glm::mat4 viewMatrix;
     glm::mat4 projectionMatrix;
 
 
-    Camera(float fow = 45.0f, float ratio = 1.0f, float near = 0.1f, float far = 10.0f);
+    Camera(float fow = 90.0f, float ratio = 1.9001f, float near = 0.0001f, float far = 10000.0f);
 
     void update();
 
-    glm::vec3 cast(double u, double v);
+    void moveTo(const glm::vec3 &pos, const glm::vec3 &rot);
 };
 
 
