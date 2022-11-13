@@ -36,9 +36,9 @@ void Fish::render(Scene &scene) {
     shader->setUniform("LightColor", scene.lightColor);
 
     // Set up material
-    //shader->setUniform("MaterialAmbient", 0.3f, 0.3f, 0.3f);
-    //shader->setUniform("MaterialDiffuse", 0.6f, 0.6f, 0.6f);
-    //shader->setUniform("MaterialSpecular", 0.8f, 0.8f, 0.8f);
+    //shaders->setUniform("MaterialAmbient", 0.3f, 0.3f, 0.3f);
+    //shaders->setUniform("MaterialDiffuse", 0.6f, 0.6f, 0.6f);
+    //shaders->setUniform("MaterialSpecular", 0.8f, 0.8f, 0.8f);
     shader->setUniform("MaterialShininess", 30.0f);
 
     // Set up model transform

@@ -30,7 +30,7 @@ namespace ppgso {
     /*!
      * Load 3D geometry from a na Wavefront .obj file.
      *
-     * The shader program passed to the object will be bound to the geometry as follows:
+     * The shaders program passed to the object will be bound to the geometry as follows:
      * vec3 Position - Vertex position, position 0
      * vec2 TexCoord - Texture coordinate, position 1
      * vec3 Normal - Normal vector, position 2

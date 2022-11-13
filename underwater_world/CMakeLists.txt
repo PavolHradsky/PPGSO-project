@@ -66,10 +66,10 @@ endif ()
 #
 
 set(underwater_world_SHADER_SRC
-        shader/color_vert.glsl shader/color_frag.glsl
-        shader/convolution_vert.glsl shader/convolution_frag.glsl
-        shader/diffuse_vert.glsl shader/diffuse_frag.glsl
-        shader/texture_vert.glsl shader/texture_frag.glsl
+        shaders/color_vert.glsl shaders/color_frag.glsl
+        shaders/convolution_vert.glsl shaders/convolution_frag.glsl
+        shaders/diffuse_vert.glsl shaders/diffuse_frag.glsl
+        shaders/texture_vert.glsl shaders/texture_frag.glsl
         )
 add_resources(shaders ${underwater_world_SHADER_SRC})
 
@@ -103,7 +103,30 @@ target_include_directories(ppgso PUBLIC ppgso
 # TARGETS
 #
 
-add_executable(underwater_world src/Scene_aboveSea.cpp src/Water.cpp src/Water.h src/Bubble.cpp src/Bubble.h src/Fish.cpp src/Fish.h src/Boat.cpp src/Boat.h src/DrownedBoat.cpp src/DrownedBoat.h src/Dolphin.cpp src/Dolphin.h src/Plant.cpp src/Plant.h src/Camera.cpp src/Camera.h src/Scene.cpp src/Scene.h src/Terrain.cpp src/Terrain.h src/Object.cpp src/Object.h)
+add_executable(underwater_world
+        src/Scene_aboveSea.cpp
+        src/Water.cpp
+        src/Water.h
+        src/Bubble.cpp
+        src/Bubble.h
+        src/Fish.cpp
+        src/Fish.h
+        src/Boat.cpp
+        src/Boat.h
+        src/DrownedBoat.cpp
+        src/DrownedBoat.h
+        src/Dolphin.cpp
+        src/Dolphin.h
+        src/Plant.cpp
+        src/Plant.h
+        src/Camera.cpp
+        src/Camera.h
+        src/Scene.cpp
+        src/Scene.h
+        src/Terrain.cpp
+        src/Terrain.h
+        src/Object.cpp
+        src/Object.h)
 
 target_link_libraries(underwater_world ppgso shaders)
 install(TARGETS underwater_world DESTINATION .)

@@ -16,12 +16,12 @@ ppgso::Shader::Shader(const std::string &vertex_shader_code, const std::string &
   auto result = GL_FALSE;
   auto info_length = 0;
 
-  // Compile vertex shader
+  // Compile vertex shaders
   auto vertex_shader_code_ptr = vertex_shader_code.c_str();
   glShaderSource(vertex_shader_id, 1, &vertex_shader_code_ptr, nullptr);
   glCompileShader(vertex_shader_id);
 
-  // Check vertex shader log
+  // Check vertex shaders log
   glGetShaderiv(vertex_shader_id, GL_COMPILE_STATUS, &result);
   if (result == GL_FALSE) {
     glGetShaderiv(vertex_shader_id, GL_INFO_LOG_LENGTH, &info_length);
@@ -34,12 +34,12 @@ ppgso::Shader::Shader(const std::string &vertex_shader_code, const std::string &
     throw std::runtime_error(msg.str());
   }
 
-  // Compile fragment shader
+  // Compile fragment shaders
   auto fragment_shader_code_ptr = fragment_shader_code.c_str();
   glShaderSource(fragment_shader_id, 1, &fragment_shader_code_ptr, nullptr);
   glCompileShader(fragment_shader_id);
 
-  // Check fragment shader log
+  // Check fragment shaders log
   glGetShaderiv(fragment_shader_id, GL_COMPILE_STATUS, &result);
   if (result == GL_FALSE) {
     glGetShaderiv(fragment_shader_id, GL_INFO_LOG_LENGTH, &info_length);

@@ -18,6 +18,14 @@ const unsigned int SIZE = 512;
 class MyWindow : public ppgso::Window {
 private:
     Scene scene;
+    float time = (float) glfwGetTime();
+
+    void initScene() {
+        scene.objects.clear();
+
+        auto camera = std::make_unique<Camera>();
+        scene.camera = std::move(camera);
+    }
 public:
     MyWindow() : Window{"Test Project", SIZE, SIZE} {
         glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -34,12 +42,13 @@ public:
         // enable polygon culling
         glCullFace(GL_BACK);
 
+        initScene();
+
     };
 
     void onIdle() override {
-        float time;
-        float dt = glfwGetTime() - time;
-        time = glfwGetTime();
+        float dt = (float) glfwGetTime() - time;
+        time = (float) glfwGetTime();
         scene.update(dt);
         scene.render();
 
