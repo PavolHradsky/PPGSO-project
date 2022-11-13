@@ -25,20 +25,27 @@ private:
     bool animate = true;
     float time = (float) glfwGetTime();
 
+    float color_r = 1.0f;
+    float color_g = 0.0f;
+    float color_b = 0.0f;
+    float color_a = 1.0f;
+
     void initScene() {
         scene.objects.clear();
 
         scene.lightDirection = {0, 0, 1};
 
         auto camera = std::make_unique<Camera>();
-        //camera->position = {0, 0, -10};
+        camera->position = {0, 0, -10};
         scene.camera = std::move(camera);
 
         auto water = std::make_unique<Water>();
-        //water->position = {0, 10, 0};
+        water->position = {0, 10, 0};
         scene.objects.push_back(std::move(water));
 
         auto dolphin = std::make_unique<Dolphin>();
+        dolphin->position = {0, 100, 0};
+        dolphin->scale = {100, 100, 100};
         scene.objects.push_back(std::move(dolphin));
         // create terrain and add it to scene
     }
@@ -79,15 +86,27 @@ public:
                     break;
                 case GLFW_KEY_W:
                     scene.camera->position.z += 0.1;
+                    color_r = 1.0f;
+                    color_g = 0.0f;
+                    color_b = 0.0f;
                     break;
                 case GLFW_KEY_S:
                     scene.camera->position.z -= 0.1;
+                    color_r = 0.0f;
+                    color_g = 1.0f;
+                    color_b = 0.0f;
                     break;
                 case GLFW_KEY_A:
                     scene.camera->position.x -= 0.1;
+                    color_r = 0.0f;
+                    color_g = 0.0f;
+                    color_b = 1.0f;
                     break;
                 case GLFW_KEY_D:
                     scene.camera->position.x += 0.1;
+                    color_r = 1.0f;
+                    color_g = 1.0f;
+                    color_b = 0.0f;
                     break;
                 case GLFW_KEY_Q:
                     scene.camera->position.y += 0.1;
@@ -130,18 +149,12 @@ public:
 
         // Update scene
         scene.update(dt);
+        // blue background
+        glClearColor(color_r, color_g, color_b, color_a);
         // Clear the color and depth buffers
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         // draw water object
-
-
-
-        glBegin(GL_TRIANGLES);
-        // Render the scene
         scene.render();
-
-        // Swap buffers
-        glfwSwapBuffers(window);
         glfwPollEvents();
     }
 

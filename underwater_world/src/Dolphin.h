@@ -26,6 +26,7 @@ public:
 
     void render(Scene &scene) override;
 
+    void onClick(Scene &scene);
 };
 
 #endif //UNDERWATER_WORLD_DOLPHIN_H
