@@ -16,7 +16,7 @@
 #include "Water.h"
 #include "Dolphin.h"
 
-const unsigned int SIZE = 512;
+const unsigned int SIZE = 900;
 
 class MyWindow : public ppgso::Window {
 private:
@@ -36,12 +36,12 @@ private:
         scene.lightDirection = {0, 0, 1};
 
         auto camera = std::make_unique<Camera>();
-        camera->position = {0, 0, -10};
-        scene.camera = std::move(camera);
-
-        auto water = std::make_unique<Water>();
-        water->position = {0, 10, 0};
-        scene.objects.push_back(std::move(water));
+        //camera->position = {0, 0, -10};
+        scene.camera = move(camera);
+        glm::vec3 position = {-32.2116,-2.79839,-14.8765};
+        auto water = std::make_unique<Water>("models/water.obj");
+        position.y = scene.getHeight(position.x, position.z);
+        scene.objects.push_back(move(water));
 
         auto dolphin = std::make_unique<Dolphin>();
         dolphin->position = {0, 100, 0};
@@ -86,6 +86,7 @@ public:
                     break;
                 case GLFW_KEY_W:
                     scene.camera->position.z += 0.1;
+                    // add object to scene
                     color_r = 1.0f;
                     color_g = 0.0f;
                     color_b = 0.0f;
@@ -130,6 +131,8 @@ public:
                     if (scene.lightDirection.x < 1) {
                         scene.lightDirection.x += 0.1;
                     }
+                    case GLFW_KEY_1:
+                        scene.camera->mode = Camera::FOLLOW;
                     break;
                 default:
                     break;
@@ -147,15 +150,16 @@ public:
         // Remember current time for next frame
         time = currentTime;
 
-        // Update scene
-        scene.update(dt);
+
         // blue background
         glClearColor(color_r, color_g, color_b, color_a);
         // Clear the color and depth buffers
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        // Update scene
+        scene.update(dt);
         // draw water object
         scene.render();
-        glfwPollEvents();
+        //glfwPollEvents();
     }
 
 };

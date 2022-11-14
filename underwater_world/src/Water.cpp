@@ -7,7 +7,7 @@
 #include "shaders/texture_vert_glsl.h"
 #include "shaders/texture_frag_glsl.h"
 
-Water::Water() {
+Water::Water(const std::string objName) {
     // Initialize static resources if needed
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("models/test.bmp"));

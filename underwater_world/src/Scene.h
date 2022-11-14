@@ -19,7 +19,9 @@ public:
 
     // All objects to be rendered in Scene
     std::list< std::unique_ptr<Object> > objects;
-
+    int imgHeight;
+    int imgWidth;
+    unsigned char* heightFramebuffer;
     // Keyboard state
     std::map< int, int > keyboard;
 
@@ -32,7 +34,9 @@ public:
         double x, y;
         bool left, right;
     } cursor;
+    void setTargetPosition(const glm::vec3 &position, const glm::vec3 &rotation);
 
+    float getHeight(float x, float y);
 };
 
 #endif //UNDERWATER_WORLD_SCENE_H

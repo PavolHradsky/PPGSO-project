@@ -6,7 +6,7 @@
 #define UNDERWATER_WORLD_WATER_H
 
 #include <ppgso/ppgso.h>
-
+#include "Scene.h"
 #include "object.h"
 
 class Water final : public Object {
@@ -18,7 +18,7 @@ private:
 
     glm::vec3 offset;
 public:
-    Water();
+    Water(const std::string objName);
 
     bool update(Scene &scene, float dt) override;
 

@@ -6,6 +6,7 @@ Camera::Camera(float fow, float ratio, float near, float far) {
     float fowInRad = (ppgso::PI/180.0f) * fow;
 
     projectionMatrix = glm::perspective(fowInRad, ratio, near, far);
+    position = positionOffset = {0, distanceY, -distanceY};
 }
 
 void Camera::update() {
@@ -37,6 +38,7 @@ void Camera::moveTo(const glm::vec3 &pos, const glm::vec3 &rot) {
         rotation = rot;
 
         position -= deltaRot;
+        position -= destPos;
     } else {
         firstFollow = true;
     }
