@@ -18,19 +18,20 @@ void Scene::update(float time) {
 
 void Scene::render() {
     // Simply render all objects
-    for ( auto& obj : objects )
+    for (auto &obj: objects)
         obj->render(*this);
 }
 
 void Scene::setTargetPosition(const glm::vec3 &position, const glm::vec3 &rotation) {
     camera->moveTo(position, rotation);
 }
+
 float Scene::getHeight(float x, float z) {
     //invert
     x = x * 10;
     z = z * 10;
-    int j = (x + 539.7) *  3.7947001;
-    int i = (-1*z + 614.7) * 3.7947001;
+    int j = (x + 539.7) * 3.7947001;
+    int i = (-1 * z + 614.7) * 3.7947001;
 
     if (j < 0)
         j = 0;
@@ -41,12 +42,14 @@ float Scene::getHeight(float x, float z) {
     if (i > imgHeight - 1)
         i = imgHeight - 1;
 
-    float color =  heightFramebuffer[3 * (i * imgWidth + j)] + heightFramebuffer[3 * (i * imgWidth + j) + 1] + heightFramebuffer[3 * (i * imgWidth + j) + 2];
-    return ((color) * 0.3310595- 75.6565)/10;
+    float color = heightFramebuffer[3 * (i * imgWidth + j)] + heightFramebuffer[3 * (i * imgWidth + j) + 1] +
+                  heightFramebuffer[3 * (i * imgWidth + j) + 2];
+    return ((color) * 0.3310595 - 75.6565) / 10;
 }
-std::vector<Object*> Scene::intersect(const glm::vec3 &position, const glm::vec3 &direction) {
-    std::vector<Object*> intersected = {};
-    for(auto& object : objects) {
+
+std::vector<Object *> Scene::intersect(const glm::vec3 &position, const glm::vec3 &direction) {
+    std::vector<Object *> intersected = {};
+    for (auto &object: objects) {
         // Collision with sphere of size object->scale.x
         auto oc = position - object->position;
         auto radius = object->scale.x;
@@ -59,14 +62,14 @@ std::vector<Object*> Scene::intersect(const glm::vec3 &position, const glm::vec3
             auto e = sqrt(dis);
             auto t = (-b - e) / a;
 
-            if ( t > 0 ) {
+            if (t > 0) {
                 intersected.push_back(object.get());
                 continue;
             }
 
             t = (-b + e) / a;
 
-            if ( t > 0 ) {
+            if (t > 0) {
                 intersected.push_back(object.get());
                 continue;
             }

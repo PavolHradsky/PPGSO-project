@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="10c89984-403d-4021-a0b6-3b81849e0231" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/underwater_world/src/Camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/src/Camera.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/underwater_world/src/Scene.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/src/Scene.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/underwater_world/src/Scene.h" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/src/Scene.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/underwater_world/src/Scene_aboveSea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/src/Scene_aboveSea.cpp" afterDir="false" />
@@ -108,6 +107,8 @@
       <workItem from="1668434646703" duration="87000" />
       <workItem from="1668440257669" duration="162000" />
       <workItem from="1668442789150" duration="1600000" />
+      <workItem from="1668461284434" duration="84000" />
+      <workItem from="1668463844533" duration="2631000" />
     </task>
     <servers />
   </component>

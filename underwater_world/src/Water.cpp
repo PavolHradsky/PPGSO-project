@@ -7,16 +7,18 @@
 #include "shaders/texture_vert_glsl.h"
 #include "shaders/texture_frag_glsl.h"
 
-Water::Water(const std::string objName) {
+Water::Water() {
     // Initialize static resources if needed
+    glm::mat4 modelMatrix{1.0f};
+    glm::vec3 position{20, 25, -40};
+    glm::vec3 scale{120, 40, 0};
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
-    if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("models/test.bmp"));
-    if (!mesh) mesh = std::make_unique<ppgso::Mesh>("models/water.obj");
+    if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("data/models/test.bmp"));
+    if (!mesh) mesh = std::make_unique<ppgso::Mesh>("data/models/water.obj");
 }
 
 bool Water::update(Scene &scene, float dt) {
-//    offset.y -= dt/5;
-
+    modelMatrix = glm::mat4{1.0f};
     generateModelMatrix();
     return true;
 }
@@ -27,13 +29,11 @@ void Water::render(Scene &scene) {
     shader->use();
 
     shader->setUniform("TextureOffset", offset);
-
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("ViewMatrix", glm::mat4{1.0f});
     shader->setUniform("ProjectionMatrix", glm::mat4{1.0f});
     shader->setUniform("Texture", *texture);
     mesh->render();
-    //glDrawElements(GL_TRIANGLES, mesh.size() * 3, GL_UNSIGNED_INT, nullptr);
     glDepthMask(GL_TRUE);
 }
 
