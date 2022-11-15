@@ -11,16 +11,17 @@ Camera::Camera(float fow, float ratio, float near, float far) {
 }
 
 void Camera::update() {
-    if (mode == MOVING) {
-        if (t < 900) {
-            t++;
-            auto result = glm::lerp(startPos, destPos, t / 900.0f);
-            position.x = result.x;
-            position.y = result.y;
-            position.z = result.z;
-        }
-    }
-    viewMatrix = glm::lookAt(position, position + offset, up);
+//    if (mode == MOVING) {
+//        if (t < 900) {
+//            t++;
+//            auto result = glm::lerp(startPos, destPos, t / 900.0f);
+//            position.x = result.x;
+//            position.y = result.y;
+//            position.z = result.z;
+//        }
+//    }
+//    viewMatrix = glm::lookAt(position,  position - glm::vec3{0,0,-1} , up);
+    viewMatrix = glm::lookAt(position,  {0, 0, 0} , up);
 }
 
 void Camera::moveTo(const glm::vec3 &pos, const glm::vec3 &rot) {

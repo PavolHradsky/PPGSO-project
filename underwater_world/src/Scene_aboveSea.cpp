@@ -37,15 +37,15 @@ private:
         scene.lightDirection = {0, 0, 1};
 
         auto camera = std::make_unique<Camera>();
-        camera->position = {0, 0, 0};
+        camera->position = {0, 0, -20};
         scene.camera = std::move(camera);
 
         auto shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
         scene.shader = std::move(shader);
 
         auto missile = std::make_unique<Missile>();
-        missile->position = {100, 100, 100};
-        missile->scale = {80, 80, 80};
+        missile->position = {0, 0, 0};
+        missile->scale = {2, 2, 2};
         scene.objects.push_back(std::move(missile));
 
 
@@ -75,7 +75,8 @@ public:
     void onKey(int key, int scancode, int action, int mods) override {
         scene.keyboard[key] = action;
         if (action == GLFW_PRESS) {
-            std::cout << scene.camera->rotation.x << " " << scene.camera->rotation.y << " " << scene.camera->rotation.z << std::endl;
+//            std::cout << scene.camera->rotation.x << " " << scene.camera->rotation.y << " " << scene.camera->rotation.z << std::endl;
+            std::cout << scene.camera->position.x << " " << scene.camera->position.y << " " << scene.camera->position.z << std::endl;
             switch (key) {
                 case GLFW_KEY_ESCAPE:
                     glfwSetWindowShouldClose(window, GL_TRUE);
@@ -87,20 +88,20 @@ public:
                     animate = !animate;
                     break;
                 case GLFW_KEY_W:
-//                    scene.camera->position.z += 0.1;
-                    scene.camera->rotation.x += 1;
+                    scene.camera->position.z += 1;
+//                    scene.camera->rotation.x += 1;
                     break;
                 case GLFW_KEY_S:
-//                    scene.camera->position.z -= 0.1;
-                    scene.camera->rotation.x -= 1;
+                    scene.camera->position.z -= 1;
+//                    scene.camera->rotation.x -= 1;
                     break;
                 case GLFW_KEY_A:
-//                    scene.camera->position.x -= 0.1;
-                    scene.camera->rotation.y += 1;
+                    scene.camera->position.x -= 1;
+//                    scene.camera->rotation.y += 1;
                     break;
                 case GLFW_KEY_D:
-//                    scene.camera->position.x += 0.1;
-                    scene.camera->rotation.y -= 1;
+                    scene.camera->position.x += 1;
+//                    scene.camera->rotation.y -= 1;
                     break;
                 case GLFW_KEY_Q:
 //                    scene.camera->position.y += 0.1;
