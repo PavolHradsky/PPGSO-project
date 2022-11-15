@@ -1,21 +1,23 @@
+#define GLM_ENABLE_EXPERIMENTAL
 
 #include <iostream>
 #include <vector>
-
-#define GLM_ENABLE_EXPERIMENTAL
-
+#include <list>
+#include <map>
 #include <glm/glm.hpp>
 #include <glm/gtx/matrix_transform_2d.hpp>
 #include <glm/gtx/euler_angles.hpp>
 #include <ppgso/ppgso.h>
-
-#include <shaders/color_vert_glsl.h>
-#include <shaders/color_frag_glsl.h>
 #include "Scene.h"
 #include "Camera.h"
 #include "Water.h"
 #include "Dolphin.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 
+#include <shaders/color_vert_glsl.h>
+#include <shaders/color_frag_glsl.h>
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
 
@@ -31,44 +33,8 @@ private:
     float time = (float) glfwGetTime();
     ppgso::Shader quadShader = {texture_vert_glsl, texture_frag_glsl};
     ppgso::Mesh quadMesh = {"data/models/water.obj"};
-    float color_r = 1.0f;
-    float color_g = 0.0f;
-    float color_b = 0.0f;
-    float color_a = 1.0f;
-
-    void buffer_init() {
-        glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_LEQUAL);
-        quadTexture.bind();
-        unsigned int framebufferTexture;
-        glGenTextures(1, &framebufferTexture);
-        glBindTexture(GL_TEXTURE_2D, framebufferTexture);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); // Prevents edge bleeding
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); // Prevents edge bleeding
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, framebufferTexture, 0);
-
-        // Initialize framebuffer, its color texture (the sphere will be rendered to it) and its render buffer for depth info storage
-        glGenFramebuffers(1, &fbo);
-        glBindFramebuffer(GL_FRAMEBUFFER, fbo);
-
-        // Set up render buffer that has a depth buffer and stencil buffer
-        glGenRenderbuffers(1, &rbo);
-        glBindRenderbuffer(GL_RENDERBUFFER, rbo);
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo);
-
-        // Associate the quadTexture with it
-        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, quadTexture.image.width, quadTexture.image.height);
-        glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, quadTexture.getTexture(), 0);
-
-        if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
-            throw std::runtime_error("Cannot create framebuffer!");
-    }
 
     void initScene() {
-        buffer_init();
         scene.objects.clear();
 
         scene.lightDirection = {0, 0, 1};
@@ -79,8 +45,8 @@ private:
         camera->position.z = 100.0f;
         scene.camera = move(camera);
 
-        auto water = std::make_unique<Water>();
-        scene.objects.push_back(move(water));
+        //auto water = std::make_unique<Water>();
+        //scene.objects.push_back(move(water));
 
         auto dolphin = std::make_unique<Dolphin>();
         dolphin->position = {0, 100, 0};
@@ -88,7 +54,26 @@ private:
         scene.objects.push_back(std::move(dolphin));
         // create terrain and add it to scene
     }
+/// Abstract renderable object interface
+    class Renderable; // Forward declaration for Scene
+    using Scene = std::list<std::unique_ptr<Renderable>>; // Type alias
 
+    class Renderable {
+    public:
+        // Virtual destructor is needed for abstract interfaces
+        virtual ~Renderable() = default;
+
+        /// Render the object
+        /// \param camera - Camera to use for rendering
+        virtual void render(const Camera &camera) = 0;
+
+        /// Update the object. Useful for specifing animation and behaviour.
+        /// \param dTime - Time delta
+        /// \param scene - Scene reference
+        /// \return - Return true to keep object in scene
+        virtual bool update(float dTime, Scene &scene) = 0;
+        virtual std::pair<bool, glm::vec3> is_sphere() = 0;
+    };
 public:
     MyWindow() : Window{"Test Project", SIZE, SIZE} {
         glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -107,7 +92,14 @@ public:
         glCullFace(GL_BACK);
         initScene();
     };
+    glm::vec3 random_vec3 (float mini, float maxi) {
+        return {((float) rand() / (float) RAND_MAX) * (maxi - mini) + mini, ((float) rand() / (float) RAND_MAX) * (maxi - mini) + mini, ((float) rand() / RAND_MAX) * (maxi - mini) + mini};
+    };
 
+    glm::vec3 sameRandom_vec3 (float mini, float maxi) {
+        float sur = ((float) rand() / (float) RAND_MAX) * (maxi - mini) + mini;
+        return { sur, sur, sur};
+    };
     void onKey(int key, int scancode, int action, int mods) override {
         scene.keyboard[key] = action;
         if (action == GLFW_PRESS) {
@@ -123,28 +115,15 @@ public:
                     break;
                 case GLFW_KEY_W:
                     scene.camera->position.z += 0.1;
-                    // add object to scene
-                    color_r = 1.0f;
-                    color_g = 0.0f;
-                    color_b = 0.0f;
                     break;
                 case GLFW_KEY_S:
                     scene.camera->position.z -= 0.1;
-                    color_r = 0.0f;
-                    color_g = 1.0f;
-                    color_b = 0.0f;
                     break;
                 case GLFW_KEY_A:
                     scene.camera->position.x -= 0.1;
-                    color_r = 0.0f;
-                    color_g = 0.0f;
-                    color_b = 1.0f;
                     break;
                 case GLFW_KEY_D:
                     scene.camera->position.x += 0.1;
-                    color_r = 1.0f;
-                    color_g = 1.0f;
-                    color_b = 0.0f;
                     break;
                 case GLFW_KEY_Q:
                     scene.camera->position.y += 0.1;
@@ -168,8 +147,9 @@ public:
                     if (scene.lightDirection.x < 1) {
                         scene.lightDirection.x += 0.1;
                     }
-                case GLFW_KEY_1:
-                    scene.camera->mode = Camera::FOLLOW;
+                case GLFW_KEY_SPACE:
+                    scene.objects.push_back(move(std::make_unique<Water>()));
+                    //scene.objects.push_back(std::make_unique<Water>( random_vec3(2, 5), random_vec3(-3, 3), sameRandom_vec3(0.25, 0.5 )));
                     break;
                 default:
                     break;
@@ -177,36 +157,10 @@ public:
         }
     }
 
-    void buffer_show() {
-        resetViewport();
-        glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-        // Clear the framebuffer
-        glClearColor(0, 0, 0, 0);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-        auto quadViewMatrix = glm::mat4{1.0f};
-        quadViewMatrix = glm::lookAt(glm::vec3{0.0f, 0.0f, -0.8f},
-                                     glm::vec3{0.0f, 1.0f, 0.0f} - glm::vec3{0.0f, 1.0f, -1.0f}, {0.0f, -1.0f, 0.0f});
-
-        // Animate rotation of the quad
-        auto quadModelMatrix = glm::mat4{1.0f};
-
-        // Set shader inputs
-        quadShader.use();
-        quadShader.setUniform("ProjectionMatrix", scene.camera->projectionMatrix);
-        quadShader.setUniform("ViewMatrix", quadViewMatrix);
-        quadShader.setUniform("ModelMatrix", quadModelMatrix);
-        quadShader.setUniform("Texture", quadTexture);
-        quadMesh.render();
-    }
-
     // display objects
     void onIdle() override {
-        glViewport(0, 0, 1024, 1024);
-        glBindFramebuffer(GL_FRAMEBUFFER, fbo);
-
-        glClearColor(0.0f, 0.0f, 0.0f, 0);
+        // Set gray background
+        glClearColor(.1f, .1f, .1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         // Get current time
         float currentTime = (float) glfwGetTime();
@@ -219,12 +173,12 @@ public:
         // draw water object
         scene.render();
         //glfwPollEvents();
-
-        // blue background
-        //glClearColor(color_r, color_g, color_b, color_a);
         // Clear the color and depth buffers
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        buffer_show();
+        // Update all objects in scene
+        // Because we need to delete while iterating this is implemented using c++ iterators
+        // In most languages mutating the container during iteration is undefined behaviour
+
     }
 
 };
