@@ -139,8 +139,8 @@ public:
     // display objects
     void onIdle() override {
         // Set gray background
-        glClearColor(.5f, .5f, .5f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//        glClearColor(.5f, .5f, .5f, 1.0f);
+//        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         // Get current time
         auto currentTime = (float) glfwGetTime();
         // Compute time difference between current and last frame
