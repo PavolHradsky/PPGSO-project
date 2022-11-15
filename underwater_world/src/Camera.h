@@ -32,7 +32,7 @@ public:
     glm::mat4 projectionMatrix;
 
 
-    Camera(float fow = 90.0f, float ratio = 1.9001f, float near = 0.0001f, float far = 10000.0f);
+    explicit Camera(float fow = 90.0f, float ratio = 1.9001f, float near = 0.0001f, float far = 10000.0f);
 
     void update();
 

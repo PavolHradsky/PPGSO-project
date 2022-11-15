@@ -107,6 +107,8 @@ add_executable(underwater_world
         src/Scene_aboveSea.cpp
         src/Water.cpp
         src/Water.h
+        src/Missile.cpp
+        src/Missile.h
         src/Bubble.cpp
         src/Bubble.h
         src/Fish.cpp

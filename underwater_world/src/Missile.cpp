@@ -1,13 +1,13 @@
 //
 // Created by peter on 21. 9. 2022.
 //
-#include "Water.h"
+#include "Missile.h"
 #include "Scene.h"
 
 #include "shaders/texture_vert_glsl.h"
 #include "shaders/texture_frag_glsl.h"
 
-Water::Water() {
+Missile::Missile() {
     // Initialize static resources if needed
     glm::mat4 modelMatrix{1.0f};
     glm::vec3 position{20, 25, -40};
@@ -19,13 +19,13 @@ Water::Water() {
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("models/missile.obj");
 }
 
-bool Water::update(Scene &scene, float dt) {
+bool Missile::update(Scene &scene, float dt) {
     modelMatrix = glm::mat4{1.0f};
     generateModelMatrix();
     return true;
 }
 
-void Water::render(Scene &scene) {
+void Missile::render(Scene &scene) {
     glDepthMask(GL_FALSE);
 
     shader->use();
@@ -40,6 +40,6 @@ void Water::render(Scene &scene) {
 }
 
 // shared resources
-std::unique_ptr<ppgso::Mesh> Water::mesh;
-std::unique_ptr<ppgso::Shader> Water::shader;
-std::unique_ptr<ppgso::Texture> Water::texture;
+std::unique_ptr<ppgso::Mesh> Missile::mesh;
+std::unique_ptr<ppgso::Shader> Missile::shader;
+std::unique_ptr<ppgso::Texture> Missile::texture;

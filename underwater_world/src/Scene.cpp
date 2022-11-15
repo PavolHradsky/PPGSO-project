@@ -1,6 +1,7 @@
 #include "Scene.h"
 
 void Scene::update(float time) {
+    camera->update();
     // Use iterator to update all objects so we can remove while iterating
     auto i = std::begin(objects);
 
@@ -13,7 +14,6 @@ void Scene::update(float time) {
             ++i;
     }
 
-    camera->update();
 }
 
 void Scene::render() {
@@ -30,8 +30,8 @@ float Scene::getHeight(float x, float z) {
     //invert
     x = x * 10;
     z = z * 10;
-    int j = (x + 539.7) * 3.7947001;
-    int i = (-1 * z + 614.7) * 3.7947001;
+    int j = (int) ((x + 539.7) * 3.7947001);
+    int i = (int) ((-1 * z + 614.7) * 3.7947001);
 
     if (j < 0)
         j = 0;
@@ -42,9 +42,9 @@ float Scene::getHeight(float x, float z) {
     if (i > imgHeight - 1)
         i = imgHeight - 1;
 
-    float color = heightFramebuffer[3 * (i * imgWidth + j)] + heightFramebuffer[3 * (i * imgWidth + j) + 1] +
-                  heightFramebuffer[3 * (i * imgWidth + j) + 2];
-    return ((color) * 0.3310595 - 75.6565) / 10;
+    auto color = (float) (heightFramebuffer[3 * (i * imgWidth + j)] + heightFramebuffer[3 * (i * imgWidth + j) + 1] +
+                  heightFramebuffer[3 * (i * imgWidth + j) + 2]);
+    return (float) (((color) * 0.3310595 - 75.6565) / 10);
 }
 
 std::vector<Object *> Scene::intersect(const glm::vec3 &position, const glm::vec3 &direction) {
