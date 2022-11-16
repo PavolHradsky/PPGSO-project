@@ -32,10 +32,7 @@ private:
 
     void initScene() {
         scene.objects.clear();
-
-
         scene.lightDirection = {0, 0, 1};
-
         auto camera = std::make_unique<Camera>();
         camera->position = {0, 0, -20};
         scene.camera = std::move(camera);

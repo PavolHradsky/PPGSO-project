@@ -20,7 +20,7 @@ Player::Player() {
   if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
   if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("corsair.bmp"));
 //  if (!mesh) mesh = std::make_unique<ppgso::Mesh>("corsair.obj");
-    if (!mesh) mesh = std::make_unique<ppgso::Mesh>("ocean.obj");
+    if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Ocean.obj");
 }
 
 bool Player::update(Scene &scene, float dt) {

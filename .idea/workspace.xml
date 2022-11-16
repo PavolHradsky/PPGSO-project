@@ -21,7 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="10c89984-403d-4021-a0b6-3b81849e0231" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_project/data/ocean.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_project/src/gl9_scene/camera.h" beforeDir="false" afterPath="$PROJECT_DIR$/test_project/src/gl9_scene/camera.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_project/src/gl9_scene/gl9_scene.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test_project/src/gl9_scene/gl9_scene.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_project/src/gl9_scene/player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test_project/src/gl9_scene/player.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/underwater_world/src/Scene_aboveSea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/src/Scene_aboveSea.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/underwater_world/src/Water.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/underwater_world/src/Water.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +61,17 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Users/peter/OneDrive/Documents/PPGSO Kapec/ppgso"
+    "last_opened_file_path": "C:/Users/peter/OneDrive/Documents/Project_zaloha_ppgso/PPGSO-project/test_project"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\peter\OneDrive\Documents\Project_zaloha_ppgso\PPGSO-project\underwater_world\data" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\peter\OneDrive\Documents\Project_zaloha_ppgso\PPGSO-project\underwater_world\data\models" />
+    </key>
+  </component>
   <component name="RunManager" selected="CMake Application.underwater_world">
     <configuration name="ppgso" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="underwater_world" TARGET_NAME="ppgso" CONFIG_NAME="Debug">
       <method v="2">
@@ -106,6 +119,11 @@
       <workItem from="1668461284434" duration="84000" />
       <workItem from="1668463844533" duration="2631000" />
       <workItem from="1668503016366" duration="2233000" />
+      <workItem from="1668520401748" duration="725000" />
+      <workItem from="1668531465154" duration="612000" />
+      <workItem from="1668549553063" duration="1398000" />
+      <workItem from="1668554522565" duration="832000" />
+      <workItem from="1668596471057" duration="2314000" />
     </task>
     <servers />
   </component>
