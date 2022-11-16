@@ -134,13 +134,13 @@ public:
 //                    scene.camera->rotation.z -= 1;
                     break;
                 case GLFW_KEY_UP:
-                    scene.camera->up += 0.1;
+                    scene.camera->up.z += 0.1;
                 case GLFW_KEY_DOWN:
-                    scene.camera->up -= 0.1;
+                    scene.camera->up.z -= 0.1;
                 case GLFW_KEY_LEFT:
                     scene.camera->back.x -= 0.1;
                 case GLFW_KEY_RIGHT:
-                    scene.camera->back.x += 0.1;
+                    scene.camera->back.y += 0.1;
                 case GLFW_KEY_SPACE:
 
                     break;
