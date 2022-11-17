@@ -20,7 +20,7 @@ Player::Player() {
 
   // Initialize static resources if needed
   if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
-  if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("water.bmp"));
+  if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("flag.bmp"));
 //  if (!mesh) mesh = std::make_unique<ppgso::Mesh>("corsair.obj");
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Ocean.obj");
 }

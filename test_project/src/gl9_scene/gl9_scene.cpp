@@ -100,6 +100,8 @@ public:
         scene.keyboard[key] = action;
         if (action == GLFW_PRESS) {
             switch (key) {
+                case GLFW_KEY_1:
+                    scene.camera->mode = Camera::FOLLOW;
                 case GLFW_KEY_ESCAPE:
                     glfwSetWindowShouldClose(window, GL_TRUE);
                     break;
@@ -111,36 +113,32 @@ public:
                     break;
                 case GLFW_KEY_W:
                     scene.camera->position.y += 1;
-//                    scene.camera->back.x += 0.1;
                     break;
                 case GLFW_KEY_S:
                     scene.camera->position.y -= 1;
-//                    scene.camera->back.x -= 0.1;
                     break;
                 case GLFW_KEY_A:
                     scene.camera->position.x += 1;
-//                    scene.camera->rotation.y += 1;
                     break;
                 case GLFW_KEY_D:
                     scene.camera->position.x -= 1;
-//                    scene.camera->rotation.y -= 1;
                     break;
                 case GLFW_KEY_Q:
                     scene.camera->position.z += 1;
-//                    scene.camera->rotation.z += 1;
                     break;
                 case GLFW_KEY_E:
                     scene.camera->position.z -= 1;
-//                    scene.camera->rotation.z -= 1;
                     break;
                 case GLFW_KEY_UP:
-                    scene.camera->up.z += 0.1;
+                    // camera moveto
+                    scene.camera->moveTo({scene.camera->position.x, scene.camera->position.y, scene.camera->position.z}, {scene.camera->rotation.x, scene.camera->rotation.y + 1, scene.camera->rotation.z});
+                    //scene.camera->rotation.z += 0.1;
                 case GLFW_KEY_DOWN:
-                    scene.camera->up.z -= 0.1;
+                    scene.camera->rotation.z -= 0.1;
                 case GLFW_KEY_LEFT:
-                    scene.camera->back.x -= 0.1;
+                    scene.camera->rotation.y += 0.1;
                 case GLFW_KEY_RIGHT:
-                    scene.camera->back.y += 0.1;
+                    scene.camera->rotation.y -= 0.1;
                 case GLFW_KEY_SPACE:
 
                     break;

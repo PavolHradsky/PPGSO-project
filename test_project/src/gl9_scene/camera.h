@@ -11,11 +11,19 @@
  */
 class Camera {
 public:
+    enum MODE { FOLLOW, STATIONARY, MOVING } mode = FOLLOW;
   glm::vec3 up{0,1,0};
   glm::vec3 position{0,0,0};
+  glm::vec3 positionOffset{0, 0, 0};
   glm::vec3 back{0,0,-1};
+    glm::vec3 offset{0, 2.5, 0};
   glm::vec3 forward{0,0,1};
-
+    float t;
+    glm::vec3 startPos;
+    glm::vec3 destPos;
+  glm::vec3 rotation{0, 0, 0};
+  float distanceY = 2;
+  float distanceZ = 5;
   glm::mat4 viewMatrix;
   glm::mat4 projectionMatrix;
 
@@ -32,7 +40,7 @@ public:
    * Update Camera viewMatrix based on up, position and back vectors
    */
   void update();
-
+    void moveTo(const glm::vec3 &pos, const glm::vec3 &rot);
   /*!
    * Get direction vector in world coordinates through camera projection plane
    * @param u - camera projection plane horizontal coordinate [-1,1]
