@@ -48,5 +48,6 @@ public:
    * @return Normalized vector from camera position to position on the camera projection plane
    */
   glm::vec3 cast(double u, double v);
+  glm::vec3 rotate(double fi, double theta);
 };
 

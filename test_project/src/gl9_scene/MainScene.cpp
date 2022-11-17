@@ -117,6 +117,14 @@ public:
 
     void onKey(int key, int scancode, int action, int mods) override {
         scene.keyboard[key] = action;
+        std::cout << scene.camera->position.x
+            << " " << scene.camera->position.y
+            << " " << scene.camera->position.z
+            << std::endl;
+        std::cout << scene.camera->back.x
+            << " " << scene.camera->back.y
+            << " " << scene.camera->back.z
+            << std::endl;
         if (action == GLFW_PRESS) {
             switch (key) {
                 case GLFW_KEY_1:
@@ -131,7 +139,7 @@ public:
                     animate = !animate;
                     break;
                 case GLFW_KEY_W:
-                    scene.camera->position.z += 1;
+                    scene.camera->position = scene.camera->back;
                     break;
                 case GLFW_KEY_S:
                     scene.camera->position.z -= 1;
@@ -149,13 +157,25 @@ public:
                     scene.camera->position.y -= 1;
                     break;
                 case GLFW_KEY_UP:
-                    scene.positionOcean.z -= 1;
+                    scene.camera->rotation.y -= 0.1;
+                    break;
+//                    scene.positionOcean.z -= 1;
+                    break;
                 case GLFW_KEY_DOWN:
-                    scene.positionOcean.z += 1;
+                    scene.camera->rotation.y += 0.1;
+                    break;
+//                    scene.positionOcean.z += 1;
+                    break;
                 case GLFW_KEY_LEFT:
-                    scene.positionOcean.x -= 1;
+                    scene.camera->rotation.x -= 0.1;
+                    break;
+//                    scene.positionOcean.x -= 1;
+                    break;
                 case GLFW_KEY_RIGHT:
-                    scene.positionOcean.x -= 1;
+                    scene.camera->rotation.x += 0.1;
+                    break;
+//                    scene.positionOcean.x -= 1;
+                    break;
                 case GLFW_KEY_SPACE:
 
                     break;

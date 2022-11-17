@@ -23,8 +23,8 @@ Dolphin::Dolphin(glm::vec3 pos, glm::vec3 rot, float freq) {
 bool Dolphin::update(Scene &scene, float dt) {
   // Accelerate
   //speed += glm::vec3{0.0f, 20.0f, 0.0f} * dt;
-  position.x = -(cos(dt)) * 0.7;
-  position.y = (sin(dt)) * 0.7;
+  position.x = -(cos(dt)) / 100;
+  position.y = (sin(dt)) / 100;
   //rotation += speed;
   rotation_ += frequency;
   // Move the projectile

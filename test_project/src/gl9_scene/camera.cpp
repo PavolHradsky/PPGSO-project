@@ -21,8 +21,8 @@ void Camera::update() {
             position.z = result.z;
         }
     }
-
-  viewMatrix = lookAt(position, position-back, up);
+    back = rotate(rotation.x, rotation.y);
+    viewMatrix = lookAt(position, position-back, up);
 }
 void Camera::moveTo(const glm::vec3 &pos, const glm::vec3 &rot) {
     if (mode == FOLLOW) {
@@ -58,4 +58,13 @@ glm::vec3 Camera::cast(double u, double v) {
   // Create direction vector
   auto direction = glm::normalize(planePosition - glm::vec4{position,1.0f});
   return glm::vec3{direction};
+}
+
+glm::vec3 Camera::rotate(double fi, double theta){
+    glm::vec3 result;
+    result.x = position.x * cos(fi) - position.z * sin(fi);
+    result.z = position.x * sin(fi) + position.z * cos(fi);
+    result.y = position.y * cos(theta) - result.z * sin(theta);
+    result.z = position.y * sin(theta) + result.z * cos(theta);
+    return result;
 }
