@@ -182,13 +182,13 @@ The included OpenGL 3.3 examples will generate graphical output directly onto th
 - Renders a scene to a texture in graphics memory
 - The resulting texture is used in the final scene displayed on screen with a convolution filter applied
 
-### [gl9_scene](src/gl9_scene/gl9_scene.cpp) - Game with interactive scene
+### [gl9_scene](src/gl9_scene/MainScene.cpp) - Game with interactive scene
 
 ![Screenshot of the gl9_scene example](doc/gl9_scene.png)
 
 - Introduces the concept of a dynamic scene of objects
 - Uses abstract object interface for _Update_ and _Render_ steps
-- Creates a simple game scene with Player, Asteroid and Space objects
+- Creates a simple game scene with Ocean, Boat and Space objects
 - Some objects use shared resources and all object deallocations are handled automatically
 - Controls: LEFT, RIGHT, "R" to reset, "P" to pause, SPACE to fire
 

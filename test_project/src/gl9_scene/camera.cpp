@@ -27,7 +27,7 @@ void Camera::update() {
 void Camera::moveTo(const glm::vec3 &pos, const glm::vec3 &rot) {
     if (mode == FOLLOW) {
         glm::vec3 deltaRot;
-        deltaRot.x = (distanceZ * sin(rotation.y * -1)) - (distanceZ * sin(rot.y * -1));
+        deltaRot.y = (distanceZ * sin(rotation.y * -1)) - (distanceZ * sin(rot.y * -1));
         deltaRot.z = (distanceZ * -cos(rotation.y * -1)) - (distanceZ * -cos(rot.y * -1));
 
         rotation = rot;

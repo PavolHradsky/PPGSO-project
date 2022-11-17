@@ -103,14 +103,14 @@ target_include_directories(ppgso PUBLIC
 
 # gl9_scene
 add_executable(gl9_scene
-        src/gl9_scene/gl9_scene.cpp
+        src/gl9_scene/MainScene.cpp
         src/gl9_scene/object.cpp
         src/gl9_scene/scene.cpp
         src/gl9_scene/camera.cpp
-        src/gl9_scene/asteroid.cpp
+        src/gl9_scene/Boat.cpp
         src/gl9_scene/generator.cpp
-        src/gl9_scene/player.cpp
-        src/gl9_scene/projectile.cpp
+        src/gl9_scene/Ocean.cpp
+        src/gl9_scene/Dolphin.cpp
         src/gl9_scene/explosion.cpp
         src/gl9_scene/space.cpp)
 target_link_libraries(gl9_scene ppgso shaders)
