@@ -71,11 +71,10 @@ glm::vec3 Camera::cast(double u, double v) {
     return glm::vec3{direction};
 }
 
-glm::vec3 Camera::rotate(double fi, double theta) {
-    glm::vec3 result;
-    result.x = position.x * cos(fi) - position.z * sin(fi);
-    result.z = position.x * sin(fi) + position.z * cos(fi);
-    result.y = position.y * cos(theta) - result.z * sin(theta);
-    result.z = position.y * sin(theta) + result.z * cos(theta);
-    return result;
+glm::vec3 Camera::rotate(double pitch, double yaw) {
+    glm::vec3 direction;
+    direction.x = cos(yaw) * cos(pitch);
+    direction.y = sin(pitch);
+    direction.z = sin(yaw) * cos(pitch);
+    return glm::normalize(direction);
 }

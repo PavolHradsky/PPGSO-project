@@ -27,6 +27,8 @@ public:
   glm::mat4 viewMatrix;
   glm::mat4 projectionMatrix;
 
+  bool moveW, moveS, moveA, moveD, moveQ, moveE, rotateUp, rotateDown, rotateLeft, rotateRight = false;
+
   /*!
    * Create new Camera that will generate viewMatrix and projectionMatrix based on its position, up and back vectors
    * @param fow - Field of view in degrees
@@ -48,7 +50,7 @@ public:
    * @return Normalized vector from camera position to position on the camera projection plane
    */
   glm::vec3 cast(double u, double v);
-  glm::vec3 rotate(double fi, double theta);
+  glm::vec3 rotate(double pitch, double yaw);
 
     void mouseMove(int x, int y);
 };

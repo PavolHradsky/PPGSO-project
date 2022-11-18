@@ -103,7 +103,7 @@ public:
         //hideCursor();
         glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
-        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+//        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
         // Initialize OpenGL state
         // Enable Z-buffer
         glEnable(GL_DEPTH_TEST);
@@ -140,14 +140,6 @@ public:
 
     void onKey(int key, int scancode, int action, int mods) override {
         scene.keyboard[key] = action;
-        std::cout << scene.camera->position.x
-            << " " << scene.camera->position.y
-            << " " << scene.camera->position.z
-            << std::endl;
-        std::cout << scene.camera->back.x
-            << " " << scene.camera->back.y
-            << " " << scene.camera->back.z
-            << std::endl;
         if (action == GLFW_PRESS) {
             switch (key) {
                 case GLFW_KEY_1:
@@ -162,40 +154,76 @@ public:
                     animate = !animate;
                     break;
                 case GLFW_KEY_W:
-                    scene.camera->position.z += 1;
+                    scene.camera->moveW = true;
                     break;
                 case GLFW_KEY_S:
-                    scene.camera->position.z -= 1;
+                    scene.camera->moveS = true;
                     break;
                 case GLFW_KEY_A:
-                    scene.camera->position.x -= 1;
+                    scene.camera->moveA = true;
                     break;
                 case GLFW_KEY_D:
-                    scene.camera->position.x += 1;
+                    scene.camera->moveD = true;
                     break;
                 case GLFW_KEY_Q:
-                    scene.camera->position.y += 1;
+                    scene.camera->moveQ = true;
                     break;
                 case GLFW_KEY_E:
-                    scene.camera->position.y -= 1;
+                    scene.camera->moveE = true;
                     break;
                 case GLFW_KEY_UP:
-                    scene.camera->rotation.y -= 0.1;
+                    scene.camera->rotateUp = true;
+                    std::cout << "UP" << scene.camera->rotation.x << std::endl;
                     break;
                 case GLFW_KEY_DOWN:
-                    scene.camera->rotation.y += 0.1;
-                    break;
+                    scene.camera->rotateDown = true;
                     break;
                 case GLFW_KEY_LEFT:
-                    scene.camera->rotation.x -= 0.1;
+                    scene.camera->rotateLeft = true;
                     break;
                 case GLFW_KEY_RIGHT:
-                    scene.camera->rotation.x += 0.1;
+                    scene.camera->rotateRight = true;
                     break;
                 case GLFW_MOUSE_BUTTON_LEFT:
-                    scene.camera->rotation.z -= 0.1;
+//                    scene.camera->rotation.z -= 0.1;
                     break;
                 case GLFW_KEY_SPACE:
+                    break;
+                default:
+                    break;
+            }
+        }
+        if(action == GLFW_RELEASE){
+            switch (key) {
+                case GLFW_KEY_W:
+                    scene.camera->moveW = false;
+                    break;
+                case GLFW_KEY_S:
+                    scene.camera->moveS = false;
+                    break;
+                case GLFW_KEY_A:
+                    scene.camera->moveA = false;
+                    break;
+                case GLFW_KEY_D:
+                    scene.camera->moveD = false;
+                    break;
+                case GLFW_KEY_Q:
+                    scene.camera->moveQ = false;
+                    break;
+                case GLFW_KEY_E:
+                    scene.camera->moveE = false;
+                    break;
+                case GLFW_KEY_UP:
+                    scene.camera->rotateUp = false;
+                    break;
+                case GLFW_KEY_DOWN:
+                    scene.camera->rotateDown = false;
+                    break;
+                case GLFW_KEY_LEFT:
+                    scene.camera->rotateLeft = false;
+                    break;
+                case GLFW_KEY_RIGHT:
+                    scene.camera->rotateRight = false;
                     break;
                 default:
                     break;
@@ -263,6 +291,43 @@ public:
         glClearColor(.5f, .5f, .5f, 0);
         // Clear depth and color buffers
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        if(scene.camera->moveW){
+            scene.camera->position.z += 0.05;
+            scene.camera->back.z += 0.05;
+        }
+        if(scene.camera->moveS){
+            scene.camera->position.z -= 0.05;
+            scene.camera->back.z -= 0.05;
+        }
+        if(scene.camera->moveA){
+            scene.camera->position.x += 0.05;
+            scene.camera->back.x += 0.05;
+        }
+        if(scene.camera->moveD){
+            scene.camera->position.x -= 0.05;
+            scene.camera->back.x -= 0.05;
+        }
+        if(scene.camera->moveQ){
+            scene.camera->position.y += 0.05;
+            scene.camera->back.y += 0.05;
+        }
+        if(scene.camera->moveE){
+            scene.camera->position.y -= 0.05;
+            scene.camera->back.y -= 0.05;
+        }
+        if(scene.camera->rotateUp && scene.camera->rotation.x > -1.5){
+            scene.camera->rotation.x -= 0.005;
+        }
+        if(scene.camera->rotateDown && scene.camera->rotation.x < 1.5){
+            scene.camera->rotation.x += 0.005;
+        }
+        if(scene.camera->rotateLeft){
+            scene.camera->rotation.y -= 0.005;
+        }
+        if(scene.camera->rotateRight){
+            scene.camera->rotation.y += 0.005;
+        }
 
         // Update and render all objects
         scene.update(dt);
