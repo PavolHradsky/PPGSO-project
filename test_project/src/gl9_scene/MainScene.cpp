@@ -18,6 +18,7 @@
 #include "Ocean.h"
 #include "space.h"
 #include "Dolphin.h"
+#include "Boat.h"
 
 const unsigned int SIZE = 980;
 
@@ -49,6 +50,21 @@ private:
 
         scene.objects.push_back(move(ocean));
         glm::vec3 rotation = {3 * ppgso::PI / 2, 0, 2 * ppgso::PI / 3};
+        float freq = 7.0f / 250.0f;
+        // generate random dolphins
+        for (int i = 0; i < 15; i++) {
+            if (i % 2 == 0){
+                rotation = -rotation;
+                freq = 10.0f / 250.0f;
+            }
+
+            auto dolphin = std::make_unique<Dolphin>(position_dolphin1, rotation,freq);
+            dolphin->position.x += glm::linearRand(-20.0f, 20.0f);
+            dolphin->position.y += glm::linearRand(-20.0f, 20.0f);
+            dolphin->position.z += glm::linearRand(-20.0f, 20.0f);
+            dolphin->scale = {0.01f, 0.01f, 0.01f};
+            scene.objects.push_back(move(dolphin));
+        }
 /*
         for (int i = 0; i < 10; i++)
         {
@@ -58,7 +74,6 @@ private:
             dolphin->scale = {0.01f, 0.01f, 0.01f};
             scene.objects.push_back(move(dolphin));
         }
-
 */
 
         float freq1 = 7.0f / 250.0f;
@@ -71,9 +86,16 @@ private:
         auto dolphin2 = std::make_unique<Dolphin>(position_dolphin2, rotation, freq2);
         dolphin2->scale = {0.005f, 0.005f, 0.005f};
         scene.objects.push_back(move(dolphin2));
+
+        // add boat to scene
+        auto boat = std::make_unique<Boat>();
+        boat->position = {0, 0, 0};
+        boat->scale = {0.01f, 0.01f, 0.01f};
+        scene.objects.push_back(move(boat));
     }
 
 public:
+
     /*!
      * Construct custom game window
      */
@@ -81,6 +103,7 @@ public:
         //hideCursor();
         glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
         // Initialize OpenGL state
         // Enable Z-buffer
         glEnable(GL_DEPTH_TEST);
@@ -139,16 +162,16 @@ public:
                     animate = !animate;
                     break;
                 case GLFW_KEY_W:
-                    scene.camera->position = scene.camera->back;
+                    scene.camera->position.z += 1;
                     break;
                 case GLFW_KEY_S:
                     scene.camera->position.z -= 1;
                     break;
                 case GLFW_KEY_A:
-                    scene.camera->position.x += 1;
+                    scene.camera->position.x -= 1;
                     break;
                 case GLFW_KEY_D:
-                    scene.camera->position.x -= 1;
+                    scene.camera->position.x += 1;
                     break;
                 case GLFW_KEY_Q:
                     scene.camera->position.y += 1;
@@ -159,25 +182,20 @@ public:
                 case GLFW_KEY_UP:
                     scene.camera->rotation.y -= 0.1;
                     break;
-//                    scene.positionOcean.z -= 1;
-                    break;
                 case GLFW_KEY_DOWN:
                     scene.camera->rotation.y += 0.1;
                     break;
-//                    scene.positionOcean.z += 1;
                     break;
                 case GLFW_KEY_LEFT:
                     scene.camera->rotation.x -= 0.1;
                     break;
-//                    scene.positionOcean.x -= 1;
-                    break;
                 case GLFW_KEY_RIGHT:
                     scene.camera->rotation.x += 0.1;
                     break;
-//                    scene.positionOcean.x -= 1;
+                case GLFW_MOUSE_BUTTON_LEFT:
+                    scene.camera->rotation.z -= 0.1;
                     break;
                 case GLFW_KEY_SPACE:
-
                     break;
                 default:
                     break;

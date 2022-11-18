@@ -8,7 +8,7 @@
 #include <shaders/diffuse_frag_glsl.h>
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
-#define SEA_TURBULENCE 0.2f
+#define SEA_TURBULENCE 0.05f
 // shared resources
 std::unique_ptr<ppgso::Mesh> Ocean::mesh;
 std::unique_ptr<ppgso::Texture> Ocean::texture;
@@ -24,63 +24,16 @@ Ocean::Ocean() {
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Ocean.obj");
 }
 
+
 bool Ocean::update(Scene &scene, float dt) {
-    // Fire delay increment
-    fireDelay += dt;
-
-    // Hit detection
-    for (auto &obj: scene.objects) {
-        // Ignore self in scene
-        if (obj.get() == this)
-            continue;
-
-        // We only need to collide with asteroids, ignore other objects
-        auto asteroid = dynamic_cast<Boat *>(obj.get());
-        if (!asteroid) continue;
-
-        if (distance(position, asteroid->position) < asteroid->scale.y) {
-            // Explode
-            auto explosion = std::make_unique<Explosion>();
-            explosion->position = position;
-            explosion->scale = scale * 3.0f;
-            scene.objects.push_back(move(explosion));
-
-            return false;
-        }
-    }
-
-    // Keyboard controls
-//  if(scene.keyboard[GLFW_KEY_LEFT]) {
-//    position.x += 10 * dt;
-//    rotation.z = -ppgso::PI/4.0f;
-//  } else if(scene.keyboard[GLFW_KEY_RIGHT]) {
-//    position.x -= 10 * dt;
-//    rotation.z = ppgso::PI/4.0f;
-//  } else {
-//    rotation.z = 0;
-//  }
-//
-//  // Firing projectiles
-//  if(scene.keyboard[GLFW_KEY_SPACE] && fireDelay > fireRate) {
-//    // Reset fire delay
-//    fireDelay = 0;
-//    // Invert file offset
-//    fireOffset = -fireOffset;
-//
-//    auto projectile = std::make_unique<Dolphin>();
-//    projectile->position = position + glm::vec3(0.0f, 0.0f, 0.3f) + fireOffset;
-//    scene.objects.push_back(move(projectile));
-//  }
-
-    generateModelMatrix();
-    return true;
-}
-
-void Ocean::tick() {
     this->position.y += speed;
+    this->position.x += speed;
     this->speed += ((this->position.y <= 0.0f)? 1 : -1 ) * SEA_TURBULENCE;
     if(this->position.y > 0.035f) this->position.y = 0.035f;
     else if(this->position.y < -0.035f) this->position.y = -0.035f;
+
+    generateModelMatrix();
+    return true;
 }
 
 void Ocean::render(Scene &scene) {

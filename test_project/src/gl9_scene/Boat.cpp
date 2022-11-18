@@ -13,10 +13,9 @@ std::unique_ptr<ppgso::Texture> Boat::texture;
 std::unique_ptr<ppgso::Shader> Boat::shader;
 
 Boat::Boat() {
-
   // Initialize static resources if needed
   if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
-  if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("asteroid.bmp"));
+  if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("boat_diffuse.bmp"));
   if (!mesh) mesh = std::make_unique<ppgso::Mesh>("boat.obj");
 }
 
@@ -75,17 +74,6 @@ void Boat::explode(Scene &scene, glm::vec3 explosionPosition, glm::vec3 explosio
   explosion->scale = explosionScale;
   explosion->speed = speed / 2.0f;
   scene.objects.push_back(move(explosion));
-
-  // Generate smaller asteroids
-  for (int i = 0; i < pieces; i++) {
-    auto asteroid = std::make_unique<Boat>();
-    asteroid->speed = speed + glm::vec3(glm::linearRand(-3.0f, 3.0f), glm::linearRand(0.0f, -5.0f), 0.0f);;
-    asteroid->position = position;
-    asteroid->rotMomentum = rotMomentum;
-    float factor = (float) pieces / 2.0f;
-    asteroid->scale = scale / factor;
-    scene.objects.push_back(move(asteroid));
-  }
 }
 
 void Boat::render(Scene &scene) {

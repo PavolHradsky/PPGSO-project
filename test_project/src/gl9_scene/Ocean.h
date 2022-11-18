@@ -40,7 +40,7 @@ public:
    * @param scene Scene to render in
    */
   void render(Scene &scene) override;
-    void tick();
+
 
   /*!
    * Ocean click event

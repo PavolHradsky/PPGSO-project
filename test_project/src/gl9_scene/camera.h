@@ -49,5 +49,7 @@ public:
    */
   glm::vec3 cast(double u, double v);
   glm::vec3 rotate(double fi, double theta);
+
+    void mouseMove(int x, int y);
 };
 
