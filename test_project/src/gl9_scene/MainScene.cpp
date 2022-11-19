@@ -1,7 +1,7 @@
 // Example gl_scene
 // - Introduces the concept of a dynamic scene of objects
 // - Uses abstract object interface for Update and Render steps
-// - Creates a simple game scene with Ocean, Boat and Space objects
+// - Creates a simple game scene with Ocean, Boat and Cloud objects
 // - Contains a generator object that does not render but adds Asteroids to the scene
 // - Some objects use shared resources and all object deallocations are handled automatically
 // - Controls: LEFT, RIGHT, "R" to reset, SPACE to fire
@@ -47,9 +47,9 @@ private:
 
         glm::vec3 position_dolphin1 = {ocean->position.x, ocean->position.y, 0};
         glm::vec3 position_dolphin2 = {position_dolphin1.x+13, position_dolphin1.y+5, -3};
-
         scene.objects.push_back(move(ocean));
         glm::vec3 rotation = {3 * ppgso::PI / 2, 0, 2 * ppgso::PI / 3};
+
         float freq = 7.0f / 250.0f;
         // generate random dolphins
         for (int i = 0; i < 15; i++) {
@@ -57,11 +57,8 @@ private:
                 rotation = -rotation;
                 freq = 10.0f / 250.0f;
             }
-
-            auto dolphin = std::make_unique<Dolphin>(position_dolphin1, rotation,freq);
-            dolphin->position.x += glm::linearRand(-20.0f, 20.0f);
-            dolphin->position.y += glm::linearRand(-20.0f, 20.0f);
-            dolphin->position.z += glm::linearRand(-20.0f, 20.0f);
+            glm::vec3 position_dolphin = {0, 0, 0};
+            auto dolphin = std::make_unique<Dolphin>(position_dolphin, rotation,freq);
             dolphin->scale = {0.01f, 0.01f, 0.01f};
             scene.objects.push_back(move(dolphin));
         }
@@ -99,13 +96,16 @@ public:
     /*!
      * Construct custom game window
      */
-    SceneWindow() : Window{"gl9_scene", SIZE, SIZE} {
+    SceneWindow() : Window{"Underwater world", SIZE, SIZE} {
         //hideCursor();
         glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
 //        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
         // Initialize OpenGL state
         // Enable Z-buffer
+        glEnable(GL_LIGHTING);
+        glEnable(GL_COLOR_MATERIAL);
+        glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LEQUAL);
 

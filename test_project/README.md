@@ -188,7 +188,7 @@ The included OpenGL 3.3 examples will generate graphical output directly onto th
 
 - Introduces the concept of a dynamic scene of objects
 - Uses abstract object interface for _Update_ and _Render_ steps
-- Creates a simple game scene with Ocean, Boat and Space objects
+- Creates a simple game scene with Ocean, Boat and Cloud objects
 - Some objects use shared resources and all object deallocations are handled automatically
 - Controls: LEFT, RIGHT, "R" to reset, "P" to pause, SPACE to fire
 

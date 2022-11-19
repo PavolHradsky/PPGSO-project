@@ -51,6 +51,17 @@ class Scene {
       double x, y;
       bool left, right;
     } cursor;
+
+    bool global_lighting_on = true;
+    struct Lights {
+        int count;
+        glm::vec3 positions[100];
+        glm::vec3 colors[100];
+        float ranges[100];
+        float strengths[100];
+    };
+
+    Lights lights;
 };
 
 #endif // _PPGSO_SCENE_H

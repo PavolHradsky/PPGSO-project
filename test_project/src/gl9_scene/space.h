@@ -10,7 +10,7 @@
  * It does not use the camera so it uses different 2D shader program
  * Background animation is achieved by passing an offset to the fragment shader that offsets texture mapping
  */
-class Space final : public Object {
+class Cloud final : public Object {
 private:
   // Static resources (Shared between instances)
   static std::unique_ptr<ppgso::Mesh> mesh;
@@ -20,9 +20,9 @@ private:
   glm::vec2 textureOffset;
 public:
   /*!
-   * Create new Space background
+   * Create new Cloud background
    */
-  Space();
+  Cloud();
 
   /*!
    * Update space background

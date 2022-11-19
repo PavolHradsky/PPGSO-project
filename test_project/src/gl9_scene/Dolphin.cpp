@@ -23,9 +23,10 @@ Dolphin::Dolphin(glm::vec3 pos, glm::vec3 rot, float freq) {
 bool Dolphin::update(Scene &scene, float dt) {
     // Accelerate
     //speed += glm::vec3{0.0f, 20.0f, 0.0f} * dt;
-    position.x = -(cos(dt)) ;
-    position.y = (sin(dt)) ;
-    //rotation += speed;
+
+    position.x = position.x;
+    position.y = position.y ;
+    position +=position;
     rotation_ += frequency;
     // Move the projectile
     rotation.x = rotation_;
@@ -44,6 +45,21 @@ void Dolphin::render(Scene &scene) {
     shader->setUniform("ProjectionMatrix", scene.camera->projectionMatrix);
     shader->setUniform("ViewMatrix", scene.camera->viewMatrix);
 
+    shader->setUniform("material.ambient", {0.05f, 0.05f, 0.05f});
+    shader->setUniform("material.diffuse", {0.8f, 0.8f, 0.8f});
+    shader->setUniform("material.specular", {0.9f, 0.9f, 0.9f});
+    shader->setUniform("material.shininess", 32.0f);
+    for (int i = 0; i < 1; i++) {
+        shader->setUniform("lights.positions[" + std::to_string(i) + "]", scene.lights.positions[i]);
+        shader->setUniform("lights.colors[" + std::to_string(i) + "]", scene.lights.colors[i]);
+        shader->setUniform("lights.ranges[" + std::to_string(i) + "]", scene.lights.ranges[i]);
+        if (scene.lights.strengths[i] < 0) {
+            shader->setUniform("lights.strengths[" + std::to_string(i) + "]", 0.0f);
+        }
+        else {
+            shader->setUniform("lights.strengths[" + std::to_string(i) + "]", scene.lights.strengths[i]);
+        }
+    }
     // render mesh
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
