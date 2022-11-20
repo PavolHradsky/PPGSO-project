@@ -42,12 +42,18 @@ private:
         camera->position.z = -15.0f;
         scene.camera = move(camera);
 
+        // Make a generator of dolphins which will be swim and can have collision with boat
+        auto generator =  std::make_unique<Generator>();
+        generator->position.y = 10.0f;
+        scene.objects.push_back(move(generator));
+
         // Add ocean to the scene
         auto ocean = std::make_unique<Ocean>();
-
+/*
         glm::vec3 position_dolphin1 = {ocean->position.x, ocean->position.y, 0};
-        glm::vec3 position_dolphin2 = {position_dolphin1.x+13, position_dolphin1.y+5, -3};
+        glm::vec3 position_dolphin2 = {position_dolphin1.x+13, position_dolphin1.y+5, -3};*/
         scene.objects.push_back(move(ocean));
+        /*
         glm::vec3 rotation = {3 * ppgso::PI / 2, 0, 2 * ppgso::PI / 3};
 
         float freq = 7.0f / 250.0f;
@@ -61,7 +67,7 @@ private:
             auto dolphin = std::make_unique<Dolphin>(position_dolphin, rotation,freq);
             dolphin->scale = {0.01f, 0.01f, 0.01f};
             scene.objects.push_back(move(dolphin));
-        }
+        }*/
 /*
         for (int i = 0; i < 10; i++)
         {
@@ -72,7 +78,7 @@ private:
             scene.objects.push_back(move(dolphin));
         }
 */
-
+/*
         float freq1 = 7.0f / 250.0f;
 
         auto dolphin1 = std::make_unique<Dolphin>(position_dolphin1, rotation, freq1);
@@ -83,11 +89,13 @@ private:
         auto dolphin2 = std::make_unique<Dolphin>(position_dolphin2, rotation, freq2);
         dolphin2->scale = {0.005f, 0.005f, 0.005f};
         scene.objects.push_back(move(dolphin2));
-
+*/
         // add boat to scene
+
         auto boat = std::make_unique<Boat>();
         boat->position = {0, 0, 0};
-        boat->scale = {0.01f, 0.01f, 0.01f};
+        boat->scale = {0.001f, 0.001f, 0.001f};
+        boat->rotation = {5, 0, 0};
         scene.objects.push_back(move(boat));
     }
 

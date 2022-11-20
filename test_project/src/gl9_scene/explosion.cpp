@@ -12,13 +12,14 @@ std::unique_ptr<ppgso::Shader> Explosion::shader;
 
 Explosion::Explosion() {
   // Random rotation and momentum
-  rotation = glm::ballRand(ppgso::PI)*3.0f;
-  rotMomentum = glm::ballRand(ppgso::PI)*3.0f;
-  speed = {0.0f, 0.0f, 0.0f};
+  //rotation = glm::ballRand(ppgso::PI)*3.0f;
+  //rotMomentum = glm::ballRand(ppgso::PI)*3.0f;
+  //speed = {0.0f, 0.0f, 0.0f};
 
   // Initialize static resources if needed
   if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
   if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("explosion.bmp"));
+  // TODO make collision mesh for explosion
   if (!mesh) mesh = std::make_unique<ppgso::Mesh>("asteroid.obj");
 }
 
@@ -54,9 +55,9 @@ void Explosion::render(Scene &scene) {
 
 bool Explosion::update(Scene &scene, float dt) {
   // Update scale and rotation
-  scale = scale * ( 1.0f + dt * 5.0f);
-  rotation += rotMomentum * dt;
-  position += speed * dt;
+  //scale = scale * ( 1.0f + dt * 5.0f);
+  //rotation += rotMomentum * dt;
+  //position += speed * dt;
 
   // Die after reaching maxAge
   age += dt;

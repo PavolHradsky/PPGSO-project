@@ -19,8 +19,7 @@ private:
   static std::unique_ptr<ppgso::Shader> shader;
   static std::unique_ptr<ppgso::Texture> texture;
 
-  // Age of the object in seconds
-  float age{0.0f};
+
 
   // Speed and rotational momentum
   glm::vec3 speed;
@@ -34,7 +33,7 @@ private:
    * @param explosionScale - Scale of the explosion
    * @param pieces - Boat pieces to generate
    */
-  void explode(Scene &scene, glm::vec3 explosionPosition, glm::vec3 explosionScale, int pieces);
+  //void explode(Scene &scene, glm::vec3 explosionPosition, glm::vec3 explosionScale, int pieces);
 
 public:
   /*!
