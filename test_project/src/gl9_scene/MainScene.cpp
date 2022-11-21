@@ -201,6 +201,7 @@ public:
 //                    scene.camera->rotation.z -= 0.1;
                     break;
                 case GLFW_KEY_SPACE:
+                    //scene.camera->enableAnimation = false;
                     break;
                 default:
                     break;

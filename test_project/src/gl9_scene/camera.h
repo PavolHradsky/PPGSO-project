@@ -30,6 +30,7 @@ public:
   float rotateSpeed = 0.005f;
 
   bool moveW, moveS, moveA, moveD, moveQ, moveE, rotateUp, rotateDown, rotateLeft, rotateRight = false;
+  bool enableAnimation = true;
 
   /*!
    * Create new Camera that will generate viewMatrix and projectionMatrix based on its position, up and back vectors
