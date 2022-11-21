@@ -8,7 +8,7 @@
 #include <shaders/diffuse_frag_glsl.h>
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
-#define SEA_TURBULENCE 0.05f
+#define SEA_TURBULENCE 0.00f
 // shared resources
 std::unique_ptr<ppgso::Mesh> Ocean::mesh;
 std::unique_ptr<ppgso::Texture> Ocean::texture;

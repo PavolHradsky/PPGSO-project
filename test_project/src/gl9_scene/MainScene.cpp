@@ -95,7 +95,8 @@ private:
         auto boat = std::make_unique<Boat>();
         boat->position = {0, 0, 0};
         boat->scale = {0.001f, 0.001f, 0.001f};
-        boat->rotation = {5, 0, 0};
+        boat->rotation.x = -ppgso::PI/2;
+        boat->rotation.y = ppgso::PI;
         scene.objects.push_back(move(boat));
     }
 
@@ -148,6 +149,10 @@ public:
 
     void onKey(int key, int scancode, int action, int mods) override {
         scene.keyboard[key] = action;
+        auto shiftVector = scene.camera->position - (scene.camera->position - scene.camera->back);
+        std::cout << "position: " << scene.camera->position.x << " " << scene.camera->position.y << " " << scene.camera->position.z << std::endl;
+        std::cout << "back: " << scene.camera->back.x << " " << scene.camera->back.y << " " << scene.camera->back.z << std::endl;
+        std::cout << "shiftVector: " << shiftVector.x << " " << shiftVector.y << " " << shiftVector.z << std::endl;
         if (action == GLFW_PRESS) {
             switch (key) {
                 case GLFW_KEY_1:
@@ -301,40 +306,44 @@ public:
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         if(scene.camera->moveW){
-            scene.camera->position.z += 0.05;
-            scene.camera->back.z += 0.05;
+            auto shiftVector = glm::normalize(scene.camera->position - (scene.camera->position - scene.camera->back));
+            scene.camera->position -= shiftVector * glm::vec3{scene.camera->moveSpeed, 0, scene.camera->moveSpeed};
+            scene.camera->back -= shiftVector * glm::vec3{scene.camera->moveSpeed, 0, scene.camera->moveSpeed};
         }
         if(scene.camera->moveS){
-            scene.camera->position.z -= 0.05;
-            scene.camera->back.z -= 0.05;
+            auto shiftVector = glm::normalize(scene.camera->position - (scene.camera->position - scene.camera->back));
+            scene.camera->position += shiftVector * glm::vec3{scene.camera->moveSpeed, 0, scene.camera->moveSpeed};
+            scene.camera->back += shiftVector * glm::vec3{scene.camera->moveSpeed, 0, scene.camera->moveSpeed};
         }
         if(scene.camera->moveA){
-            scene.camera->position.x += 0.05;
-            scene.camera->back.x += 0.05;
+            auto shiftVector = glm::normalize(scene.camera->position - (scene.camera->position - scene.camera->back));
+            scene.camera->position += glm::normalize(glm::cross(shiftVector, scene.camera->up)) * glm::vec3{scene.camera->moveSpeed, 0, scene.camera->moveSpeed};
+            scene.camera->back += glm::normalize(glm::cross(shiftVector, scene.camera->up)) * glm::vec3{scene.camera->moveSpeed, 0, scene.camera->moveSpeed};
         }
         if(scene.camera->moveD){
-            scene.camera->position.x -= 0.05;
-            scene.camera->back.x -= 0.05;
+            auto shiftVector = glm::normalize(scene.camera->position - (scene.camera->position - scene.camera->back));
+            scene.camera->position -= glm::normalize(glm::cross(shiftVector, scene.camera->up)) * glm::vec3{scene.camera->moveSpeed, 0, scene.camera->moveSpeed};
+            scene.camera->back -= glm::normalize(glm::cross(shiftVector, scene.camera->up)) * glm::vec3{scene.camera->moveSpeed, 0, scene.camera->moveSpeed};
         }
         if(scene.camera->moveQ){
-            scene.camera->position.y += 0.05;
-            scene.camera->back.y += 0.05;
+            scene.camera->position.y += scene.camera->moveSpeed;
+            scene.camera->back.y += scene.camera->moveSpeed;
         }
         if(scene.camera->moveE){
-            scene.camera->position.y -= 0.05;
-            scene.camera->back.y -= 0.05;
+            scene.camera->position.y -= scene.camera->moveSpeed;
+            scene.camera->back.y -= scene.camera->moveSpeed;
         }
         if(scene.camera->rotateUp && scene.camera->rotation.x > -1.5){
-            scene.camera->rotation.x -= 0.005;
+            scene.camera->rotation.x -= scene.camera->rotateSpeed;
         }
         if(scene.camera->rotateDown && scene.camera->rotation.x < 1.5){
-            scene.camera->rotation.x += 0.005;
+            scene.camera->rotation.x += scene.camera->rotateSpeed;
         }
         if(scene.camera->rotateLeft){
-            scene.camera->rotation.y -= 0.005;
+            scene.camera->rotation.y -= scene.camera->rotateSpeed;
         }
         if(scene.camera->rotateRight){
-            scene.camera->rotation.y += 0.005;
+            scene.camera->rotation.y += scene.camera->rotateSpeed;
         }
 
         // Update and render all objects

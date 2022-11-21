@@ -12,16 +12,17 @@ Camera::Camera(float fow, float ratio, float near, float far) {
 }
 
 void Camera::update() {
-    if (mode == MOVING) {
-        if (t < 900) {
-            t++;
-            auto result = glm::lerp(startPos, destPos, t / 900.0f);
-            position.x = result.x;
-            position.y = result.y;
-            position.z = result.z;
-        }
-    }
+//    if (mode == MOVING) {
+//        if (t < 900) {
+//            t++;
+//            auto result = glm::lerp(startPos, destPos, t / 900.0f);
+//            position.x = result.x;
+//            position.y = result.y;
+//            position.z = result.z;
+//        }
+//    }
     back = rotate(rotation.x, rotation.y);
+    back = glm::normalize(back);
     viewMatrix = lookAt(position, position - back, up);
 }
 
