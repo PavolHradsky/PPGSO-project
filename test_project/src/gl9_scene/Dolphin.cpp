@@ -2,6 +2,7 @@
 #include "scene.h"
 #include "Dolphin.h"
 #include "explosion.h"
+#include "Boat.h"
 
 #include <shaders/diffuse_vert_glsl.h>
 #include <shaders/diffuse_frag_glsl.h>
@@ -15,7 +16,7 @@ Dolphin::Dolphin(glm::vec3 pos, glm::vec3 rot, float freq) {
     position = pos;
     rotation = rot;
     frequency = freq;
-    scale *= glm::linearRand(0.005f, 0.009f);
+    scale *= glm::linearRand(0.0009f, 0.0015f);
     if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("dolphin.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("dolphin.obj");
@@ -23,27 +24,33 @@ Dolphin::Dolphin(glm::vec3 pos, glm::vec3 rot, float freq) {
 
 bool Dolphin::update(Scene &scene, float dt) {
     age += dt;
+    position.x = position.x;
+    position.y = position.y ;
 
+    rotation_ += frequency;
+    rotation.x = rotation_;
     // Rotate the object
-    this->rotation += rotMomentum * dt;
-
     // Delete when alive longer than 10s
-    if (age > 10.0f ) return false;
+    //if (age > 10.0f ) return false;
 
     // TODO make collision dolphin with boat and dolphin will be drowned
     for (auto &object : scene.objects) {
         // We only want to collide with other boats
         auto dolphin = dynamic_cast<Dolphin*>(object.get());
         if (!dolphin) continue;
-
         // Check distance between objects
-        auto distance = glm::distance(position, dolphin->position);
+        // obtain position of the boat
+        auto boat = std::make_unique<Boat>();
+        //if (!boat) continue;
+        // Check distance between objects
+        auto distance = glm::distance(boat->position, dolphin->position);
+        //std::cout << "Distance: " << distance << std::endl;
 
         // If the distance is smaller than sum of their scales, we have a collision
         if (distance < scale.x + dolphin->scale.x) {
             // Create explosion
             auto explosion = std::make_unique<Explosion>();
-            explosion->position = position;
+            explosion->position = dolphin->position;
             scene.objects.push_back(std::move(explosion));
             // Delete this object
             return false;

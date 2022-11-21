@@ -11,7 +11,7 @@ private:
     // Age of the object in seconds
     float age{0.0f};
     //glm::vec3 scale{1,1,1};
-    float frequency;
+
     glm::vec3 speed;
     glm::vec3 rotMomentum{3 * ppgso::PI / 2, 0, 2 * ppgso::PI / 3};
     float rotation_;
@@ -37,6 +37,7 @@ public:
     void render(Scene &scene) override;
 
     glm::vec3 position{0, 0, 0};
-    glm::vec3 rotation{0, 0, 0};
+    glm::vec3 rotation{3*ppgso::PI/2,0,2*ppgso::PI/3};
+    float frequency = 7.0f/250.0f;
 };
 
