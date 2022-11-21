@@ -93,7 +93,7 @@ private:
         // add boat to scene
 
         auto boat = std::make_unique<Boat>();
-        boat->position = {0, 0, 0};
+        //boat->position = {0, 0, 0};
         boat->scale = {0.001f, 0.001f, 0.001f};
         boat->rotation.x = -ppgso::PI/2;
         boat->rotation.y = ppgso::PI;

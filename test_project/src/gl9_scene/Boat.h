@@ -19,7 +19,7 @@ private:
   static std::unique_ptr<ppgso::Shader> shader;
   static std::unique_ptr<ppgso::Texture> texture;
 
-
+  glm::vec3 position{0,0,0};
 
   // Speed and rotational momentum
   glm::vec3 speed;

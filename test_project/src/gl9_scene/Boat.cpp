@@ -30,10 +30,11 @@ std::vector<glm::vec2> controlPoints = {
         {0,0},
         {0,0},
         {0,0},
+        {-50,0},
 
 };
 std::vector<glm::vec3> points;
-
+glm::vec3 position;
 // These numbers are used to pass buffer data to OpenGL
 GLuint vao = 0, vbo = 0;
 
@@ -67,18 +68,18 @@ void bezierShape(int count) {
 
 
 bool Boat::update(Scene &scene, float dt) {
-    //bezierShape(15);
+    bezierShape(15);
 
-    position.x = ((1 - dt)*(1 - dt)*(1 - dt)*controlPoints[0][0]
-             + (3 * dt*(1 - dt)*(1 - dt))* controlPoints[1][0]
-             + (3 * dt*dt*(1 - dt))* controlPoints[2][0]
-             + dt*dt*dt*controlPoints[3][0])
+    position.x = ((1 - dt)*(1 - dt)*(1 - dt)*points[0][0]
+             + (3 * dt*(1 - dt)*(1 - dt))* points[1][0]
+             + (3 * dt*dt*(1 - dt))* points[2][0]
+             + dt*dt*dt*points[3][0])
             /10;
 
-    position.y = ((1 - dt)*(1 - dt)*(1 - dt)*controlPoints[0][1]
-             + (3 * dt*(1 - dt)*(1 - dt))* controlPoints[1][1]
-             + (3 * dt*dt*(1 - dt))* controlPoints[2][1]
-             + dt*dt*dt*controlPoints[3][1])
+    position.y = ((1 - dt)*(1 - dt)*(1 - dt)*points[0][1]
+             + (3 * dt*(1 - dt)*(1 - dt))* points[1][1]
+             + (3 * dt*dt*(1 - dt))* points[2][1]
+             + dt*dt*dt*points[3][1])
             /10;
 
     dt +=  (float) glfwGetTime();
