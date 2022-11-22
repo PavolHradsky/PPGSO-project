@@ -24,11 +24,18 @@ Dolphin::Dolphin(glm::vec3 pos, glm::vec3 rot, float freq) {
 
 bool Dolphin::update(Scene &scene, float dt) {
     age += dt;
-    position.x = -cos(dt);
-    position.y = position.y ;
 
-    rotation_ += frequency;
-    rotation.x = rotation_;
+    frequency = 5;
+
+    position.y = sin(age * frequency);
+    position.z = -cos(age * frequency);
+
+
+//    position.x = -cos(dt);
+//    position.y = position.y ;
+//
+//    rotation_ += frequency;
+//    rotation.x = rotation_;
     // Rotate the object
     // Delete when alive longer than 10s
     //if (age > 10.0f ) return false;
