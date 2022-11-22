@@ -22,8 +22,9 @@ private:
 
 
   // Speed and rotational momentum
-  float speed = 0;
+  float speed = 10;
   glm::vec3 rotMomentum;
+    float age{0.0f};
 
   /*!
    * Split the asteroid into multiple pieces and spawn an explosion object.

@@ -30,6 +30,8 @@ bool Dolphin::update(Scene &scene, float dt) {
     position.y = sin(age * frequency);
     position.z = -cos(age * frequency);
 
+    rotation.x -= dt;
+
 
 //    position.x = -cos(dt);
 //    position.y = position.y ;

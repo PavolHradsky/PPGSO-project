@@ -16,102 +16,81 @@ Boat::Boat() {
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("boat_diffuse.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("boat.obj");
 }
-/*
-GLfloat controlPoints[4][3] = {
-        {0.0,1,1},{10.0,1,1},{10.0,1,1},{10.0,1,1}
-};
-*/
+
 std::vector<glm::vec3> controlPoints = {
-        {0, 0, -10},
-        {10, 0, -10},
-        {10, 0, 0},
+        {0, 0, -30},
+        {30, 0, -30},
+        {30, 0, 0},
         {0, 0, 0},
-        {-10, 0, 0},
-        {-10, 0, 10},
-        {0, 0, 10}
+        {-30, 0, 0},
+        {-30, 0, 30},
+        {0, 0, 30},
+        {30, 0, 30},
+        {30, 0, 0},
+        {0, 0, 0},
+        {-30, 0, 0},
+        {-30, 0, -30},
+        {0, 0, -30}
 };
 std::vector<glm::vec3> points;
 glm::vec3 position;
+int step{0};
 // These numbers are used to pass buffer data to OpenGL
 GLuint vao = 0, vbo = 0;
 
-glm::vec2
-bezierPoint(const glm::vec2 &p0, const glm::vec2 &p1, const glm::vec2 &p2, const glm::vec2 &p3, const float t) {
-    // TODO: Compute point on the Bezier curve
-    std::vector<glm::vec2> points;
-    points.emplace_back(p0);
-    points.emplace_back(p1);
-    points.emplace_back(p2);
-    points.emplace_back(p3);
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3 - i; j++) {
-            points[j] = (1 - t) * points[j] + t * points[j + 1];
-        }
-    }
-    return points[0];
+glm::vec3 bezierPoint(const glm::vec3 &p0, const glm::vec3 &p1, const glm::vec3 &p2, const glm::vec3 &p3, const float t) {
+    float x = p0.x + ((p1.x - p0.x) * t);
+    float z = p0.z + ((p1.z - p0.z) * t);
+    glm::vec3 p01 = {x, 0, z};
+
+    x = p1.x + ((p2.x - p1.x) * t);
+    z = p1.z + ((p2.z - p1.z) * t);
+    glm::vec3 p11 = {x, 0, z};
+
+    x = p2.x + ((p3.x - p2.x) * t);
+    z = p2.z + ((p3.z - p2.z) * t);
+    glm::vec3 p21 = {x, 0, z};
+
+    x = p01.x + ((p11.x - p01.x) * t);
+    z = p01.z + ((p11.z - p01.z) * t);
+    glm::vec3 p02 = {x, 0, z};
+
+    x = p11.x + ((p21.x - p11.x) * t);
+    z = p11.z + ((p21.z - p11.z) * t);
+    glm::vec3 p12 = {x, 0, z};
+
+    x = p02.x + ((p12.x - p02.x) * t);
+    z = p02.z + ((p12.z - p02.z) * t);
+    return {x, 0, z};
 }
 
-void bezierShape(int count) {
-    //controlPoints = normalize(controlPoints);
-    for (int i = 1; i < (int) controlPoints.size(); i += 3) {
-        for (int j = 0; j <= count; j++) {
-            // TODO: Generate points for each Bezier curve and insert them
-            glm::vec2 point = bezierPoint(controlPoints[i - 1], controlPoints[i], controlPoints[i + 1],
-                                          controlPoints[i + 2], (float) j / (float) count);
-            points.emplace_back(point, 0);
-        }
-    }
-}
 
 
 bool Boat::update(Scene &scene, float dt) {
-    bezierShape(15);
-    // slow speed
-    speed = 1.0f;
-    //position.x += speed * dt;
-    //speed += 0.01f;
-    rotation.y = -ppgso::PI/4;
 
-    // iterate throught points
-    for (int i = 0; i < (int) controlPoints.size()-1; i++) {
-        auto currentPoint = points[i];
-        auto nextPoint = points[i+1];
-        auto pos = currentPoint;
-        float t = distance(pos, nextPoint) / distance(currentPoint, nextPoint) + dt * speed;
-        auto newPos = (currentPoint + (nextPoint - currentPoint) * t);
-        std::cout << t << std::endl;
-        if (t > 1) {
-            currentPoint = nextPoint;
-            nextPoint = points[points.size() - 1];
-            t = 0;
-        }
+    age += dt;
+    glm::vec3 nextPosition;
+
+    position = bezierPoint(controlPoints.at(3*step), controlPoints.at(3*step+1), controlPoints.at(3*step+2),
+                           controlPoints.at(3*step+3), age/speed);
+    nextPosition = bezierPoint(controlPoints.at(3*step), controlPoints.at(3*step+1), controlPoints.at(3*step+2),
+                               controlPoints.at(3*step+3), (age+dt)/speed);
+
+    // rotate the boat
+    rotation.y = atan2(nextPosition.x - position.x, nextPosition.z - position.z) + M_PI_2;
+    // rotate the boat on waves
+    rotation.x = 0.3*sin(position.x * age / 10) - ppgso::PI/2;
+
+
+    if (controlPoints.at(3*step+3).x-0.1 < position.x &&
+        position.x < controlPoints.at(3*step+3).x+0.1 &&
+        controlPoints.at(3*step+3).z-0.1 < position.z &&
+        position.z < controlPoints.at(3*step+3).z+0.1){
+        age = 0;
+        step++;
     }
-    position.x += ((1 - dt)*(1 - dt)*(1 - dt)*controlPoints[0][0]
-             + (3 * dt*(1 - dt)*(1 - dt))* controlPoints[1][0]
-             + (3 * dt*dt*(1 - dt))* controlPoints[2][0]
-             + dt*dt*dt*controlPoints[3][0])
-            /100;
+    if(step==4) step = 0;
 
-    position.z += ((1 - dt)*(1 - dt)*(1 - dt)*controlPoints[0][1]
-             + (3 * dt*(1 - dt)*(1 - dt))* controlPoints[1][1]
-             + (3 * dt*dt*(1 - dt))* controlPoints[2][1]
-             + dt*dt*dt*controlPoints[3][1])
-            /100;
-
-    if (position.x > -15) {
-        position.x -= ((1 - dt)*(1 - dt)*(1 - dt)*controlPoints[0][0]
-                       + (3 * dt*(1 - dt)*(1 - dt))* controlPoints[1][0]
-                       + (3 * dt*dt*(1 - dt))* controlPoints[2][0]
-                       + dt*dt*dt*controlPoints[3][0])
-                      /100;
-    }
-    //position.x += speed * dt;
-    //dt +=  (float) glfwGetTime();
-    // make boat follow bezierShape
-    // Move the boat
-    //position.x += 0.5f * sin(dt);
-    //position.y += 0.5f * cos(dt);
-    // Generate modelMatrix from position, rotation and scale
     generateModelMatrix();
 
     return true;
