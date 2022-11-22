@@ -16,7 +16,7 @@ std::unique_ptr<ppgso::Shader> Ocean::shader;
 
 Ocean::Ocean() {
     // Scale the default model
-    scale *= 10.0f;
+    scale *= 20.0f;
     this->speed = SEA_TURBULENCE;
     // Initialize static resources if needed
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);

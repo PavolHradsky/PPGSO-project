@@ -16,9 +16,11 @@ Boat::Boat() {
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("boat_diffuse.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("boat.obj");
 }
+/*
 GLfloat controlPoints[4][3] = {
         {0.0,1,1},{10.0,1,1},{10.0,1,1},{10.0,1,1}
-};/*
+};
+*/
 std::vector<glm::vec2> controlPoints = {
         {-20,0},
         {-20,0},
@@ -35,7 +37,7 @@ std::vector<glm::vec2> controlPoints = {
         {0,0},
         {-50,0},
 
-};*/
+};
 std::vector<glm::vec3> points;
 glm::vec3 position;
 // These numbers are used to pass buffer data to OpenGL
@@ -56,28 +58,38 @@ bezierPoint(const glm::vec2 &p0, const glm::vec2 &p1, const glm::vec2 &p2, const
     }
     return points[0];
 }
-/*
+
 void bezierShape(int count) {
     //controlPoints = normalize(controlPoints);
     for (int i = 1; i < (int) controlPoints.size(); i += 3) {
         for (int j = 0; j <= count; j++) {
             // TODO: Generate points for each Bezier curve and insert them
-            //glm::vec2 point = bezierPoint(controlPoints[i - 1], controlPoints[i], controlPoints[i + 1],
-              //                            controlPoints[i + 2], (float) j / (float) count);
-            //points.emplace_back(point, 0);
+            glm::vec2 point = bezierPoint(controlPoints[i - 1], controlPoints[i], controlPoints[i + 1],
+                                          controlPoints[i + 2], (float) j / (float) count);
+            points.emplace_back(point, 0);
         }
     }
-}*/
+}
 
 
 bool Boat::update(Scene &scene, float dt) {
-    //bezierShape(15);
+    bezierShape(15);
     // slow speed
     speed = 1.0f;
     //position.x += speed * dt;
-
-
     //speed += 0.01f;
+    rotation.y = -ppgso::PI/4;
+    std::vector<glm::vec3> points;
+    currentPoint = points[0];
+    nextPoint = points[1];
+    pos = currentPoint;
+    t = distance(pos, nextPoint)/distance(currentPoint, nextPoint)+dt*speed;
+    newPos = (currenPoint+(nextPoint-currentPoint)*t);
+    if t > 1 {
+        currentPoint = nextPoint;
+        nextPoint = points[points.size()-1];
+        t = 0;
+    }
 
     position.x += ((1 - dt)*(1 - dt)*(1 - dt)*controlPoints[0][0]
              + (3 * dt*(1 - dt)*(1 - dt))* controlPoints[1][0]
@@ -90,6 +102,14 @@ bool Boat::update(Scene &scene, float dt) {
              + (3 * dt*dt*(1 - dt))* controlPoints[2][1]
              + dt*dt*dt*controlPoints[3][1])
             /100;
+
+    if (position.x > -15) {
+        position.x -= ((1 - dt)*(1 - dt)*(1 - dt)*controlPoints[0][0]
+                       + (3 * dt*(1 - dt)*(1 - dt))* controlPoints[1][0]
+                       + (3 * dt*dt*(1 - dt))* controlPoints[2][0]
+                       + dt*dt*dt*controlPoints[3][0])
+                      /100;
+    }
     std::cout << position.x << std::endl;
     std::cout << position.z << std::endl;
     //position.x += speed * dt;
