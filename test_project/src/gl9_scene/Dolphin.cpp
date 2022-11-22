@@ -24,7 +24,7 @@ Dolphin::Dolphin(glm::vec3 pos, glm::vec3 rot, float freq) {
 
 bool Dolphin::update(Scene &scene, float dt) {
     age += dt;
-    position.x = position.x;
+    position.x = -cos(dt);
     position.y = position.y ;
 
     rotation_ += frequency;

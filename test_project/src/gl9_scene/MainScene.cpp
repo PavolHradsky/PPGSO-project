@@ -53,7 +53,7 @@ private:
         glm::vec3 rotation{3*ppgso::PI/2,0,2*ppgso::PI/3};
         glm::vec3 position_dolphin1 = {ocean->position.x, ocean->position.y, 0};
         glm::vec3 position_dolphin2 = {position_dolphin1.x+13, position_dolphin1.y+5, -3};
-
+        // toto su navyse 2 delfiny, hore je generator pridany do sceny ktory ih ma generovat
         auto dolphin1 = std::make_unique<Dolphin>(position_dolphin1, rotation, freq1);
         dolphin1->scale = {0.01f, 0.01f, 0.01f};
         scene.objects.push_back(move(dolphin1));

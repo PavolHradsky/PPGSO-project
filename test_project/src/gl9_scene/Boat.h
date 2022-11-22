@@ -22,7 +22,7 @@ private:
 
 
   // Speed and rotational momentum
-  glm::vec3 speed;
+  float speed = 0;
   glm::vec3 rotMomentum;
 
   /*!

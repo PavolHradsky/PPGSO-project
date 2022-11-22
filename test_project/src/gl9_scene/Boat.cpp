@@ -17,7 +17,7 @@ Boat::Boat() {
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("boat.obj");
 }
 GLfloat controlPoints[4][3] = {
-        {0.0,0.0,0.0},{10.0,0,0.0},{10.0,0.0,0.0},{10.0,0.5,0.0}
+        {0.0,1,1},{10.0,1,1},{10.0,1,1},{10.0,1,1}
 };/*
 std::vector<glm::vec2> controlPoints = {
         {-20,0},
@@ -73,22 +73,27 @@ void bezierShape(int count) {
 bool Boat::update(Scene &scene, float dt) {
     //bezierShape(15);
     // slow speed
-    speed *= 0.99f;
+    speed = 1.0f;
+    //position.x += speed * dt;
+
+
     //speed += 0.01f;
 
-    position.x = ((1 - dt)*(1 - dt)*(1 - dt)*controlPoints[0][0]
+    position.x += ((1 - dt)*(1 - dt)*(1 - dt)*controlPoints[0][0]
              + (3 * dt*(1 - dt)*(1 - dt))* controlPoints[1][0]
              + (3 * dt*dt*(1 - dt))* controlPoints[2][0]
              + dt*dt*dt*controlPoints[3][0])
-            /10;
+            /100;
 
-    position.y = ((1 - dt)*(1 - dt)*(1 - dt)*controlPoints[0][1]
+    position.z += ((1 - dt)*(1 - dt)*(1 - dt)*controlPoints[0][1]
              + (3 * dt*(1 - dt)*(1 - dt))* controlPoints[1][1]
              + (3 * dt*dt*(1 - dt))* controlPoints[2][1]
              + dt*dt*dt*controlPoints[3][1])
-            /10;
-
-    dt +=  (float) glfwGetTime();
+            /100;
+    std::cout << position.x << std::endl;
+    std::cout << position.z << std::endl;
+    //position.x += speed * dt;
+    //dt +=  (float) glfwGetTime();
     // make boat follow bezierShape
     // Move the boat
     //position.x += 0.5f * sin(dt);

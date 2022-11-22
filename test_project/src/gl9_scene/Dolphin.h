@@ -36,7 +36,7 @@ public:
      */
     void render(Scene &scene) override;
 
-    glm::vec3 position{0, 0, 0};
+    //glm::vec3 position{0, 0, 0};
     glm::vec3 rotation{3*ppgso::PI/2,0,2*ppgso::PI/3};
     float frequency = 7.0f/250.0f;
 };

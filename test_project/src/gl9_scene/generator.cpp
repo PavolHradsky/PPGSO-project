@@ -16,9 +16,9 @@ bool Generator::update(Scene &scene, float dt) {
         auto obj = std::make_unique<Dolphin>(position, rotation,frequency);
         obj->position = position;
         obj->position.x += glm::linearRand(-10.0f, 10.0f);
-        obj->position.y += glm::linearRand(-5.0f, 5.0f);
-        obj->position.z += glm::linearRand(-5.0f, 5.0f);
-
+        obj->position.y += 0;
+        obj->position.z += 0;
+        std::cout <<  obj->position.x << " " << obj->position.y << " " << obj->position.z << std::endl;
         scene.objects.push_back(move(obj));
         time = 0;
         counter += 1;
