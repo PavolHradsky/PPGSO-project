@@ -151,10 +151,6 @@ public:
 
     void onKey(int key, int scancode, int action, int mods) override {
         scene.keyboard[key] = action;
-        auto shiftVector = scene.camera->position - (scene.camera->position - scene.camera->back);
-        std::cout << "position: " << scene.camera->position.x << " " << scene.camera->position.y << " " << scene.camera->position.z << std::endl;
-        std::cout << "back: " << scene.camera->back.x << " " << scene.camera->back.y << " " << scene.camera->back.z << std::endl;
-        std::cout << "shiftVector: " << shiftVector.x << " " << shiftVector.y << " " << shiftVector.z << std::endl;
         if (action == GLFW_PRESS) {
             switch (key) {
                 case GLFW_KEY_1:
@@ -188,7 +184,6 @@ public:
                     break;
                 case GLFW_KEY_UP:
                     scene.camera->rotateUp = true;
-                    std::cout << "UP" << scene.camera->rotation.x << std::endl;
                     break;
                 case GLFW_KEY_DOWN:
                     scene.camera->rotateDown = true;

@@ -26,7 +26,7 @@ public:
   float distanceZ = 5;
   glm::mat4 viewMatrix;
   glm::mat4 projectionMatrix;
-  float moveSpeed = 0.2f;
+  float moveSpeed = 0.02f;
   float rotateSpeed = 0.005f;
 
   bool moveW, moveS, moveA, moveD, moveQ, moveE, rotateUp, rotateDown, rotateLeft, rotateRight = false;

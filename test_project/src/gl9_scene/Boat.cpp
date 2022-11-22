@@ -21,22 +21,14 @@ GLfloat controlPoints[4][3] = {
         {0.0,1,1},{10.0,1,1},{10.0,1,1},{10.0,1,1}
 };
 */
-std::vector<glm::vec2> controlPoints = {
-        {-20,0},
-        {-20,0},
-        {20,0},
-        {20, 0},
-        {20, 0},
-        {0, 0},
-        {0, 0},
-        {0, 0},
-        {-20, 0},
-        {-20, 0},
-        {0,0},
-        {0,0},
-        {0,0},
-        {-50,0},
-
+std::vector<glm::vec3> controlPoints = {
+        {0, 0, -10},
+        {10, 0, -10},
+        {10, 0, 0},
+        {0, 0, 0},
+        {-10, 0, 0},
+        {-10, 0, 10},
+        {0, 0, 10}
 };
 std::vector<glm::vec3> points;
 glm::vec3 position;
@@ -79,18 +71,21 @@ bool Boat::update(Scene &scene, float dt) {
     //position.x += speed * dt;
     //speed += 0.01f;
     rotation.y = -ppgso::PI/4;
-    std::vector<glm::vec3> points;
-    currentPoint = points[0];
-    nextPoint = points[1];
-    pos = currentPoint;
-    t = distance(pos, nextPoint)/distance(currentPoint, nextPoint)+dt*speed;
-    newPos = (currenPoint+(nextPoint-currentPoint)*t);
-    if t > 1 {
-        currentPoint = nextPoint;
-        nextPoint = points[points.size()-1];
-        t = 0;
-    }
 
+    // iterate throught points
+    for (int i = 0; i < (int) controlPoints.size()-1; i++) {
+        auto currentPoint = points[i];
+        auto nextPoint = points[i+1];
+        auto pos = currentPoint;
+        float t = distance(pos, nextPoint) / distance(currentPoint, nextPoint) + dt * speed;
+        auto newPos = (currentPoint + (nextPoint - currentPoint) * t);
+        std::cout << t << std::endl;
+        if (t > 1) {
+            currentPoint = nextPoint;
+            nextPoint = points[points.size() - 1];
+            t = 0;
+        }
+    }
     position.x += ((1 - dt)*(1 - dt)*(1 - dt)*controlPoints[0][0]
              + (3 * dt*(1 - dt)*(1 - dt))* controlPoints[1][0]
              + (3 * dt*dt*(1 - dt))* controlPoints[2][0]
@@ -110,8 +105,6 @@ bool Boat::update(Scene &scene, float dt) {
                        + dt*dt*dt*controlPoints[3][0])
                       /100;
     }
-    std::cout << position.x << std::endl;
-    std::cout << position.z << std::endl;
     //position.x += speed * dt;
     //dt +=  (float) glfwGetTime();
     // make boat follow bezierShape
