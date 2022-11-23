@@ -50,54 +50,10 @@ private:
         auto ocean = std::make_unique<Ocean>();
         scene.objects.push_back(std::move(ocean));
 
-//        // Add fish to the scene
-//        auto fish = std::make_unique<Fish>();
-//        scene.objects.push_back(std::move(fish));
-
         // Make a generator of dolphins which will be swim and can have collision with boat
         auto generator =  std::make_unique<Generator>();
         generator->position.y = 10.0f;
         scene.objects.push_back(std::move(generator));
-
-
-//        // toto su navyse 2 delfiny, hore je generator pridany do sceny ktory ih ma generovat
-//        auto dolphin1 = std::make_unique<Dolphin>();
-//        scene.objects.push_back(std::move(dolphin1));
-//
-//        auto dolphin2 = std::make_unique<Dolphin>();
-//        dolphin2->position.x = 13;
-//        dolphin2->position.z = 5;
-//        scene.objects.push_back(std::move(dolphin2));
-/*
-        glm::vec3 position_dolphin1 = {ocean->position.x, ocean->position.y, 0};
-        glm::vec3 position_dolphin2 = {position_dolphin1.x+13, position_dolphin1.y+5, -3};*/
-
-        // add perlin noise to the scene
-        /*
-        glm::vec3 rotation = {3 * ppgso::PI / 2, 0, 2 * ppgso::PI / 3};
-
-        float freq = 7.0f / 250.0f;
-        // generate random dolphins
-        for (int i = 0; i < 15; i++) {
-            if (i % 2 == 0){
-                rotation = -rotation;
-                freq = 10.0f / 250.0f;
-            }
-            glm::vec3 position_dolphin = {0, 0, 0};
-            auto dolphin = std::make_unique<Dolphin>(position_dolphin, rotation,freq);
-            dolphin->scale = {0.01f, 0.01f, 0.01f};
-            scene.objects.push_back(move(dolphin));
-        }*/
-/*
-        for (int i = 0; i < 10; i++)
-        {
-            float fre = glm::linearRand(3, 8);
-            glm::vec3 pos = glm::vec3{glm::linearRand(ocean->position.x-0.5, ocean->position.x+0.5), glm::linearRand(ocean->position.y-1, ocean->position.y+1),  glm::linearRand(ocean->position.z-5, ocean->position.z+5)};
-            auto dolphin = std::make_unique<Dolphin>(pos,  rotation, fre / 250.0f);
-            dolphin->scale = {0.01f, 0.01f, 0.01f};
-            scene.objects.push_back(move(dolphin));
-        }
-*/
 
         // add boat to scene
         auto boat = std::make_unique<Boat>();
