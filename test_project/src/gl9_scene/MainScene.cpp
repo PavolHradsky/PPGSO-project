@@ -19,6 +19,7 @@
 #include "space.h"
 #include "Dolphin.h"
 #include "Boat.h"
+#include "PerlinNoise.h"
 
 const unsigned int SIZE = 980;
 
@@ -70,6 +71,7 @@ private:
         glm::vec3 position_dolphin1 = {ocean->position.x, ocean->position.y, 0};
         glm::vec3 position_dolphin2 = {position_dolphin1.x+13, position_dolphin1.y+5, -3};*/
         scene.objects.push_back(move(ocean));
+        // add perlin noise to the scene
         /*
         glm::vec3 rotation = {3 * ppgso::PI / 2, 0, 2 * ppgso::PI / 3};
 

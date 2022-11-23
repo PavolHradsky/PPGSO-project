@@ -3,6 +3,7 @@
 #include "Boat.h"
 #include "Dolphin.h"
 #include "explosion.h"
+#include "PerlinNoise.h"
 
 #include <shaders/diffuse_vert_glsl.h>
 #include <shaders/diffuse_frag_glsl.h>
@@ -22,6 +23,21 @@ Ocean::Ocean() {
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("Ocean.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Ocean.obj");
+    // apply perlin noise on ocean object
+    // TODO, also implemented in mesh.h and mesh.cpp
+    PerlinNoise pn(0.1f, 0.1f, 0.1f, 0.1f);
+    for (int i = 0; i < mesh->vertices.size(); i++) {
+        mesh->vertices[i].position.z += pn.noise(mesh->vertices[i].position.x, mesh->vertices[i].position.y, 0.0f);
+    }
+    /*
+    double value[100][100];
+    for (int y = 0; y < 100; y++) {
+        for (int x = 0; x < 100; x++) {
+            float nx = x/100 - 0.5,
+                    ny = y/100 - 0.5;
+            value[y][x] = PerlinNoise::noise(nx, ny);
+        }
+    }*/
 }
 
 
