@@ -1,3 +1,4 @@
+#include <cmath>
 #include <glm/gtc/random.hpp>
 #include "Boat.h"
 
@@ -77,9 +78,9 @@ bool Boat::update(Scene &scene, float dt) {
                                controlPoints.at(3*step+3), (age+dt)/speed);
 
     // rotate the boat
-    rotation.y = atan2(nextPosition.x - position.x, nextPosition.z - position.z) + M_PI_2;
+    rotation.y = (float) (std::atan2(nextPosition.x - position.x, nextPosition.z - position.z) + M_PI_2);
     // rotate the boat on waves
-    rotation.x = 0.3*sin(position.x * age / 10) - ppgso::PI/2;
+    rotation.x = (float) (0.3 * std::sin(position.x * age / 10) - ppgso::PI/2);
 
 
     if (controlPoints.at(3*step+3).x-0.1 < position.x &&

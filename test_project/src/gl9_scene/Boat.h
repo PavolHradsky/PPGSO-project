@@ -23,7 +23,6 @@ private:
 
   // Speed and rotational momentum
   float speed = 10;
-  glm::vec3 rotMomentum;
     float age{0.0f};
 
   /*!
