@@ -21,11 +21,28 @@ Dolphin::Dolphin() {
 
 bool Dolphin::update(Scene &scene, float dt) {
     age += dt;
-    posZ += speed * dt;
-    position.y = std::cos(age * speed) * radius + posY;
-    position.z = std::sin(age * speed) * radius + posZ;
+    position.z += speed * dt * direction;
+    if(position.z > 40){
+        direction = -1;
+        rotation.y = ppgso::PI;
+    }
+    if(position.z < -40){
+        direction = 1;
+        rotation.y = 0;
+    }
+    if(direction == 1){
+        position.y = std::cos(age * speed) * radius + posY;
+//        position.z = std::sin(age * speed) * radius + posZ;
 
-    rotation.x += dt*speed;
+//        rotation.x += dt*speed;
+        rotation.x = std::sin(age * speed) * radius + 3*ppgso::PI/2;
+    }else{
+        position.y = std::sin(age * speed) * radius + posY;
+//        position.z = -std::cos(age * speed) * radius + posZ;
+
+//        rotation.x -= dt*speed;
+        rotation.x = std::cos(age * speed) * radius + 3*ppgso::PI/2;
+    }
     // make collision of dolhpin and boat
     for (auto &object : scene.objects) {
         // Ignore self in scene

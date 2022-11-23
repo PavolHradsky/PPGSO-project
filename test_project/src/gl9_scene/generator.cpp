@@ -17,6 +17,7 @@ bool Generator::update(Scene &scene, float dt) {
 
         obj->position.x += glm::linearRand(-40.0f, 40.0f);
         obj->posZ += glm::linearRand(-40.0f, 40.0f);
+        obj->posY = -1;
         scene.objects.push_back(std::move(obj));
         time = 0;
         counter += 1;
