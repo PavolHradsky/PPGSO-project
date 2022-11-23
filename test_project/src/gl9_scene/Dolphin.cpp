@@ -16,7 +16,7 @@ Dolphin::Dolphin(glm::vec3 pos, glm::vec3 rot, float freq) {
     position = pos;
     rotation = rot;
     frequency = freq;
-    scale *= glm::linearRand(0.0009f, 0.0015f);
+    scale *= glm::linearRand(0.009f, 0.015f);
     if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("dolphin.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("dolphin.obj");
@@ -26,11 +26,25 @@ bool Dolphin::update(Scene &scene, float dt) {
     age += dt;
 
     frequency = 5;
+    // rotate dolhin in movement
+    rotation.x = -ppgso::PI / 2;
+    rotation.y = -ppgso::PI / 2;
+    rotation.z = -ppgso::PI / 2;
 
-    position.y = sin(age * frequency);
-    position.z = -cos(age * frequency);
+    //rotation.y = -ppgso::PI / 2;
+    //std::cout << rotation.x  << std::endl;
+    // move dolhpin forward
+    //position.x += sin(age * frequency) * 0.05f;
+    position.x += abs(sin(age * frequency))* 0.015f;
+    position.y = sin(age * frequency) * 0.5f;
+    //position.z += cos(age * frequency) * 0.005f;
+    /*
+    position.y = abs(sin(age * frequency))* 0.5f;
+    position.z = -cos(age * frequency);*/
+    std::cout << position.z  << std::endl;
 
-    rotation.x -= dt;
+
+
 
 
 //    position.x = -cos(dt);

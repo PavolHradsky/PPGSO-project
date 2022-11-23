@@ -20,6 +20,7 @@ namespace ppgso {
     public:
       GLuint vao, vbo, tbo, nbo, ibo = 0;
       GLsizei size = 0;
+        glm::vec3 position;
     };
     std::vector<tinyobj::shape_t> shapes;
     std::vector<tinyobj::material_t> materials;
@@ -45,6 +46,8 @@ namespace ppgso {
      * Render the geometry associated with the mesh using glDrawElements.
      */
     void render();
+
+      std::vector<gl_buffer> vertices;
   };
 }
 

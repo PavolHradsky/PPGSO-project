@@ -13,7 +13,7 @@ private:
     //glm::vec3 scale{1,1,1};
 
     glm::vec3 speed;
-    glm::vec3 rotMomentum{3 * ppgso::PI / 2, 0, 2 * ppgso::PI / 3};
+    //glm::vec3 rotMomentum{3 * ppgso::PI / 2, 0, 2 * ppgso::PI / 3};
     float rotation_;
 
 public:

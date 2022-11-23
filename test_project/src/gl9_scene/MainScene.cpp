@@ -19,6 +19,7 @@
 #include "space.h"
 #include "Dolphin.h"
 #include "Boat.h"
+#include "PerlinNoise.h"
 
 const unsigned int SIZE = 980;
 
@@ -58,6 +59,10 @@ private:
         // toto su navyse 2 delfiny, hore je generator pridany do sceny ktory ih ma generovat
         auto dolphin1 = std::make_unique<Dolphin>(position_dolphin1, rotation, freq1);
         dolphin1->scale = {0.01f, 0.01f, 0.01f};
+
+        dolphin1->rotation.x = 3 * ppgso::PI / 2;
+        dolphin1->rotation.y = 0;
+        dolphin1->rotation.z = 2 * ppgso::PI / 3;
         scene.objects.push_back(move(dolphin1));
 
         float freq2 = 10.0f / 250.0f;
@@ -68,6 +73,7 @@ private:
         glm::vec3 position_dolphin1 = {ocean->position.x, ocean->position.y, 0};
         glm::vec3 position_dolphin2 = {position_dolphin1.x+13, position_dolphin1.y+5, -3};*/
         scene.objects.push_back(move(ocean));
+        // add perlin noise to the scene
         /*
         glm::vec3 rotation = {3 * ppgso::PI / 2, 0, 2 * ppgso::PI / 3};
 

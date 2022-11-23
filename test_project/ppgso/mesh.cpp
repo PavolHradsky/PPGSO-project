@@ -34,7 +34,8 @@ ppgso::Mesh::Mesh(const std::string &obj_file) {
       glEnableVertexAttribArray(0);
       glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
     }
-
+    // add verticies
+    vertices.push_back(buffer);
     if(!shape.mesh.texcoords.empty()) {
       // Generate and upload a buffer with texture coordinates to GPU
       glGenBuffers(1, &buffer.tbo);
