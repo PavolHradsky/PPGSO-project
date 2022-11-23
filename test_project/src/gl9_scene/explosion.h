@@ -15,13 +15,14 @@ private:
   float age{0.0f};
   float maxAge{0.2f};
   glm::vec3 rotMomentum;
+  glm::vec3 pos;
 public:
   glm::vec3 speed;
 
   /*!
    * Create new Explosion
    */
-  Explosion();
+  Explosion(glm::vec3 pos);
 
   /*!
    * Update explosion

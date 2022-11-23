@@ -21,35 +21,30 @@ Dolphin::Dolphin() {
 
 bool Dolphin::update(Scene &scene, float dt) {
     age += dt;
-
+    posZ += speed * dt;
     position.y = std::cos(age * speed) * radius + posY;
     position.z = std::sin(age * speed) * radius + posZ;
 
     rotation.x += dt*speed;
+    // make collision of dolhpin and boat
+    for (auto &object : scene.objects) {
+        // Ignore self in scene
+        if (object.get() == this)
+            continue;
+        // We only need to collide with boats
+        auto boat = dynamic_cast<Boat *>(object.get());
+        if (!boat)
+            continue;
 
-//    // TODO make collision dolphin with boat and dolphin will be drowned
-//    for (auto &object : scene.objects) {
-//        // We only want to collide with other boats
-//        auto dolphin = dynamic_cast<Dolphin*>(object.get());
-//        if (!dolphin) continue;
-//        // Check distance between objects
-//        // obtain position of the boat
-//        auto boat = std::make_unique<Boat>();
-//        //if (!boat) continue;
-//        // Check distance between objects
-//        auto distance = glm::distance(boat->position, dolphin->position);
-//        //std::cout << "Distance: " << distance << std::endl;
-//
-//        // If the distance is smaller than sum of their scales, we have a collision
-//        if (distance < scale.x + dolphin->scale.x) {
-//            // Create explosion
-//            auto explosion = std::make_unique<Explosion>();
-//            explosion->position = dolphin->position;
-//            scene.objects.push_back(std::move(explosion));
-//            // Delete this object
-//            return false;
-//        }
-//    }
+        // Check distance between objects
+        auto distance = glm::distance(this->position, boat->position);
+        if (distance < 5) {
+            // Create explosion
+            std::cout << "Explosion" << std::endl;
+            scene.objects.push_back(std::make_unique<Explosion>(this->position));
+        }
+
+    }
 
     generateModelMatrix();
     return true;

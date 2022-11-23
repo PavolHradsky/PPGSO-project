@@ -10,7 +10,10 @@ std::unique_ptr<ppgso::Mesh> Explosion::mesh;
 std::unique_ptr<ppgso::Texture> Explosion::texture;
 std::unique_ptr<ppgso::Shader> Explosion::shader;
 
-Explosion::Explosion() {
+Explosion::Explosion(glm ::vec3 position) {
+
+    this->position = position;
+
   // Random rotation and momentum
   //rotation = glm::ballRand(ppgso::PI)*3.0f;
   //rotMomentum = glm::ballRand(ppgso::PI)*3.0f;

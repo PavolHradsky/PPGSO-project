@@ -22,6 +22,5 @@ public:
    * @param scene Scene to render in
    */
   void render(Scene &scene) override;
-
   float time = 0.0f;
 };
