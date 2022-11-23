@@ -16,11 +16,6 @@ private:
   static std::unique_ptr<ppgso::Texture> texture;
   float speed = 0;
 
-  // Delay fire and fire rate
-  float fireDelay{0.0f};
-  float fireRate{0.1f};
-  glm::vec3 fireOffset{0.7f,0.0f,0.0f};
-
 public:
   /*!
    * Create a new player

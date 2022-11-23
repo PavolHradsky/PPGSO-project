@@ -56,6 +56,10 @@ private:
         // toto su navyse 2 delfiny, hore je generator pridany do sceny ktory ih ma generovat
         auto dolphin1 = std::make_unique<Dolphin>(position_dolphin1, rotation, freq1);
         dolphin1->scale = {0.01f, 0.01f, 0.01f};
+
+        dolphin1->rotation.x = 3 * ppgso::PI / 2;
+        dolphin1->rotation.y = 0;
+        dolphin1->rotation.z = 2 * ppgso::PI / 3;
         scene.objects.push_back(move(dolphin1));
 
         float freq2 = 10.0f / 250.0f;
