@@ -20,6 +20,7 @@
 #include "Dolphin.h"
 #include "Boat.h"
 #include "PerlinNoise.h"
+#include "Fish.h"
 
 const unsigned int SIZE = 980;
 
@@ -43,36 +44,34 @@ private:
         // Create a camera
         auto camera = std::make_unique<Camera>(60.0f, 1.0f, 0.1f, 100.0f);
         camera->position.z = -15.0f;
-        scene.camera = move(camera);
+        scene.camera = std::move(camera);
+
+        // Add ocean to the scene
+        auto ocean = std::make_unique<Ocean>();
+        scene.objects.push_back(std::move(ocean));
+
+//        // Add fish to the scene
+//        auto fish = std::make_unique<Fish>();
+//        scene.objects.push_back(std::move(fish));
 
         // Make a generator of dolphins which will be swim and can have collision with boat
         auto generator =  std::make_unique<Generator>();
         generator->position.y = 10.0f;
-        scene.objects.push_back(move(generator));
+        scene.objects.push_back(std::move(generator));
 
-        // Add ocean to the scene
-        auto ocean = std::make_unique<Ocean>();
-        float freq1 = 7.0f / 250.0f;
-        glm::vec3 rotation{3*ppgso::PI/2,0,2*ppgso::PI/3};
-        glm::vec3 position_dolphin1 = {ocean->position.x, ocean->position.y, 0};
-        glm::vec3 position_dolphin2 = {position_dolphin1.x+13, position_dolphin1.y+5, -3};
-        // toto su navyse 2 delfiny, hore je generator pridany do sceny ktory ih ma generovat
-        auto dolphin1 = std::make_unique<Dolphin>(position_dolphin1, rotation, freq1);
-        dolphin1->scale = {0.01f, 0.01f, 0.01f};
 
-        dolphin1->rotation.x = 3 * ppgso::PI / 2;
-        dolphin1->rotation.y = 0;
-        dolphin1->rotation.z = 2 * ppgso::PI / 3;
-        scene.objects.push_back(move(dolphin1));
-
-        float freq2 = 10.0f / 250.0f;
-        auto dolphin2 = std::make_unique<Dolphin>(position_dolphin2, rotation, freq2);
-        dolphin2->scale = {0.005f, 0.005f, 0.005f};
-        scene.objects.push_back(move(dolphin2));
+//        // toto su navyse 2 delfiny, hore je generator pridany do sceny ktory ih ma generovat
+//        auto dolphin1 = std::make_unique<Dolphin>();
+//        scene.objects.push_back(std::move(dolphin1));
+//
+//        auto dolphin2 = std::make_unique<Dolphin>();
+//        dolphin2->position.x = 13;
+//        dolphin2->position.z = 5;
+//        scene.objects.push_back(std::move(dolphin2));
 /*
         glm::vec3 position_dolphin1 = {ocean->position.x, ocean->position.y, 0};
         glm::vec3 position_dolphin2 = {position_dolphin1.x+13, position_dolphin1.y+5, -3};*/
-        scene.objects.push_back(move(ocean));
+
         // add perlin noise to the scene
         /*
         glm::vec3 rotation = {3 * ppgso::PI / 2, 0, 2 * ppgso::PI / 3};
@@ -101,13 +100,12 @@ private:
 */
 
         // add boat to scene
-
         auto boat = std::make_unique<Boat>();
         boat->position = {-20, 0, -20};
         boat->scale = {0.005f, 0.005f, 0.005f};
         boat->rotation.x = -ppgso::PI/2;
         boat->rotation.y = ppgso::PI;
-        scene.objects.push_back(move(boat));
+        scene.objects.push_back(std::move(boat));
     }
 
 public:

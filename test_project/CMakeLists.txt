@@ -112,7 +112,8 @@ add_executable(gl9_scene
         src/gl9_scene/Ocean.cpp
         src/gl9_scene/Dolphin.cpp
         src/gl9_scene/explosion.cpp
-        src/gl9_scene/space.cpp src/gl9_scene/PerlinNoise.cpp src/gl9_scene/PerlinNoise.h)
+        src/gl9_scene/space.cpp src/gl9_scene/PerlinNoise.cpp src/gl9_scene/PerlinNoise.h
+        src/gl9_scene/Fish.cpp)
 target_link_libraries(gl9_scene ppgso shaders)
 install(TARGETS gl9_scene DESTINATION .)
 add_custom_command(TARGET gl9_scene POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/data/ ${CMAKE_CURRENT_BINARY_DIR})

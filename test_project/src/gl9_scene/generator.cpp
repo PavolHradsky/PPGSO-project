@@ -12,21 +12,12 @@ bool Generator::update(Scene &scene, float dt) {
 
     // Add object to scene when time reaches certain level
     if (time > .3 and counter < 10) {
-        float frequency = glm::linearRand(7.0f / 250.0f, 9.0f / 250.0f);
-        auto obj = std::make_unique<Dolphin>(position, rotation,frequency);
-        // rotate object to make him in right
-        // make him in right position
+        auto obj = std::make_unique<Dolphin>();
+        obj->speed = glm::linearRand(2.0f, 5.0f);
 
-
-        obj->rotation.x = 3 * ppgso::PI / 2;
-        obj->rotation.y = 0;
-        obj->rotation.z = 2 * ppgso::PI / 3;
-        obj->position = position;
-        obj->position.x += glm::linearRand(-10.0f, 10.0f) * 5;
-        obj->position.y += 0;
-        obj->position.z += glm::linearRand(-30.0f, 30.0f) * 10;
-        std::cout <<  obj->position.x << " " << obj->position.y << " " << obj->position.z << std::endl;
-        scene.objects.push_back(move(obj));
+        obj->position.x += glm::linearRand(-40.0f, 40.0f);
+        obj->posZ += glm::linearRand(-40.0f, 40.0f);
+        scene.objects.push_back(std::move(obj));
         time = 0;
         counter += 1;
     }
