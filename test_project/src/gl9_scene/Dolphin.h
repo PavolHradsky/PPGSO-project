@@ -25,5 +25,6 @@ public:
     float posY = 0;
     float posZ = 0;
     float direction = 1;
+    float explosionTime = 0;
 };
 

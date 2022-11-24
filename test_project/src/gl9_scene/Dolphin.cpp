@@ -32,15 +32,9 @@ bool Dolphin::update(Scene &scene, float dt) {
     }
     if(direction == 1){
         position.y = std::cos(age * speed) * radius + posY;
-//        position.z = std::sin(age * speed) * radius + posZ;
-
-//        rotation.x += dt*speed;
         rotation.x = std::sin(age * speed) * radius + 3*ppgso::PI/2;
     }else{
         position.y = std::sin(age * speed) * radius + posY;
-//        position.z = -std::cos(age * speed) * radius + posZ;
-
-//        rotation.x -= dt*speed;
         rotation.x = std::cos(age * speed) * radius + 3*ppgso::PI/2;
     }
     // make collision of dolhpin and boat
@@ -55,17 +49,19 @@ bool Dolphin::update(Scene &scene, float dt) {
 
         // Check distance between objects
         auto distance = glm::distance(this->position, boat->position);
-        if (distance < 5) {
+        if (distance < 5 && age-explosionTime > 5) {
             // Create explosion
             std::cout << "Explosion" << std::endl;
             scene.objects.push_back(std::make_unique<Explosion>(boat->position));
 
-            if (direction == 1) {
-                direction = -1;
-            } else {
-                direction = 1;
+            explosionTime = age;
+            if(direction == 1){
+                rotation.y = ppgso::PI;
             }
-            this->rotation.y = ppgso::PI;
+            if(direction == -1){
+                rotation.y = 0;
+            }
+            direction *= -1;
         }
 
     }
