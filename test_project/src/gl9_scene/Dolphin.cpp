@@ -58,7 +58,14 @@ bool Dolphin::update(Scene &scene, float dt) {
         if (distance < 5) {
             // Create explosion
             std::cout << "Explosion" << std::endl;
-            scene.objects.push_back(std::make_unique<Explosion>(this->position));
+            scene.objects.push_back(std::make_unique<Explosion>(boat->position));
+
+            if (direction == 1) {
+                direction = -1;
+            } else {
+                direction = 1;
+            }
+            this->rotation.y = ppgso::PI;
         }
 
     }

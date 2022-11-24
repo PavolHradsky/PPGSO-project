@@ -13,7 +13,7 @@ private:
   static std::unique_ptr<ppgso::Texture> texture;
 
   float age{0.0f};
-  float maxAge{0.2f};
+  float maxAge{0.12f};
   glm::vec3 rotMomentum;
   glm::vec3 pos;
 public:
