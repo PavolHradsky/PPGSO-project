@@ -72,16 +72,19 @@ bool Boat::update(Scene &scene, float dt) {
     age += dt;
     glm::vec3 nextPosition;
 
-    position = bezierPoint(controlPoints.at(3*step), controlPoints.at(3*step+1), controlPoints.at(3*step+2),
+    position = bezierPoint(controlPoints.at(3*step),
+                           controlPoints.at(3*step+1),
+                           controlPoints.at(3*step+2),
                            controlPoints.at(3*step+3), age/speed);
-    nextPosition = bezierPoint(controlPoints.at(3*step), controlPoints.at(3*step+1), controlPoints.at(3*step+2),
+    nextPosition = bezierPoint(controlPoints.at(3*step),
+                               controlPoints.at(3*step+1),
+                               controlPoints.at(3*step+2),
                                controlPoints.at(3*step+3), (age+dt)/speed);
 
     // rotate the boat
     rotation.y = (float) (std::atan2(nextPosition.x - position.x, nextPosition.z - position.z) + M_PI_2);
     // rotate the boat on waves
     rotation.x = (float) (0.3 * std::sin(position.x * age / 10) - ppgso::PI/2);
-
 
     if (controlPoints.at(3*step+3).x-0.1 < position.x &&
         position.x < controlPoints.at(3*step+3).x+0.1 &&
@@ -99,30 +102,6 @@ bool Boat::update(Scene &scene, float dt) {
 
 void Boat::render(Scene &scene) {
     shader->use();
-    // Generate a vertex array object
-    // This keeps track of what attributes are associated with buffers
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
-
-    // Generate a vertex buffer object, this will feed data to the vertex shader
-    glGenBuffers(1, &vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-
-    // TODO: Pass the control points to the GPU
-    glBufferData(GL_ARRAY_BUFFER, points.size() * sizeof(glm::vec3), points.data(), GL_STATIC_DRAW);
-
-    // Setup vertex array lookup, this tells the shader how to pick data for the "Position" input
-    auto position_attrib = shader->getAttribLocation("Position");
-    glVertexAttribPointer(position_attrib, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
-    glEnableVertexAttribArray(position_attrib);
-
-    glClearColor(1, 1, 1, 1);
-    // Draw shape
-    glBindVertexArray(vao);
-
-    // TODO: Define the correct render mode
-    glDrawArrays(GL_LINE_STRIP, 0, (GLsizei) points.size());
-
 
     // Set up light
     shader->setUniform("LightDirection", scene.lightDirection);
