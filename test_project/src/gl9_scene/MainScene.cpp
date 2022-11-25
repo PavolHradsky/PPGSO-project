@@ -15,10 +15,12 @@
 #include "camera.h"
 #include "scene.h"
 #include "generator.h"
+#include "UnderWatterTerrain.h"
 #include "Ocean.h"
 #include "space.h"
 #include "Dolphin.h"
 #include "Boat.h"
+#include "Sand.h"
 #include "PerlinNoise.h"
 #include "Fish.h"
 
@@ -62,6 +64,12 @@ private:
         boat->rotation.x = -ppgso::PI/2;
         boat->rotation.y = ppgso::PI;
         scene.objects.push_back(std::move(boat));
+
+        auto underwaterterrain = std::make_unique<UnderWatterTerrain>();
+        scene.objects.push_back(std::move(underwaterterrain));
+
+        auto sand = std::make_unique<Sand>();
+        scene.objects.push_back(std::move(sand));
     }
 
 public:
@@ -155,6 +163,9 @@ public:
                     break;
                 case GLFW_KEY_RIGHT:
                     scene.camera->rotateRight = true;
+                    break;
+                case GLFW_KEY_2:
+                    scene.camera->position = {0, -40, 0};
                     break;
                 case GLFW_MOUSE_BUTTON_LEFT:
 //                    scene.camera->rotation.z -= 0.1;
