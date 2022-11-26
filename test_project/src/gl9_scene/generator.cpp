@@ -3,6 +3,7 @@
 
 #include "generator.h"
 #include "Dolphin.h"
+#include "Fish.h"
 
 int counter = 0;
 
@@ -19,6 +20,15 @@ bool Generator::update(Scene &scene, float dt) {
         obj->posZ += glm::linearRand(-40.0f, 40.0f);
         obj->posY = -1;
         scene.objects.push_back(std::move(obj));
+        auto fishs = std::make_unique<Fish>();
+        fishs->position.x += glm::linearRand(-40.0f, 40.0f);
+        fishs->position.y += glm::linearRand(-60.0f, 0.0f);
+        fishs->position.z += glm::linearRand(-40.0f, 40.0f);
+        fishs->posY = fishs->position.y ;
+        fishs->posZ = fishs->position.z ;
+        fishs->posX = fishs->position.x ;
+        //rocks->position.z += glm::linearRand(-40.0f, 40.0f);
+        scene.objects.push_back(std::move(fishs));
         time = 0;
         counter += 1;
     }

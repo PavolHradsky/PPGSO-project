@@ -16,7 +16,7 @@ std::unique_ptr<ppgso::Shader> Fish::shader;
 
 Fish::Fish() {
     // Scale the default model
-    scale *= 0.01f;
+    scale *= glm::linearRand(0.009f, 0.015f);
     rotation.x = -ppgso::PI / 4;
     // Initialize static resources if needed
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
@@ -28,11 +28,30 @@ Fish::Fish() {
 bool Fish::update(Scene &scene, float dt) {
 
     age += dt;
+    // move of the fish
 
-    position.y = std::cos(age * speed) * radius;
-    position.z = std::sin(age * speed) * radius;
 
-    rotation.x += dt*speed;
+    position.z += speed * dt * direction;
+    position.y = sin(age * speed) * radius + posY;
+    position.x = cos(age * speed) * radius + posX;
+    rotation.x = -atan(age*speed) * radius - 3*ppgso::PI/2;
+    //rotation.x = sin(age * speed) * radius + 3 * ppgso::PI / 2;
+    std::cout << position.z << std::endl;
+    if(position.z > 40){
+
+        direction = -1;
+        rotation.y = 2*ppgso::PI;
+        rotation.z = -ppgso::PI;
+    }
+    if(position.z < -40){
+        direction = 1;
+        rotation.y = 0;
+    }
+
+    //position.y = std::cos(age * speed) * radius;
+    //position.z = std::sin(age * speed) * radius;
+
+    //rotation.x += dt*speed;
 
     generateModelMatrix();
     return true;

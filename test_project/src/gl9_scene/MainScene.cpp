@@ -23,6 +23,9 @@
 #include "Sand.h"
 #include "PerlinNoise.h"
 #include "Fish.h"
+#include "Bubble.h"
+#include "Rock.h"
+#include "Rain.h"
 
 const unsigned int SIZE = 980;
 
@@ -64,12 +67,20 @@ private:
         boat->rotation.x = -ppgso::PI/2;
         boat->rotation.y = ppgso::PI;
         scene.objects.push_back(std::move(boat));
-
+        auto rain = std::make_unique<Rain>( glm::vec3{0, 0, 0},10,10,10  );
+        scene.objects.push_back(std::move(rain));
         auto underwaterterrain = std::make_unique<UnderWatterTerrain>();
         scene.objects.push_back(std::move(underwaterterrain));
 
         auto sand = std::make_unique<Sand>();
         scene.objects.push_back(std::move(sand));
+        auto rock = std::make_unique<Rock>();
+        scene.objects.push_back(std::move(rock));
+        auto fish = std::make_unique<Fish>();
+        fish->position.y = -50;
+        scene.objects.push_back(std::move(fish));
+        auto bubble = std::make_unique<Bubble>(glm::translate(glm::mat4(1.0f), {2 * sin(0.2),1, (0.5) * cos(0.2)}), ((float) rand() / (float) RAND_MAX) * (45 - 35) + 35, 0.035, 0.05, 0.1);
+        scene.objects.push_back(move(bubble));
     }
 
 public:
@@ -165,7 +176,7 @@ public:
                     scene.camera->rotateRight = true;
                     break;
                 case GLFW_KEY_2:
-                    scene.camera->position = {0, -40, 0};
+                    scene.camera->position = {0, -75, 0};
                     break;
                 case GLFW_MOUSE_BUTTON_LEFT:
 //                    scene.camera->rotation.z -= 0.1;

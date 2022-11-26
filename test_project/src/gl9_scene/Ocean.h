@@ -42,5 +42,6 @@ public:
    * @param scene
    */
   void onClick(Scene &scene) override ;
+  glm::vec3 globalPosition = {0,0,0};
 };
 

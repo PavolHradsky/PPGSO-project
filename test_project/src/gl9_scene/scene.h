@@ -52,6 +52,7 @@ class Scene {
     } cursor;
 
     bool global_lighting_on = true;
+    glm::vec3 globalPosition = {0,0,0};
     struct Lights {
         int count;
         glm::vec3 positions[100];

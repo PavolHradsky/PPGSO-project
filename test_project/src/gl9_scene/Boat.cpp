@@ -106,9 +106,16 @@ void Boat::render(Scene &scene) {
     // Set up light
     shader->setUniform("LightDirection", scene.lightDirection);
 
+    // Set up material
+
+    shader->setUniform("MaterialShininess", 200.0f);
+
+
     // use camera
     shader->setUniform("ProjectionMatrix", scene.camera->projectionMatrix);
     shader->setUniform("ViewMatrix", scene.camera->viewMatrix);
+
+
 
     // render mesh
     shader->setUniform("ModelMatrix", modelMatrix);

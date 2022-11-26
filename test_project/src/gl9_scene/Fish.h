@@ -49,6 +49,10 @@ public:
      * @param scene
      */
     void onClick(Scene &scene) override ;
+    float direction = 1;
+    float posY = 0;
+    float posX = 0;
+    float posZ = 0;
 };
 
 #endif //PPGSO_FISH_H
