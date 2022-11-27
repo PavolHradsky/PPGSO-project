@@ -25,23 +25,6 @@ bool Cloud::update(Scene &scene, float dt) {
 }
 
 void Cloud::render(Scene &scene) {
-    shader->use();
-
-    // Set up light
-    shader->setUniform("LightDirection", scene.lightDirection);
-
-    // use camera
-    shader->setUniform("ProjectionMatrix", scene.camera->projectionMatrix);
-    shader->setUniform("ViewMatrix", scene.camera->viewMatrix);
-
-    // render mesh
-    shader->setUniform("ModelMatrix", modelMatrix);
-    shader->setUniform("Texture", *texture);
-    shader->setUniform("TextureOffset", textureOffset);
-    mesh->render();
-}
-
-void Cloud::render(Scene &scene) {
     // Disable writing to the depth buffer so we render a "background"
     glDepthMask(GL_FALSE);
 
