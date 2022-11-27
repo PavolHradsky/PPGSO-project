@@ -16,12 +16,11 @@ std::unique_ptr<ppgso::Shader> Fish::shader;
 
 Fish::Fish() {
     // Scale the default model
-    scale *= glm::linearRand(0.009f, 0.015f);
-    rotation.x = -ppgso::PI/3;
+    scale *= glm::linearRand(1, 3);
     // Initialize static resources if needed
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
-    if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("Dolphin.bmp"));
-    if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Dolphin.obj");
+    if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("fish.bmp"));
+    if (!mesh) mesh = std::make_unique<ppgso::Mesh>("fish.obj");
 }
 
 
@@ -44,16 +43,16 @@ bool Fish::update(Scene &scene, float dt) {
     float nextZ = std::sin((age + dt) * speed) * radius + posZ;
 
     // rotate fish
-    rotation.z = std::atan2(nextX - position.x, nextZ - position.z);
+    rotation.z = std::atan2(nextX - position.x, nextZ - position.z) + ppgso::PI / 2;
 
 
 
-//    if(position.z > 40){
+//    if(position.z > 120){
 //        direction = -1;
 //        rotation.y = 2*ppgso::PI;
 //        rotation.z = -ppgso::PI;
 //    }
-//    if(position.z < -40){
+//    if(position.z < -120){
 //        direction = 1;
 //        rotation.y = 0;
 //    }

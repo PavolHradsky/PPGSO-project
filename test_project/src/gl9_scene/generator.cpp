@@ -12,21 +12,23 @@ bool Generator::update(Scene &scene, float dt) {
     time += dt;
 
     // Add object to scene when time reaches certain level
-    if (time > .3 and counter < 10) {
+    if (time > .3 and counter < 30) {
         auto obj = std::make_unique<Dolphin>();
         obj->speed = glm::linearRand(2.0f, 5.0f);
-
-        obj->position.x += glm::linearRand(-40.0f, 40.0f);
-        obj->posZ += glm::linearRand(-40.0f, 40.0f);
+        obj->position.x += glm::linearRand(-120.0f, 120.0f);
+        obj->position.z += glm::linearRand(-120.0f, 120.0f);
+        obj->posZ = obj->position.z;
+        obj->posX = obj->position.x;
         obj->posY = -1;
         scene.objects.push_back(std::move(obj));
+
         auto fishs = std::make_unique<Fish>();
-        fishs->position.x += glm::linearRand(-40.0f, 40.0f);
+        fishs->position.x += glm::linearRand(-120.0f, 120.0f);
         fishs->position.y += glm::linearRand(-60.0f, 0.0f);
-        fishs->position.z += glm::linearRand(-40.0f, 40.0f);
-        fishs->posY = fishs->position.y ;
-        fishs->posZ = fishs->position.z ;
-        fishs->posX = fishs->position.x ;
+        fishs->position.z += glm::linearRand(-120.0f, 120.0f);
+        fishs->posY = fishs->position.y;
+        fishs->posZ = fishs->position.z;
+        fishs->posX = fishs->position.x;
         scene.objects.push_back(std::move(fishs));
         time = 0;
         counter += 1;

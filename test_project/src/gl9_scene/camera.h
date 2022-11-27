@@ -27,7 +27,7 @@ public:
   glm::mat4 viewMatrix;
   glm::mat4 projectionMatrix;
   float moveSpeed = 0.2f;
-  float rotateSpeed = 0.005f;
+  float rotateSpeed = 0.01f;
 
   bool moveW, moveS, moveA, moveD, moveQ, moveE, rotateUp, rotateDown, rotateLeft, rotateRight = false;
   bool enableAnimation = true;
@@ -39,7 +39,7 @@ public:
    * @param near - Distance to the near frustum plane
    * @param far - Distance to the far frustum plane
    */
-  Camera(float fow = 90.0f, float ratio = 1.0f, float near = 0.1f, float far = 10.0f);
+  Camera(float fow = 45.0f, float ratio = 1.0f, float near = 0.1f, float far = 10.0f);
 
   /*!
    * Update Camera viewMatrix based on up, position and back vectors

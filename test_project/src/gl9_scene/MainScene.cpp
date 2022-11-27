@@ -47,13 +47,40 @@ private:
         scene.lightDirection = {0, 30, 0};
 
         // Create a camera
-        auto camera = std::make_unique<Camera>(60.0f, 1.0f, 0.1f, 100.0f);
+        auto camera = std::make_unique<Camera>(60.0f, 1.0f, 0.1f, 500.0f);
         camera->position.z = -15.0f;
         scene.camera = std::move(camera);
 
         // Add ocean to the scene
-        auto ocean = std::make_unique<Ocean>();
-        scene.objects.push_back(std::move(ocean));
+        int i, j;
+        i = -80;
+        while(i <= 80){
+            j = -80;
+            while(j <= 80){
+                auto ocean = std::make_unique<Ocean>();
+                ocean->position.x = i;
+                ocean->position.z = j;
+                scene.objects.push_back(std::move(ocean));
+                j += 80;
+            }
+            i += 80;
+        }
+
+        i = -80;
+        while(i <= 80){
+            j = -80;
+            while(j <= 80){
+                auto ocean = std::make_unique<Ocean>();
+                ocean->position.x = i;
+                ocean->position.z = j;
+                ocean->position.y = -5;
+                ocean->rotation.x = glm::radians(180.0f);
+                scene.objects.push_back(std::move(ocean));
+                j += 80;
+            }
+            i += 80;
+        }
+
 
         // Make a generator of dolphins which will be swim and can have collision with boat
         auto generator =  std::make_unique<Generator>();
@@ -72,13 +99,26 @@ private:
         auto underwaterterrain = std::make_unique<UnderWatterTerrain>();
         scene.objects.push_back(std::move(underwaterterrain));
 
-        auto sand = std::make_unique<Sand>();
-        scene.objects.push_back(std::move(sand));
-        auto rock = std::make_unique<Rock>();
-        scene.objects.push_back(std::move(rock));
-        auto fish = std::make_unique<Fish>();
-        fish->position.y = -50;
-        scene.objects.push_back(std::move(fish));
+
+        i = -80;
+        while(i <= 80){
+            j = -80;
+            while(j <= 80){
+                auto sand = std::make_unique<Sand>();
+                sand->position.x = i;
+                sand->position.z = j;
+                scene.objects.push_back(std::move(sand));
+                j += 80;
+            }
+            i += 80;
+        }
+        for(int i = 0; i < 30; i++){
+            auto rock = std::make_unique<Rock>();
+            rock->position.x = glm::linearRand(-115.0f, 115.0f);
+            rock->position.z = glm::linearRand(-115.0f, 115.0f);
+            scene.objects.push_back(std::move(rock));
+        }
+
         auto bubble = std::make_unique<Bubble>(glm::translate(glm::mat4(1.0f), {2 * sin(0.2),1, (0.5) * cos(0.2)}), ((float) rand() / (float) RAND_MAX) * (45 - 35) + 35, 0.035, 0.05, 0.1);
         scene.objects.push_back(move(bubble));
     }

@@ -15,7 +15,7 @@ std::unique_ptr<ppgso::Shader> Rock::shader;
 Rock::Rock() {
     // Scale the default model
     scale *= 0.05f;
-    position = {35,-78,35};
+    position.y = -79;
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("Rock.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Rock.obj");
