@@ -30,7 +30,7 @@ bool Fish::update(Scene &scene, float dt) {
     age += dt;
     // move of the fish
 
-
+    // TODO pohyb viac specificky, pri naraze do inej ryby, nieco spravit, po nejakej dobe ryba uhyne a len spadne na zem
     position.z += speed * dt * direction;
     position.y = sin(age * speed) * radius + posY;
     position.x = cos(age * speed) * radius + posX;

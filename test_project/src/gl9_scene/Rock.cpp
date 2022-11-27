@@ -43,7 +43,7 @@ void Rock::render(Scene &scene) {
     shader->setUniform("MaterialAmbient",{ 0.1f, 0.1f, 0.1f});
     shader->setUniform("MaterialDiffuse", {0.5f, 0.5f, 0.5f});
     shader->setUniform("MaterialSpecular", {0.5f, 0.5f, 0.5f});
-
+    // TODO nastavit tiene kamenu
     // lights count
     shader->setUniform("LightCount", scene.lights.count);
     std::cout << scene.lights.count << std::endl;

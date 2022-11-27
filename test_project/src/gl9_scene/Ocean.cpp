@@ -22,9 +22,11 @@ Ocean::Ocean() {
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Ocean.obj");
     // apply perlin noise on ocean object
     // TODO, also implemented in mesh.h and mesh.cpp
+    // TODO urobit funkcne perlin noise... chyba je ze mesh->vertices.size() je stale 1 a to je asi malo, pretoze object mame scalnuty a nemame viac vertexov, treba asi ist cez bezier surface
     PerlinNoise pn(0.1f, 0.1f, 0.1f, 0.1f);
+    std::cout << "Perlin noise: " << mesh->vertices.size() << std::endl;
     for (int i = 0; i < mesh->vertices.size(); i++) {
-        mesh->vertices[i].position.z += pn.noise(mesh->vertices[i].position.x, mesh->vertices[i].position.y, 0.0f);
+        mesh->vertices[i].position.z = pn.noise(mesh->vertices[i].position.x, mesh->vertices[i].position.y, 0.8f);
     }
     /*
     double value[100][100];

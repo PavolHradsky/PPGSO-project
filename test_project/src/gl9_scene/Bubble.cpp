@@ -11,6 +11,10 @@
 #include <shaders/texture_frag_glsl.h>
 #include <glm/gtx/euler_angles.hpp>
 
+// TODO od Plevka, prerobit, sfunkcnit
+
+
+
 
 // Static resources
 std::unique_ptr<ppgso::Mesh> Bubble::mesh;
@@ -18,6 +22,7 @@ std::unique_ptr<ppgso::Texture> Bubble::texture;
 std::unique_ptr<ppgso::Shader> Bubble::shader;
 
 Bubble:: Bubble(glm::vec3  position, float timeAlive, float minSc, float maxSc, float rndPos) {
+
     // Set random scale speed and rotation
     this->position = position;
     auto rndmPos = random_vec3(-rndPos, rndPos);

@@ -12,10 +12,33 @@ Cloud::Cloud() {
 }
 
 bool Cloud::update(Scene &scene, float dt) {
+
+    // make cloud from polygons
+    // TODO urobit oblak z polygonov
+    // TODO urobit aby sa oblak pohyboval
+    // TODO urobit aby sa oblak pohyboval v zavislosti od pozicie kamery
+
     // Offset for UV mapping, creates illusion of scrolling
     textureOffset.y -= dt / 5;
     generateModelMatrix();
     return true;
+}
+
+void Cloud::render(Scene &scene) {
+    shader->use();
+
+    // Set up light
+    shader->setUniform("LightDirection", scene.lightDirection);
+
+    // use camera
+    shader->setUniform("ProjectionMatrix", scene.camera->projectionMatrix);
+    shader->setUniform("ViewMatrix", scene.camera->viewMatrix);
+
+    // render mesh
+    shader->setUniform("ModelMatrix", modelMatrix);
+    shader->setUniform("Texture", *texture);
+    shader->setUniform("TextureOffset", textureOffset);
+    mesh->render();
 }
 
 void Cloud::render(Scene &scene) {
@@ -30,8 +53,10 @@ void Cloud::render(Scene &scene) {
 
     // Render mesh, not using any projections, we just render in 2D
     shader->setUniform("ModelMatrix", modelMatrix);
-    shader->setUniform("ViewMatrix", glm::mat4{1.0f});
-    shader->setUniform("ProjectionMatrix", glm::mat4{1.0f});
+    // use camera
+    shader->setUniform("ProjectionMatrix", scene.camera->projectionMatrix);
+    shader->setUniform("ViewMatrix", scene.camera->viewMatrix);
+
     shader->setUniform("Texture", *texture);
     shader->setUniform("lights.count", 1);
     mesh->render();
