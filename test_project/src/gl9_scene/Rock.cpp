@@ -46,7 +46,7 @@ void Rock::render(Scene &scene) {
     // TODO nastavit tiene kamenu
     // lights count
     shader->setUniform("LightCount", scene.lights.count);
-    std::cout << scene.lights.count << std::endl;
+//    std::cout << scene.lights.count << std::endl;
     for (int i = 0; i < scene.lights.count; i++) {
         shader->setUniform("lights.positions[" + std::to_string(i) + "]", scene.lights.positions[i]);
         shader->setUniform("lights.colors[" + std::to_string(i) + "]", scene.lights.colors[i]);
