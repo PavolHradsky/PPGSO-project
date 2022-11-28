@@ -14,6 +14,7 @@ std::unique_ptr<ppgso::Texture> Dolphin::texture;
 
 Dolphin::Dolphin() {
     scale *= glm::linearRand(0.009f, 0.015f);
+    rotation.x = 5*ppgso::PI/3;
     if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("dolphin.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("dolphin.obj");
@@ -32,10 +33,10 @@ bool Dolphin::update(Scene &scene, float dt) {
     }
     if(direction == 1){
         position.y = std::cos(age * speed) * radius + posY;
-        rotation.x = std::sin(age * speed) * radius + 3*ppgso::PI/2 + posX;
+        rotation.x = std::sin(age * speed) * radius + 5*ppgso::PI/3; + posX;
     }else{
         position.y = std::sin(age * speed) * radius + posY;
-        rotation.x = std::cos(age * speed) * radius + 3*ppgso::PI/2 + posX;
+        rotation.x = std::cos(age * speed) * radius + 5*ppgso::PI/3 + posX;
     }
     // make collision of dolhpin and boat
     for (auto &object : scene.objects) {

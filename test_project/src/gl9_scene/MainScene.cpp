@@ -116,6 +116,10 @@ private:
             auto rock = std::make_unique<Rock>();
             rock->position.x = glm::linearRand(-115.0f, 115.0f);
             rock->position.z = glm::linearRand(-115.0f, 115.0f);
+            // rotate rock randomly
+            rock->rotation.x = glm::linearRand(0.0f, 360.0f);
+            rock->rotation.y = glm::linearRand(0.0f, 360.0f);
+            rock->rotation.z = glm::linearRand(0.0f, 360.0f);
             scene.objects.push_back(std::move(rock));
         }
 
