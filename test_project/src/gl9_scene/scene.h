@@ -15,6 +15,13 @@
  */
 class Scene {
   public:
+    // shader
+    std::unique_ptr<ppgso::Shader> shader;
+
+    // lights
+    std::vector<glm::vec3> light_positions;
+    int LIGHT_COUNT = 3;
+    glm::vec3 player_position{0, 0, 0};
     /*!
      * Update all objects in the scene
      * @param time
@@ -62,6 +69,7 @@ class Scene {
     };
 
     Lights lights;
+    int rock_lights = 15;
 };
 
 #endif // _PPGSO_SCENE_H
