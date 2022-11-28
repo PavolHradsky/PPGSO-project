@@ -25,7 +25,7 @@ bool Filter::update(Scene &scene, float dt) {
 
 void Filter::render(Scene &scene) {
     shader->use();
-
+    shader->setUniform("Transparency", 0);
     // Set up light
     shader->setUniform("LightDirection", scene.lightDirection);
 

@@ -61,6 +61,7 @@ bool Fish::update(Scene &scene, float dt) {
     //position.z = std::sin(age * speed) * radius;
 
     //rotation.x += dt*speed;
+    // die after 10 seconds
 
     generateModelMatrix();
     return true;

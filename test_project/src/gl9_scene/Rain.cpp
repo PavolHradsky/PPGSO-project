@@ -16,6 +16,7 @@
 std::unique_ptr<ppgso::Mesh> Rain::mesh;
 std::unique_ptr<ppgso::Texture> Rain::texture;
 std::unique_ptr<ppgso::Shader> Rain::shader;
+
 // TODO rain code z copilota, treba sfunkcnit, momentalne tam je 1 gula, ktora by sa dala zneuzit na slnko a z nej spravit luce osvetlenim... alebo nieco ine
 Rain::Rain(glm::vec3 position, float minSc, float maxSc, float rndPos) {
     // Set random scale speed and rotation

@@ -27,10 +27,9 @@
 #include "Rock.h"
 #include "Rain.h"
 #include "Filter.h"
-#include <shaders/texture_vert_glsl.h>
-#include <shaders/texture_frag_glsl.h>
-#include <shaders/light_vert_glsl.h>
-#include <shaders/light_frag_glsl.h>
+#include "shaders/texture_vert_glsl.h"
+#include "shaders/texture_frag_glsl.h"
+
 
 const unsigned int SIZE = 980;
 
@@ -55,6 +54,9 @@ private:
         auto camera = std::make_unique<Camera>(60.0f, 1.0f, 0.1f, 500.0f);
         camera->position.z = -15.0f;
         scene.camera = std::move(camera);
+
+        auto shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
+        scene.shader = std::move(shader);
 
         auto filter = std::make_unique<Filter>();
         filter->position.y = 10;
@@ -105,12 +107,18 @@ private:
         scene.objects.push_back(std::move(boat));
         auto rain = std::make_unique<Rain>( glm::vec3{0, 0, 0},10,10,10  );
         scene.objects.push_back(std::move(rain));
-        auto underwaterterrain = std::make_unique<UnderWatterTerrain>();
-        scene.objects.push_back(std::move(underwaterterrain));
 
+        auto upperWatter = std::make_unique<UnderWatterTerrain>();
+        upperWatter->position = {0, 40,0};
+        scene.objects.push_back(std::move(upperWatter));
+
+        auto underwaterterrain = std::make_unique<UnderWatterTerrain>();
+        underwaterterrain->position = {0, -40,0};
+        scene.objects.push_back(std::move(underwaterterrain));
+/*
         auto shader = std::make_unique<ppgso::Shader>(light_vert_glsl, light_frag_glsl);
         scene.shader = move(shader);
-
+*/
         i = -80;
         while(i <= 80){
             j = -80;
@@ -144,12 +152,13 @@ public:
      * Construct custom game window
      */
     SceneWindow() : Window{"Underwater world", SIZE, SIZE} {
+        /*
         ppgso::Shader quadShader = {texture_vert_glsl, texture_frag_glsl};
         ppgso::Mesh quadMesh = {"quad.obj"};
         scene.light_positions.clear();
         scene.light_positions.push_back(glm::vec3(5, 7, -13));
         scene.shader->setUniform("lights[0].color", glm::vec3(1, 0.5, 0.5));
-
+*/
         //hideCursor();
         glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
@@ -392,6 +401,7 @@ public:
         // Update and render all objects
         scene.update(dt);
         scene.render();
+
     }
 };
 

@@ -14,6 +14,7 @@ Cloud::Cloud() {
 bool Cloud::update(Scene &scene, float dt) {
 
     // make cloud from polygons
+
     // TODO urobit oblak z polygonov
     // TODO urobit aby sa oblak pohyboval
     // TODO urobit aby sa oblak pohyboval v zavislosti od pozicie kamery

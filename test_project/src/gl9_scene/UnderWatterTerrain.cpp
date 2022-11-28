@@ -12,7 +12,7 @@ std::unique_ptr<ppgso::Texture> UnderWatterTerrain::texture;
 UnderWatterTerrain::UnderWatterTerrain() {
 
     scale = {1.2f, 0.4, 1.2f};
-    position = {0, -40,0};
+
     // TODO Chyba tu este vrchna cast "kocky", hodilo by sa nejako vyplnit vnutro object modrym, nech mame pocit ze sme vo vode
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("wall.bmp"));
