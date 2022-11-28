@@ -26,6 +26,7 @@
 #include "Bubble.h"
 #include "Rock.h"
 #include "Rain.h"
+#include "Filter.h"
 
 const unsigned int SIZE = 980;
 
@@ -50,6 +51,10 @@ private:
         auto camera = std::make_unique<Camera>(60.0f, 1.0f, 0.1f, 500.0f);
         camera->position.z = -15.0f;
         scene.camera = std::move(camera);
+
+        auto filter = std::make_unique<Filter>();
+        filter->position.y = 10;
+        scene.objects.push_back(std::move(filter));
 
         // Add ocean to the scene
         int i, j;
