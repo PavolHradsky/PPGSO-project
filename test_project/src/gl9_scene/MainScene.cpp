@@ -26,6 +26,10 @@
 #include "Bubble.h"
 #include "Rock.h"
 #include "Rain.h"
+#include <shaders/texture_vert_glsl.h>
+#include <shaders/texture_frag_glsl.h>
+#include <shaders/light_vert_glsl.h>
+#include <shaders/light_frag_glsl.h>
 
 const unsigned int SIZE = 980;
 
@@ -99,6 +103,8 @@ private:
         auto underwaterterrain = std::make_unique<UnderWatterTerrain>();
         scene.objects.push_back(std::move(underwaterterrain));
 
+        auto shader = std::make_unique<ppgso::Shader>(light_vert_glsl, light_frag_glsl);
+        scene.shader = move(shader);
 
         i = -80;
         while(i <= 80){
@@ -133,6 +139,12 @@ public:
      * Construct custom game window
      */
     SceneWindow() : Window{"Underwater world", SIZE, SIZE} {
+        ppgso::Shader quadShader = {texture_vert_glsl, texture_frag_glsl};
+        ppgso::Mesh quadMesh = {"quad.obj"};
+        scene.light_positions.clear();
+        scene.light_positions.push_back(glm::vec3(5, 7, -13));
+        scene.shader->setUniform("lights[0].color", glm::vec3(1, 0.5, 0.5));
+
         //hideCursor();
         glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 

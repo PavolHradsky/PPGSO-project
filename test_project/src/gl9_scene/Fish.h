@@ -20,7 +20,7 @@ private:
     static std::unique_ptr<ppgso::Shader> shader;
     static std::unique_ptr<ppgso::Texture> texture;
     float age = 0;
-    float speed = 0.1;
+    float speed = 0.5;
     float radius = 15;
 
 public:
