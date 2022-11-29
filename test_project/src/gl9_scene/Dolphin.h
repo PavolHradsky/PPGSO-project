@@ -5,13 +5,13 @@
 
 class Dolphin final : public Object {
 private:
+    static std::unique_ptr<ppgso::Shader> shader;
     static std::unique_ptr<ppgso::Mesh> mesh;
     static std::unique_ptr<ppgso::Texture> texture;
 
     float age = 0;
 
 public:
-    static std::unique_ptr<ppgso::Shader> shader;
     Dolphin();
 
     bool update(Scene &scene, float dt) override;
@@ -26,5 +26,6 @@ public:
     float posZ = 0;
     float direction = 1;
     float explosionTime = 0;
+    float prevCamY = 10;
 };
 

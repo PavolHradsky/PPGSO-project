@@ -344,14 +344,6 @@ public:
      * Window update implementation that will be called automatically from pollEvents
      */
     void onIdle() override {
-        // loop for each object in the scene
-//        if(scene.camera->position.y < -2){
-//            for (auto &obj: scene.objects) {
-//                // update the object
-//                obj->shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
-//            }
-//
-//        }
 
         // Track time
         static auto time = (float) glfwGetTime();

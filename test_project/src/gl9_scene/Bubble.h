@@ -15,6 +15,7 @@ private:
     glm::mat4 translateMatrix;
 
     // Static resources (Shared between instances)
+    static std::unique_ptr<ppgso::Shader> shader;
     static std::unique_ptr<ppgso::Mesh> mesh;
     static std::unique_ptr<ppgso::Texture> texture;
     glm::mat4 offset;
@@ -27,7 +28,6 @@ private:
 
 
 public:
-    static std::unique_ptr<ppgso::Shader> shader;
     Bubble(glm::vec3  position, float timeAlive, float minSc, float maxSc, float rndPos);
 
     Bubble(glm::mat4 translateMatrix, float timeAlive, float minSc, float maxSc, float rndPos);

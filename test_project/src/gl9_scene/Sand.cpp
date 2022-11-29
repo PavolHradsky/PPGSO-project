@@ -7,6 +7,7 @@
 #include "PerlinNoise.h"
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
+#include "shaders/my_texture_frag_glsl.h"
 // shared resources
 std::unique_ptr<ppgso::Mesh> Sand::mesh;
 std::unique_ptr<ppgso::Texture> Sand::texture;
@@ -25,6 +26,14 @@ Sand::Sand() {
 
 
 bool Sand::update(Scene &scene, float dt) {
+    if(prevCamY > 0 && scene.camera->position.y < 0){
+        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
+    }
+    if(prevCamY < 0 && scene.camera->position.y > 0){
+        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
+    }
+    prevCamY = scene.camera->position.y;
+
     generateModelMatrix();
     return true;
 }
