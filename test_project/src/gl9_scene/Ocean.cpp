@@ -25,6 +25,12 @@ bool Ocean::update(Scene &scene, float dt) {
 
     age += dt;
 
+    PerlinNoise pn(0.1f, 0.1f, 0.1f, 0.1f);
+    std::cout << "Perlin noise: " << bezier.vertices.size() << std::endl;
+    for (int i = 0; i < bezier.vertices.size(); i++) {
+        bezier.vertices[i].y = pn.noise(bezier.vertices[i].x, bezier.vertices[i].z, 0.8f);
+    }
+
 //    controlPoints[0][0][1] = std::sin(age);
 //
 //    bezier.bezierPatch(controlPoints);

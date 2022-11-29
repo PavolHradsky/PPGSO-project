@@ -33,12 +33,6 @@ private:
         GLuint v0, v1, v2;
     };
 
-    // 3D vectors define points/vertices of the shape
-    std::vector<glm::vec3> vertices;
-
-    // Define our mesh as collection of faces
-    std::vector<face> mesh;
-
     // These will hold the data and object buffers
     GLuint vao, vbo, tbo, ibo;
     glm::mat4 modelMatrix{1.0f};
@@ -66,6 +60,12 @@ public:
     glm::vec3 position{0, 0, 0};
     glm::vec3 rotation{0, 0, 0};
     glm::vec3 scale{1, 1, 1};
+
+    // 3D vectors define points/vertices of the shape
+    std::vector<glm::vec3> vertices;
+
+    // Define our mesh as collection of faces
+    std::vector<face> mesh;
 
     BezierPatch(const glm::vec3 controlPoints[POINTS][POINTS]) {
         bezierPatch(controlPoints);
