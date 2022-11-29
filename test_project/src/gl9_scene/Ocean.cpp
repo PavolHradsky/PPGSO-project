@@ -6,6 +6,7 @@
 #include "PerlinNoise.h"
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
+#include "shaders/my_texture_frag_glsl.h"
 #define SEA_TURBULENCE 0.00f
 // shared resources
 //std::unique_ptr<ppgso::Mesh> Ocean::mesh;
@@ -22,6 +23,12 @@ Ocean::Ocean() {
 
 
 bool Ocean::update(Scene &scene, float dt) {
+
+    this->position.y += speed;
+    this->position.x += speed;
+    this->speed += ((this->position.y <= 0.0f)? 1 : -1 ) * SEA_TURBULENCE;
+    if(this->position.y > 0.035f) this->position.y = 0.035f;
+    else if(this->position.y < -0.035f) this->position.y = -0.035f;
 
     age += dt;
 

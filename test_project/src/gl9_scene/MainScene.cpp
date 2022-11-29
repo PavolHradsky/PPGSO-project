@@ -29,7 +29,7 @@
 #include "Filter.h"
 #include "shaders/texture_vert_glsl.h"
 #include "shaders/texture_frag_glsl.h"
-
+#include "shaders/my_texture_frag_glsl.h"
 
 const unsigned int SIZE = 980;
 
@@ -55,11 +55,7 @@ private:
         camera->position.z = -15.0f;
         scene.camera = std::move(camera);
 
-        auto ocean = std::make_unique<Ocean>();
-        scene.objects.push_back(std::move(ocean));
-
-
-        auto shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
+        auto shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
         scene.shader = std::move(shader);
 
 //        auto filter = std::make_unique<Filter>();
@@ -349,6 +345,15 @@ public:
      * Window update implementation that will be called automatically from pollEvents
      */
     void onIdle() override {
+        // loop for each object in the scene
+//        if(scene.camera->position.y < -2){
+//            for (auto &obj: scene.objects) {
+//                // update the object
+//                obj->shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
+//            }
+//
+//        }
+
         // Track time
         static auto time = (float) glfwGetTime();
 
