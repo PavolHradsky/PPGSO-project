@@ -61,9 +61,9 @@ private:
         auto shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
         scene.shader = std::move(shader);
 
-        auto filter = std::make_unique<Filter>();
-        filter->position.y = 10;
-        scene.objects.push_back(std::move(filter));
+//        auto filter = std::make_unique<Filter>();
+//        filter->position.y = 10;
+//        scene.objects.push_back(std::move(filter));
 
         // Add ocean to the scene
         /*int i, j;
