@@ -4,8 +4,12 @@
 #include "generator.h"
 #include "Dolphin.h"
 #include "Fish.h"
+#include "shaders/texture_vert_glsl.h"
+#include "shaders/texture_frag_glsl.h"
+#include "shaders/my_texture_frag_glsl.h"
 
 int counter = 0;
+//auto shaderDark = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
 
 bool Generator::update(Scene &scene, float dt) {
     // Accumulate time
@@ -29,6 +33,7 @@ bool Generator::update(Scene &scene, float dt) {
         fishs->posY = fishs->position.y;
         fishs->posZ = fishs->position.z;
         fishs->posX = fishs->position.x;
+//        fishs->shader = std::move(shaderDark);
         scene.objects.push_back(std::move(fishs));
         time = 0;
         counter += 1;

@@ -24,15 +24,15 @@ Ocean::Ocean() {
 
 
 bool Ocean::update(Scene &scene, float dt) {
-    if(prevCamY > 0 && scene.camera->position.y < 0){
-        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
-        std::cout << "shader changed" << std::endl;
-    }
-    if(prevCamY < 0 && scene.camera->position.y > 0){
-        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
-        std::cout << "shader changed" << std::endl;
-    }
-    prevCamY = scene.camera->position.y;
+//    if(prevCamY > 0 && scene.camera->position.y < 0){
+//        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
+//        std::cout << "shader changed" << std::endl;
+//    }
+//    if(prevCamY < 0 && scene.camera->position.y > 0){
+//        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
+//        std::cout << "shader changed" << std::endl;
+//    }
+//    prevCamY = scene.camera->position.y;
 
     generateModelMatrix();
     return true;

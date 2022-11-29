@@ -55,12 +55,13 @@ private:
         camera->position.z = -15.0f;
         scene.camera = std::move(camera);
 
-        auto shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
-        scene.shader = std::move(shader);
+        auto shaderLight = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
+        auto shaderDark = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
+        scene.shader = std::move(shaderLight);
 
-        auto filter = std::make_unique<Filter>();
-        filter->position.y = 10;
-        scene.objects.push_back(std::move(filter));
+//        auto filter = std::make_unique<Filter>();
+//        filter->position.y = 10;
+//        scene.objects.push_back(std::move(filter));
 
         // Add ocean to the scene
         int i, j;

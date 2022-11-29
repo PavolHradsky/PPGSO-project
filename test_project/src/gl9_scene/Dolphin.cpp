@@ -24,13 +24,13 @@ Dolphin::Dolphin() {
 }
 
 bool Dolphin::update(Scene &scene, float dt) {
-    if(prevCamY > 0 && scene.camera->position.y < 0){
-        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
-    }
-    if(prevCamY < 0 && scene.camera->position.y > 0){
-        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
-    }
-    prevCamY = scene.camera->position.y;
+//    if(prevCamY > 0 && scene.camera->position.y < 0){
+//        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
+//    }
+//    if(prevCamY < 0 && scene.camera->position.y > 0){
+//        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
+//    }
+//    prevCamY = scene.camera->position.y;
 
     age += dt;
     position.z += speed * dt * direction;

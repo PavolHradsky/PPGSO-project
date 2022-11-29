@@ -7,9 +7,9 @@
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
 // shared resources
+std::unique_ptr<ppgso::Shader> Filter::shader;
 std::unique_ptr<ppgso::Mesh> Filter::mesh;
 std::unique_ptr<ppgso::Texture> Filter::texture;
-std::unique_ptr<ppgso::Shader> Filter::shader;
 
 Filter::Filter() {
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
