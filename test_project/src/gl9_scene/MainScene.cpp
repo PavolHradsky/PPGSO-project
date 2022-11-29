@@ -54,6 +54,9 @@ private:
         auto camera = std::make_unique<Camera>(60.0f, 1.0f, 0.1f, 500.0f);
         camera->position.z = -15.0f;
         scene.camera = std::move(camera);
+        auto ocean = std::make_unique<Ocean>();
+        scene.objects.push_back(std::move(ocean));
+
 
         auto shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
         scene.shader = std::move(shader);
@@ -63,7 +66,7 @@ private:
         scene.objects.push_back(std::move(filter));
 
         // Add ocean to the scene
-        int i, j;
+        /*int i, j;
         i = -80;
         while(i <= 80){
             j = -80;
@@ -90,7 +93,7 @@ private:
                 j += 80;
             }
             i += 80;
-        }
+        }*/
 
 
         // Make a generator of dolphins which will be swim and can have collision with boat
@@ -115,11 +118,11 @@ private:
         auto underwaterterrain = std::make_unique<UnderWatterTerrain>();
         underwaterterrain->position = {0, -40,0};
         scene.objects.push_back(std::move(underwaterterrain));
-/*
-        auto shader = std::make_unique<ppgso::Shader>(light_vert_glsl, light_frag_glsl);
-        scene.shader = move(shader);
-*/
-        i = -80;
+
+        //auto shader = std::make_unique<ppgso::Shader>(light_vert_glsl, light_frag_glsl);
+        //scene.shader = move(shader);
+
+        /*i = -80;
         while(i <= 80){
             j = -80;
             while(j <= 80){
@@ -140,10 +143,11 @@ private:
             rock->rotation.y = glm::linearRand(0.0f, 360.0f);
             rock->rotation.z = glm::linearRand(0.0f, 360.0f);
             scene.objects.push_back(std::move(rock));
-        }
+        }*/
 
         auto bubble = std::make_unique<Bubble>(glm::translate(glm::mat4(1.0f), {2 * sin(0.2),1, (0.5) * cos(0.2)}), ((float) rand() / (float) RAND_MAX) * (45 - 35) + 35, 0.035, 0.05, 0.1);
         scene.objects.push_back(move(bubble));
+
     }
 
 public:

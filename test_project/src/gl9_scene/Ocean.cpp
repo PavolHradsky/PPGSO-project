@@ -8,26 +8,32 @@
 #include <shaders/texture_frag_glsl.h>
 #define SEA_TURBULENCE 0.00f
 // shared resources
-std::unique_ptr<ppgso::Mesh> Ocean::mesh;
+//std::unique_ptr<ppgso::Mesh> Ocean::mesh;
 std::unique_ptr<ppgso::Texture> Ocean::texture;
 std::unique_ptr<ppgso::Shader> Ocean::shader;
 
+
+//class BezierPatch;
+
 Ocean::Ocean() {
     // Scale the default model
-    scale *= 20.0f;
-    this->speed = SEA_TURBULENCE;
+    // generate 50 x 50 control points
+
+    // scale *= 1000.0f;
+    //this->speed = SEA_TURBULENCE;
     // Initialize static resources if needed
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("Ocean.bmp"));
-    if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Ocean.obj");
+    //if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Ocean.obj");
     // apply perlin noise on ocean object
     // TODO, also implemented in mesh.h and mesh.cpp
     // TODO urobit funkcne perlin noise... chyba je ze mesh->vertices.size() je stale 1 a to je asi malo, pretoze object mame scalnuty a nemame viac vertexov, treba asi ist cez bezier surface
-    PerlinNoise pn(0.1f, 0.1f, 0.1f, 0.1f);
+    //PerlinNoise pn(0.1f, 0.1f, 0.1f, 0.1f);
+    /*
     std::cout << "Perlin noise: " << mesh->vertices.size() << std::endl;
     for (int i = 0; i < mesh->vertices.size(); i++) {
         mesh->vertices[i].position.z = pn.noise(mesh->vertices[i].position.x, mesh->vertices[i].position.y, 0.8f);
-    }
+    }*/
     /*
     double value[100][100];
     for (int y = 0; y < 100; y++) {
@@ -41,17 +47,23 @@ Ocean::Ocean() {
 
 
 bool Ocean::update(Scene &scene, float dt) {
+    /*
     this->position.y += speed;
     this->position.x += speed;
     this->speed += ((this->position.y <= 0.0f)? 1 : -1 ) * SEA_TURBULENCE;
     if(this->position.y > 0.035f) this->position.y = 0.035f;
     else if(this->position.y < -0.035f) this->position.y = -0.035f;
+*/
+    //generateModelMatrix();
 
-    generateModelMatrix();
+    bezier.update();
+    bezier.render(scene);
+
     return true;
 }
 
 void Ocean::render(Scene &scene) {
+
     shader->use();
 
     // Set up light
@@ -64,7 +76,7 @@ void Ocean::render(Scene &scene) {
     // render mesh
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
-    mesh->render();
+    //mesh->render();
 }
 
 void Ocean::onClick(Scene &scene) {
