@@ -4,6 +4,7 @@
 #include <map>
 
 #include <glm/glm.hpp>
+#include "shader.h"
 
 // Forward declare a scene
 class Scene;
@@ -15,6 +16,7 @@ class Scene;
  */
 class Object {
 public:
+    static std::unique_ptr<ppgso::Shader> shader;
   // Define default constructors as this is an abstract class
   Object() = default;
   Object(const Object&) = default;

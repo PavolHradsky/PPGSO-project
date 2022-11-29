@@ -12,11 +12,11 @@ class Ocean final : public Object {
 private:
   // Static resources (Shared between instances)
   static std::unique_ptr<ppgso::Mesh> mesh;
-  static std::unique_ptr<ppgso::Shader> shader;
   static std::unique_ptr<ppgso::Texture> texture;
   float speed = 0;
 
 public:
+    static std::unique_ptr<ppgso::Shader> shader;
   /*!
    * Create a new player
    */

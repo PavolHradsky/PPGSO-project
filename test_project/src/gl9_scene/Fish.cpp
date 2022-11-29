@@ -16,7 +16,7 @@ std::unique_ptr<ppgso::Shader> Fish::shader;
 
 Fish::Fish() {
     // Scale the default model
-    scale *= glm::linearRand(10, 30);
+    scale *= glm::linearRand(1, 3);
     // Initialize static resources if needed
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("fish.bmp"));
