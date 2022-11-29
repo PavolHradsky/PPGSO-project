@@ -23,6 +23,11 @@ Ocean::Ocean() {
 
 bool Ocean::update(Scene &scene, float dt) {
 
+    age += dt;
+
+//    controlPoints[0][0][1] = std::sin(age);
+//
+//    bezier.bezierPatch(controlPoints);
 
     bezier.update();
     bezier.render(scene);

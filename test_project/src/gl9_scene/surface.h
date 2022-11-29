@@ -13,6 +13,8 @@
 #include "object.h"
 #include "scene.h"
 
+#define POINTS 25
+
 /*!
 * Simple object representing the player
         * Reads keyboard status and manipulates its own position
@@ -41,15 +43,15 @@ private:
     GLuint vao, vbo, tbo, ibo;
     glm::mat4 modelMatrix{1.0f};
 
-    glm::vec3 bezierPoint(const glm::vec3 controlPoints[25], float t) {
+    glm::vec3 bezierPoint(const glm::vec3 controlPoints[POINTS], float t) {
         // TODO: Compute 3D point on bezier curve
         std::vector<glm::vec3> points;
-        for (int i = 0; i < 25; i++) {
+        for (int i = 0; i < POINTS; i++) {
             points.push_back(controlPoints[i]);
         }
 
-        for (int i = 0; i < 24; i++) {
-            for (int j = 0; j < 24 - i; j++) {
+        for (int i = 0; i < POINTS-1; i++) {
+            for (int j = 0; j < POINTS-1 - i; j++) {
                 //points[j] = (1 - t) * points[j] + t * points[j + 1];
                 points[j] = glm::lerp(points[j], points[j + 1], t);
             }
@@ -65,20 +67,20 @@ public:
     glm::vec3 rotation{0, 0, 0};
     glm::vec3 scale{1, 1, 1};
 
-    BezierPatch(const glm::vec3 controlPoints[25][25]) {
+    BezierPatch(const glm::vec3 controlPoints[POINTS][POINTS]) {
         bezierPatch(controlPoints);
     }
 
     // Initialize object data buffers
-    void bezierPatch(const glm::vec3 controlPoints[25][25]) {
+    void bezierPatch(const glm::vec3 controlPoints[POINTS][POINTS]) {
         // Generate Bezier patch points and incidences
         vertices = {};
         mesh = {};
         unsigned int PATCH_SIZE = 100;
         for (unsigned int i = 0; i < PATCH_SIZE; i++) {
-            glm::vec3 points[25];
+            glm::vec3 points[POINTS];
             float t = i * (1.f / PATCH_SIZE);
-            for (unsigned int k = 0; k < 25; k++) {
+            for (unsigned int k = 0; k < POINTS; k++) {
                 points[k] = bezierPoint(controlPoints[k], t);
             }
             for (unsigned int j = 0; j < PATCH_SIZE; j++) {
@@ -89,6 +91,12 @@ public:
                 texCoords.emplace_back(t, 1 - t2);
             }
         }
+//        for(int i = 0; i < POINTS; i++){
+//            for(int j = 0; j < POINTS; j++){
+//                vertices.push_back(controlPoints[i][j]);
+//                texCoords.emplace_back(i / (float)POINTS, j / (float)POINTS);
+//            }
+//        }
         // Generate indices
         for (unsigned int i = 1; i < PATCH_SIZE; i++) {
             for (unsigned int j = 1; j < PATCH_SIZE; j++) {
