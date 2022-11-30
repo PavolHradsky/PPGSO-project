@@ -3,7 +3,7 @@
 //
 #include "Fish.h"
 #include "scene.h"
-
+#include "FishTail.h"
 #include <shaders/diffuse_vert_glsl.h>
 #include <shaders/diffuse_frag_glsl.h>
 #include <shaders/texture_vert_glsl.h>
@@ -17,11 +17,15 @@ std::unique_ptr<ppgso::Shader> Fish::shader;
 
 Fish::Fish() {
     // Scale the default model
-    scale *= glm::linearRand(1, 3);
+    scale *= glm::linearRand(1, 5);
     // Initialize static resources if needed
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("fish.bmp"));
-    if (!mesh) mesh = std::make_unique<ppgso::Mesh>("fish.obj");
+    if (!mesh) mesh = std::make_unique<ppgso::Mesh>("fishBody.obj");
+
+    auto part = std::make_unique<FishTail>();
+    tails.push_back(std::move(part));
+
 }
 
 
@@ -46,13 +50,17 @@ bool Fish::update(Scene &scene, float dt) {
     position.x = std::cos(age * speed) * radius + posX;
     position.z = std::sin(age * speed) * radius + posZ;
     position.y = std::sin(age) + posY;
-
+    std::cout << position.x << std::endl;
     float nextX = std::cos((age + dt) * speed) * radius + posX;
     float nextZ = std::sin((age + dt) * speed) * radius + posZ;
 
     // rotate fish
     rotation.z = std::atan2(nextX - position.x, nextZ - position.z) + ppgso::PI / 2;
 
+    for ( auto& obj : tails ) {
+        auto part = dynamic_cast<FishTail*>(obj.get());
+        part->updateTail(scene);
+    }
 
 
 //    if(position.z > 120){

@@ -18,6 +18,7 @@ private:
     // Static resources (Shared between instances)
     static std::unique_ptr<ppgso::Mesh> mesh;
     static std::unique_ptr<ppgso::Texture> texture;
+    std::list< std::unique_ptr<Object> > tails;
     float age = 0;
     float speed = 0.5;
     float radius = 15;

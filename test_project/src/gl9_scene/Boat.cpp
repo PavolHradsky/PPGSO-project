@@ -125,7 +125,23 @@ void Boat::render(Scene &scene) {
     // use camera
     shader->setUniform("ProjectionMatrix", scene.camera->projectionMatrix);
     shader->setUniform("ViewMatrix", scene.camera->viewMatrix);
+    shader->setUniform("material.ambient", {0.5f, 0.5f, 0.5f});
+    shader->setUniform("material.diffuse", {0.8f, 0.8f, 0.8f});
+    shader->setUniform("material.specular", {0.9f, 0.9f, 0.9f});
+    shader->setUniform("material.shininess", 100.0f);
 
+    shader->setUniform("lights.count", 5);
+    for (int i = 0; i < 5; i++) {
+        shader->setUniform("lights.positions[" + std::to_string(i) + "]", scene.lights.positions[i]);
+        shader->setUniform("lights.colors[" + std::to_string(i) + "]", scene.lights.colors[i]);
+        shader->setUniform("lights.ranges[" + std::to_string(i) + "]", scene.lights.ranges[i]);
+        if (scene.lights.strengths[i] < 0) {
+            shader->setUniform("lights.strengths[" + std::to_string(i) + "]", 0.9f);
+        }
+        else {
+            shader->setUniform("lights.strengths[" + std::to_string(i) + "]", scene.lights.strengths[i]);
+        }
+    }
 
 
     // render mesh
