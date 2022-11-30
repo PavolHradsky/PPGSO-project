@@ -20,7 +20,7 @@ private:
     float speed = 0.5;
     float radius = 15;
 
-    float offset= 0.2891;
+    glm::vec3 offset= {0.2891,0,0};
 public:
     static std::unique_ptr<ppgso::Shader> shader;
     /*!
@@ -35,7 +35,7 @@ public:
      * @return true to delete the object
      */
     bool update(Scene &scene, float dt) override;
-    bool updateTail(Scene &scene, float dt);
+    void updateTail(Scene &scene, glm::vec3 pos, glm::vec3 rot, glm::vec3 sc);
     //void updateModel(Scene &scene, glm::vec3 pos, glm::vec3 rot, glm::vec3 sc);
     /*!
      * Render player

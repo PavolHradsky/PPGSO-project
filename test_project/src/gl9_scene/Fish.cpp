@@ -9,6 +9,7 @@
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
 #include "shaders/my_texture_frag_glsl.h"
+
 #define SEA_TURBULENCE 0.00f
 // shared resources
 std::unique_ptr<ppgso::Mesh> Fish::mesh;
@@ -22,9 +23,8 @@ Fish::Fish() {
     if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("fish.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("fishBody.obj");
-
-    auto tail = std::make_unique<FishTail>();
-    fishTail = std::move(tail);
+    auto part = std::make_unique<FishTail>();
+    tails.push_back(move(part));
 }
 
 
@@ -49,18 +49,25 @@ bool Fish::update(Scene &scene, float dt) {
     position.x = std::cos(age * speed) * radius + posX;
     position.z = std::sin(age * speed) * radius + posZ;
     position.y = std::sin(age) + posY;
-    std::cout << position.x << std::endl;
+    // std::cout << position.x << std::endl;
     float nextX = std::cos((age + dt) * speed) * radius + posX;
     float nextZ = std::sin((age + dt) * speed) * radius + posZ;
 
     // rotate fish
     rotation.z = std::atan2(nextX - position.x, nextZ - position.z) + ppgso::PI / 2;
+    generateModelMatrix();
 
-    if(fishTail){
-        fishTail->position = position;
-        fishTail->rotation = rotation;
-        fishTail->update(scene, dt);
+    for ( auto& obj : tails ) {
+        auto part = dynamic_cast<FishTail*>(obj.get());
+        part->updateTail(scene, position, rotation, scale);
     }
+    /*
+    if (fishTail) {
+        fishTail->position = position + glm::vec3{offset, 0, 0};
+        std::cout << fishTail->position.x << std::endl;
+        fishTail->rotation = rotation;
+        fishTail->updateTail(scene, position,rotation,scale);
+    }*/
 //    for ( auto& obj : tails ) {
 //        auto part = dynamic_cast<FishTail*>(obj.get());
 //        part->updateTail(scene);
@@ -83,11 +90,15 @@ bool Fish::update(Scene &scene, float dt) {
     //rotation.x += dt*speed;
     // die after 10 seconds
 
-    generateModelMatrix();
+
     return true;
 }
 
 void Fish::render(Scene &scene) {
+    for ( auto& obj : tails ) {
+        auto part = dynamic_cast<FishTail*>(obj.get());
+        part->render(scene);
+    }
     shader->use();
 
     // Set up light
