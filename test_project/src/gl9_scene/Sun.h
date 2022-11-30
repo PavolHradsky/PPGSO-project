@@ -2,15 +2,15 @@
 // Created by peter on 26. 11. 2022.
 //
 
-#ifndef PPGSO_RAIN_H
-#define PPGSO_RAIN_H
+#ifndef PPGSO_SUN_H
+#define PPGSO_SUN_H
 
 #include <ppgso/ppgso.h>
 
 #include "object.h"
 // create rain
 
-class Rain final : public Object {
+class Sun final : public Object {
 private:
     // Static resources (Shared between instances)
     static std::unique_ptr<ppgso::Mesh> mesh;
@@ -23,7 +23,7 @@ public:
     /*!
      * Create a new player
      */
-    Rain(glm::vec3 position,  float minSc, float maxSc, float rndPos);
+    Sun(glm::vec3 position, float minSc, float maxSc, float rndPos);
     glm::vec3 sameRandom_vec3 (float mini, float maxi);
     glm::vec3 random_vec3 (float mini, float maxi);
     // yellow color
@@ -58,4 +58,4 @@ public:
     float randomPosition;
 
 };
-#endif //PPGSO_RAIN_H
+#endif //PPGSO_SUN_H

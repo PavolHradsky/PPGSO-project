@@ -70,7 +70,7 @@ set(PPGSO_SHADER_SRC
         shader/color_vert.glsl shader/color_frag.glsl
         shader/convolution_vert.glsl shader/convolution_frag.glsl
         shader/diffuse_vert.glsl shader/diffuse_frag.glsl
-        shader/texture_vert.glsl shader/texture_frag.glsl shader/my_texture_frag.glsl
+        shader/texture_vert.glsl shader/texture_frag.glsl shader/my_texture_frag.glsl shader/light_frag.glsl shader/light_vert.glsl
         )
 add_resources(shaders ${PPGSO_SHADER_SRC})
 
@@ -113,7 +113,7 @@ add_executable(gl9_scene
         src/gl9_scene/Dolphin.cpp
         src/gl9_scene/explosion.cpp
         src/gl9_scene/space.cpp src/gl9_scene/PerlinNoise.cpp src/gl9_scene/PerlinNoise.h
-        src/gl9_scene/Fish.cpp src/gl9_scene/UnderWatterTerrain.cpp src/gl9_scene/UnderWatterTerrain.h src/gl9_scene/Sand.cpp src/gl9_scene/Sand.h src/gl9_scene/Bubble.cpp src/gl9_scene/Bubble.h src/gl9_scene/Rock.cpp src/gl9_scene/Rock.h src/gl9_scene/Rain.cpp src/gl9_scene/Rain.h
+        src/gl9_scene/Fish.cpp src/gl9_scene/UnderWatterTerrain.cpp src/gl9_scene/UnderWatterTerrain.h src/gl9_scene/Sand.cpp src/gl9_scene/Sand.h src/gl9_scene/Bubble.cpp src/gl9_scene/Bubble.h src/gl9_scene/Rock.cpp src/gl9_scene/Rock.h src/gl9_scene/Sun.cpp src/gl9_scene/Sun.h
         src/gl9_scene/Filter.cpp src/gl9_scene/Filter.h src/gl9_scene/FishTail.cpp src/gl9_scene/FishTail.h)
 target_link_libraries(gl9_scene ppgso shaders)
 install(TARGETS gl9_scene DESTINATION .)

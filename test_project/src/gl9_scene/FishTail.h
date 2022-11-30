@@ -19,8 +19,10 @@ private:
     float age = 0;
     float speed = 0.5;
     float radius = 15;
-
-    glm::vec3 offset= {0.2891,0,0};
+    float distanceX = 0.22;
+    float distanceY = -0.01;
+    float distanceZ = 0.22;
+    glm::vec3 offset;
 public:
     static std::unique_ptr<ppgso::Shader> shader;
     /*!

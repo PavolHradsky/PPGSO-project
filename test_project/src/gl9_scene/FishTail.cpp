@@ -21,7 +21,7 @@ std::unique_ptr<ppgso::Shader> FishTail::shader;
 
 FishTail::FishTail() {
     // Scale the default model
-    scale *= glm::linearRand(1, 5);
+    //scale *= glm::linearRand(1, 5);
     //offset = 0.2891;
     // Initialize static resources if needed
     if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
@@ -32,7 +32,10 @@ FishTail::FishTail() {
 void FishTail::updateTail(Scene &scene, glm::vec3 pos, glm::vec3 rot, glm::vec3 sc) {
     scale = sc;
 
-    //offset = {(distanceZ + distanceX) * sin(rot.y), distanceY, (distanceZ + distanceX) * cos(rot.y)};
+    // make ofset for tail
+
+    //offset = {(distanceZ + distanceX) * sin(rot.y), distanceY, (distanceZ+di) * cos(rot.y)};
+    offset = {distanceX * sin(rot.y), distanceY, distanceZ * cos(rot.y)};
     position = pos + offset;
 
     rotation = rot;

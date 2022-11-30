@@ -25,7 +25,7 @@
 #include "Fish.h"
 #include "Bubble.h"
 #include "Rock.h"
-#include "Rain.h"
+#include "Sun.h"
 #include "Filter.h"
 #include "shaders/texture_vert_glsl.h"
 #include "shaders/texture_frag_glsl.h"
@@ -106,7 +106,7 @@ private:
         boat->rotation.x = -ppgso::PI/2;
         boat->rotation.y = ppgso::PI;
         scene.objects.push_back(std::move(boat));
-        auto rain = std::make_unique<Rain>( glm::vec3{0, 0, 0},10,10,10  );
+        auto rain = std::make_unique<Sun>(glm::vec3{0, 0, 0}, 10, 10, 10  );
         scene.objects.push_back(std::move(rain));
 
         auto upperWatter = std::make_unique<UnderWatterTerrain>();

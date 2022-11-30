@@ -25,6 +25,18 @@ struct PointLight {
     vec3 color;
 };
 
+struct Light {
+    vec3 position;
+
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+
+    float constant;
+    float linear;
+    float quadratic;
+};
+
 #define NR_LIGHTS 3
 uniform PointLight lights[NR_LIGHTS];
 
