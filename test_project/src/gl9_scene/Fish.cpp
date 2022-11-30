@@ -19,13 +19,12 @@ Fish::Fish() {
     // Scale the default model
     scale *= glm::linearRand(1, 5);
     // Initialize static resources if needed
-    if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
+    if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("fish.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("fishBody.obj");
 
-    auto part = std::make_unique<FishTail>();
-    tails.push_back(std::move(part));
-
+    auto tail = std::make_unique<FishTail>();
+    fishTail = std::move(tail);
 }
 
 
@@ -57,10 +56,15 @@ bool Fish::update(Scene &scene, float dt) {
     // rotate fish
     rotation.z = std::atan2(nextX - position.x, nextZ - position.z) + ppgso::PI / 2;
 
-    for ( auto& obj : tails ) {
-        auto part = dynamic_cast<FishTail*>(obj.get());
-        part->updateTail(scene);
+    if(fishTail){
+        fishTail->position = position;
+        fishTail->rotation = rotation;
+        fishTail->update(scene, dt);
     }
+//    for ( auto& obj : tails ) {
+//        auto part = dynamic_cast<FishTail*>(obj.get());
+//        part->updateTail(scene);
+//    }
 
 
 //    if(position.z > 120){

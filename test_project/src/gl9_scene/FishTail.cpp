@@ -29,45 +29,9 @@ FishTail::FishTail() {
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("fishTail.obj");
 }
 
-bool FishTail::updateTail(Scene &scene) {
-    // Generate modelMatrix from position, rotation and scale
-    generateModelMatrix();
-    position.x = std::cos(age * speed) * radius + posX;
-    position.x += offset;
-    std::cout << position.x << std::endl;
-    position.z = std::sin(age * speed) * radius + posZ;
-    position.y = std::sin(age) + posY;
-    update(scene,0);
-}
-
-// TODO pohyb viac specificky, pri naraze do inej ryby, nieco spravit, po nejakej dobe ryba uhyne a len spadne na zem
 bool FishTail::update(Scene &scene, float dt) {
-//    if(prevCamY > 0 && scene.camera->position.y < 0){
-//        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
-//    }
-//    if(prevCamY < 0 && scene.camera->position.y > 0){
-//        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
-//    }
-//    prevCamY = scene.camera->position.y;
 
-    // move of the fish
-
-    // TODO pohyb viac specificky, pri naraze do inej ryby, nieco spravit, po nejakej dobe ryba uhyne a len spadne na zem
-//    position.z += speed * dt * direction;
-//    position.y = sin(age * speed) * radius + posY;
-//    position.x = cos(age * speed) * radius + posX;
-
-//     move in circle
-
-    position.x = std::cos(age * speed) * radius + posX + offset;
-    position.z = std::sin(age * speed) * radius + posZ;
-    position.y = std::sin(age) + posY;
-
-    //float nextX = std::cos((age + dt) * speed) * radius + posX;
-    // float nextZ = std::sin((age + dt) * speed) * radius + posZ;
-
-    // rotate fish
-    // rotation.z = std::atan2(nextX - position.x, nextZ - position.z) + ppgso::PI / 2;
+    rotation.y += dt;
 
     generateModelMatrix();
     return true;

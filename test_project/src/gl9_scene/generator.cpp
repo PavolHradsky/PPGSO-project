@@ -4,6 +4,7 @@
 #include "generator.h"
 #include "Dolphin.h"
 #include "Fish.h"
+#include "FishTail.h"
 #include "shaders/texture_vert_glsl.h"
 #include "shaders/texture_frag_glsl.h"
 #include "shaders/my_texture_frag_glsl.h"
@@ -34,9 +35,13 @@ bool Generator::update(Scene &scene, float dt) {
         fishs->posZ = fishs->position.z;
         fishs->posX = fishs->position.x;
 //        fishs->shader = std::move(shaderDark);
+        scene.objects.push_back(std::move(fishs->fishTail));
         scene.objects.push_back(std::move(fishs));
         time = 0;
         counter += 1;
+//        auto fishTail = std::make_unique<FishTail>();
+//        fishTail->fish = std::move(fishs);
+//        scene.objects.push_back(std::move(fishTail));
     }
 
     return true;
