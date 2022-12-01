@@ -7,6 +7,8 @@
 #include "shaders/texture_vert_glsl.h"
 #include "shaders/texture_frag_glsl.h"
 #include "shaders/my_texture_frag_glsl.h"
+#include "shaders/phong_frag_glsl.h"
+#include "shaders/phong_vert_glsl.h"
 
 
 // Static resources
@@ -79,32 +81,33 @@ bool Boat::update(Scene &scene, float dt) {
 //        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
 //    }
 //    prevCamY = scene.camera->position.y;
+    if(animate) {
+        age += dt;
+        glm::vec3 nextPosition;
 
-    age += dt;
-    glm::vec3 nextPosition;
+        position = bezierPoint(controlPoints.at(3 * step),
+                               controlPoints.at(3 * step + 1),
+                               controlPoints.at(3 * step + 2),
+                               controlPoints.at(3 * step + 3), age / speed);
+        nextPosition = bezierPoint(controlPoints.at(3 * step),
+                                   controlPoints.at(3 * step + 1),
+                                   controlPoints.at(3 * step + 2),
+                                   controlPoints.at(3 * step + 3), (age + dt) / speed);
 
-    position = bezierPoint(controlPoints.at(3*step),
-                           controlPoints.at(3*step+1),
-                           controlPoints.at(3*step+2),
-                           controlPoints.at(3*step+3), age/speed);
-    nextPosition = bezierPoint(controlPoints.at(3*step),
-                               controlPoints.at(3*step+1),
-                               controlPoints.at(3*step+2),
-                               controlPoints.at(3*step+3), (age+dt)/speed);
+        // rotate the boat
+        rotation.y = (float) (std::atan2(nextPosition.x - position.x, nextPosition.z - position.z) + M_PI_2);
+        // rotate the boat on waves
+        rotation.x = (float) (0.3 * std::sin(position.x * age / 10) - ppgso::PI / 2);
 
-    // rotate the boat
-    rotation.y = (float) (std::atan2(nextPosition.x - position.x, nextPosition.z - position.z) + M_PI_2);
-    // rotate the boat on waves
-    rotation.x = (float) (0.3 * std::sin(position.x * age / 10) - ppgso::PI/2);
-
-    if (controlPoints.at(3*step+3).x-0.1 < position.x &&
-        position.x < controlPoints.at(3*step+3).x+0.1 &&
-        controlPoints.at(3*step+3).z-0.1 < position.z &&
-        position.z < controlPoints.at(3*step+3).z+0.1){
-        age = 0;
-        step++;
+        if (controlPoints.at(3 * step + 3).x - 0.1 < position.x &&
+            position.x < controlPoints.at(3 * step + 3).x + 0.1 &&
+            controlPoints.at(3 * step + 3).z - 0.1 < position.z &&
+            position.z < controlPoints.at(3 * step + 3).z + 0.1) {
+            age = 0;
+            step++;
+        }
+        if (step == 4) step = 0;
     }
-    if(step==4) step = 0;
 
     generateModelMatrix();
 

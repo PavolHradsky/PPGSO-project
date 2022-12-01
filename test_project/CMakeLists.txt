@@ -70,7 +70,10 @@ set(PPGSO_SHADER_SRC
         shader/color_vert.glsl shader/color_frag.glsl
         shader/convolution_vert.glsl shader/convolution_frag.glsl
         shader/diffuse_vert.glsl shader/diffuse_frag.glsl
-        shader/texture_vert.glsl shader/texture_frag.glsl shader/my_texture_frag.glsl shader/light_frag.glsl shader/light_vert.glsl
+        shader/texture_vert.glsl shader/texture_frag.glsl
+        shader/my_texture_frag.glsl
+        shader/light_frag.glsl shader/light_vert.glsl
+        shader/phong_frag.glsl shader/phong_vert.glsl
         )
 add_resources(shaders ${PPGSO_SHADER_SRC})
 

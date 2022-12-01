@@ -35,6 +35,7 @@ private:
   //void explode(Scene &scene, glm::vec3 explosionPosition, glm::vec3 explosionScale, int pieces);
 
 public:
+    bool animate;
   static std::unique_ptr<ppgso::Shader> shader;
   /*!
    * Create new asteroid

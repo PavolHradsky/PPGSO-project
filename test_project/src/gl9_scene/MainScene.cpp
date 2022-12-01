@@ -105,9 +105,20 @@ private:
         boat->scale = {0.005f, 0.005f, 0.005f};
         boat->rotation.x = -ppgso::PI/2;
         boat->rotation.y = ppgso::PI;
+        boat->animate = true;
         scene.objects.push_back(std::move(boat));
-        auto rain = std::make_unique<Sun>(glm::vec3{0, 0, 0}, 10, 10, 10  );
-        scene.objects.push_back(std::move(rain));
+        auto sun = std::make_unique<Sun>();
+        scene.objects.push_back(std::move(sun));
+
+        // add boat to scene
+        auto drownedBoat = std::make_unique<Boat>();
+        drownedBoat->position = {-20, -80, -20};
+        drownedBoat->scale = {0.015f, 0.015f, 0.015f};
+        drownedBoat->rotation.x = -ppgso::PI/3;
+        drownedBoat->animate = false;
+        scene.objects.push_back(std::move(drownedBoat));
+
+
 
         auto upperWatter = std::make_unique<UnderWatterTerrain>();
         upperWatter->position = {0, 40,0};

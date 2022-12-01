@@ -23,11 +23,11 @@ public:
     /*!
      * Create a new player
      */
-    Sun(glm::vec3 position, float minSc, float maxSc, float rndPos);
+    Sun();
     glm::vec3 sameRandom_vec3 (float mini, float maxi);
     glm::vec3 random_vec3 (float mini, float maxi);
     // yellow color
-    glm::vec3 color = {1,0,0};
+//    glm::vec3 color = {1,0,0};
     /*!
      * Update player position considering keyboard inputs
      * @param scene Scene to update

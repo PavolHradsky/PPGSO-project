@@ -8,6 +8,8 @@
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
 #include "shaders/my_texture_frag_glsl.h"
+#include "shaders/diffuse_vert_glsl.h"
+#include "shaders/diffuse_frag_glsl.h"
 // shared resources
 std::unique_ptr<ppgso::Mesh> Sand::mesh;
 std::unique_ptr<ppgso::Texture> Sand::texture;
@@ -19,7 +21,8 @@ Sand::Sand() {
     position = {0,-80,0};
     // TODO urobit funkcne perlin noise... chyba je ze mesh->vertices.size() je stale 1 a to je asi malo, pretoze object mame scalnuty a nemame viac vertexov, treba asi ist cez bezier surface
 
-    if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
+//    if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
+    if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("Sand.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Ocean.obj");
 }
