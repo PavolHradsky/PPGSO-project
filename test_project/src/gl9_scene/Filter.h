@@ -21,8 +21,10 @@ private:
     static std::unique_ptr<ppgso::Texture> texture;
     float speed = 0;
 
+
 public:
     static std::unique_ptr<ppgso::Shader> shader;
+
     /*!
      * Create a new player
      */

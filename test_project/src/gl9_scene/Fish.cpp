@@ -96,6 +96,9 @@ bool Fish::update(Scene &scene, float dt) {
 
 void Fish::render(Scene &scene) {
     for ( auto& obj : tails ) {
+
+        // TODO> osvietenie napr delfinych chvostov
+        //scene.light_positions.at(1) = obj->position + glm::vec3{2, 2, 2};
         auto part = dynamic_cast<FishTail*>(obj.get());
         part->render(scene);
     }

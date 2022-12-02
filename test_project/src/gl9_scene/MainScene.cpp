@@ -40,6 +40,7 @@ class SceneWindow : public ppgso::Window {
 private:
     Scene scene;
     bool animate = true;
+    glm::vec3 points;
 
     /*!
      * Reset and initialize the game scene
@@ -48,7 +49,9 @@ private:
     void initScene() {
         scene.objects.clear();
 
-        scene.lightDirection = {0, 30, 0};
+
+
+        //scene.lightDirection = {0, 30, 0};
 
         // Create a camera
         auto camera = std::make_unique<Camera>(60.0f, 1.0f, 0.1f, 500.0f);
@@ -59,9 +62,15 @@ private:
         auto shaderDark = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
         scene.shader = std::move(shaderLight);
 
-//        auto filter = std::make_unique<Filter>();
-//        filter->position.y = 10;
-//        scene.objects.push_back(std::move(filter));
+        scene.light_positions.clear();
+
+        // ambient
+        scene.light_positions.push_back(glm::vec3(2, 2, 2));
+        scene.shader->setUniform("lights[1].color", glm::vec3(0.3, 0.3, 0.3));
+        /*
+        auto filter = std::make_unique<Filter>();
+       filter->position.y = 10;
+        scene.objects.push_back(std::move(filter));*/
 
         // Add ocean to the scene
         int i, j;
@@ -133,6 +142,14 @@ private:
 */
 
         auto sand = std::make_unique<Sand>();
+        for (auto &vect: sand->maxPoints){
+            auto rock = std::make_unique<Rock>();
+            rock->position.x = vect.x;
+            rock->position.z = vect.z;
+            rock->position.y = vect.y-5;
+            //rock->scale = {0.1f, 0.1f, 0.1f};
+            scene.objects.push_back(std::move(rock));
+        }
         scene.objects.push_back(std::move(sand));
 //        i = -80;
 //        while(i <= 80){
@@ -146,6 +163,8 @@ private:
 //            }
 //            i += 80;
 //        }
+
+/*
         for(int i = 0; i < 30; i++){
             auto rock = std::make_unique<Rock>();
             rock->position.x = glm::linearRand(-115.0f, 115.0f);
@@ -156,7 +175,7 @@ private:
             rock->rotation.z = glm::linearRand(0.0f, 360.0f);
             scene.objects.push_back(std::move(rock));
         }
-
+*/
         auto bubble = std::make_unique<Bubble>(glm::translate(glm::mat4(1.0f), {2 * sin(0.2),1, (0.5) * cos(0.2)}), ((float) rand() / (float) RAND_MAX) * (45 - 35) + 35, 0.035, 0.05, 0.1);
         scene.objects.push_back(move(bubble));
     }

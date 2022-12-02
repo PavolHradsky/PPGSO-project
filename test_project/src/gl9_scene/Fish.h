@@ -20,7 +20,7 @@ private:
     static std::unique_ptr<ppgso::Mesh> mesh;
     static std::unique_ptr<ppgso::Texture> texture;
     float age = 0;
-    float speed = 0.5;
+    float speed = 0.2;
     float radius = 15;
     std::list< std::unique_ptr<Object> > tails;
 public:
