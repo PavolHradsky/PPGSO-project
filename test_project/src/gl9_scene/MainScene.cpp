@@ -131,18 +131,21 @@ private:
         auto shader = std::make_unique<ppgso::Shader>(light_vert_glsl, light_frag_glsl);
         scene.shader = move(shader);
 */
-        i = -80;
-        while(i <= 80){
-            j = -80;
-            while(j <= 80){
-                auto sand = std::make_unique<Sand>();
-                sand->position.x = i;
-                sand->position.z = j;
-                scene.objects.push_back(std::move(sand));
-                j += 80;
-            }
-            i += 80;
-        }
+
+        auto sand = std::make_unique<Sand>();
+        scene.objects.push_back(std::move(sand));
+//        i = -80;
+//        while(i <= 80){
+//            j = -80;
+//            while(j <= 80){
+//                auto sand = std::make_unique<Sand>();
+//                sand->position.x = i;
+//                sand->position.z = j;
+//                scene.objects.push_back(std::move(sand));
+//                j += 80;
+//            }
+//            i += 80;
+//        }
         for(int i = 0; i < 30; i++){
             auto rock = std::make_unique<Rock>();
             rock->position.x = glm::linearRand(-115.0f, 115.0f);
