@@ -67,10 +67,7 @@ private:
         // ambient
         scene.light_positions.push_back(glm::vec3(2, 2, 2));
         scene.shader->setUniform("lights[1].color", glm::vec3(0.3, 0.3, 0.3));
-        /*
-        auto filter = std::make_unique<Filter>();
-       filter->position.y = 10;
-        scene.objects.push_back(std::move(filter));*/
+
 
         // Add ocean to the scene
         int i, j;
@@ -120,9 +117,16 @@ private:
         auto sun = std::make_unique<Sun>();
         scene.objects.push_back(std::move(sun));
 
-        auto cloud = std::make_unique<Cloud>();
-        cloud->position = {0, 100, 0};
-        scene.objects.push_back(std::move(cloud));
+        for(int i = 0; i < 20; i++){
+            auto cloud = std::make_unique<Cloud>();
+            cloud->position.y = 180;
+            cloud->position.x += glm::linearRand(-120.0f, 120.0f);
+            cloud->position.z += glm::linearRand(-120.0f, 120.0f);
+            cloud->scale *= glm::linearRand(0.5f, 1.5f);
+            cloud->rotation.y = glm::linearRand(0.0f, 2*ppgso::PI);
+            scene.objects.push_back(std::move(cloud));
+        }
+
 
         // add boat to scene
         auto drownedBoat = std::make_unique<Boat>();
