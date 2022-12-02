@@ -115,10 +115,11 @@ add_executable(gl9_scene
         src/gl9_scene/Ocean.cpp
         src/gl9_scene/Dolphin.cpp
         src/gl9_scene/explosion.cpp
-        src/gl9_scene/space.cpp src/gl9_scene/PerlinNoise.cpp src/gl9_scene/PerlinNoise.h
+        src/gl9_scene/PerlinNoise.cpp src/gl9_scene/PerlinNoise.h
         src/gl9_scene/Fish.cpp src/gl9_scene/UnderWatterTerrain.cpp src/gl9_scene/UnderWatterTerrain.h src/gl9_scene/Sand.cpp src/gl9_scene/Sand.h src/gl9_scene/Bubble.cpp src/gl9_scene/Bubble.h src/gl9_scene/Rock.cpp src/gl9_scene/Rock.h src/gl9_scene/Sun.cpp src/gl9_scene/Sun.h
         src/gl9_scene/Filter.cpp src/gl9_scene/Filter.h src/gl9_scene/FishTail.cpp src/gl9_scene/FishTail.h
-        src/gl9_scene/surface.h)
+        src/gl9_scene/surface.h
+        src/gl9_scene/Cloud.cpp src/gl9_scene/Cloud.h)
 target_link_libraries(gl9_scene ppgso shaders)
 install(TARGETS gl9_scene DESTINATION .)
 add_custom_command(TARGET gl9_scene POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/data/ ${CMAKE_CURRENT_BINARY_DIR})

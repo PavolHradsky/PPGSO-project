@@ -13,7 +13,7 @@ std::unique_ptr<ppgso::Texture> Filter::texture;
 
 Filter::Filter() {
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
-    if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("filter.bmp"));
+    if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("sky.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("filter.obj");
 }
 

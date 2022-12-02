@@ -17,7 +17,7 @@
 #include "generator.h"
 #include "UnderWatterTerrain.h"
 #include "Ocean.h"
-#include "space.h"
+#include "Cloud.h"
 #include "Dolphin.h"
 #include "Boat.h"
 #include "Sand.h"
@@ -116,8 +116,13 @@ private:
         boat->rotation.y = ppgso::PI;
         boat->animate = true;
         scene.objects.push_back(std::move(boat));
+
         auto sun = std::make_unique<Sun>();
         scene.objects.push_back(std::move(sun));
+
+        auto cloud = std::make_unique<Cloud>();
+        cloud->position = {0, 100, 0};
+        scene.objects.push_back(std::move(cloud));
 
         // add boat to scene
         auto drownedBoat = std::make_unique<Boat>();
@@ -130,8 +135,15 @@ private:
 
 
         auto upperWatter = std::make_unique<UnderWatterTerrain>();
-        upperWatter->position = {0, 40,0};
+        upperWatter->position = {0, 100,0};
+        upperWatter->scale.y = 1;
         scene.objects.push_back(std::move(upperWatter));
+
+        auto sky = std::make_unique<Filter>();
+        sky->position = {0, 200,0};
+        sky->scale = {3, 3, 3};
+        sky->rotation.x = glm::radians(180.0f);
+        scene.objects.push_back(std::move(sky));
 
         auto underwaterterrain = std::make_unique<UnderWatterTerrain>();
         underwaterterrain->position = {0, -40,0};

@@ -33,9 +33,11 @@ Sun::Sun() {
 //
 //    color = {1,0,0};
 
-    scale *= 15;
+    scale *= 25;
 
-    position.y = 50;
+    position.y = 190;
+    position.x = 40;
+    position.z = 40;
 
     // Initialize static resources if needed
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
