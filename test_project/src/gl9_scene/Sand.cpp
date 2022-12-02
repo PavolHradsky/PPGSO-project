@@ -7,8 +7,9 @@
 #include "PerlinNoise.h"
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
+
 // shared resources
-std::unique_ptr<ppgso::Mesh> Sand::mesh;
+
 std::unique_ptr<ppgso::Texture> Sand::texture;
 std::unique_ptr<ppgso::Shader> Sand::shader;
 
@@ -20,7 +21,7 @@ Sand::Sand() {
 
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("Sand.bmp"));
-    if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Ocean.obj");
+   // if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Ocean.obj");
 }
 
 
@@ -42,7 +43,7 @@ void Sand::render(Scene &scene) {
     // render mesh
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
-    mesh->render();
+    //mesh->render();
 }
 
 void Sand::onClick(Scene &scene) {
