@@ -35,7 +35,6 @@ void Explosion::render(Scene &scene) {
   // use camera
   shader->setUniform("ProjectionMatrix", scene.camera->projectionMatrix);
   shader->setUniform("ViewMatrix", scene.camera->viewMatrix);
-
   // render mesh
   shader->setUniform("ModelMatrix", modelMatrix);
   shader->setUniform("Texture", *texture);

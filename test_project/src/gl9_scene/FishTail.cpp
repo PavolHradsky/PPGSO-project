@@ -49,8 +49,6 @@ void FishTail::updateTail(Scene &scene, float posX, float posY, float posZ, floa
 
 bool FishTail::update(Scene &scene, float dt) {
 
-    //rotation.y += dt;
-
     generateModelMatrix();
     return true;
 }

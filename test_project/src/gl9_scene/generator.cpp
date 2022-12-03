@@ -28,16 +28,6 @@ bool Generator::update(Scene &scene, float dt) {
         obj->posY = -1;
         scene.objects.push_back(std::move(obj));
 
-        auto seaweeds = std::make_unique<Seaweed>();
-        seaweeds->position.x += glm::linearRand(-120.0f, 120.0f);
-        //TODO> interpolate this with the height of the sand via controlpoints
-        seaweeds->position.y = -70;
-        seaweeds->position.z += glm::linearRand(-120.0f, 120.0f);
-        seaweeds->posY = seaweeds->position.y;
-        seaweeds->posX =  seaweeds->position.x;
-        seaweeds->posZ =  seaweeds->position.z;
-        scene.objects.push_back(std::move(seaweeds));
-
         auto fishs = std::make_unique<Fish>();
         fishs->position.x += glm::linearRand(-120.0f, 120.0f);
         fishs->position.y += glm::linearRand(-70.0f, 0.0f);

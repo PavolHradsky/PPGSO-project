@@ -27,6 +27,7 @@
 #include "Rock.h"
 #include "Sun.h"
 #include "Filter.h"
+#include "Seaweed.h"
 #include "shaders/texture_vert_glsl.h"
 #include "shaders/texture_frag_glsl.h"
 #include "shaders/my_texture_frag_glsl.h"
@@ -172,9 +173,15 @@ private:
 
         for(int k = 0; k < 30; k++){
             auto rock = std::make_unique<Rock>();
+            auto seaweed = std::make_unique<Seaweed>();
             rock->position.x = glm::linearRand(-115.0f, 115.0f);
             rock->position.z = glm::linearRand(-115.0f, 115.0f);
-
+            seaweed->position.x = rock->position.x+glm::linearRand(-5, 5);
+            seaweed->position.z = rock->position.z+glm::linearRand(-5,5);
+            seaweed->position.y = -79;
+            seaweed->posY = seaweed->position.y;
+            seaweed->posX =  seaweed->position.x;
+            seaweed->posZ =  seaweed->position.z;;
             int x1 = ((int) rock->position.x) / 24 * 24;
             int x2;
             if(x1 < 0) x2 = x1 - 24;
@@ -195,12 +202,14 @@ private:
             }
 
             // bilinear interpolation to find y coordinate
-//            float x = rock->position.x;
-//            float z = rock->position.z;
-//            float y1 = ((x2 - x) * closestPoints[0].y + (x - x1) * closestPoints[1].y) / (x2 - x1);
-//            float y2 = ((x2 - x) * closestPoints[2].y + (x - x1) * closestPoints[3].y) / (x2 - x1);
-//            float y = ((z2 - z) * y1 + (z - z1) * y2) / (z2 - z1);
-//            rock->position.y = y;
+
+           float x = rock->position.x;
+            float z = rock->position.z;
+            float y1 = ((x2 - x) * closestPoints[0].y + (x - x1) * closestPoints[1].y) / (x2 - x1);
+            float y2 = ((x2 - x) * closestPoints[2].y + (x - x1) * closestPoints[3].y) / (x2 - x1);
+            float y = ((z2 - z) * y1 + (z - z1) * y2) / (z2 - z1);
+            rock->position.y = y;
+
 
             // bilinear interpolation to find y coordinate
 
@@ -210,6 +219,7 @@ private:
             rock->rotation.x = glm::linearRand(0.0f, 360.0f);
             rock->rotation.y = glm::linearRand(0.0f, 360.0f);
             rock->rotation.z = glm::linearRand(0.0f, 360.0f);
+            scene.objects.push_back(std::move(seaweed));
             scene.objects.push_back(std::move(rock));
         }
 
