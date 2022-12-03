@@ -49,6 +49,30 @@ bool Dolphin::update(Scene &scene, float dt) {
         position.y = std::sin(age * speed) * radius + posY;
         rotation.x = std::cos(age * speed) * radius + 5*ppgso::PI/3 + posX;
     }
+    //make collision between 2 dolphins
+
+    for (auto &object : scene.objects) {
+        // Ignore self in scene
+        if (object.get() == this)
+            continue;
+        // We only need to collide with boats
+        auto dolphin = dynamic_cast<Dolphin *>(object.get());
+        if (!dolphin)
+            continue;
+
+        // Check distance between objects
+
+        auto distance = glm::distance(this->position, dolphin->position);
+        if (distance < 1) {
+            std::cout << "dolhpin died";
+            while (this->position.y>-80){
+                this->position.y -= 1;
+                this->position.x = this->position.x;
+                this->position.z = this->position.z;
+            }
+        }
+
+    }
     // make collision of dolhpin and boat
     for (auto &object : scene.objects) {
         // Ignore self in scene

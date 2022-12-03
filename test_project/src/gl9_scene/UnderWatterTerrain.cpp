@@ -14,7 +14,6 @@ UnderWatterTerrain::UnderWatterTerrain() {
 
     scale = {1.2f, 0.4, 1.2f};
 
-    // TODO Chyba tu este vrchna cast "kocky", hodilo by sa nejako vyplnit vnutro object modrym, nech mame pocit ze sme vo vode
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("wall.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("underWater4.obj");
@@ -41,7 +40,6 @@ void UnderWatterTerrain::render(Scene &scene) {
 
     // Set up light
     shader->setUniform("LightDirection", scene.lightDirection);
-
     // use camera
     shader->setUniform("ProjectionMatrix", scene.camera->projectionMatrix);
     shader->setUniform("ViewMatrix", scene.camera->viewMatrix);

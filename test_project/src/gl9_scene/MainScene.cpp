@@ -162,7 +162,7 @@ private:
             auto rock = std::make_unique<Rock>();
             rock->position.x = vect.x;
             rock->position.z = vect.z;
-            rock->position.y = vect.y-5;
+            rock->position.y = vect.y;
             //rock->scale = {0.1f, 0.1f, 0.1f};
             scene.objects.push_back(std::move(rock));
         }
@@ -192,8 +192,6 @@ private:
             scene.objects.push_back(std::move(rock));
         }
 */
-        auto bubble = std::make_unique<Bubble>(glm::translate(glm::mat4(1.0f), {2 * sin(0.2),1, (0.5) * cos(0.2)}), ((float) rand() / (float) RAND_MAX) * (45 - 35) + 35, 0.035, 0.05, 0.1);
-        scene.objects.push_back(move(bubble));
     }
 
 public:

@@ -4,6 +4,7 @@
 #include "Fish.h"
 #include "scene.h"
 #include "FishTail.h"
+#include "Bubble.h"
 #include <shaders/diffuse_vert_glsl.h>
 #include <shaders/diffuse_frag_glsl.h>
 #include <shaders/texture_vert_glsl.h>
@@ -37,10 +38,40 @@ bool Fish::update(Scene &scene, float dt) {
 //    }
 //    prevCamY = scene.camera->position.y;
 
+    auto tmp = this->position;
+    tmp.z += 0.02f;
+    tmp.y += 0.6f;
+    for (int i = 0; i < 10; ++i) {
+        auto bubble = std::make_unique<Bubble>(glm::translate(glm::mat4(1.0f), tmp), ((float) rand() / (float) RAND_MAX) * (500 - 400) + 400, 50);
+        bubble->minScale = 0.04;
+        bubble->maxScale = 0.06;
+        scene.objects.push_back(move(bubble));
+    }
     age += dt;
     // move of the fish
 
     // TODO pohyb viac specificky, pri naraze do inej ryby, nieco spravit, po nejakej dobe ryba uhyne a len spadne na zem
+    for (auto &object : scene.objects) {
+        // Ignore self in scene
+        if (object.get() == this)
+            continue;
+        // We only need to collide with boats
+        auto fish = dynamic_cast<Fish *>(object.get());
+        if (!fish)
+            continue;
+
+        // Check distance between objects
+        auto distance = glm::distance(this->position, fish->position);
+        if (distance < 1) {
+            std::cout << "fish died";
+           while (fish->position.y>-80){
+               fish->position.y -= 1;
+               fish->position.x = fish->position.x;
+               fish->position.z = fish->position.z;
+           }
+        }
+
+    }
 //    position.z += speed * dt * direction;
 //    position.y = sin(age * speed) * radius + posY;
 //    position.x = cos(age * speed) * radius + posX;
