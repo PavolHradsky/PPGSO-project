@@ -131,7 +131,7 @@ private:
         // add boat to scene
         auto drownedBoat = std::make_unique<Boat>();
         drownedBoat->position = {-20, -80, -20};
-        drownedBoat->scale = {0.015f, 0.015f, 0.015f};
+        drownedBoat->scale = {0.03f, 0.03f, 0.03f};
         drownedBoat->rotation.x = -ppgso::PI/3;
         drownedBoat->animate = false;
         scene.objects.push_back(std::move(drownedBoat));
@@ -158,40 +158,61 @@ private:
 */
 
         auto sand = std::make_unique<Sand>();
-        for (auto &vect: sand->maxPoints){
-            auto rock = std::make_unique<Rock>();
-            rock->position.x = vect.x;
-            rock->position.z = vect.z;
-            rock->position.y = vect.y;
-            //rock->scale = {0.1f, 0.1f, 0.1f};
-            scene.objects.push_back(std::move(rock));
-        }
-        scene.objects.push_back(std::move(sand));
-//        i = -80;
-//        while(i <= 80){
-//            j = -80;
-//            while(j <= 80){
-//                auto sand = std::make_unique<Sand>();
-//                sand->position.x = i;
-//                sand->position.z = j;
-//                scene.objects.push_back(std::move(sand));
-//                j += 80;
-//            }
-//            i += 80;
+//        for (auto &vect: sand->maxPoints){
+//            auto rock = std::make_unique<Rock>();
+//            rock->position.x = vect.x;
+//            rock->position.z = vect.z;
+//            rock->position.y = vect.y;
+//            //rock->scale = {0.1f, 0.1f, 0.1f};
+//            scene.objects.push_back(std::move(rock));
 //        }
+        scene.objects.push_back(std::move(sand));
 
-/*
-        for(int i = 0; i < 30; i++){
+
+
+        for(int k = 0; k < 30; k++){
             auto rock = std::make_unique<Rock>();
             rock->position.x = glm::linearRand(-115.0f, 115.0f);
             rock->position.z = glm::linearRand(-115.0f, 115.0f);
+
+            int x1 = ((int) rock->position.x) / 24 * 24;
+            int x2;
+            if(x1 < 0) x2 = x1 - 24;
+            else x2 = x1 + 24;
+            int z1 = ((int) rock->position.z) / 24 * 24;
+            int z2;
+            if(z1 < 0) z2 = z1 - 24;
+            else z2 = z1 + 24;
+
+            std::vector<glm::vec3> closestPoints;
+
+            for(auto &point: scene.sandControlPoints){
+                if((int) point.x == x1 || (int) point.x == x2){
+                    if((int) point.z == z1 || (int) point.z == z2){
+                        closestPoints.push_back(point);
+                    }
+                }
+            }
+
+            // bilinear interpolation to find y coordinate
+//            float x = rock->position.x;
+//            float z = rock->position.z;
+//            float y1 = ((x2 - x) * closestPoints[0].y + (x - x1) * closestPoints[1].y) / (x2 - x1);
+//            float y2 = ((x2 - x) * closestPoints[2].y + (x - x1) * closestPoints[3].y) / (x2 - x1);
+//            float y = ((z2 - z) * y1 + (z - z1) * y2) / (z2 - z1);
+//            rock->position.y = y;
+
+            // bilinear interpolation to find y coordinate
+
+
+
             // rotate rock randomly
             rock->rotation.x = glm::linearRand(0.0f, 360.0f);
             rock->rotation.y = glm::linearRand(0.0f, 360.0f);
             rock->rotation.z = glm::linearRand(0.0f, 360.0f);
             scene.objects.push_back(std::move(rock));
         }
-*/
+
     }
 
 public:

@@ -45,14 +45,9 @@ bool Generator::update(Scene &scene, float dt) {
         fishs->posY = fishs->position.y;
         fishs->posZ = fishs->position.z;
         fishs->posX = fishs->position.x;
-//        fishs->shader = std::move(shaderDark);
-        //scene.objects.push_back(std::move(fishs->fishTail));
         scene.objects.push_back(std::move(fishs));
         time = 0;
         counter += 1;
-//        auto fishTail = std::make_unique<FishTail>();
-//        fishTail->fish = std::move(fishs);
-//        scene.objects.push_back(std::move(fishTail));
     }
 
     return true;

@@ -18,6 +18,7 @@ Sand::Sand() {
     // Scale the default model
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("Sand2.bmp"));
+
 }
 
 

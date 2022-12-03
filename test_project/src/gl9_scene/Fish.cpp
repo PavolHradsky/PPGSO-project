@@ -41,12 +41,12 @@ bool Fish::update(Scene &scene, float dt) {
     auto tmp = this->position;
     tmp.z += 0.02f;
     tmp.y += 0.6f;
-    for (int i = 0; i < 10; ++i) {
-        auto bubble = std::make_unique<Bubble>(glm::translate(glm::mat4(1.0f), tmp), ((float) rand() / (float) RAND_MAX) * (500 - 400) + 400, 50);
-        bubble->minScale = 0.04;
-        bubble->maxScale = 0.06;
-        scene.objects.push_back(move(bubble));
-    }
+//    for (int i = 0; i < 10; ++i) {
+//        auto bubble = std::make_unique<Bubble>(glm::translate(glm::mat4(1.0f), tmp), ((float) rand() / (float) RAND_MAX) * (500 - 400) + 400, 50);
+//        bubble->minScale = 0.04;
+//        bubble->maxScale = 0.06;
+//        scene.objects.push_back(move(bubble));
+//    }
     age += dt;
     // move of the fish
 
@@ -90,7 +90,7 @@ bool Fish::update(Scene &scene, float dt) {
 
     for ( auto& obj : tails ) {
         auto part = dynamic_cast<FishTail*>(obj.get());
-        part->updateTail(scene, position, rotation, scale);
+        part->updateTail(scene, posX, posY, posZ, speed, radius, position, scale, age-scale.x*0.09, dt);
     }
     /*
     if (fishTail) {

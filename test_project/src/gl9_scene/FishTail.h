@@ -16,9 +16,6 @@ private:
     // Static resources (Shared between instances)
     static std::unique_ptr<ppgso::Mesh> mesh;
     static std::unique_ptr<ppgso::Texture> texture;
-    float age = 0;
-    float speed = 0.5;
-    float radius = 15;
     float distanceX = 0.22;
     float distanceY = -0.01;
     float distanceZ = 0.22;
@@ -37,7 +34,7 @@ public:
      * @return true to delete the object
      */
     bool update(Scene &scene, float dt) override;
-    void updateTail(Scene &scene, glm::vec3 pos, glm::vec3 rot, glm::vec3 sc);
+    void updateTail(Scene &scene, float posX, float posY, float posZ, float speed, float radius, glm::vec3 pos, glm::vec3 sc, float age, float dt);
     //void updateModel(Scene &scene, glm::vec3 pos, glm::vec3 rot, glm::vec3 sc);
     /*!
      * Render player
@@ -52,9 +49,6 @@ public:
      */
     void onClick(Scene &scene) override ;
     float direction = 1;
-    float posY = 0;
-    float posX = 0;
-    float posZ = 0;
     float prevCamY = 10;
 };
 

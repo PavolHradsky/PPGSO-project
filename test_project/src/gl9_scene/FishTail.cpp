@@ -29,16 +29,19 @@ FishTail::FishTail() {
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("fishTail.obj");
 }
 
-void FishTail::updateTail(Scene &scene, glm::vec3 pos, glm::vec3 rot, glm::vec3 sc) {
+void FishTail::updateTail(Scene &scene, float posX, float posY, float posZ, float speed, float radius, glm::vec3 pos, glm::vec3 sc, float age, float dt) {
     scale = sc;
 
-    // make ofset for tail
+    // move in circle
+    position.x = std::cos(age * speed) * radius + posX;
+    position.z = std::sin(age * speed) * radius + posZ;
+    position.y = pos.y;
 
-    //offset = {(distanceZ + distanceX) * sin(rot.y), distanceY, (distanceZ+di) * cos(rot.y)};
-    offset = {distanceX * sin(rot.y), distanceY, distanceZ * cos(rot.y)};
-    position = pos + offset;
+    float nextX = std::cos((age + dt) * speed) * radius + posX;
+    float nextZ = std::sin((age + dt) * speed) * radius + posZ;
 
-    rotation = rot;
+    // rotate fish
+    rotation.z = std::atan2(nextX - position.x, nextZ - position.z) + ppgso::PI / 2 + sin(age*3)*0.5;
 
     update(scene, 0);
 
