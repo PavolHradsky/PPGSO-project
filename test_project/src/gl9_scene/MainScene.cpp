@@ -171,56 +171,32 @@ private:
 
 
 
-        for(int k = 0; k < 30; k++){
+        for(int k = 0; k < 50; k++){
             auto rock = std::make_unique<Rock>();
             auto seaweed = std::make_unique<Seaweed>();
             rock->position.x = glm::linearRand(-115.0f, 115.0f);
             rock->position.z = glm::linearRand(-115.0f, 115.0f);
-            seaweed->position.x = rock->position.x+glm::linearRand(-5, 5);
-            seaweed->position.z = rock->position.z+glm::linearRand(-5,5);
-//            seaweed->position.y = -79;
-//            seaweed->posY = seaweed->position.y;
-//            seaweed->posX =  seaweed->position.x;
-//            seaweed->posZ =  seaweed->position.z;;
-//            int x1 = ((int) rock->position.x) / 24 * 24;
-//            int x2;
-//            if(x1 < 0) x2 = x1 - 24;
-//            else x2 = x1 + 24;
-//            int z1 = ((int) rock->position.z) / 24 * 24;
-//            int z2;
-//            if(z1 < 0) z2 = z1 - 24;
-//            else z2 = z1 + 24;
-//
-//            std::vector<glm::vec3> closestPoints;
-//
-//            for(auto &point: scene.sandControlPoints){
-//                if((int) point.x == x1 || (int) point.x == x2){
-//                    if((int) point.z == z1 || (int) point.z == z2){
-//                        closestPoints.push_back(point);
-//                    }
-//                }
-//            }
-//
-//            // bilinear interpolation to find y coordinate
-//
-//           float x = rock->position.x;
-//            float z = rock->position.z;
-//            float y1 = ((x2 - x) * closestPoints[0].y + (x - x1) * closestPoints[1].y) / (x2 - x1);
-//            float y2 = ((x2 - x) * closestPoints[2].y + (x - x1) * closestPoints[3].y) / (x2 - x1);
-//            float y = ((z2 - z) * y1 + (z - z1) * y2) / (z2 - z1);
-//            rock->position.y = y;
-//
+            seaweed->position.x = glm::linearRand(-115.0f, 115.0f);
+            seaweed->position.z = glm::linearRand(-115.0f, 115.0f);
 
-            // bilinear interpolation to find y coordinate
-
-            // find rock position in sand->bezier.vertices
             float x = rock->position.x;
             float z = rock->position.z;
             // find nearest x, z in sand->bezier.vertices
             for(auto &point: sand->bezier.vertices){
-                if(point.x-2 <= x <= point.x+2){
-                    if(point.z-2 <= z <= point.z+2){
+                if(x-4 < point.x && point.x < x+4){
+                    if(z-4 < point.z && point.z < z+4){
                         rock->position.y = point.y;
+                        break;
+                    }
+                }
+            }
+
+            x = seaweed->position.x;
+            z = seaweed->position.z;
+            // find nearest x, z in sand->bezier.vertices
+            for(auto &point: sand->bezier.vertices){
+                if(x-4 < point.x && point.x < x+4){
+                    if(z-4 < point.z && point.z < z+4){
                         seaweed->position.y = point.y;
                         break;
                     }
