@@ -1,7 +1,7 @@
 #include <cmath>
 #include <glm/gtc/random.hpp>
 #include "Boat.h"
-
+#include "Bubble.h"
 #include <shaders/diffuse_vert_glsl.h>
 #include <shaders/diffuse_frag_glsl.h>
 #include "shaders/texture_vert_glsl.h"
@@ -108,6 +108,19 @@ bool Boat::update(Scene &scene, float dt) {
         }
         if (step == 4) step = 0;
     }
+    else{
+        auto tmp = drownedBoat_position;
+        tmp.z += 0.02f;
+        tmp.y += 0.6f;
+        for (int i = 0; i < 30; ++i) {
+            auto bubble = std::make_unique<Bubble>(glm::translate(glm::mat4(1.0f), tmp), ((float) rand() / (float) RAND_MAX) * (500 - 400) + 400, 80);
+            bubble->minScale = 0.4;
+            bubble->maxScale = 0.6;
+            scene.objects.push_back(move(bubble));
+        }
+    }
+
+
 
     generateModelMatrix();
 
