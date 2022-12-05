@@ -17,11 +17,12 @@ bool BubbleGenerator::update(Scene &scene, float dt) {
     // Accumulate time
     time1 += dt;
     // Add object to scene when time reaches certain level
-    if (time1 > 2) {
+    if (time1 > .5f) {
         auto obj = std::make_unique<Bubble>();
         obj->position.x = glm::linearRand(-35.0f, -05.0f);
         obj->position.z = glm::linearRand(-35.0f, -05.0f);
         obj->position.y = -70;
+        obj->scale *= glm::linearRand(0.3, 2.0);
         scene.objects.push_back(std::move(obj));
         time1 = 0;
     }

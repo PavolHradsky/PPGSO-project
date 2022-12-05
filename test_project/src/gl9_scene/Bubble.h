@@ -20,9 +20,9 @@ private:
 
 public:
     static std::unique_ptr<ppgso::Shader> shader;
+    float speed = 0;
 //    Bubble(glm::mat4 translateMatrix, float timeAlive, float rndPos);
     Bubble();
-    float minScale = 0.05, maxScale = 0.1;
     bool update(Scene &scene, float dt) override;
 
     void render(Scene &scene) override;

@@ -28,6 +28,7 @@
 #include "Sun.h"
 #include "Filter.h"
 #include "Seaweed.h"
+#include "LightHouse.h"
 #include "shaders/texture_vert_glsl.h"
 #include "shaders/texture_frag_glsl.h"
 #include "shaders/my_texture_frag_glsl.h"
@@ -127,6 +128,11 @@ private:
             cloud->rotation.y = glm::linearRand(0.0f, 2*ppgso::PI);
             scene.objects.push_back(std::move(cloud));
         }
+
+        auto lightHouse = std::make_unique<LightHouse>();
+        lightHouse->position = {50, 0, 50};
+        lightHouse->scale *= 10;
+        scene.objects.push_back(std::move(lightHouse));
 
 
         // add boat to scene

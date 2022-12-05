@@ -21,45 +21,41 @@ std::unique_ptr<ppgso::Mesh> Bubble::mesh;
 std::unique_ptr<ppgso::Texture> Bubble::texture;
 std::unique_ptr<ppgso::Shader> Bubble::shader;
 
+#define G 9.81f
+
 Bubble::Bubble() {
-//    auto rndmPos = random_vec3(-rndPos, 0);
-//    translateMatrix[3][0] += rndmPos.x;
-//    translateMatrix[3][1] += rndmPos.y;
-//    translateMatrix[3][2] += rndmPos.z;
-//    this->translateMatrix = translateMatrix;
-//
-//    rotation = random_vec3(-0.1, 0.1);
-//    scale = random_vec3(minScale, maxScale);
-//
     color = {0.6,0.85,0.92};
-//
-//    time = timeAlive;
     // Initialize static resources if needed
     if (!shader) shader = std::make_unique<ppgso::Shader>(color_vert_glsl, color_frag_glsl);
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("sphere.obj");
+
+    if(scale.x > 1.4){
+        speed = 0.66f * sqrt(G/(scale.x/2));
+    } else if(scale.x > 0.8 ) {
+        speed = 0.33f * (scale.x/2) * (scale.x/2) * G/14;
+    } else {
+        speed = 0.11f * (scale.x/2) * (scale.x/2) * G/14;
+    }
 }
 
-glm::vec3 Bubble::random_vec3 (float mini, float maxi) {
-    return {((float) rand() / (float) RAND_MAX) * (maxi - mini) + mini, ((float) rand() / (float) RAND_MAX) * (maxi - mini) + mini, ((float) rand() / (float) RAND_MAX) * (maxi - mini) + mini};
-}
 
 bool Bubble::update(Scene &scene, float dt) {
-//    auto speed = random_vec3(0.005, 0.0005);
-//
-//    translateMatrix[3][0] += scene.camera->position.x;
-//    translateMatrix[3][1] += speed.y;
-//    translateMatrix[3][2] += scene.camera->position.z;
-//
-//    if (time < 0)
-//        return false;
-//
-//    time--;
-//    modelMatrix =
-//            translateMatrix
-//            * glm::orientate4(rotation)
-//            * glm::scale(glm::mat4(1.0f), scale);
 
-    position.y += 4*dt;
+    // gravitation
+    //position.y += dt * speed * 40;
+
+    //position.x += 10 * dt * speed / scale.x;
+    //position.z += 10 * dt * speed / scale.x;
+
+    glm::vec3 vec = {15, 40, 15};
+
+    vec *= dt*speed * scale.x;
+    position += vec;
+
+
+
+
+
 
     if(position.y > 0){
         return false;
