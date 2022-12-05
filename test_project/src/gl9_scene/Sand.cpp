@@ -6,6 +6,7 @@
 #include "PerlinNoise.h"
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
+#include <shaders/my_texture_frag_glsl.h>
 #define SEA_TURBULENCE 0.00f
 // shared resources
 //std::unique_ptr<ppgso::Mesh> Sand::mesh;
@@ -16,7 +17,7 @@ std::unique_ptr<ppgso::Shader> Sand::shader;
 
 Sand::Sand() {
     // Scale the default model
-    if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
+    if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("Sand2.bmp"));
 
 }

@@ -10,6 +10,7 @@
 #include <ppgso/ppgso.h>
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
+#include <shaders/my_texture_frag_glsl.h>
 #include "object.h"
 #include "scene.h"
 
@@ -53,7 +54,7 @@ private:
         return points[0];
     }
 
-    ppgso::Shader program{texture_vert_glsl, texture_frag_glsl};
+    ppgso::Shader program{texture_vert_glsl, my_texture_frag_glsl};
     ppgso::Texture texture{ppgso::image::loadBMP("Sand2.bmp")};
 public:
     // Public attributes that define position, color ..

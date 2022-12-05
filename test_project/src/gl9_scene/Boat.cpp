@@ -110,20 +110,12 @@ bool Boat::update(Scene &scene, float dt) {
         if (step == 4) step = 0;
     }
     else{
-        auto tmp = drownedBoat_position;
         if(!generator){
+//            mesh = std::make_unique<ppgso::Mesh>("boat_test.obj");
             auto gen =  std::make_unique<BubbleGenerator>();
             scene.objects.push_back(std::move(gen));
             generator = true;
         }
-//        tmp.z += 0.02f;
-//        tmp.y += 0.6f;
-//        for (int i = 0; i < 30; ++i) {
-//            auto bubble = std::make_unique<Bubble>(glm::translate(glm::mat4(1.0f), tmp), ((float) rand() / (float) RAND_MAX) * (500 - 400) + 400, 80);
-//            bubble->minScale = 0.4;
-//            bubble->maxScale = 0.6;
-//            scene.objects.push_back(move(bubble));
-//        }
     }
 
 
