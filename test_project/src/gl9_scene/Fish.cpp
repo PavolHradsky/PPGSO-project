@@ -72,6 +72,7 @@ bool Fish::update(Scene &scene, float dt) {
 //    position.x = cos(age * speed) * radius + posX;
 
 //     move in circle
+
     position.x = std::cos(age * speed) * radius + posX;
     position.z = std::sin(age * speed) * radius + posZ;
     position.y = std::sin(age) + posY;
@@ -81,6 +82,16 @@ bool Fish::update(Scene &scene, float dt) {
 
     // rotate fish
     rotation.z = std::atan2(nextX - position.x, nextZ - position.z) + ppgso::PI / 2;
+
+    // TODO
+    // if fish is tooclose to 118, 0, 0, rotate it to the other side
+    if (glm::distance(position, glm::vec3(118, 0, 0)) < 10) {
+        rotation.z = ppgso::PI;
+    }
+    if (glm::distance(position, glm::vec3(0, 0, 118)) < 10) {
+        rotation.z = ppgso::PI;
+    }
+
     generateModelMatrix();
 
     for ( auto& obj : tails ) {

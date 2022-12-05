@@ -3,7 +3,7 @@
 #include "Dolphin.h"
 #include "explosion.h"
 #include "Boat.h"
-
+#include "LightHouse.h"
 #include <shaders/diffuse_vert_glsl.h>
 #include <shaders/diffuse_frag_glsl.h>
 #include "shaders/texture_vert_glsl.h"
@@ -82,15 +82,28 @@ bool Dolphin::update(Scene &scene, float dt) {
         auto boat = dynamic_cast<Boat *>(object.get());
         if (!boat)
             continue;
+        // TODO make collision with lightHouse
+        auto lighthouse = dynamic_cast<LightHouse *>(object.get());
+        if (!lighthouse)
+            continue;
 
         // Check distance between objects
         auto distance = glm::distance(this->position, boat->position);
         if (distance < 5 && age-explosionTime > 5) {
-            // Create explosion
-            std::cout << "Explosion" << std::endl;
             scene.objects.push_back(std::make_unique<Explosion>(boat->position));
 
             explosionTime = age;
+            if(direction == 1){
+                rotation.y = ppgso::PI;
+            }
+            if(direction == -1){
+                rotation.y = 0;
+            }
+            direction *= -1;
+        }
+
+        auto distanceLightHouse = glm::distance(this->position, lighthouse->position);
+        if (distanceLightHouse < 5) {
             if(direction == 1){
                 rotation.y = ppgso::PI;
             }

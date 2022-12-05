@@ -18,7 +18,7 @@ bool Generator::update(Scene &scene, float dt) {
     time += dt;
 
     // Add object to scene when time reaches certain level
-    if (time > .3 and counter < 30) {
+    if (time > .3 and counter < 40) {
         auto obj = std::make_unique<Dolphin>();
         obj->speed = glm::linearRand(2.0f, 5.0f);
         obj->position.x += glm::linearRand(-120.0f, 120.0f);

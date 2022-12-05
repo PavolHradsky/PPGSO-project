@@ -31,7 +31,6 @@ FishTail::FishTail() {
 
 void FishTail::updateTail(Scene &scene, float posX, float posY, float posZ, float speed, float radius, glm::vec3 pos, glm::vec3 sc, float age, float dt) {
     scale = sc;
-
     // move in circle
     position.x = std::cos(age * speed) * radius + posX;
     position.z = std::sin(age * speed) * radius + posZ;
@@ -43,6 +42,14 @@ void FishTail::updateTail(Scene &scene, float posX, float posY, float posZ, floa
     // rotate fish
     rotation.z = std::atan2(nextX - position.x, nextZ - position.z) + ppgso::PI / 2 + sin(age*3)*0.5;
 
+    // TODO
+    // if fish is tooclose to 118, 0, 0, rotate it to the other side
+    if (glm::distance(position, glm::vec3(118, 0, 0)) < 10) {
+        rotation.z = ppgso::PI;
+    }
+    if (glm::distance(position, glm::vec3(0, 0, 118)) < 10) {
+        rotation.z = ppgso::PI;
+    }
     update(scene, 0);
 
 }
