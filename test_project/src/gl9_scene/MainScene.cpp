@@ -52,7 +52,7 @@ private:
 
 
 
-        //scene.lightDirection = {0, 30, 0};
+        scene.lightDirection = {0, 30, 0};
 
         // Create a camera
         auto camera = std::make_unique<Camera>(60.0f, 1.0f, 0.1f, 500.0f);

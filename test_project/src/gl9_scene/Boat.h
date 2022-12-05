@@ -36,6 +36,7 @@ private:
 
 public:
     bool animate;
+    bool generator = false;
   static std::unique_ptr<ppgso::Shader> shader;
   /*!
    * Create new asteroid

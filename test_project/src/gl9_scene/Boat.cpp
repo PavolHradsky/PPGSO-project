@@ -9,6 +9,7 @@
 #include "shaders/my_texture_frag_glsl.h"
 #include "shaders/phong_frag_glsl.h"
 #include "shaders/phong_vert_glsl.h"
+#include "bubbleGenerator.h"
 
 
 // Static resources
@@ -110,14 +111,19 @@ bool Boat::update(Scene &scene, float dt) {
     }
     else{
         auto tmp = drownedBoat_position;
-        tmp.z += 0.02f;
-        tmp.y += 0.6f;
-        for (int i = 0; i < 30; ++i) {
-            auto bubble = std::make_unique<Bubble>(glm::translate(glm::mat4(1.0f), tmp), ((float) rand() / (float) RAND_MAX) * (500 - 400) + 400, 80);
-            bubble->minScale = 0.4;
-            bubble->maxScale = 0.6;
-            scene.objects.push_back(move(bubble));
+        if(!generator){
+            auto gen =  std::make_unique<BubbleGenerator>();
+            scene.objects.push_back(std::move(gen));
+            generator = true;
         }
+//        tmp.z += 0.02f;
+//        tmp.y += 0.6f;
+//        for (int i = 0; i < 30; ++i) {
+//            auto bubble = std::make_unique<Bubble>(glm::translate(glm::mat4(1.0f), tmp), ((float) rand() / (float) RAND_MAX) * (500 - 400) + 400, 80);
+//            bubble->minScale = 0.4;
+//            bubble->maxScale = 0.6;
+//            scene.objects.push_back(move(bubble));
+//        }
     }
 
 
