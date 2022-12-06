@@ -7,6 +7,7 @@
 
 #include "object.h"
 #include "camera.h"
+#include "Sun.h"
 
 /*
  * Scene is an object that will aggregate all scene related data
@@ -15,12 +16,12 @@
  */
 class Scene {
   public:
+
     // shader
     std::unique_ptr<ppgso::Shader> shader;
 
     // lights
     std::vector<glm::vec3> light_positions;
-    int LIGHT_COUNT = 3;
     glm::vec3 player_position{0, 0, 0};
     /*!
      * Update all objects in the scene

@@ -76,6 +76,7 @@ set(PPGSO_SHADER_SRC
         shader/phong_frag.glsl shader/phong_vert.glsl
         shader/cube_vert.glsl shader/cube_frag.glsl
         shader/basic_light_frag.glsl shader/basic_light_vert.glsl
+        shader/my_phong_frag.glsl
         )
 add_resources(shaders ${PPGSO_SHADER_SRC})
 

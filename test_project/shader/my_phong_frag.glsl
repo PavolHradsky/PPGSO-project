@@ -17,8 +17,6 @@ uniform vec2 TextureOffset;
 
 uniform vec3 CamPos;
 
-uniform vec3 gc;
-
 struct Material {
     vec3 ambient;
     vec3 diffuse;
@@ -55,8 +53,7 @@ out vec4 FragmentColor;
 void main() {
 
     // global
-    vec3 GlobalColor = vec3(1 ,1, 1);
-//    vec3 GlobalColor = material.diffuse;
+    vec3 GlobalColor = vec3(1 ,1 , 1);
     vec4 global = vec4(0, 0, 0 ,0);
     float diff = 0;
     if (global_lighting_on) {
@@ -112,5 +109,7 @@ void main() {
     float mult = max(min(dist / 500, 1), -1);
 
     FragmentColor = out_color + (vec4(bg, 1) - out_color) * mult;
+    FragmentColor.r /= 3;
+    FragmentColor.g /= 3;
     FragmentColor.a = Transparency;
 }

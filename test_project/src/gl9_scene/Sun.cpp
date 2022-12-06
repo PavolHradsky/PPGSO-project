@@ -25,8 +25,8 @@ Sun::Sun() {
     scale *= 25;
 
     position.y = 190;
-    position.x = 40;
-    position.z = 40;
+    position.x = 0;
+    position.z = 0;
 
     // Initialize static resources if needed
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
@@ -37,11 +37,14 @@ Sun::Sun() {
 
 bool Sun::update(Scene &scene, float dt) {
 
-//    posY = position.y;
-
-    // Generate modelMatrix from position, rotation and scale
+    if(scene.lights.strengths[2] == 1 && !night){
+        texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("asteroid.bmp"));
+        night = true;
+    }else if(scene.lights.strengths[2] == 5 && night){
+        texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("sun.bmp"));
+        night = false;
+    }
     generateModelMatrix();
-    //modelMatrix = translateMatrix * glm::eulerAngleYXZ(rotation.x, rotation.y, rotation.z * glm::scale(glm::mat4{1.0f}, scale));
     return true;
 }
 

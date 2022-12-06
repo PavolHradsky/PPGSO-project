@@ -19,6 +19,8 @@ private:
     float age = 0;
 
 public:
+    glm::vec3 color;
+
     static std::unique_ptr<ppgso::Shader> shader;
     /*!
      * Create a new player
@@ -54,6 +56,7 @@ public:
     float minScale;
     float maxScale;
     float randomPosition;
+    bool night = false;
 
 };
 #endif //PPGSO_SUN_H

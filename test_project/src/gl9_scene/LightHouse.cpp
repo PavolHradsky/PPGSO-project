@@ -45,13 +45,27 @@ void LightHouse::render(Scene &scene) {
     shader->setUniform("CamPos", scene.camera->position);
     shader->setUniform("global_lighting_on", scene.global_lighting_on);
 
-    shader->setUniform("MaterialShininess", .0f);
-    shader->setUniform("MaterialAmbient",{ 0.9f, 0.9f, 0.9f});
-    shader->setUniform("MaterialDiffuse", {0.5f, 0.5f, 0.5f});
-    shader->setUniform("MaterialSpecular", {0.5f, 0.5f, 0.5f});
+//    shader->setUniform("material.ambient", {1, 1, 1});
+    shader->setUniform("material.diffuse", {1, 1, 1});
+    shader->setUniform("material.specular", {0.9f, 0.9f, 0.9f});
+    shader->setUniform("material.shininess", 32.0f);
 
+    for (int i = 0; i < scene.lights.count; i++) {
+        shader->setUniform("lights.positions[" + std::to_string(i) + "]", scene.lights.positions[i]);
+        shader->setUniform("lights.colors[" + std::to_string(i) + "]", scene.lights.colors[i]);
+        shader->setUniform("lights.ranges[" + std::to_string(i) + "]", scene.lights.ranges[i]);
+        if (scene.lights.strengths[i] < 0) {
+            shader->setUniform("lights.strengths[" + std::to_string(i) + "]", 0.0f);
+        }
+        else {
+            shader->setUniform("lights.strengths[" + std::to_string(i) + "]", scene.lights.strengths[i]);
+        }
+    }
+
+    // render mesh
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
+    shader->setUniform("UseShadow", false);
     mesh->render();
 }
 

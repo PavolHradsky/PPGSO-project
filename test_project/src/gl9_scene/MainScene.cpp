@@ -56,31 +56,27 @@ private:
         scene.objects.clear();
 
 
-
-        scene.lightDirection = {0, 30, 0};
+//        scene.lightDirection = {0, -30, 0};
+        scene.lightDirection = {0.25 , 1, 0.5};
 
         // Create a camera
         auto camera = std::make_unique<Camera>(60.0f, 1.0f, 0.1f, 500.0f);
         camera->position.z = -15.0f;
         scene.camera = std::move(camera);
 
-        auto shaderLight = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
-        auto shaderDark = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
-        scene.shader = std::move(shaderLight);
-
-        scene.light_positions.clear();
-
-        // ambient
-        scene.light_positions.push_back(glm::vec3(2, 2, 2));
-        scene.shader->setUniform("lights[1].color", glm::vec3(0.3, 0.3, 0.3));
+//        scene.light_positions.clear();
+//
+//        // ambient
+//        scene.light_positions.push_back(glm::vec3(2, 2, 2));
+//        scene.shader->setUniform("lights[1].color", glm::vec3(0.3, 0.3, 0.3));
 
 
         // Add ocean to the scene
         int i, j;
         i = -80;
-        while(i <= 80){
+        while (i <= 80) {
             j = -80;
-            while(j <= 80){
+            while (j <= 80) {
                 auto ocean = std::make_unique<Ocean>();
                 ocean->position.x = i;
                 ocean->position.z = j;
@@ -91,9 +87,9 @@ private:
         }
 
         i = -80;
-        while(i <= 80){
+        while (i <= 80) {
             j = -80;
-            while(j <= 80){
+            while (j <= 80) {
                 auto ocean = std::make_unique<Ocean>();
                 ocean->position.x = i;
                 ocean->position.z = j;
@@ -107,7 +103,7 @@ private:
 
 
         // Make a generator of dolphins which will be swim and can have collision with boat
-        auto generator =  std::make_unique<Generator>();
+        auto generator = std::make_unique<Generator>();
         generator->position.y = 10.0f;
         scene.objects.push_back(std::move(generator));
 
@@ -115,7 +111,7 @@ private:
         auto boat = std::make_unique<Boat>();
         boat->position = {-20, 0, -20};
         boat->scale = {0.005f, 0.005f, 0.005f};
-        boat->rotation.x = -ppgso::PI/2;
+        boat->rotation.x = -ppgso::PI / 2;
         boat->rotation.y = ppgso::PI;
         boat->animate = true;
         scene.objects.push_back(std::move(boat));
@@ -123,13 +119,13 @@ private:
         auto sun = std::make_unique<Sun>();
         scene.objects.push_back(std::move(sun));
 
-        for(int i = 0; i < 20; i++){
+        for (int i = 0; i < 20; i++) {
             auto cloud = std::make_unique<Cloud>();
             cloud->position.y = 180;
             cloud->position.x += glm::linearRand(-120.0f, 120.0f);
             cloud->position.z += glm::linearRand(-120.0f, 120.0f);
             cloud->scale *= glm::linearRand(0.5f, 1.5f);
-            cloud->rotation.y = glm::linearRand(0.0f, 2*ppgso::PI);
+            cloud->rotation.y = glm::linearRand(0.0f, 2 * ppgso::PI);
             scene.objects.push_back(std::move(cloud));
         }
 
@@ -143,25 +139,24 @@ private:
         auto drownedBoat = std::make_unique<Boat>();
         drownedBoat->position = {-20, -80, -20};
         drownedBoat->scale = {0.03f, 0.03f, 0.03f};
-        drownedBoat->rotation.x = -ppgso::PI/3;
+        drownedBoat->rotation.x = -ppgso::PI / 3;
         drownedBoat->animate = false;
         scene.objects.push_back(std::move(drownedBoat));
 
 
-
         auto upperWatter = std::make_unique<UnderWatterTerrain>();
-        upperWatter->position = {0, 100,0};
+        upperWatter->position = {0, 100, 0};
         upperWatter->scale.y = 1;
         scene.objects.push_back(std::move(upperWatter));
 
         auto sky = std::make_unique<Filter>();
-        sky->position = {0, 200,0};
+        sky->position = {0, 200, 0};
         sky->scale = {3, 3, 3};
         sky->rotation.x = glm::radians(180.0f);
         scene.objects.push_back(std::move(sky));
 
         auto underwaterterrain = std::make_unique<UnderWatterTerrain>();
-        underwaterterrain->position = {0, -40,0};
+        underwaterterrain->position = {0, -40, 0};
         scene.objects.push_back(std::move(underwaterterrain));
 /*
         auto shader = std::make_unique<ppgso::Shader>(light_vert_glsl, light_frag_glsl);
@@ -169,19 +164,9 @@ private:
 */
 
         auto sand = std::make_unique<Sand>();
-//        for (auto &vect: sand->maxPoints){
-//            auto rock = std::make_unique<Rock>();
-//            rock->position.x = vect.x;
-//            rock->position.z = vect.z;
-//            rock->position.y = vect.y;
-//            //rock->scale = {0.1f, 0.1f, 0.1f};
-//            scene.objects.push_back(std::move(rock));
-//        }
 
 
-
-
-        for(int k = 0; k < 50; k++){
+        for (int k = 0; k < 50; k++) {
             auto rock = std::make_unique<Rock>();
             auto seaweed = std::make_unique<Seaweed>();
             rock->position.x = glm::linearRand(-115.0f, 115.0f);
@@ -192,9 +177,9 @@ private:
             float x = rock->position.x;
             float z = rock->position.z;
             // find nearest x, z in sand->bezier.vertices
-            for(auto &point: sand->bezier.vertices){
-                if(x-4 < point.x && point.x < x+4){
-                    if(z-4 < point.z && point.z < z+4){
+            for (auto &point: sand->bezier.vertices) {
+                if (x - 4 < point.x && point.x < x + 4) {
+                    if (z - 4 < point.z && point.z < z + 4) {
                         rock->position.y = point.y;
                         break;
                     }
@@ -204,9 +189,9 @@ private:
             x = seaweed->position.x;
             z = seaweed->position.z;
             // find nearest x, z in sand->bezier.vertices
-            for(auto &point: sand->bezier.vertices){
-                if(x-4 < point.x && point.x < x+4){
-                    if(z-4 < point.z && point.z < z+4){
+            for (auto &point: sand->bezier.vertices) {
+                if (x - 4 < point.x && point.x < x + 4) {
+                    if (z - 4 < point.z && point.z < z + 4) {
                         seaweed->position.y = point.y;
                         break;
                     }
@@ -223,13 +208,36 @@ private:
 
         scene.objects.push_back(std::move(sand));
 
-        // add light to scene
-        auto light = std::make_unique<Light>();
-        vertices = light->vertices;
-        VBO = light->VBO;
-        cubeVAO = light->cubeVAO;
-        lightCubeVAO = light->lightCubeVAO;
-        //scene.objects.push_back(std::move(light));
+//        // add light to scene
+//        auto light = std::make_unique<Light>();
+//        vertices = light->vertices;
+//        VBO = light->VBO;
+//        cubeVAO = light->cubeVAO;
+//        lightCubeVAO = light->lightCubeVAO;
+//        scene.objects.push_back(std::move(light));
+
+
+        scene.global_lighting_on = false;
+        // Sub lighs
+        scene.lights.positions[0] = {50, 50, 50};
+        scene.lights.colors[0] = {1, 1, 0};
+        scene.lights.ranges[0] = 100;
+        scene.lights.strengths[0] = 6;
+
+        scene.lights.positions[1] = {50, -40, 50};
+        scene.lights.colors[1] = {1, 1, 1};
+        scene.lights.ranges[1] = 70;
+        scene.lights.strengths[1] = 6;
+
+        scene.lights.positions[2] = {0, 190, 0};
+        scene.lights.colors[2] = {1, 1, 1};
+        scene.lights.ranges[2] = 300;
+        scene.lights.strengths[2] = 5;
+
+        scene.lights.count = 3;
+
+
+
     }
 
 public:
@@ -238,61 +246,79 @@ public:
      * Construct custom game window
      */
     SceneWindow() : Window{"Underwater world", SIZE, SIZE} {
-        /*
-        ppgso::Shader quadShader = {texture_vert_glsl, texture_frag_glsl};
-        ppgso::Mesh quadMesh = {"quad.obj"};
-        scene.light_positions.clear();
-        scene.light_positions.push_back(glm::vec3(5, 7, -13));
-        scene.shader->setUniform("lights[0].color", glm::vec3(1, 0.5, 0.5));
-*/
-        //hideCursor();
+//        /*
+//        ppgso::Shader quadShader = {texture_vert_glsl, texture_frag_glsl};
+//        ppgso::Mesh quadMesh = {"quad.obj"};
+//        scene.light_positions.clear();
+//        scene.light_positions.push_back(glm::vec3(5, 7, -13));
+//        scene.shader->setUniform("lights[0].color", glm::vec3(1, 0.5, 0.5));
+//*/
+//        //hideCursor();
+//        glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
+//
+////        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+//        // Initialize OpenGL state
+//        // Enable Z-buffer
+//        glEnable(GL_LIGHTING);
+//        glEnable(GL_COLOR_MATERIAL);
+//        glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+//        glEnable(GL_DEPTH_TEST);
+//        glDepthFunc(GL_LEQUAL);
+//
+//        // Enable polygon culling
+//        glEnable(GL_CULL_FACE);
+//        glFrontFace(GL_CCW);
+//        glCullFace(GL_BACK);
+//
+//        glGenVertexArrays(1, &cubeVAO);
+//        glGenBuffers(1, &VBO);
+//
+//        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+//        //get light vertices
+//        glBufferData(
+//                GL_ARRAY_BUFFER,
+//                sizeof(vertices),
+//                &vertices[0],
+//                GL_STATIC_DRAW
+//        );
+//
+//        glBindVertexArray(cubeVAO);
+//
+//        // position attribute
+//        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+//        glEnableVertexAttribArray(0);
+//        // normal attribute
+//        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+//        glEnableVertexAttribArray(1);
+//
+//
+//        // second, configure the light's VAO (VBO stays the same; the vertices are the same for the light object which is also a 3D cube)
+//
+//        glGenVertexArrays(1, &lightCubeVAO);
+//        glBindVertexArray(lightCubeVAO);
+//
+//        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+//        // note that we update the lamp's position attribute's stride to reflect the updated buffer data
+//        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+//        glEnableVertexAttribArray(0);
+//
+//        initScene();
+
+
+
+
         glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
-//        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
         // Initialize OpenGL state
         // Enable Z-buffer
-        glEnable(GL_LIGHTING);
-        glEnable(GL_COLOR_MATERIAL);
-        glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LEQUAL);
+
 
         // Enable polygon culling
         glEnable(GL_CULL_FACE);
         glFrontFace(GL_CCW);
         glCullFace(GL_BACK);
-
-        glGenVertexArrays(1, &cubeVAO);
-        glGenBuffers(1, &VBO);
-
-        glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        //get light vertices
-        glBufferData(
-                GL_ARRAY_BUFFER,
-                sizeof(vertices),
-                &vertices[0],
-                GL_STATIC_DRAW
-        );
-
-        glBindVertexArray(cubeVAO);
-
-        // position attribute
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-        glEnableVertexAttribArray(0);
-        // normal attribute
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-        glEnableVertexAttribArray(1);
-
-
-        // second, configure the light's VAO (VBO stays the same; the vertices are the same for the light object which is also a 3D cube)
-
-        glGenVertexArrays(1, &lightCubeVAO);
-        glBindVertexArray(lightCubeVAO);
-
-        glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        // note that we update the lamp's position attribute's stride to reflect the updated buffer data
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-        glEnableVertexAttribArray(0);
 
         initScene();
     }
@@ -372,6 +398,13 @@ public:
                 case GLFW_KEY_SPACE:
                     //scene.camera->enableAnimation = false;
                     break;
+                case GLFW_KEY_N:
+//                    scene.global_lighting_on = !scene.global_lighting_on;
+                    if(scene.lights.strengths[2] == 1){
+                        scene.lights.strengths[2] = 5;
+                    } else {
+                        scene.lights.strengths[2] = 1;
+                    }
                 default:
                     break;
             }
