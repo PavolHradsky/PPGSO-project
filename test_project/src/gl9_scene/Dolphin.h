@@ -15,8 +15,6 @@ public:
     Dolphin();
 
     bool update(Scene &scene, float dt) override;
-
-
     void render(Scene &scene) override;
 
     float speed = 4;

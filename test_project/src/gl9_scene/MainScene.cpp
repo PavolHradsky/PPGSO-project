@@ -1,17 +1,5 @@
-// Example gl_scene
-// - Introduces the concept of a dynamic scene of objects
-// - Uses abstract object interface for Update and Render steps
-// - Creates a simple game scene with Ocean, Boat and Cloud objects
-// - Contains a generator object that does not render but adds Asteroids to the scene
-// - Some objects use shared resources and all object deallocations are handled automatically
-// - Controls: LEFT, RIGHT, "R" to reset, SPACE to fire
-
-#include <iostream>
-#include <map>
 #include <list>
-
 #include <ppgso/ppgso.h>
-
 #include "camera.h"
 #include "scene.h"
 #include "generator.h"
@@ -23,7 +11,7 @@
 #include "Sand.h"
 #include "PerlinNoise.h"
 #include "Fish.h"
-#include "Bubble.h"
+#include "Treasure.h"
 #include "Rock.h"
 #include "Sun.h"
 #include "Filter.h"
@@ -143,6 +131,10 @@ private:
         drownedBoat->animate = false;
         scene.objects.push_back(std::move(drownedBoat));
 
+        auto treasure = std::make_unique<Treasure>();
+        treasure->position = {-30, -78, -30};
+        treasure->scale = {0.9f, 0.9f, 0.9f};
+        scene.objects.push_back(std::move(treasure));
 
         auto upperWatter = std::make_unique<UnderWatterTerrain>();
         upperWatter->position = {0, 100, 0};
@@ -169,6 +161,7 @@ private:
         for (int k = 0; k < 50; k++) {
             auto rock = std::make_unique<Rock>();
             auto seaweed = std::make_unique<Seaweed>();
+
             rock->position.x = glm::linearRand(-115.0f, 115.0f);
             rock->position.z = glm::linearRand(-115.0f, 115.0f);
             seaweed->position.x = glm::linearRand(-115.0f, 115.0f);
@@ -181,6 +174,13 @@ private:
                 if (x - 4 < point.x && point.x < x + 4) {
                     if (z - 4 < point.z && point.z < z + 4) {
                         rock->position.y = point.y;
+                        // TODO make black circle
+                        glBegin(GL_TRIANGLE_FAN);
+                        glVertex2f(rock->position.x , rock->position.y); // Center
+                        for(i = 0.0f; i <= 360; i++)
+                            glVertex2f(5*cos(M_PI * i / 180.0) + rock->position.x, 5*sin(M_PI * i / 180.0) + rock->position.y);
+                        glEnd();
+
                         break;
                     }
                 }
@@ -235,9 +235,6 @@ private:
         scene.lights.strengths[2] = 5;
 
         scene.lights.count = 3;
-
-
-
     }
 
 public:
@@ -303,9 +300,6 @@ public:
 //        glEnableVertexAttribArray(0);
 //
 //        initScene();
-
-
-
 
         glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 

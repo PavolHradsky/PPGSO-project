@@ -18,7 +18,6 @@ Cloud::Cloud() {
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("cloud.obj");
 }
 
-
 bool Cloud::update(Scene &scene, float dt) {
     generateModelMatrix();
     return true;
@@ -38,8 +37,4 @@ void Cloud::render(Scene &scene) {
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
     mesh->render();
-}
-
-void Cloud::onClick(Scene &scene) {
-    std::cout << "Ocean has been clicked!" << std::endl;
 }

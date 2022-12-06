@@ -1,10 +1,5 @@
-//
-// Created by hrads on 5. 12. 2022.
-//
-
 #ifndef PPGSO_LIGHTHOUSE_H
 #define PPGSO_LIGHTHOUSE_H
-
 #pragma once
 #include <ppgso/ppgso.h>
 
@@ -43,13 +38,6 @@ public:
      * @param scene Scene to render in
      */
     void render(Scene &scene) override;
-
-
-    /*!
-     * Ocean click event
-     * @param scene
-     */
-    void onClick(Scene &scene) override ;
 };
 
 

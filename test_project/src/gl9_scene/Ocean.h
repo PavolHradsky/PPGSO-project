@@ -36,12 +36,6 @@ public:
    */
   void render(Scene &scene) override;
 
-
-  /*!
-   * Ocean click event
-   * @param scene
-   */
-  void onClick(Scene &scene) override ;
   glm::vec3 globalPosition = {0,0,0};
 
   float prevCamY = 10;

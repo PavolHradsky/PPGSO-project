@@ -7,11 +7,6 @@
 #include "bubbleGenerator.h"
 #include "Bubble.h"
 #include "shaders/texture_vert_glsl.h"
-#include "shaders/texture_frag_glsl.h"
-#include "shaders/my_texture_frag_glsl.h"
-
-int counter1 = 0;
-//auto shaderDark = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
 
 bool BubbleGenerator::update(Scene &scene, float dt) {
     // Accumulate time
@@ -26,7 +21,6 @@ bool BubbleGenerator::update(Scene &scene, float dt) {
         scene.objects.push_back(std::move(obj));
         time1 = 0;
     }
-
     return true;
 }
 

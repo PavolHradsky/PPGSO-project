@@ -8,11 +8,7 @@
 
 #include "object.h"
 
-/*!
- * Simple object representing the player
- * Reads keyboard status and manipulates its own position
- * On Update checks collisions with Boat objects in the scene
- */
+
 class Light final : public Object {
 private:
 
@@ -43,13 +39,6 @@ public:
      * @param scene Scene to render in
      */
     void render(Scene &scene) override;
-
-
-    /*!
-     * Ocean click event
-     * @param scene
-     */
-    void onClick(Scene &scene) override ;
 };
 
 #endif //PPGSO_LIGHT_H

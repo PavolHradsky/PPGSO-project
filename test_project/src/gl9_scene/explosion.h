@@ -1,6 +1,5 @@
 #pragma once
 #include <ppgso/ppgso.h>
-
 #include "object.h"
 
 /*!

@@ -36,8 +36,6 @@ bool UnderWatterTerrain::update(Scene &scene, float dt) {
     return true;
 }
 
-
-
 void UnderWatterTerrain::render(Scene &scene) {
     shader->use();
 

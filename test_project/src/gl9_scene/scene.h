@@ -4,7 +4,6 @@
 #include <memory>
 #include <map>
 #include <list>
-
 #include "object.h"
 #include "camera.h"
 #include "Sun.h"
@@ -16,7 +15,6 @@
  */
 class Scene {
   public:
-
     // shader
     std::unique_ptr<ppgso::Shader> shader;
 

@@ -1,12 +1,5 @@
-//
-// Created by hrads on 29. 11. 2022.
-//
-
 #ifndef PPGSO_SURFACE_H
 #define PPGSO_SURFACE_H
-
-
-
 #include <ppgso/ppgso.h>
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
@@ -24,8 +17,6 @@
 // Object to represent Bezier patch
 class BezierPatch {
 private:
-
-
     // Texture coordinates
     std::vector<glm::vec2> texCoords;
 
@@ -85,25 +76,15 @@ public:
                 points[k] = bezierPoint(controlPoints[k], t);
             }
             for (unsigned int j = 0; j < PATCH_SIZE; j++) {
-                // TODO: Compute points on the bezier patch
-                // HINT: Compute u, v coordinates
                 float t2 = j * (1.f / PATCH_SIZE);
                 vertices.push_back(bezierPoint(points, t2));
                 texCoords.emplace_back(t, 1 - t2);
             }
         }
-//        for(int i = 0; i < POINTS; i++){
-//            for(int j = 0; j < POINTS; j++){
-//                vertices.push_back(controlPoints[i][j]);
-//                texCoords.emplace_back(i / (float)POINTS, j / (float)POINTS);
-//            }
-//        }
         // Generate indices
         for (unsigned int i = 1; i < PATCH_SIZE; i++) {
             for (unsigned int j = 1; j < PATCH_SIZE; j++) {
-                // TODO: Compute indices for triangle 1
                 mesh.push_back({(i - 1) * PATCH_SIZE + j, (i - 1) * PATCH_SIZE + j - 1,  i * PATCH_SIZE + j - 1});
-                // TODO: Compute indices for triangle 2
                 mesh.push_back({i + PATCH_SIZE * (j - 1), (i - 1) + PATCH_SIZE * j, (i) + PATCH_SIZE * (j)});
             }
         }
@@ -147,7 +128,6 @@ public:
         glDeleteBuffers(1, &vbo);
         glDeleteVertexArrays(1, &vao);
     }
-
     // Set the object transformation matrix
     void update() {
         // TODO: Compute transformation by scaling, rotating and then translating the shape
@@ -156,21 +136,12 @@ public:
         modelMatrix = glm::rotate(modelMatrix, rotation.y, glm::vec3(0, 1, 0));
         modelMatrix = glm::rotate(modelMatrix, rotation.z, glm::vec3(0, 0, 1));
         modelMatrix = glm::scale(modelMatrix, scale);
-
-
-//
-//        modelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-//         modelMatrix = glm::rotate(modelMatrix, glm::radians(1.0f), glm::vec3(1, 0, 0));
-//        modelMatrix = glm::translate(modelMatrix, position);
-//        modelMatrix = glm::scale(modelMatrix, scale);
-
     }
 
     // Draw polygons
     void render(Scene &scene) {
         // Update transformation and color uniforms in the shader
         program.use();
-
         // Initialize projection
         // Create projection matrix (field of view (radians), aspect ratio, near plane distance, far plane distance)
         // You can think of this as the camera objective settings
@@ -188,7 +159,6 @@ public:
         program.setUniform("Texture", texture);
 
         glBindVertexArray(vao);
-        // TODO: Use correct rendering mode to draw the result
         glDrawElements(GL_TRIANGLES, mesh.size() * 3, GL_UNSIGNED_INT, nullptr);
     };
 };

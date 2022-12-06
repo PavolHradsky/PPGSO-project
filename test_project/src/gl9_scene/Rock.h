@@ -5,7 +5,6 @@
 #ifndef PPGSO_ROCK_H
 #define PPGSO_ROCK_H
 #include <ppgso/ppgso.h>
-
 #include "object.h"
 
 class Rock final : public Object {
@@ -35,13 +34,6 @@ public:
      * @param scene Scene to render in
      */
     void render(Scene &scene) override;
-
-
-    /*!
-     * Ocean click event
-     * @param scene
-     */
-    void onClick(Scene &scene) override ;
     float prevCamY = 10;
 };
 

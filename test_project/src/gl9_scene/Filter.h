@@ -1,12 +1,7 @@
-//
-// Created by hrads on 28. 11. 2022.
-//
-
 #ifndef PPGSO_FILTER_H
 #define PPGSO_FILTER_H
 
 #include <ppgso/ppgso.h>
-
 #include "object.h"
 
 /*!
@@ -20,8 +15,6 @@ private:
     static std::unique_ptr<ppgso::Mesh> mesh;
     static std::unique_ptr<ppgso::Texture> texture;
     float speed = 0;
-
-
 public:
     static std::unique_ptr<ppgso::Shader> shader;
 
@@ -43,13 +36,6 @@ public:
      * @param scene Scene to render in
      */
     void render(Scene &scene) override;
-
-
-    /*!
-     * Ocean click event
-     * @param scene
-     */
-    void onClick(Scene &scene) override ;
 };
 
 

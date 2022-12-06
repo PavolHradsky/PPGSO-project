@@ -63,13 +63,11 @@ Light::Light() {
 
 
 bool Light::update(Scene &scene, float dt) {
-
     generateModelMatrix();
     return true;
 }
 
 void Light::render(Scene &scene) {
-
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -96,11 +94,8 @@ void Light::render(Scene &scene) {
     glBindVertexArray(cubeVAO);
     glDrawArrays(GL_TRIANGLES, 0, 36);
 
-
     // also draw the lamp object
     shader_cube->use();
-
-
     shader_cube->setUniform("ProjectionMatrix", projection);
     shader_cube->setUniform("ViewMatrix", view);
     model = glm::mat4(1.0f);
@@ -115,6 +110,3 @@ void Light::render(Scene &scene) {
 
 }
 
-void Light::onClick(Scene &scene) {
-    std::cout << "Ocean has been clicked!" << std::endl;
-}

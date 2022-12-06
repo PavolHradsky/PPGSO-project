@@ -62,13 +62,8 @@ void LightHouse::render(Scene &scene) {
         }
     }
 
-    // render mesh
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
     shader->setUniform("UseShadow", false);
     mesh->render();
-}
-
-void LightHouse::onClick(Scene &scene) {
-    std::cout << "Ocean has been clicked!" << std::endl;
 }

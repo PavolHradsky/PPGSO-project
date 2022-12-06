@@ -1,8 +1,4 @@
-//
-// Created by hrads on 23. 11. 2022.
-//
 #include <ppgso/ppgso.h>
-
 #include "object.h"
 #include "FishTail.h"
 
@@ -46,12 +42,6 @@ public:
      */
     void render(Scene &scene) override;
 
-
-    /*!
-     * Ocean click event
-     * @param scene
-     */
-    void onClick(Scene &scene) override ;
     float direction = 1;
     float posY = 0;
     float posX = 0;

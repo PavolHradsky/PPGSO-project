@@ -1,13 +1,6 @@
-//
-// Created by hrads on 2. 12. 2022.
-//
-
 #ifndef PPGSO_CLOUD_H
 #define PPGSO_CLOUD_H
-
-
 #include <ppgso/ppgso.h>
-
 #include "object.h"
 
 /*!
@@ -42,12 +35,6 @@ public:
      */
     void render(Scene &scene) override;
 
-
-    /*!
-     * Ocean click event
-     * @param scene
-     */
-    void onClick(Scene &scene) override ;
 };
 
 #endif //PPGSO_CLOUD_H

@@ -45,28 +45,7 @@ bool Fish::update(Scene &scene, float dt) {
     age += dt;
     // move of the fish
 
-    // TODO pohyb viac specificky, pri naraze do inej ryby, nieco spravit, po nejakej dobe ryba uhyne a len spadne na zem
-    for (auto &object : scene.objects) {
-        // Ignore self in scene
-        if (object.get() == this)
-            continue;
-        // We only need to collide with boats
-        auto fish = dynamic_cast<Fish *>(object.get());
-        if (!fish)
-            continue;
 
-        // Check distance between objects
-        auto distance = glm::distance(this->position, fish->position);
-        if (distance < 1) {
-            std::cout << "fish died";
-           while (fish->position.y>-80){
-               fish->position.y -= 1;
-               fish->position.x = fish->position.x;
-               fish->position.z = fish->position.z;
-           }
-        }
-
-    }
 //    position.z += speed * dt * direction;
 //    position.y = sin(age * speed) * radius + posY;
 //    position.x = cos(age * speed) * radius + posX;
@@ -97,6 +76,34 @@ bool Fish::update(Scene &scene, float dt) {
     for ( auto& obj : tails ) {
         auto part = dynamic_cast<FishTail*>(obj.get());
         part->updateTail(scene, posX, posY, posZ, speed, radius, position, scale, age-scale.x*0.09, dt);
+    }
+
+    // TODO pohyb viac specificky, pri naraze do inej ryby, nieco spravit, po nejakej dobe ryba uhyne a len spadne na zem
+    for (auto &object : scene.objects) {
+        // Ignore self in scene
+        if (object.get() == this)
+            continue;
+        // We only need to collide with boats
+        auto fish = dynamic_cast<Fish *>(object.get());
+        if (!fish)
+            continue;
+
+        // Check distance between objects
+        auto distance = glm::distance(this->position, fish->position);
+        if (distance < 10) {
+
+            while (fish->position.y>=-80){
+                fish->position.y -= 1;
+                std::cout <<  fish->position.y << std::endl;
+                fish->position.x = fish->position.x;
+                fish->position.z = fish->position.z;
+            }
+            if (fish->position.y == -80){
+                return false;
+            }
+
+        }
+
     }
     /*
     if (fishTail) {
@@ -152,8 +159,4 @@ void Fish::render(Scene &scene) {
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
     mesh->render();
-}
-
-void Fish::onClick(Scene &scene) {
-    std::cout << "Fish has been clicked!" << std::endl;
 }

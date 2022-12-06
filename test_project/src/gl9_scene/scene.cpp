@@ -2,17 +2,14 @@
 
 void Scene::update(float time) {
     camera->update();
-
     // Use iterator to update all objects so we can remove while iterating
     auto i = std::begin(objects);
 
     while (i != std::end(objects)) {
-
         // Update and remove from list if needed
         auto obj = i->get();
-        //std::cout << obj->position.x << obj->position.y << obj->position.z << std::endl;
         if (!obj->update(*this, time))
-            i = objects.erase(i); // NOTE: no need to call destructors as we store shared pointers in the scene
+            i = objects.erase(i);
         else
             ++i;
     }
@@ -23,7 +20,6 @@ void Scene::render() {
     //light_positions.at(1) = player_position + glm::vec3(0, 2, 2);
     for (auto &obj: objects)
         obj->render(*this);
-
 }
 
 std::vector<Object *> Scene::intersect(const glm::vec3 &position, const glm::vec3 &direction) {
@@ -54,6 +50,5 @@ std::vector<Object *> Scene::intersect(const glm::vec3 &position, const glm::vec
             }
         }
     }
-
     return intersected;
 }

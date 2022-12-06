@@ -1,14 +1,9 @@
-//
-// Created by peter on 26. 11. 2022.
-//
-
 #ifndef PPGSO_SUN_H
 #define PPGSO_SUN_H
 
 #include <ppgso/ppgso.h>
 
 #include "object.h"
-// create rain
 
 class Sun final : public Object {
 private:
@@ -23,11 +18,9 @@ public:
 
     static std::unique_ptr<ppgso::Shader> shader;
     /*!
-     * Create a new player
+     * Create a sun
      */
     Sun();
-    // yellow color
-//    glm::vec3 color = {1,0,0};
     /*!
      * Update player position considering keyboard inputs
      * @param scene Scene to update

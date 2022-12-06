@@ -1,20 +1,9 @@
-//
-// Created by peter on 26. 11. 2022.
-//
-
 #include "Bubble.h"
-#include <glm/gtc/random.hpp>
 #include "Ocean.h"
 #include <shaders/color_vert_glsl.h>
 #include <shaders/color_frag_glsl.h>
-#include <shaders/texture_vert_glsl.h>
-#include <shaders/texture_frag_glsl.h>
+#include <cmath>
 #include <glm/gtx/euler_angles.hpp>
-
-// TODO od Plevka, prerobit, sfunkcnit
-
-
-
 
 // Static resources
 std::unique_ptr<ppgso::Mesh> Bubble::mesh;
@@ -30,7 +19,7 @@ Bubble::Bubble() {
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("sphere.obj");
 
     if(scale.x > 1.4){
-        speed = 0.66f * sqrt(G/(scale.x/2));
+        speed = 0.66f * std::sqrt(G/(scale.x/2));
     } else if(scale.x > 0.8 ) {
         speed = 0.33f * (scale.x/2) * (scale.x/2) * G/14;
     } else {
@@ -38,12 +27,9 @@ Bubble::Bubble() {
     }
 }
 
-
 bool Bubble::update(Scene &scene, float dt) {
-
     // gravitation
     //position.y += dt * speed * 40;
-
     //position.x += 10 * dt * speed / scale.x;
     //position.z += 10 * dt * speed / scale.x;
 
@@ -51,11 +37,6 @@ bool Bubble::update(Scene &scene, float dt) {
 
     vec *= dt*speed * scale.x;
     position += vec;
-
-
-
-
-
 
     if(position.y > 0){
         return false;

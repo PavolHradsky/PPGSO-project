@@ -1,12 +1,8 @@
-//
-// Created by peter on 3. 12. 2022.
-//
-
 #ifndef PPGSO_SEAWEED_H
 #define PPGSO_SEAWEED_H
 #include <ppgso/ppgso.h>
-
 #include "object.h"
+
 class Seaweed final : public Object {
 private:
     // Static resources (Shared between instances)

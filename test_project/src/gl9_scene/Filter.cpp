@@ -1,7 +1,3 @@
-//
-// Created by hrads on 28. 11. 2022.
-//
-
 #include "Filter.h"
 #include "scene.h"
 #include <shaders/texture_vert_glsl.h>
@@ -37,8 +33,4 @@ void Filter::render(Scene &scene) {
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
     mesh->render();
-}
-
-void Filter::onClick(Scene &scene) {
-    std::cout << "Ocean has been clicked!" << std::endl;
 }

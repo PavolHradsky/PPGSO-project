@@ -1,10 +1,5 @@
-//
-// Created by peter on 26. 11. 2022.
-//
-
 #include "Rock.h"
 #include "scene.h"
-#include "PerlinNoise.h"
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
 #include "shaders/my_texture_frag_glsl.h"
@@ -30,13 +25,13 @@ Rock::Rock() {
 
 
 bool Rock::update(Scene &scene, float dt) {
-//    if(prevCamY > 0 && scene.camera->position.y < 0){
-//        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
-//    }
-//    if(prevCamY < 0 && scene.camera->position.y > 0){
-//        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
-//    }
-//    prevCamY = scene.camera->position.y;
+    if(prevCamY > 0 && scene.camera->position.y < 0){
+        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
+    }
+    if(prevCamY < 0 && scene.camera->position.y > 0){
+        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
+    }
+    prevCamY = scene.camera->position.y;
 
     generateModelMatrix();
     return true;
@@ -76,8 +71,4 @@ void Rock::render(Scene &scene) {
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
     mesh->render();
-}
-
-void Rock::onClick(Scene &scene) {
-    std::cout << "Ocean has been clicked!" << std::endl;
 }

@@ -1,8 +1,4 @@
-//
-// Created by peter on 29. 11. 2022.
-//
 #include <ppgso/ppgso.h>
-
 #include "object.h"
 #ifndef PPGSO_FISHTAIL_H
 #define PPGSO_FISHTAIL_H
@@ -35,19 +31,12 @@ public:
      */
     bool update(Scene &scene, float dt) override;
     void updateTail(Scene &scene, float posX, float posY, float posZ, float speed, float radius, glm::vec3 pos, glm::vec3 sc, float age, float dt);
-    //void updateModel(Scene &scene, glm::vec3 pos, glm::vec3 rot, glm::vec3 sc);
     /*!
      * Render player
      * @param scene Scene to render in
      */
     void render(Scene &scene) override;
 
-
-    /*!
-     * Ocean click event
-     * @param scene
-     */
-    void onClick(Scene &scene) override ;
     float direction = 1;
     float prevCamY = 10;
 };

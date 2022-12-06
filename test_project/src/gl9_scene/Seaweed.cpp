@@ -1,7 +1,3 @@
-//
-// Created by peter on 3. 12. 2022.
-//
-
 #include "Seaweed.h"
 #include "scene.h"
 #include "shaders/texture_vert_glsl.h"
@@ -12,7 +8,6 @@ std::unique_ptr<ppgso::Texture> Seaweed::texture;
 std::unique_ptr<ppgso::Shader> Seaweed::shader;
 
 Seaweed::Seaweed() {
-
     scale *= 3;
     // Initialize static resources if needed
     if (!shader) shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);

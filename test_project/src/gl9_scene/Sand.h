@@ -10,7 +10,6 @@
 class Sand final : public Object {
 private:
     // Static resources (Shared between instances)
-    //static std::unique_ptr<ppgso::Mesh> mesh;
     static std::unique_ptr<ppgso::Shader> shader;
     static std::unique_ptr<ppgso::Texture> texture;
     float speed = 0;
@@ -30,13 +29,7 @@ public:
             {{  96,  -80, -120}, {  96,  -80, -96}, {  96,  -80, -72}, {  96,  -80, -48}, {  96,  -80, -24}, {  96,  -80, 0}, {  96,  -80, 24}, {  96,  -60, 48}, {  96,  -80, 72}, {  96,  -80, 96}, {96, -80, 120}},
             {{ 120,  -80, -120}, { 120,  -80, -96}, { 120,  -80, -72}, { 120,  -80, -48}, { 120,  -80, -24}, { 120,  -80, 0}, { 120,  -80, 24}, { 120,  -80, 48}, { 120,  -80, 72}, { 120,  -80, 96}, {120, -80, 120}}
     };
-//    glm::vec3 controlPoints[11][11];
-//    glm::vec3 maxPoints[4] {
-//            { -24,  -65, -120}, { -24,  -60, -96}, { -24,  -65, -72}, { -24,  -75, -48}
-//
-//    };
     BezierPatch bezier = BezierPatch(controlPoints);
-//    BezierPatch bezier;
     /*!
      * Create a new player
      */
@@ -55,14 +48,6 @@ public:
      * @param scene Scene to render in
      */
     void render(Scene &scene) override;
-
-
-    /*!
-     * Ocean click event
-     * @param scene
-     */
-    void onClick(Scene &scene) override;
-
     glm::vec3 globalPosition = {0, 0, 0};
     float age = 0;
 };

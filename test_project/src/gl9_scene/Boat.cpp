@@ -164,10 +164,3 @@ void Boat::render(Scene &scene) {
     mesh->render();
 
 }
-
-void Boat::onClick(Scene &scene) {
-
-    std::cout << "Boat clicked!" << std::endl;
-    //explode(scene, position, {10.0f, 10.0f, 10.0f}, 0 );
-}
-

@@ -17,19 +17,13 @@ private:
     static std::unique_ptr<ppgso::Texture> texture;
     glm::mat4 offset;
 
-
 public:
     glm::vec3 color;
     static std::unique_ptr<ppgso::Shader> shader;
     float speed = 0;
-//    Bubble(glm::mat4 translateMatrix, float timeAlive, float rndPos);
     Bubble();
     bool update(Scene &scene, float dt) override;
-
     void render(Scene &scene) override;
-
-private:
-    static glm::vec3 random_vec3 (float mini, float maxi);
 };
 
 #endif //PPGSO_BUBBLE_H

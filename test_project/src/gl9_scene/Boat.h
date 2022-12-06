@@ -57,11 +57,6 @@ public:
    */
   void render(Scene &scene) override;
 
-  /*!
-   * Custom click event for asteroid
-   */
-  void onClick(Scene &scene) override;
-
   float prevCamY = 10;
 
 private:

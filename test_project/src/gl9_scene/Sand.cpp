@@ -7,13 +7,9 @@
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
 #include <shaders/my_texture_frag_glsl.h>
-#define SEA_TURBULENCE 0.00f
 // shared resources
-//std::unique_ptr<ppgso::Mesh> Sand::mesh;
 std::unique_ptr<ppgso::Texture> Sand::texture;
 std::unique_ptr<ppgso::Shader> Sand::shader;
-
-
 
 Sand::Sand() {
     // Scale the default model
@@ -22,19 +18,14 @@ Sand::Sand() {
 
 }
 
-
 bool Sand::update(Scene &scene, float dt) {
-
     bezier.update();
     bezier.render(scene);
-
     return true;
 }
 
 void Sand::render(Scene &scene) {
-
     shader->use();
-
     // Set up light
     shader->setUniform("LightDirection", scene.lightDirection);
 
@@ -45,9 +36,4 @@ void Sand::render(Scene &scene) {
     // render mesh
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
-    //mesh->render();
-}
-
-void Sand::onClick(Scene &scene) {
-    std::cout << "Ocean has been clicked!" << std::endl;
 }
