@@ -24,7 +24,6 @@ LightHouse::LightHouse() {
     if (!shader) shader = std::make_unique<ppgso::Shader>(phong_vert_glsl, phong_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("lightHouse.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("lightHouse.obj");
-
 }
 
 

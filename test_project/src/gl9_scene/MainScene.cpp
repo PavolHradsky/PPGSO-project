@@ -32,6 +32,7 @@
 #include "shaders/texture_vert_glsl.h"
 #include "shaders/texture_frag_glsl.h"
 #include "shaders/my_texture_frag_glsl.h"
+#include "Light.h"
 
 const unsigned int SIZE = 980;
 
@@ -43,6 +44,9 @@ private:
     Scene scene;
     bool animate = true;
     glm::vec3 points;
+    std::vector<float> vertices;
+    unsigned int VBO, cubeVAO;
+    unsigned int lightCubeVAO;
 
     /*!
      * Reset and initialize the game scene
@@ -219,6 +223,13 @@ private:
 
         scene.objects.push_back(std::move(sand));
 
+        // add light to scene
+        auto light = std::make_unique<Light>();
+        vertices = light->vertices;
+        VBO = light->VBO;
+        cubeVAO = light->cubeVAO;
+        lightCubeVAO = light->lightCubeVAO;
+        //scene.objects.push_back(std::move(light));
     }
 
 public:
@@ -250,6 +261,38 @@ public:
         glEnable(GL_CULL_FACE);
         glFrontFace(GL_CCW);
         glCullFace(GL_BACK);
+
+        glGenVertexArrays(1, &cubeVAO);
+        glGenBuffers(1, &VBO);
+
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        //get light vertices
+        glBufferData(
+                GL_ARRAY_BUFFER,
+                sizeof(vertices),
+                &vertices[0],
+                GL_STATIC_DRAW
+        );
+
+        glBindVertexArray(cubeVAO);
+
+        // position attribute
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+        // normal attribute
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+
+
+        // second, configure the light's VAO (VBO stays the same; the vertices are the same for the light object which is also a 3D cube)
+
+        glGenVertexArrays(1, &lightCubeVAO);
+        glBindVertexArray(lightCubeVAO);
+
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        // note that we update the lamp's position attribute's stride to reflect the updated buffer data
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
 
         initScene();
     }

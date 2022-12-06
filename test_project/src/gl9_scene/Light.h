@@ -1,11 +1,9 @@
 //
-// Created by hrads on 5. 12. 2022.
+// Created by peter on 6. 12. 2022.
 //
 
-#ifndef PPGSO_LIGHTHOUSE_H
-#define PPGSO_LIGHTHOUSE_H
-
-#pragma once
+#ifndef PPGSO_LIGHT_H
+#define PPGSO_LIGHT_H
 #include <ppgso/ppgso.h>
 
 #include "object.h"
@@ -15,20 +13,22 @@
  * Reads keyboard status and manipulates its own position
  * On Update checks collisions with Boat objects in the scene
  */
-class LightHouse final : public Object {
+class Light final : public Object {
 private:
-    // Static resources (Shared between instances)
-    static std::unique_ptr<ppgso::Mesh> mesh;
-    static std::unique_ptr<ppgso::Texture> texture;
-    float speed = 0;
 
+    glm::vec3 lightPos = {50,32.8*0.05f, 50};
+    glm::vec3 lightColor = {1.0f, 1.0f, 1.0f};
 
 public:
-    static std::unique_ptr<ppgso::Shader> shader;
+    static std::unique_ptr<ppgso::Shader> shader_light;
+    static std::unique_ptr<ppgso::Shader> shader_cube;
+    std::vector<float> vertices;
+    unsigned int VBO, cubeVAO;
+    unsigned int lightCubeVAO;
     /*!
      * Create a new player
      */
-    LightHouse();
+    Light();
 
     /*!
      * Update player position considering keyboard inputs
@@ -52,6 +52,4 @@ public:
     void onClick(Scene &scene) override ;
 };
 
-
-
-#endif //PPGSO_LIGHTHOUSE_H
+#endif //PPGSO_LIGHT_H
