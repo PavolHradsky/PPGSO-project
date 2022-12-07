@@ -11,7 +11,6 @@
 #include "Sand.h"
 #include "PerlinNoise.h"
 #include "Fish.h"
-#include "Treasure.h"
 #include "Rock.h"
 #include "Sun.h"
 #include "Filter.h"
@@ -21,6 +20,7 @@
 #include "shaders/texture_frag_glsl.h"
 #include "shaders/my_texture_frag_glsl.h"
 #include "Light.h"
+#include "Chest.h"
 
 const unsigned int SIZE = 980;
 
@@ -131,10 +131,10 @@ private:
         drownedBoat->animate = false;
         scene.objects.push_back(std::move(drownedBoat));
 
-        auto treasure = std::make_unique<Treasure>();
-        treasure->position = {-30, -78, -30};
-        treasure->scale = {0.9f, 0.9f, 0.9f};
-        scene.objects.push_back(std::move(treasure));
+//        auto treasure = std::make_unique<Treasure>();
+//        treasure->position = {-30, -78, -30};
+//        treasure->scale = {0.9f, 0.9f, 0.9f};
+//        scene.objects.push_back(std::move(treasure));
 
         auto upperWatter = std::make_unique<UnderWatterTerrain>();
         upperWatter->position = {0, 100, 0};
@@ -207,6 +207,12 @@ private:
         }
 
         scene.objects.push_back(std::move(sand));
+
+        // add chest to scene
+        auto treasure = std::make_unique<Chest>();
+        treasure->position = {-30, -77, -30};
+        treasure->rotation.z = ppgso::PI;
+        scene.objects.push_back(std::move(treasure));
 
 //        // add light to scene
 //        auto light = std::make_unique<Light>();
