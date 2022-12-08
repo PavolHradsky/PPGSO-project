@@ -36,6 +36,35 @@ private:
     unsigned int VBO, cubeVAO;
     unsigned int lightCubeVAO;
 
+    void enableAnimations(){
+        scene.camera->moveW = true;
+
+        scene.camera->moveS = true;
+
+        scene.camera->moveA = true;
+
+        scene.camera->moveD = true;
+
+        scene.camera->moveQ = true;
+
+        scene.camera->moveE = true;
+
+        scene.camera->rotateUp = true;
+
+        scene.camera->rotateDown = true;
+
+        scene.camera->rotateLeft = true;
+
+        scene.camera->rotateRight = true;
+
+    }
+    void switchedScene(){
+        auto fish = std::make_unique<Fish>();
+        if (fish) {
+            fish->animate = true;
+        }
+        scene.camera->position = {0, -50, 0};
+    }
     /*!
      * Reset and initialize the game scene
      * Creating unique smart pointers to objects that are stored in the scene object list
@@ -220,8 +249,8 @@ private:
         scene.global_lighting_on = false;
         // Sub lighs
         scene.lights.positions[0] = {50, 50, 50};
-        scene.lights.colors[0] = {1, 1, 0};
-        scene.lights.ranges[0] = 100;
+        scene.lights.colors[0] = {1, 1, 1};
+        scene.lights.ranges[0] = 80;
         scene.lights.strengths[0] = 6;
 
         scene.lights.positions[1] = {50, -40, 50};
@@ -229,6 +258,7 @@ private:
         scene.lights.ranges[1] = 70;
         scene.lights.strengths[1] = 6;
 
+        // set rotation to light
         scene.lights.positions[2] = {0, 190, 0};
         scene.lights.colors[2] = {1, 1, 1};
         scene.lights.ranges[2] = 300;
@@ -307,7 +337,7 @@ public:
         // Enable Z-buffer
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LEQUAL);
-
+        glEnable(GL_FOG);
 
         // Enable polygon culling
         glEnable(GL_CULL_FACE);
@@ -337,6 +367,7 @@ public:
 //      animate = !animate;
 //    }
 //  }
+
 
     void onKey(int key, int scancode, int action, int mods) override {
         scene.keyboard[key] = action;
@@ -384,21 +415,17 @@ public:
                     scene.camera->rotateRight = true;
                     break;
                 case GLFW_KEY_2:
-                    scene.camera->position = {0, -75, 0};
+                    switchedScene();
                     break;
                 case GLFW_MOUSE_BUTTON_LEFT:
 //                    scene.camera->rotation.z -= 0.1;
                     break;
                 case GLFW_KEY_SPACE:
-                    //scene.camera->enableAnimation = false;
+                    enableAnimations();
                     break;
                 case GLFW_KEY_N:
 //                    scene.global_lighting_on = !scene.global_lighting_on;
-                    if(scene.lights.strengths[2] == 1){
-                        scene.lights.strengths[2] = 5;
-                    } else {
-                        scene.lights.strengths[2] = 1;
-                    }
+                    scene.nightSwitch = !scene.nightSwitch;
                 default:
                     break;
             }

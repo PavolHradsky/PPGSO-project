@@ -54,6 +54,10 @@ void Rock::render(Scene &scene) {
     shader->setUniform("MaterialDiffuse", {0.5f, 0.5f, 0.5f});
     shader->setUniform("MaterialSpecular", {0.5f, 0.5f, 0.5f});
     // TODO nastavit tiene kamenu
+    // set shadows to rock with shadow map
+    shader->setUniform("ShadowMap", 1);
+    glActiveTexture(GL_TEXTURE1);
+
     // lights count
     shader->setUniform("LightCount", 15);
     for (int i = 0; i < scene.rock_lights+1; i++) {

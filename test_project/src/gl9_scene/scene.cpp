@@ -1,5 +1,4 @@
 #include "scene.h"
-
 void Scene::update(float time) {
     camera->update();
     // Use iterator to update all objects so we can remove while iterating

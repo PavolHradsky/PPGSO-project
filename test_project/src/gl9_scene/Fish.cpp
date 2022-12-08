@@ -41,7 +41,7 @@ bool Fish::update(Scene &scene, float dt) {
     auto tmp = this->position;
     tmp.z += 0.02f;
     tmp.y += 0.6f;
-
+    dt = animate ? (float) dt : 0;
     age += dt;
     // move of the fish
 
@@ -94,7 +94,7 @@ bool Fish::update(Scene &scene, float dt) {
 
             while (fish->position.y>=-80){
                 fish->position.y -= 1;
-                std::cout <<  fish->position.y << std::endl;
+
                 fish->position.x = fish->position.x;
                 fish->position.z = fish->position.z;
             }

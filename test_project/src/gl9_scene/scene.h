@@ -50,7 +50,7 @@ class Scene {
 
     // Lights, in this case using only simple directional diffuse lighting
     glm::vec3 lightDirection{-1.0f, -1.0f, -1.0f};
-
+    bool nightSwitch = false;
     // Store cursor state
     struct {
       double x, y;

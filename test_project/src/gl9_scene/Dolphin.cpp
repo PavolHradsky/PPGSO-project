@@ -64,11 +64,14 @@ bool Dolphin::update(Scene &scene, float dt) {
 
         auto distance = glm::distance(this->position, dolphin->position);
         if (distance < 1) {
-            std::cout << "dolhpin died";
-            while (this->position.y>-80){
+
+            while (this->position.y>-80 || dolphin->position.y>-80) {
                 this->position.y -= 1;
                 this->position.x = this->position.x;
                 this->position.z = this->position.z;
+                dolphin->position.y -= 1;
+                dolphin->position.x = dolphin->position.x;
+                dolphin->position.z = dolphin->position.z;
             }
         }
 

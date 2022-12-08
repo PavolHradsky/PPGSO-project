@@ -24,20 +24,39 @@ Sun::Sun() {
 bool Sun::update(Scene &scene, float dt) {
     age += dt;
 
-    if((scene.lights.strengths[2] == 1 && !night)){
-        if (scene.lights.strengths[2] == 1 && age>10){
+    if ((!night)) {
+        if (age > 10.0) {
             texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("asteroid.bmp"));
-            age = 5;
+            if (scene.nightSwitch)
+                scene.lights.strengths[2] = 5;
+            else
+                scene.lights.strengths[2] = 1;
+        }
+        if (age > 15.0) {
+            age = 5.0;
             night = true;
+            if (scene.nightSwitch)
+                scene.lights.strengths[2] = 1;
+            else
+                scene.lights.strengths[2] = 5;
         }
 
-    }else if((scene.lights.strengths[2] == 5 && night) ){
-        if (scene.lights.strengths[2] == 5 && age<10){
+    } else if ((night)) {
+        if (age < 10) {
             texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("sun.bmp"));
-            night = false;
+            if (scene.nightSwitch)
+                scene.lights.strengths[2] = 1;
+            else
+                scene.lights.strengths[2] = 5;
         }
+        if (age > 9.5) {
+            night = false;
+            if (scene.nightSwitch)
+                scene.lights.strengths[2] = 5;
+            else
+                scene.lights.strengths[2] = 1;
 
-
+        }
     }
     generateModelMatrix();
     return true;

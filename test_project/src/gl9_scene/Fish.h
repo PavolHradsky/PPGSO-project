@@ -19,6 +19,7 @@ private:
     float speed = 0.2;
     float radius = 15;
     std::list< std::unique_ptr<Object> > tails;
+
 public:
     std::unique_ptr<FishTail> fishTail;
     float offset = 0.2891;
@@ -47,6 +48,7 @@ public:
     float posX = 0;
     float posZ = 0;
     float prevCamY = 10;
+    bool animate = false;
 };
 
 #endif //PPGSO_FISH_H
