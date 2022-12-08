@@ -124,7 +124,7 @@ add_executable(gl9_scene
         src/gl9_scene/surface.h
         src/gl9_scene/Cloud.cpp src/gl9_scene/Cloud.h src/gl9_scene/Seaweed.cpp src/gl9_scene/Seaweed.h
         src/gl9_scene/bubbleGenerator.cpp src/gl9_scene/LightHouse.cpp src/gl9_scene/Lighthouse.h src/gl9_scene/Light.cpp src/gl9_scene/Light.h
-        src/gl9_scene/Chest.cpp src/gl9_scene/Chest.h)
+        src/gl9_scene/Chest.cpp src/gl9_scene/Chest.h src/gl9_scene/Star.cpp src/gl9_scene/Star.h)
 target_link_libraries(gl9_scene ppgso shaders)
 install(TARGETS gl9_scene DESTINATION .)
 add_custom_command(TARGET gl9_scene POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/data/ ${CMAKE_CURRENT_BINARY_DIR})

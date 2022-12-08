@@ -21,6 +21,7 @@
 #include "shaders/my_texture_frag_glsl.h"
 #include "Light.h"
 #include "Chest.h"
+#include "Star.h"
 
 const unsigned int SIZE = 980;
 
@@ -213,6 +214,10 @@ private:
         treasure->position = {-30, -77, -30};
         treasure->rotation.z = ppgso::PI;
         scene.objects.push_back(std::move(treasure));
+
+
+
+
 
 //        // add light to scene
 //        auto light = std::make_unique<Light>();
