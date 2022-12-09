@@ -9,6 +9,7 @@
 #include "shaders/texture_vert_glsl.h"
 #include "shaders/texture_frag_glsl.h"
 #include "shaders/my_texture_frag_glsl.h"
+#include "Star.h"
 
 // shared resources
 std::unique_ptr<ppgso::Mesh> Dolphin::mesh;
@@ -92,10 +93,13 @@ bool Dolphin::update(Scene &scene, float dt) {
 
         // Check distance between objects
         auto distance = glm::distance(this->position, boat->position);
-        if (distance < 5 && age-explosionTime > 5) {
-            scene.objects.push_back(std::make_unique<Explosion>(boat->position));
+        if (distance < 5) {
+            // add star to scene
+            auto star = std::make_unique<Star>(position);
+            scene.objects.push_back(std::move(star));
 
-            explosionTime = age;
+            std::cout << "stars" << std::endl;
+
             if(direction == 1){
                 rotation.y = ppgso::PI;
             }
@@ -107,6 +111,11 @@ bool Dolphin::update(Scene &scene, float dt) {
 
         auto distanceLightHouse = glm::distance(this->position, lighthouse->position);
         if (distanceLightHouse < 5) {
+            auto star = std::make_unique<Star>(position);
+            scene.objects.push_back(std::move(star));
+
+            std::cout << "stars" << std::endl;
+
             if(direction == 1){
                 rotation.y = ppgso::PI;
             }
