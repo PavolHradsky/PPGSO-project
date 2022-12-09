@@ -45,7 +45,7 @@ public:
    * Update Camera viewMatrix based on up, position and back vectors
    */
   void update();
-    void moveTo(const glm::vec3 &pos, const glm::vec3 &rot);
+  void moveTo(const glm::vec3 &pos, const glm::vec3 &rot, float time);
   /*!
    * Get direction vector in world coordinates through camera projection plane
    * @param u - camera projection plane horizontal coordinate [-1,1]

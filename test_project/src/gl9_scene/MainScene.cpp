@@ -19,6 +19,9 @@
 #include "shaders/texture_vert_glsl.h"
 #include "shaders/texture_frag_glsl.h"
 #include "shaders/my_texture_frag_glsl.h"
+#include "shaders/phong_vert_glsl.h"
+#include "shaders/phong_frag_glsl.h"
+#include "shaders/my_phong_frag_glsl.h"
 #include "Light.h"
 #include "Chest.h"
 #include "Star.h"
@@ -34,38 +37,14 @@ private:
     bool animate = true;
     glm::vec3 points;
     std::vector<float> vertices;
-    unsigned int VBO, cubeVAO;
-    unsigned int lightCubeVAO;
 
-    void enableAnimations(){
-        scene.camera->moveW = true;
-
-        scene.camera->moveS = true;
-
-        scene.camera->moveA = true;
-
-        scene.camera->moveD = true;
-
-        scene.camera->moveQ = true;
-
-        scene.camera->moveE = true;
-
-        scene.camera->rotateUp = true;
-
-        scene.camera->rotateDown = true;
-
-        scene.camera->rotateLeft = true;
-
-        scene.camera->rotateRight = true;
-
-    }
-    void switchedScene(){
-        auto fish = std::make_unique<Fish>();
-        if (fish) {
-            fish->animate = true;
-        }
-        scene.camera->position = {0, -50, 0};
-    }
+//    void switchedScene(){
+//        auto fish = std::make_unique<Fish>();
+//        if (fish) {
+//            fish->animate = true;
+//        }
+//        scene.camera->position = {0, -50, 0};
+//    }
     /*!
      * Reset and initialize the game scene
      * Creating unique smart pointers to objects that are stored in the scene object list
@@ -81,13 +60,16 @@ private:
         auto camera = std::make_unique<Camera>(60.0f, 1.0f, 0.1f, 500.0f);
         camera->position.z = -15.0f;
         scene.camera = std::move(camera);
-
-//        scene.light_positions.clear();
-//
-//        // ambient
-//        scene.light_positions.push_back(glm::vec3(2, 2, 2));
-//        scene.shader->setUniform("lights[1].color", glm::vec3(0.3, 0.3, 0.3));
-
+        scene.camera->moveW = false;
+        scene.camera->moveS = false;
+        scene.camera->moveA = false;
+        scene.camera->moveD = false;
+        scene.camera->moveQ = false;
+        scene.camera->moveE = false;
+        scene.camera->rotateUp = false;
+        scene.camera->rotateDown = false;
+        scene.camera->rotateLeft = false;
+        scene.camera->rotateRight = false;
 
         // Add ocean to the scene
         int i, j;
@@ -104,24 +86,10 @@ private:
             i += 80;
         }
 
-        i = -80;
-        while (i <= 80) {
-            j = -80;
-            while (j <= 80) {
-                auto ocean = std::make_unique<Ocean>();
-                ocean->position.x = i;
-                ocean->position.z = j;
-                ocean->position.y = -5;
-                ocean->rotation.x = glm::radians(180.0f);
-                scene.objects.push_back(std::move(ocean));
-                j += 80;
-            }
-            i += 80;
-        }
-
 
         // Make a generator of dolphins which will be swim and can have collision with boat
         auto generator = std::make_unique<Generator>();
+        generator->counter = 0;
         generator->position.y = 10.0f;
         scene.objects.push_back(std::move(generator));
 
@@ -152,14 +120,6 @@ private:
         lightHouse->scale *= 10;
         scene.objects.push_back(std::move(lightHouse));
 
-
-        // add boat to scene
-        auto drownedBoat = std::make_unique<Boat>();
-        drownedBoat->position = {-20, -80, -20};
-        drownedBoat->scale = {0.03f, 0.03f, 0.03f};
-        drownedBoat->rotation.x = -ppgso::PI / 3;
-        drownedBoat->animate = false;
-        scene.objects.push_back(std::move(drownedBoat));
 
 //        auto treasure = std::make_unique<Treasure>();
 //        treasure->position = {-30, -78, -30};
@@ -204,13 +164,125 @@ private:
         wall4->rotation.y = glm::radians(-90.0f);
         scene.objects.push_back(std::move(wall4));
 
-//        auto underwaterterrain = std::make_unique<UnderWatterTerrain>();
-//        underwaterterrain->position = {0, -40, 0};
-//        scene.objects.push_back(std::move(underwaterterrain));
-/*
-        auto shader = std::make_unique<ppgso::Shader>(light_vert_glsl, light_frag_glsl);
-        scene.shader = move(shader);
-*/
+        Filter::shader = std::make_unique<ppgso::Shader>(phong_vert_glsl, phong_frag_glsl);
+        Ocean::shader = std::make_unique<ppgso::Shader>(phong_vert_glsl, phong_frag_glsl);
+
+
+        scene.global_lighting_on = false;
+        // lighthouse light
+        scene.lights.positions[0] = {50, 20, 50};
+        scene.lights.colors[0] = {1, 1, 1};
+        scene.lights.ranges[0] = 40;
+        scene.lights.strengths[0] = 6;
+
+        // underwater light
+        scene.lights.positions[1] = {50, -40, 50};
+        scene.lights.colors[1] = {1, 1, 1};
+        scene.lights.ranges[1] = 70;
+        scene.lights.strengths[1] = 6;
+
+        // sun
+        scene.lights.positions[2] = {0, 190, 0};
+        scene.lights.colors[2] = {1, 1, 1};
+        scene.lights.ranges[2] = 300;
+        scene.lights.strengths[2] = 5;
+
+        // boat light
+        scene.lights.positions[3] = {0, 0, 0};
+        scene.lights.colors[3] = {1, 1, 1};
+        scene.lights.ranges[3] = 50;
+        scene.lights.strengths[3] = 3;
+
+        // underwater boat light
+        scene.lights.positions[4] = {-20, -60, -20};
+        scene.lights.colors[4] = {1, 1, 1};
+        scene.lights.ranges[4] = 150;
+        scene.lights.strengths[4] = 3;
+
+        scene.lights.count = 5;
+    }
+
+    void initScene2(){
+        scene.objects.clear();
+
+
+        // Create a camera
+        auto camera = std::make_unique<Camera>(60.0f, 1.0f, 0.1f, 500.0f);
+        camera->position.z = -15.0f;
+        camera->position.y = -15.0f;
+        scene.camera = std::move(camera);
+        scene.camera->moveW = false;
+        scene.camera->moveS = false;
+        scene.camera->moveA = false;
+        scene.camera->moveD = false;
+        scene.camera->moveQ = false;
+        scene.camera->moveE = false;
+        scene.camera->rotateUp = false;
+        scene.camera->rotateDown = false;
+        scene.camera->rotateLeft = false;
+        scene.camera->rotateRight = false;
+
+        int j;
+        int i = -80;
+        while (i <= 80) {
+            j = -80;
+            while (j <= 80) {
+                auto ocean = std::make_unique<Ocean>();
+                ocean->position.x = i;
+                ocean->position.z = j;
+                ocean->position.y = -5;
+                ocean->rotation.x = glm::radians(180.0f);
+                scene.objects.push_back(std::move(ocean));
+                j += 80;
+            }
+            i += 80;
+        }
+
+
+        // Make a generator of dolphins which will be swim and can have collision with boat
+        auto generator = std::make_unique<Generator>();
+        generator->position.y = 10.0f;
+        generator->counter = 0;
+        scene.objects.push_back(std::move(generator));
+
+        // add boat to scene
+        auto drownedBoat = std::make_unique<Boat>();
+        drownedBoat->position = {-20, -80, -20};
+        drownedBoat->scale = {0.03f, 0.03f, 0.03f};
+        drownedBoat->rotation.x = -ppgso::PI / 3;
+        drownedBoat->animate = false;
+        scene.objects.push_back(std::move(drownedBoat));
+
+        auto wall1 = std::make_unique<Filter>();
+        wall1->position = {0, 50, -120};
+        wall1->scale = {3, 3, 3};
+        wall1->rotation.x = glm::radians(90.0f);
+        scene.objects.push_back(std::move(wall1));
+
+        auto wall2 = std::make_unique<Filter>();
+        wall2->position = {0, 50, 120};
+        wall2->scale = {3, 3, 3};
+        wall2->rotation.x = glm::radians(90.0f);
+        wall2->rotation.y = glm::radians(180.0f);
+        scene.objects.push_back(std::move(wall2));
+
+        auto wall3 = std::make_unique<Filter>();
+        wall3->position = {120, 50, 0};
+        wall3->scale = {3, 3, 3};
+        wall3->rotation.x = glm::radians(90.0f);
+        wall3->rotation.y = glm::radians(90.0f);
+        scene.objects.push_back(std::move(wall3));
+
+        auto wall4 = std::make_unique<Filter>();
+        wall4->position = {-120, 50, 0};
+        wall4->scale = {3, 3, 3};
+        wall4->rotation.x = glm::radians(90.0f);
+        wall4->rotation.y = glm::radians(-90.0f);
+        scene.objects.push_back(std::move(wall4));
+
+        Filter::shader = std::make_unique<ppgso::Shader>(phong_vert_glsl, my_phong_frag_glsl);
+        Ocean::shader = std::make_unique<ppgso::Shader>(phong_vert_glsl, my_phong_frag_glsl);
+
 
         auto sand = std::make_unique<Sand>();
 
@@ -235,13 +307,6 @@ private:
                     if (z - 4 < point.z && point.z < z + 4) {
                         rock->position.y = point.y;
                         shadow->position.y = point.y;
-                        // TODO make black circle
-//                        glBegin(GL_TRIANGLE_FAN);
-//                        glVertex2f(rock->position.x , rock->position.y); // Center
-//                        for(i = 0.0f; i <= 360; i++)
-//                            glVertex2f(5*cos(M_PI * i / 180.0) + rock->position.x, 5*sin(M_PI * i / 180.0) + rock->position.y);
-//                        glEnd();
-
                         break;
                     }
                 }
@@ -276,25 +341,21 @@ private:
         treasure->rotation.z = ppgso::PI;
         scene.objects.push_back(std::move(treasure));
 
-        auto star = std::make_unique<Star>(glm::vec3{0, 0, 0});
-        scene.objects.push_back(std::move(star));
-
-
-
 
         scene.global_lighting_on = false;
-        // Sub lighs
+        // lighthouse light
         scene.lights.positions[0] = {50, 20, 50};
         scene.lights.colors[0] = {1, 1, 1};
         scene.lights.ranges[0] = 40;
         scene.lights.strengths[0] = 6;
 
+        // underwater light
         scene.lights.positions[1] = {50, -40, 50};
         scene.lights.colors[1] = {1, 1, 1};
         scene.lights.ranges[1] = 70;
         scene.lights.strengths[1] = 6;
 
-        // set rotation to light
+        // sun
         scene.lights.positions[2] = {0, 190, 0};
         scene.lights.colors[2] = {1, 1, 1};
         scene.lights.ranges[2] = 300;
@@ -342,7 +403,11 @@ public:
         if (action == GLFW_PRESS) {
             switch (key) {
                 case GLFW_KEY_1:
-                    scene.camera->mode = Camera::FOLLOW;
+                    initScene();
+                    break;
+                case GLFW_KEY_2:
+                    initScene2();
+                    break;
                 case GLFW_KEY_ESCAPE:
                     glfwSetWindowShouldClose(window, GL_TRUE);
                     break;
@@ -382,18 +447,13 @@ public:
                 case GLFW_KEY_RIGHT:
                     scene.camera->rotateRight = true;
                     break;
-                case GLFW_KEY_2:
-                    switchedScene();
-                    break;
-                case GLFW_MOUSE_BUTTON_LEFT:
-//                    scene.camera->rotation.z -= 0.1;
-                    break;
                 case GLFW_KEY_SPACE:
-                    enableAnimations();
+//                    enableAnimations();
                     break;
                 case GLFW_KEY_N:
 //                    scene.global_lighting_on = !scene.global_lighting_on;
                     scene.nightSwitch = !scene.nightSwitch;
+                    break;
                 default:
                     break;
             }

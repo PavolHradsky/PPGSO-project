@@ -17,6 +17,13 @@ void Camera::update() {
     viewMatrix = lookAt(position, position - back, up);
 }
 
+void Camera::moveTo(const glm::vec3 &pos, const glm::vec3 &rot, float time) {
+    t = 0;
+    startPos = position;
+    destPos = pos;
+    rotation = rot;
+}
+
 glm::vec3 Camera::cast(double u, double v) const {
     // Create point in Screen coordinates
     glm::vec4 screenPosition{u, v, 0.0f, 1.0f};

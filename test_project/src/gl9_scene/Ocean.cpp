@@ -23,12 +23,6 @@ Ocean::Ocean() {
 
 
 bool Ocean::update(Scene &scene, float dt) {
-    if(prevCamY > 0 && scene.camera->position.y < 0){
-        shader = std::make_unique<ppgso::Shader>(phong_vert_glsl, my_phong_frag_glsl);
-    }
-    if(prevCamY < 0 && scene.camera->position.y > 0){
-        shader = std::make_unique<ppgso::Shader>(phong_vert_glsl, phong_frag_glsl);
-    }
     prevCamY = scene.camera->position.y;
     generateModelMatrix();
     return true;

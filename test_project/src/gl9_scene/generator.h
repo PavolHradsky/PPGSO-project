@@ -23,4 +23,5 @@ public:
    */
   void render(Scene &scene) override;
   float time = 0.0f;
+  int counter = 0;
 };
