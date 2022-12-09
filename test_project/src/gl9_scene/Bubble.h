@@ -4,6 +4,7 @@
 
 #ifndef PPGSO_BUBBLE_H
 #define PPGSO_BUBBLE_H
+
 #include <ppgso/ppgso.h>
 #include "Scene.h"
 #include "object.h"
@@ -21,8 +22,11 @@ public:
     glm::vec3 color;
     static std::unique_ptr<ppgso::Shader> shader;
     float speed = 0;
+
     Bubble();
+
     bool update(Scene &scene, float dt) override;
+
     void render(Scene &scene) override;
 };
 

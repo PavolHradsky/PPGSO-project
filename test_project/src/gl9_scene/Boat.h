@@ -1,4 +1,5 @@
 #pragma once
+
 #include <memory>
 
 #include <ppgso/ppgso.h>
@@ -14,50 +15,53 @@
  */
 class Boat final : public Object {
 private:
-  // Static resources (Shared between instances)
-  static std::unique_ptr<ppgso::Mesh> mesh;
-  static std::unique_ptr<ppgso::Texture> texture;
+    // Static resources (Shared between instances)
+    static std::unique_ptr<ppgso::Mesh> mesh;
+    static std::unique_ptr<ppgso::Texture> texture;
 
-  glm::vec3 drownedBoat_position = {-20, -80, -20};
+    glm::vec3 drownedBoat_position = {-20, -80, -20};
 
-  // Speed and rotational momentum
-  float speed = 10;
+    // Speed and rotational momentum
+    float speed = 10;
     float age{0.0f};
 
-  /*!
-   * Split the asteroid into multiple pieces and spawn an explosion object.
-   *
-   * @param scene - Scene to place pieces and explosion into
-   * @param explosionPosition - Initial position of the explosion
-   * @param explosionScale - Scale of the explosion
-   * @param pieces - Boat pieces to generate
-   */
-  //void explode(Scene &scene, glm::vec3 explosionPosition, glm::vec3 explosionScale, int pieces);
+    /*!
+     * Split the asteroid into multiple pieces and spawn an explosion object.
+     *
+     * @param scene - Scene to place pieces and explosion into
+     * @param explosionPosition - Initial position of the explosion
+     * @param explosionScale - Scale of the explosion
+     * @param pieces - Boat pieces to generate
+     */
+    //void explode(Scene &scene, glm::vec3 explosionPosition, glm::vec3 explosionScale, int pieces);
 
 public:
     bool animate;
     bool generator = false;
-  static std::unique_ptr<ppgso::Shader> shader;
-  /*!
-   * Create new asteroid
-   */
-  Boat();
-  glm::vec3 Boatposition{0,0,0};
-  /*!
-   * Update asteroid
-   * @param scene Scene to interact with
-   * @param dt Time delta for animation purposes
-   * @return
-   */
-  bool update(Scene &scene, float dt) override;
+    static std::unique_ptr<ppgso::Shader> shader;
 
-  /*!
-   * Render asteroid
-   * @param scene Scene to render in
-   */
-  void render(Scene &scene) override;
+    /*!
+     * Create new asteroid
+     */
+    Boat();
 
-  float prevCamY = 10;
+    glm::vec3 Boatposition{0, 0, 0};
+
+    /*!
+     * Update asteroid
+     * @param scene Scene to interact with
+     * @param dt Time delta for animation purposes
+     * @return
+     */
+    bool update(Scene &scene, float dt) override;
+
+    /*!
+     * Render asteroid
+     * @param scene Scene to render in
+     */
+    void render(Scene &scene) override;
+
+    float prevCamY = 10;
 
 private:
 };

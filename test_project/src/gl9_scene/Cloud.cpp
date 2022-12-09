@@ -6,6 +6,7 @@
 #include "scene.h"
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
+
 // shared resources
 std::unique_ptr<ppgso::Shader> Cloud::shader;
 std::unique_ptr<ppgso::Mesh> Cloud::mesh;

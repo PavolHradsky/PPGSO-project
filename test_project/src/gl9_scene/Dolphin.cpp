@@ -64,6 +64,7 @@ bool Dolphin::update(Scene &scene, float dt) {
             }
             std::cout << "Collision dolphin dolphin" << std::endl;
             while (this->position.y>-80 || dolphin->position.y>-80) {
+                //make dolphin falling down
                 this->position.y -= 1;
                 this->position.x = this->position.x;
                 this->position.z = this->position.z;

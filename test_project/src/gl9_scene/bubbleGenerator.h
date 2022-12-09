@@ -1,4 +1,5 @@
 #pragma once
+
 #include "object.h"
 #include "scene.h"
 
@@ -22,5 +23,6 @@ public:
      * @param scene Scene to render in
      */
     void render(Scene &scene) override;
+
     float time1 = 0.0f;
 };

@@ -18,6 +18,7 @@ private:
 
 public:
     static std::unique_ptr<ppgso::Shader> shader;
+
     /*!
      * Create a new player
      */

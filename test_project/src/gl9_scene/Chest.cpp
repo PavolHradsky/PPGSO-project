@@ -53,8 +53,7 @@ void Chest::render(Scene &scene) {
         shader->setUniform("lights.ranges[" + std::to_string(i) + "]", scene.lights.ranges[i]);
         if (scene.lights.strengths[i] < 0) {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", 0.0f);
-        }
-        else {
+        } else {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", scene.lights.strengths[i]);
         }
     }

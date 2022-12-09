@@ -1,7 +1,7 @@
 #include <glm/glm.hpp>
 
 #include "camera.h"
-
+#include "scene.h"
 
 Camera::Camera(float fow, float ratio, float near, float far) {
     float fowInRad = (ppgso::PI / 180.0f) * fow;
@@ -12,15 +12,24 @@ Camera::Camera(float fow, float ratio, float near, float far) {
 }
 
 void Camera::update() {
+    if (animate) {
+        if (t < 900) {
+            t++;
+            auto moving = glm::lerp(starting_position, ending_position, t / 900.0f);
+            position.x = moving.x;
+            position.y = moving.y;
+            position.z = moving.z;
+        }
+    }
+
     back = rotate(rotation.x, rotation.y);
     back = glm::normalize(back);
     viewMatrix = lookAt(position, position - back, up);
 }
 
-void Camera::moveTo(const glm::vec3 &pos, const glm::vec3 &rot, float time) {
-    t = 0;
-    startPos = position;
-    destPos = pos;
+void Camera::moveTo(const glm::vec3 &start_pos, const glm::vec3 &end_pos, const glm::vec3 &rot) {
+    starting_position = start_pos;
+    ending_position = end_pos;
     rotation = rot;
 }
 

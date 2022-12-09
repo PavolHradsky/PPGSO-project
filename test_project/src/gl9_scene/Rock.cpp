@@ -31,7 +31,6 @@ bool Rock::update(Scene &scene, float dt) {
 
 void Rock::render(Scene &scene) {
     shader->use();
-
     // Set up light
     shader->setUniform("LightDirection", {1.0f, -1.0f, -1.0f});
 
@@ -60,10 +59,9 @@ void Rock::render(Scene &scene) {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", scene.lights.strengths[i]);
         }
     }
-
     // render mesh
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
-    shader->setUniform("UseShadow", false);
+    shader->setUniform("useShadow", true);
     mesh->render();
 }

@@ -37,7 +37,6 @@ private:
     bool animate = true;
     glm::vec3 points;
     std::vector<float> vertices;
-
 //    void switchedScene(){
 //        auto fish = std::make_unique<Fish>();
 //        if (fish) {
@@ -96,6 +95,7 @@ private:
         // add boat to scene
         auto boat = std::make_unique<Boat>();
         boat->position = {-20, 0, -20};
+        boat->Boatposition = {-20, 0, -20};
         boat->scale = {0.005f, 0.005f, 0.005f};
         boat->rotation.x = -ppgso::PI / 2;
         boat->rotation.y = ppgso::PI;
@@ -447,11 +447,48 @@ public:
                 case GLFW_KEY_RIGHT:
                     scene.camera->rotateRight = true;
                     break;
-                case GLFW_KEY_SPACE:
-//                    enableAnimations();
+                case GLFW_KEY_3:
+                    // move camera to lighthouse
+                    scene.camera->moveTo({7.69656, 4.88165, 7.65431},{18.6847, 9.22027, -2.41117}, {0.000000, 10, 0.000000});
+                    scene.camera->start_looking_at = {60, 4.39217, 20};
+                    scene.camera->end_looking_at = {22.2458 , -1.09873, 11.0905};
+                    scene.camera->t = -1;
+                    scene.camera->animate = true;
+                    action = GLFW_RELEASE;
+                    break;
+                case GLFW_KEY_4:
+                    // move camera to sun
+                    scene.camera->moveTo({-22.2458 , -1.09873, -11.0905},{40, 190, 0}, {0.000000, 0, 0.000000});
+                    scene.camera->start_looking_at = {-22.2458 , -1.09873, -11.0905};
+                    scene.camera->end_looking_at = {0, 190, 0};
+                    scene.camera->t = -1;
+                    scene.camera->animate = true;
+                    action = GLFW_RELEASE;
+                    break;
+                case GLFW_KEY_5:
+                    // move camera to boat
+                    scene.camera->moveTo({-18.6847, 9.22027, -2.41117},{60, -60, 0}, {0.000000, 0, 0.000000});
+                    scene.camera->start_looking_at = {-22.2458 , -60, -11.0905};
+                    scene.camera->end_looking_at = {-20, -60, 0};
+                    scene.camera->t = -1;
+                    scene.camera->animate = true;
+                    action = GLFW_RELEASE;
+                    break;
+                case GLFW_KEY_6:
+                    // move camera to treasure
+                    scene.camera->moveTo({-20, -60, -20},{-20, -75, -30}, {0.000000, 0, 0.000000});
+                    scene.camera->start_looking_at = {-20, -60, -20};
+                    scene.camera->end_looking_at = {-30, -77, -30};
+                    scene.camera->t = -1;
+                    scene.camera->animate = true;
+                    action = GLFW_RELEASE;
+                    break;
+                case GLFW_KEY_7:
+                    // follow boat on ocean TODO
+                    scene.camera->enableAnimationBoat = true;
+                    action = GLFW_RELEASE;
                     break;
                 case GLFW_KEY_N:
-//                    scene.global_lighting_on = !scene.global_lighting_on;
                     scene.nightSwitch = !scene.nightSwitch;
                     break;
                 default:

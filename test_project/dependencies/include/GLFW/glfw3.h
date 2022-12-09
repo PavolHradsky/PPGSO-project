@@ -3710,13 +3710,13 @@ GLFWAPI void glfwSetClipboardString(GLFWwindow* window, const char* string);
  */
 GLFWAPI const char* glfwGetClipboardString(GLFWwindow* window);
 
-/*! @brief Returns the value of the GLFW timer.
+/*! @brief Returns the value of the GLFW t.
  *
- *  This function returns the value of the GLFW timer.  Unless the timer has
- *  been set using @ref glfwSetTime, the timer measures time elapsed since GLFW
+ *  This function returns the value of the GLFW t.  Unless the t has
+ *  been set using @ref glfwSetTime, the t measures time elapsed since GLFW
  *  was initialized.
  *
- *  The resolution of the timer is system dependent, but is usually on the order
+ *  The resolution of the t is system dependent, but is usually on the order
  *  of a few micro- or nanoseconds.  It uses the highest-resolution monotonic
  *  time source on each supported platform.
  *
@@ -3726,7 +3726,7 @@ GLFWAPI const char* glfwGetClipboardString(GLFWwindow* window);
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED.
  *
  *  @thread_safety This function may be called from any thread.  Reading and
- *  writing of the internal timer offset is not atomic, so it needs to be
+ *  writing of the internal t offset is not atomic, so it needs to be
  *  externally synchronized with calls to @ref glfwSetTime.
  *
  *  @sa @ref time
@@ -3737,9 +3737,9 @@ GLFWAPI const char* glfwGetClipboardString(GLFWwindow* window);
  */
 GLFWAPI double glfwGetTime(void);
 
-/*! @brief Sets the GLFW timer.
+/*! @brief Sets the GLFW t.
  *
- *  This function sets the value of the GLFW timer.  It then continues to count
+ *  This function sets the value of the GLFW t.  It then continues to count
  *  up from that value.  The value must be a positive finite number less than
  *  or equal to 18446744073.0, which is approximately 584.5 years.
  *
@@ -3748,12 +3748,12 @@ GLFWAPI double glfwGetTime(void);
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED and @ref
  *  GLFW_INVALID_VALUE.
  *
- *  @remark The upper limit of the timer is calculated as
+ *  @remark The upper limit of the t is calculated as
  *  floor((2<sup>64</sup> - 1) / 10<sup>9</sup>) and is due to implementations
  *  storing nanoseconds in 64 bits.  The limit may be increased in the future.
  *
  *  @thread_safety This function may be called from any thread.  Reading and
- *  writing of the internal timer offset is not atomic, so it needs to be
+ *  writing of the internal t offset is not atomic, so it needs to be
  *  externally synchronized with calls to @ref glfwGetTime.
  *
  *  @sa @ref time
@@ -3764,13 +3764,13 @@ GLFWAPI double glfwGetTime(void);
  */
 GLFWAPI void glfwSetTime(double time);
 
-/*! @brief Returns the current value of the raw timer.
+/*! @brief Returns the current value of the raw t.
  *
- *  This function returns the current value of the raw timer, measured in
+ *  This function returns the current value of the raw t, measured in
  *  1&nbsp;/&nbsp;frequency seconds.  To get the frequency, call @ref
  *  glfwGetTimerFrequency.
  *
- *  @return The value of the timer, or zero if an 
+ *  @return The value of the t, or zero if an
  *  [error](@ref error_handling) occurred.
  *
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED.
@@ -3786,11 +3786,11 @@ GLFWAPI void glfwSetTime(double time);
  */
 GLFWAPI uint64_t glfwGetTimerValue(void);
 
-/*! @brief Returns the frequency, in Hz, of the raw timer.
+/*! @brief Returns the frequency, in Hz, of the raw t.
  *
- *  This function returns the frequency, in Hz, of the raw timer.
+ *  This function returns the frequency, in Hz, of the raw t.
  *
- *  @return The frequency of the timer, in Hz, or zero if an
+ *  @return The frequency of the t, in Hz, or zero if an
  *  [error](@ref error_handling) occurred.
  *
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED.

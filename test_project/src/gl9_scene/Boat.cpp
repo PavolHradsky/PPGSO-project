@@ -3,10 +3,6 @@
 #include "Boat.h"
 #include "Bubble.h"
 #include <shaders/diffuse_vert_glsl.h>
-#include <shaders/diffuse_frag_glsl.h>
-#include "shaders/texture_vert_glsl.h"
-#include "shaders/texture_frag_glsl.h"
-#include "shaders/my_texture_frag_glsl.h"
 #include "shaders/phong_frag_glsl.h"
 #include "shaders/phong_vert_glsl.h"
 #include "bubbleGenerator.h"
@@ -25,27 +21,26 @@ Boat::Boat() {
 }
 
 std::vector<glm::vec3> controlPoints = {
-        {0, 0, -30},
-        {30, 0, -30},
-        {30, 0, 0},
-        {0, 0, 0},
+        {0,   0, -30},
+        {30,  0, -30},
+        {30,  0, 0},
+        {0,   0, 0},
         {-30, 0, 0},
         {-30, 0, 30},
-        {0, 0, 30},
-        {30, 0, 30},
-        {30, 0, 0},
-        {0, 0, 0},
+        {0,   0, 30},
+        {30,  0, 30},
+        {30,  0, 0},
+        {0,   0, 0},
         {-30, 0, 0},
         {-30, 0, -30},
-        {0, 0, -30}
+        {0,   0, -30}
 };
 std::vector<glm::vec3> points;
 glm::vec3 position;
 int step{0};
-// These numbers are used to pass buffer data to OpenGL
-GLuint vao = 0, vbo = 0;
 
-glm::vec3 bezierPoint(const glm::vec3 &p0, const glm::vec3 &p1, const glm::vec3 &p2, const glm::vec3 &p3, const float t) {
+glm::vec3
+bezierPoint(const glm::vec3 &p0, const glm::vec3 &p1, const glm::vec3 &p2, const glm::vec3 &p3, const float t) {
     float x = p0.x + ((p1.x - p0.x) * t);
     float z = p0.z + ((p1.z - p0.z) * t);
     glm::vec3 p01 = {x, 0, z};
@@ -72,9 +67,8 @@ glm::vec3 bezierPoint(const glm::vec3 &p0, const glm::vec3 &p1, const glm::vec3 
 }
 
 
-
 bool Boat::update(Scene &scene, float dt) {
-    if(animate) {
+    if (animate) {
         age += dt;
         glm::vec3 nextPosition;
 
@@ -86,6 +80,8 @@ bool Boat::update(Scene &scene, float dt) {
                                    controlPoints.at(3 * step + 1),
                                    controlPoints.at(3 * step + 2),
                                    controlPoints.at(3 * step + 3), (age + dt) / speed);
+        if (scene.camera->enableAnimationBoat)
+            scene.camera->moveTo(position, position, {0.000000, 0, 0.000000});
 
         // rotate the boat
         rotation.y = (float) (std::atan2(nextPosition.x - position.x, nextPosition.z - position.z) + M_PI_2);
@@ -103,18 +99,13 @@ bool Boat::update(Scene &scene, float dt) {
 
         scene.lights.positions[3] = position;
         scene.lights.positions[3].y += 10;
-    }
-    else{
-        if(!generator){
-//            mesh = std::make_unique<ppgso::Mesh>("boat_test.obj");
-            auto gen =  std::make_unique<BubbleGenerator>();
+    } else {
+        if (!generator) {
+            auto gen = std::make_unique<BubbleGenerator>();
             scene.objects.push_back(std::move(gen));
             generator = true;
         }
     }
-
-
-
     generateModelMatrix();
 
     return true;
@@ -146,12 +137,10 @@ void Boat::render(Scene &scene) {
         shader->setUniform("lights.ranges[" + std::to_string(i) + "]", scene.lights.ranges[i]);
         if (scene.lights.strengths[i] < 0) {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", 0.9f);
-        }
-        else {
+        } else {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", scene.lights.strengths[i]);
         }
     }
-
 
     // render mesh
     shader->setUniform("ModelMatrix", modelMatrix);

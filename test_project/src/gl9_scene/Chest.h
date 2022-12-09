@@ -21,10 +21,12 @@ public:
     glm::vec3 color;
 
     static std::unique_ptr<ppgso::Shader> shader;
+
     /*!
      * Create a sun
      */
     Chest();
+
     /*!
      * Update player position considering keyboard inputs
      * @param scene Scene to update
