@@ -19,6 +19,7 @@ UnderWatterTerrain::UnderWatterTerrain() {
 
     if (!shader) shader = std::make_unique<ppgso::Shader>(phong_vert_glsl, phong_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("wall.bmp"));
+//    if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("sky.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("underWater4.obj");
 }
 
@@ -49,7 +50,7 @@ void UnderWatterTerrain::render(Scene &scene) {
     shader->setUniform("global_lighting_on", scene.global_lighting_on);
 
 //    shader->setUniform("material.ambient", {1, 1, 1});
-    shader->setUniform("material.diffuse", {1, 1, 1});
+    shader->setUniform("material.diffuse", {0.5, 0.5, 0.5});
     shader->setUniform("material.specular", {0.9f, 0.9f, 0.9f});
     shader->setUniform("material.shininess", 32.0f);
 

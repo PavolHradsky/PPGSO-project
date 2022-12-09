@@ -19,7 +19,7 @@ std::unique_ptr<ppgso::Shader> Boat::shader;
 
 Boat::Boat() {
     // Initialize static resources if needed
-    if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
+    if (!shader) shader = std::make_unique<ppgso::Shader>(phong_vert_glsl, phong_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("boat_diffuse.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("boat.obj");
 }
@@ -100,14 +100,17 @@ bool Boat::update(Scene &scene, float dt) {
         // rotate the boat on waves
         rotation.x = (float) (0.3 * std::sin(position.x * age / 10) - ppgso::PI / 2);
 
-        if (controlPoints.at(3 * step + 3).x - 0.1 < position.x &&
-            position.x < controlPoints.at(3 * step + 3).x + 0.1 &&
-            controlPoints.at(3 * step + 3).z - 0.1 < position.z &&
-            position.z < controlPoints.at(3 * step + 3).z + 0.1) {
+        if (controlPoints.at(3 * step + 3).x - 0.3 < position.x &&
+            position.x < controlPoints.at(3 * step + 3).x + 0.3 &&
+            controlPoints.at(3 * step + 3).z - 0.3 < position.z &&
+            position.z < controlPoints.at(3 * step + 3).z + 0.3) {
             age = 0;
             step++;
         }
         if (step == 4) step = 0;
+
+        scene.lights.positions[3] = position;
+        scene.lights.positions[3].y += 10;
     }
     else{
         if(!generator){

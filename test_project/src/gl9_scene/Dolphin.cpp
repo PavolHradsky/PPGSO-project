@@ -25,15 +25,9 @@ Dolphin::Dolphin() {
 }
 
 bool Dolphin::update(Scene &scene, float dt) {
-//    if(prevCamY > 0 && scene.camera->position.y < 0){
-//        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
-//    }
-//    if(prevCamY < 0 && scene.camera->position.y > 0){
-//        shader = std::make_unique<ppgso::Shader>(texture_vert_glsl, texture_frag_glsl);
-//    }
-//    prevCamY = scene.camera->position.y;
 
     age += dt;
+
     position.z += speed * dt * direction;
     if(position.z > 120){
         direction = -1;
@@ -65,7 +59,10 @@ bool Dolphin::update(Scene &scene, float dt) {
 
         auto distance = glm::distance(this->position, dolphin->position);
         if (distance < 1) {
-
+            for(int j = 0; j < 5; j++){
+                scene.objects.push_back(std::make_unique<Star>(position));
+            }
+            std::cout << "Collision dolphin dolphin" << std::endl;
             while (this->position.y>-80 || dolphin->position.y>-80) {
                 this->position.y -= 1;
                 this->position.x = this->position.x;
@@ -94,11 +91,11 @@ bool Dolphin::update(Scene &scene, float dt) {
         // Check distance between objects
         auto distance = glm::distance(this->position, boat->position);
         if (distance < 5) {
-            // add star to scene
-            auto star = std::make_unique<Star>(position);
-            scene.objects.push_back(std::move(star));
+            for(int j = 0; j < 5; j++){
+                scene.objects.push_back(std::make_unique<Star>(position));
+            }
 
-            std::cout << "stars" << std::endl;
+            std::cout << "Collision dolphin boat" << std::endl;
 
             if(direction == 1){
                 rotation.y = ppgso::PI;
@@ -111,10 +108,11 @@ bool Dolphin::update(Scene &scene, float dt) {
 
         auto distanceLightHouse = glm::distance(this->position, lighthouse->position);
         if (distanceLightHouse < 5) {
-            auto star = std::make_unique<Star>(position);
-            scene.objects.push_back(std::move(star));
+            for(int j = 0; j < 5; j++){
+                scene.objects.push_back(std::make_unique<Star>(position));
+            }
 
-            std::cout << "stars" << std::endl;
+            std::cout << "Collision dolphin lighthouse" << std::endl;
 
             if(direction == 1){
                 rotation.y = ppgso::PI;

@@ -48,7 +48,7 @@ public:
     float posX = 0;
     float posZ = 0;
     float prevCamY = 10;
-    bool animate = false;
+    bool animate = true;
 };
 
 #endif //PPGSO_FISH_H

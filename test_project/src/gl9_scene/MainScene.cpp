@@ -9,10 +9,10 @@
 #include "Dolphin.h"
 #include "Boat.h"
 #include "Sand.h"
-#include "PerlinNoise.h"
 #include "Fish.h"
 #include "Rock.h"
 #include "Sun.h"
+#include "Shadow.h"
 #include "Filter.h"
 #include "Seaweed.h"
 #include "LightHouse.h"
@@ -166,10 +166,10 @@ private:
 //        treasure->scale = {0.9f, 0.9f, 0.9f};
 //        scene.objects.push_back(std::move(treasure));
 
-        auto upperWatter = std::make_unique<UnderWatterTerrain>();
-        upperWatter->position = {0, 100, 0};
-        upperWatter->scale.y = 1;
-        scene.objects.push_back(std::move(upperWatter));
+//        auto upperWatter = std::make_unique<UnderWatterTerrain>();
+//        upperWatter->position = {0, 100, 0};
+//        upperWatter->scale.y = 1;
+//        scene.objects.push_back(std::move(upperWatter));
 
         auto sky = std::make_unique<Filter>();
         sky->position = {0, 200, 0};
@@ -177,9 +177,36 @@ private:
         sky->rotation.x = glm::radians(180.0f);
         scene.objects.push_back(std::move(sky));
 
-        auto underwaterterrain = std::make_unique<UnderWatterTerrain>();
-        underwaterterrain->position = {0, -40, 0};
-        scene.objects.push_back(std::move(underwaterterrain));
+        auto wall1 = std::make_unique<Filter>();
+        wall1->position = {0, 50, -120};
+        wall1->scale = {3, 3, 3};
+        wall1->rotation.x = glm::radians(90.0f);
+        scene.objects.push_back(std::move(wall1));
+
+        auto wall2 = std::make_unique<Filter>();
+        wall2->position = {0, 50, 120};
+        wall2->scale = {3, 3, 3};
+        wall2->rotation.x = glm::radians(90.0f);
+        wall2->rotation.y = glm::radians(180.0f);
+        scene.objects.push_back(std::move(wall2));
+
+        auto wall3 = std::make_unique<Filter>();
+        wall3->position = {120, 50, 0};
+        wall3->scale = {3, 3, 3};
+        wall3->rotation.x = glm::radians(90.0f);
+        wall3->rotation.y = glm::radians(90.0f);
+        scene.objects.push_back(std::move(wall3));
+
+        auto wall4 = std::make_unique<Filter>();
+        wall4->position = {-120, 50, 0};
+        wall4->scale = {3, 3, 3};
+        wall4->rotation.x = glm::radians(90.0f);
+        wall4->rotation.y = glm::radians(-90.0f);
+        scene.objects.push_back(std::move(wall4));
+
+//        auto underwaterterrain = std::make_unique<UnderWatterTerrain>();
+//        underwaterterrain->position = {0, -40, 0};
+//        scene.objects.push_back(std::move(underwaterterrain));
 /*
         auto shader = std::make_unique<ppgso::Shader>(light_vert_glsl, light_frag_glsl);
         scene.shader = move(shader);
@@ -191,11 +218,14 @@ private:
         for (int k = 0; k < 50; k++) {
             auto rock = std::make_unique<Rock>();
             auto seaweed = std::make_unique<Seaweed>();
+            auto shadow = std::make_unique<Shadow>();
 
             rock->position.x = glm::linearRand(-115.0f, 115.0f);
             rock->position.z = glm::linearRand(-115.0f, 115.0f);
             seaweed->position.x = glm::linearRand(-115.0f, 115.0f);
             seaweed->position.z = glm::linearRand(-115.0f, 115.0f);
+            shadow->position.x = rock->position.x;
+            shadow->position.z = rock->position.z;
 
             float x = rock->position.x;
             float z = rock->position.z;
@@ -204,12 +234,13 @@ private:
                 if (x - 4 < point.x && point.x < x + 4) {
                     if (z - 4 < point.z && point.z < z + 4) {
                         rock->position.y = point.y;
+                        shadow->position.y = point.y;
                         // TODO make black circle
-                        glBegin(GL_TRIANGLE_FAN);
-                        glVertex2f(rock->position.x , rock->position.y); // Center
-                        for(i = 0.0f; i <= 360; i++)
-                            glVertex2f(5*cos(M_PI * i / 180.0) + rock->position.x, 5*sin(M_PI * i / 180.0) + rock->position.y);
-                        glEnd();
+//                        glBegin(GL_TRIANGLE_FAN);
+//                        glVertex2f(rock->position.x , rock->position.y); // Center
+//                        for(i = 0.0f; i <= 360; i++)
+//                            glVertex2f(5*cos(M_PI * i / 180.0) + rock->position.x, 5*sin(M_PI * i / 180.0) + rock->position.y);
+//                        glEnd();
 
                         break;
                     }
@@ -234,6 +265,7 @@ private:
             rock->rotation.z = glm::linearRand(0.0f, 360.0f);
             scene.objects.push_back(std::move(seaweed));
             scene.objects.push_back(std::move(rock));
+            scene.objects.push_back(std::move(shadow));
         }
 
         scene.objects.push_back(std::move(sand));
@@ -244,24 +276,17 @@ private:
         treasure->rotation.z = ppgso::PI;
         scene.objects.push_back(std::move(treasure));
 
+        auto star = std::make_unique<Star>(glm::vec3{0, 0, 0});
+        scene.objects.push_back(std::move(star));
 
 
-
-
-//        // add light to scene
-//        auto light = std::make_unique<Light>();
-//        vertices = light->vertices;
-//        VBO = light->VBO;
-//        cubeVAO = light->cubeVAO;
-//        lightCubeVAO = light->lightCubeVAO;
-//        scene.objects.push_back(std::move(light));
 
 
         scene.global_lighting_on = false;
         // Sub lighs
-        scene.lights.positions[0] = {50, 50, 50};
+        scene.lights.positions[0] = {50, 20, 50};
         scene.lights.colors[0] = {1, 1, 1};
-        scene.lights.ranges[0] = 80;
+        scene.lights.ranges[0] = 40;
         scene.lights.strengths[0] = 6;
 
         scene.lights.positions[1] = {50, -40, 50};
@@ -275,7 +300,19 @@ private:
         scene.lights.ranges[2] = 300;
         scene.lights.strengths[2] = 5;
 
-        scene.lights.count = 3;
+        // boat light
+        scene.lights.positions[3] = {0, 0, 0};
+        scene.lights.colors[3] = {1, 1, 1};
+        scene.lights.ranges[3] = 50;
+        scene.lights.strengths[3] = 3;
+
+        // underwater boat light
+        scene.lights.positions[4] = {-20, -60, -20};
+        scene.lights.colors[4] = {1, 1, 1};
+        scene.lights.ranges[4] = 150;
+        scene.lights.strengths[4] = 3;
+
+        scene.lights.count = 5;
     }
 
 public:
@@ -284,64 +321,6 @@ public:
      * Construct custom game window
      */
     SceneWindow() : Window{"Underwater world", SIZE, SIZE} {
-//        /*
-//        ppgso::Shader quadShader = {texture_vert_glsl, texture_frag_glsl};
-//        ppgso::Mesh quadMesh = {"quad.obj"};
-//        scene.light_positions.clear();
-//        scene.light_positions.push_back(glm::vec3(5, 7, -13));
-//        scene.shader->setUniform("lights[0].color", glm::vec3(1, 0.5, 0.5));
-//*/
-//        //hideCursor();
-//        glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
-//
-////        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-//        // Initialize OpenGL state
-//        // Enable Z-buffer
-//        glEnable(GL_LIGHTING);
-//        glEnable(GL_COLOR_MATERIAL);
-//        glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
-//        glEnable(GL_DEPTH_TEST);
-//        glDepthFunc(GL_LEQUAL);
-//
-//        // Enable polygon culling
-//        glEnable(GL_CULL_FACE);
-//        glFrontFace(GL_CCW);
-//        glCullFace(GL_BACK);
-//
-//        glGenVertexArrays(1, &cubeVAO);
-//        glGenBuffers(1, &VBO);
-//
-//        glBindBuffer(GL_ARRAY_BUFFER, VBO);
-//        //get light vertices
-//        glBufferData(
-//                GL_ARRAY_BUFFER,
-//                sizeof(vertices),
-//                &vertices[0],
-//                GL_STATIC_DRAW
-//        );
-//
-//        glBindVertexArray(cubeVAO);
-//
-//        // position attribute
-//        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-//        glEnableVertexAttribArray(0);
-//        // normal attribute
-//        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-//        glEnableVertexAttribArray(1);
-//
-//
-//        // second, configure the light's VAO (VBO stays the same; the vertices are the same for the light object which is also a 3D cube)
-//
-//        glGenVertexArrays(1, &lightCubeVAO);
-//        glBindVertexArray(lightCubeVAO);
-//
-//        glBindBuffer(GL_ARRAY_BUFFER, VBO);
-//        // note that we update the lamp's position attribute's stride to reflect the updated buffer data
-//        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-//        glEnableVertexAttribArray(0);
-//
-//        initScene();
-
         glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
         // Initialize OpenGL state
@@ -357,28 +336,6 @@ public:
 
         initScene();
     }
-
-    /*!
-     * Handles pressed key when the window is focused
-     * @param key Key code of the key being pressed/released
-     * @param scanCode Scan code of the key being pressed/released
-     * @param action Action indicating the key state change
-     * @param mods Additional modifiers to consider
-     */
-//  void onKey(int key, int scanCode, int action, int mods) override {
-//    scene.keyboard[key] = action;
-//
-//    // Reset
-//    if (key == GLFW_KEY_R && action == GLFW_PRESS) {
-//      initScene();
-//    }
-//
-//    // Pause
-//    if (key == GLFW_KEY_P && action == GLFW_PRESS) {
-//      animate = !animate;
-//    }
-//  }
-
 
     void onKey(int key, int scancode, int action, int mods) override {
         scene.keyboard[key] = action;
@@ -479,22 +436,6 @@ public:
         }
     }
 
-    /*!
-     * Handle cursor position changes
-     * @param cursorX Mouse horizontal position in window coordinates
-     * @param cursorY Mouse vertical position in window coordinates
-     */
-    void onCursorPos(double cursorX, double cursorY) override {
-        scene.cursor.x = cursorX;
-        scene.cursor.y = cursorY;
-    }
-
-    /*!
-     * Handle cursor buttons
-     * @param button Mouse button being manipulated
-     * @param action Mouse bu
-     * @param mods
-     */
     void onMouseButton(int button, int action, int mods) override {
         if (button == GLFW_MOUSE_BUTTON_LEFT) {
             scene.cursor.left = action == GLFW_PRESS;

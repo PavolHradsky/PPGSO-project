@@ -36,6 +36,8 @@ public:
      * @param scene Scene to render in
      */
     void render(Scene &scene) override;
+    float prevCamY = 10;
+
 };
 
 

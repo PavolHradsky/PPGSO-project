@@ -4,7 +4,6 @@
 
 #include "LightHouse.h"
 #include "scene.h"
-#include "PerlinNoise.h"
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
 
@@ -30,8 +29,13 @@ LightHouse::LightHouse() {
 
 
 bool LightHouse::update(Scene &scene, float dt) {
+    age += dt;
     //rotate lightdirection
-    scene.lights.positions[0].x += 5.0f * dt;
+//    scene.lights.positions[0].x += 5.0f * dt;
+
+    // rotate light around the lighthouse
+    scene.lights.positions[0].x = position.x + 15 * sin(age);
+    scene.lights.positions[0].z = position.z + 15 * cos(age);
     shader->setUniform("lights.positions",scene.lights.positions[0].x);
     generateModelMatrix();
     return true;
@@ -49,7 +53,7 @@ void LightHouse::render(Scene &scene) {
     //shader->setUniform("global_lighting_on", scene.global_lighting_on);
 
     shader->setUniform("material.ambient", {1, 1, 1});
-    //shader->setUniform("material.diffuse", {0, 0, 0});
+    shader->setUniform("material.diffuse", {1, 1, 1});
     //shader->setUniform("material.specular", {0.9f, 0.9f, 0.9f});
     shader->setUniform("material.shininess", 32.0f);
 

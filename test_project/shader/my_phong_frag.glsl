@@ -74,7 +74,7 @@ void main() {
     vec4 combLights = global + ambient;
 
     // Add up all scene lights
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 5; i++) {
         if (lights.ranges[i] > length(lights.positions[i] - FragPosition)) {
 
             float mult = 1 - length(lights.positions[i] - FragPosition) / lights.ranges[i];
