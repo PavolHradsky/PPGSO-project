@@ -25,14 +25,14 @@ bool Sun::update(Scene &scene, float dt) {
     age += dt;
 
     if ((!night)) {
-        if (age > 10.0) {
+        if (age > 20.0) {
             texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("asteroid.bmp"));
             if (scene.nightSwitch)
                 scene.lights.strengths[2] = 5;
             else
                 scene.lights.strengths[2] = 1;
         }
-        if (age > 15.0) {
+        if (age > 35.0) {
             age = 5.0;
             night = true;
             if (scene.nightSwitch)
@@ -42,14 +42,14 @@ bool Sun::update(Scene &scene, float dt) {
         }
 
     } else if ((night)) {
-        if (age < 10) {
+        if (age < 20.0) {
             texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("sun.bmp"));
             if (scene.nightSwitch)
                 scene.lights.strengths[2] = 1;
             else
                 scene.lights.strengths[2] = 5;
         }
-        if (age > 9.5) {
+        if (age > 19.5) {
             night = false;
             if (scene.nightSwitch)
                 scene.lights.strengths[2] = 5;

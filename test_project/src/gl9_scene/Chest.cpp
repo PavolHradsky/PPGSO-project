@@ -4,11 +4,8 @@
 #include "Chest.h"
 #include "scene.h"
 #include <shaders/texture_vert_glsl.h>
-#include <shaders/texture_frag_glsl.h>
-#include <shaders/phong_vert_glsl.h>
-#include <shaders/phong_frag_glsl.h>
-#include "shaders/my_phong_frag_glsl.h"
-#include "shaders/my_texture_frag_glsl.h"
+#include "shaders/convolution_frag_glsl.h"
+#include "shaders/convolution_vert_glsl.h"
 
 // shared resources
 std::unique_ptr<ppgso::Mesh> Chest::mesh;
@@ -18,7 +15,7 @@ std::unique_ptr<ppgso::Shader> Chest::shader;
 Chest::Chest() {
     scale *= 0.1;
     // Initialize static resources if needed
-    if (!shader) shader = std::make_unique<ppgso::Shader>(phong_vert_glsl, my_phong_frag_glsl);
+    if (!shader) shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("Chest.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Chest.obj");
 }
@@ -33,7 +30,6 @@ bool Chest::update(Scene &scene, float dt) {
 void Chest::render(Scene &scene) {
     shader->use();
 
-    // Set up light
     shader->setUniform("LightDirection", scene.lightDirection);
 
     // use camera
@@ -43,6 +39,7 @@ void Chest::render(Scene &scene) {
     shader->setUniform("global_lighting_on", scene.global_lighting_on);
 
 //    shader->setUniform("material.ambient", {1, 1, 1});
+//    shader->setUniform("material.diffuse", {1, 1, 1});
     shader->setUniform("material.diffuse", {1, 1, 1});
     shader->setUniform("material.specular", {0.9f, 0.9f, 0.9f});
     shader->setUniform("material.shininess", 32.0f);
@@ -59,6 +56,7 @@ void Chest::render(Scene &scene) {
     }
 
     // render mesh
+
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
     shader->setUniform("UseShadow", false);
