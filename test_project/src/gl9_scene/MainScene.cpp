@@ -173,7 +173,7 @@ private:
         scene.global_lighting_on = false;
         // lighthouse light
         scene.lights.positions[0] = {50, 20, 50};
-        scene.lights.colors[0] = {1, 1, 1};
+        scene.lights.colors[0] = {1, 0, 0};
         scene.lights.ranges[0] = 40;
         scene.lights.strengths[0] = 6;
 
