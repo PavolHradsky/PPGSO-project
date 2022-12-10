@@ -367,7 +367,7 @@ private:
         scene.global_lighting_on = false;
         // lighthouse light
         scene.lights.positions[0] = {50, 20, 50};
-        scene.lights.colors[0] = {1, 1, 1};
+        scene.lights.colors[0] = {1, 0, 0};
         scene.lights.ranges[0] = 40;
         scene.lights.strengths[0] = 6;
 
@@ -404,13 +404,14 @@ public:
      * Construct custom game window
      */
     SceneWindow() : Window{"Underwater world", SIZE, SIZE} {
+
         glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
         // Initialize OpenGL state
         // Enable Z-buffer
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LEQUAL);
-        glEnable(GL_FOG);
+
 
         // Enable polygon culling
         glEnable(GL_CULL_FACE);
