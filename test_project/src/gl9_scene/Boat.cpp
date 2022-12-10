@@ -80,8 +80,12 @@ bool Boat::update(Scene &scene, float dt) {
                                    controlPoints.at(3 * step + 1),
                                    controlPoints.at(3 * step + 2),
                                    controlPoints.at(3 * step + 3), (age + dt) / speed);
-        if (scene.camera->enableAnimationBoat)
-            scene.camera->moveTo(position, position, {0.000000, 0, 0.000000});
+        if (scene.camera->enableAnimationBoat) {
+//            scene.camera->moveTo(position, position, {0.000000, 0, 0.000000}, {0.000000, 0, 0.000000});
+            scene.camera->position = position + glm::vec3{-30, 15, 0};
+            scene.camera->rotation = glm::vec3{ppgso::PI/6, 10*ppgso::PI/10, 0};
+
+        }
 
         // rotate the boat
         rotation.y = (float) (std::atan2(nextPosition.x - position.x, nextPosition.z - position.z) + M_PI_2);

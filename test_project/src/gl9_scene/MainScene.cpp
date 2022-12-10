@@ -335,11 +335,31 @@ private:
 
         scene.objects.push_back(std::move(sand));
 
+        // add rocks to scene
+        auto rock = std::make_unique<Rock>();
+        rock->position = {72, -78, -72};
+        scene.objects.push_back(std::move(rock));
+        // add shadow to scene
+        auto shadow = std::make_unique<Shadow>();
+        shadow->position = {72, -79, -72};
+        scene.objects.push_back(std::move(shadow));
+
         // add chest to scene
         auto treasure = std::make_unique<Chest>();
         treasure->position = {-30, -77, -30};
         treasure->rotation.z = ppgso::PI;
         scene.objects.push_back(std::move(treasure));
+
+        // add my_fish to scene
+        auto my_fish = std::make_unique<Fish>();
+        my_fish->position.x = -40;
+        my_fish->position.y = -30;
+        my_fish->position.z = 40;
+        my_fish->posY = my_fish->position.y;
+        my_fish->posZ = my_fish->position.z;
+        my_fish->posX = my_fish->position.x;
+        my_fish->my_fish = true;
+        scene.objects.push_back(std::move(my_fish));
 
 
         scene.global_lighting_on = false;
@@ -449,43 +469,52 @@ public:
                     break;
                 case GLFW_KEY_3:
                     // move camera to lighthouse
-                    scene.camera->moveTo({7.69656, 4.88165, 7.65431},{18.6847, 9.22027, -2.41117}, {0.000000, 10, 0.000000});
-                    scene.camera->start_looking_at = {60, 4.39217, 20};
-                    scene.camera->end_looking_at = {22.2458 , -1.09873, 11.0905};
+                    scene.camera->moveTo({7.69656, 4.88165, 7.65431},{18.6847, 9.22027, -2.41117},
+                                         {0.000000, 0, 0.000000},{0.000000, -ppgso::PI/1.5, 0.000000});
                     scene.camera->t = -1;
                     scene.camera->animate = true;
                     action = GLFW_RELEASE;
                     break;
                 case GLFW_KEY_4:
                     // move camera to sun
-                    scene.camera->moveTo({-22.2458 , -1.09873, -11.0905},{40, 190, 0}, {0.000000, 0, 0.000000});
-                    scene.camera->start_looking_at = {-22.2458 , -1.09873, -11.0905};
-                    scene.camera->end_looking_at = {0, 190, 0};
+                    scene.camera->moveTo({-22.2458 , 1.09873, -11.0905},{40, 190, 0},
+                                         {ppgso::PI/2, 0, 0.000000}, {0.000000, 0.000000, 0.000000});
                     scene.camera->t = -1;
                     scene.camera->animate = true;
                     action = GLFW_RELEASE;
                     break;
                 case GLFW_KEY_5:
                     // move camera to boat
-                    scene.camera->moveTo({-18.6847, 9.22027, -2.41117},{60, -60, 0}, {0.000000, 0, 0.000000});
-                    scene.camera->start_looking_at = {-22.2458 , -60, -11.0905};
-                    scene.camera->end_looking_at = {-20, -60, 0};
+                    scene.camera->moveTo({-18.6847, 9.22027, -2.41117},{60, -60, 0},
+                                         {ppgso::PI/3, 0, 0.000000}, {0.000000, 0.000000, 0.000000});
                     scene.camera->t = -1;
                     scene.camera->animate = true;
                     action = GLFW_RELEASE;
                     break;
                 case GLFW_KEY_6:
                     // move camera to treasure
-                    scene.camera->moveTo({-20, -60, -20},{-20, -75, -30}, {0.000000, 0, 0.000000});
-                    scene.camera->start_looking_at = {-20, -60, -20};
-                    scene.camera->end_looking_at = {-30, -77, -30};
+                    scene.camera->moveTo({-20, -60, -20},{-20, -75, -30},
+                                         {0.000000, 0, 0.000000}, {0.000000, 0.000000, 0.000000});
                     scene.camera->t = -1;
                     scene.camera->animate = true;
                     action = GLFW_RELEASE;
                     break;
                 case GLFW_KEY_7:
                     // follow boat on ocean TODO
-                    scene.camera->enableAnimationBoat = true;
+                    scene.camera->enableAnimationBoat = !scene.camera->enableAnimationBoat;
+                    action = GLFW_RELEASE;
+                    break;
+                case GLFW_KEY_8:
+                    // move camera to my_rock
+                    scene.camera->moveTo({-18.6847, -10, -2.41117},{82, -65, -72},
+                                         {ppgso::PI/8, 0, 0.000000}, {ppgso::PI/4, 0.000000, 0.000000});
+                    scene.camera->t = -1;
+                    scene.camera->animate = true;
+                    action = GLFW_RELEASE;
+                    break;
+                case GLFW_KEY_9:
+                    // follow my_fish
+                    scene.camera->enableAnimationFish = !scene.camera->enableAnimationFish;
                     action = GLFW_RELEASE;
                     break;
                 case GLFW_KEY_N:

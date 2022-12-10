@@ -33,6 +33,9 @@ Fish::Fish() {
 
 bool Fish::update(Scene &scene, float dt) {
 
+    if(my_fish)
+        scale = glm::vec3(4, 4, 4);
+
     auto tmp = this->position;
     tmp.z += 0.02f;
     tmp.y += 0.6f;
@@ -58,12 +61,17 @@ bool Fish::update(Scene &scene, float dt) {
     rotation.z = std::atan2(nextX - position.x, nextZ - position.z) + ppgso::PI / 2;
 
     // TODO
-    // if fish is tooclose to 118, 0, 0, rotate it to the other side
+    // if fish is too close to 118, 0, 0, rotate it to the other side
     if (glm::distance(position, glm::vec3(118, 0, 0)) < 10) {
         rotation.z = ppgso::PI;
     }
     if (glm::distance(position, glm::vec3(0, 0, 118)) < 10) {
         rotation.z = ppgso::PI;
+    }
+
+    if(my_fish && scene.camera->enableAnimationFish){
+        scene.camera->position = position + glm::vec3{-15, 7, 0};
+        scene.camera->rotation = glm::vec3{ppgso::PI/6, 10*ppgso::PI/10, 0};
     }
 
     generateModelMatrix();

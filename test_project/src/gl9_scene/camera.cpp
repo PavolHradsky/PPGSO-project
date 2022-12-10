@@ -16,9 +16,13 @@ void Camera::update() {
         if (t < 900) {
             t++;
             auto moving = glm::lerp(starting_position, ending_position, t / 900.0f);
+            auto rotating = glm::lerp(starting_rotation, ending_rotation, t / 900.0f);
             position.x = moving.x;
             position.y = moving.y;
             position.z = moving.z;
+            rotation.x = rotating.x;
+            rotation.y = rotating.y;
+            rotation.z = rotating.z;
         }
     }
 
@@ -27,10 +31,11 @@ void Camera::update() {
     viewMatrix = lookAt(position, position - back, up);
 }
 
-void Camera::moveTo(const glm::vec3 &start_pos, const glm::vec3 &end_pos, const glm::vec3 &rot) {
+void Camera::moveTo(const glm::vec3 &start_pos, const glm::vec3 &end_pos, const glm::vec3 &start_rot, const glm::vec3 &end_rot) {
     starting_position = start_pos;
     ending_position = end_pos;
-    rotation = rot;
+    starting_rotation = start_rot;
+    ending_rotation = end_rot;
 }
 
 glm::vec3 Camera::cast(double u, double v) const {

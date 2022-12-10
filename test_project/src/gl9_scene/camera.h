@@ -22,6 +22,8 @@ public:
     float t;
     glm::vec3 starting_position;
     glm::vec3 ending_position;
+    glm::vec3 starting_rotation;
+    glm::vec3 ending_rotation;
     glm::vec3 start_looking_at;
     glm::vec3 end_looking_at;
     glm::vec3 rotation{0, 0, 0};
@@ -35,6 +37,7 @@ public:
     bool moveW, moveS, moveA, moveD, moveQ, moveE, rotateUp, rotateDown, rotateLeft, rotateRight = false;
     bool enableAnimation = true;
     bool enableAnimationBoat = false;
+    bool enableAnimationFish = false;
 
     /*!
      * Create new Camera that will generate viewMatrix and projectionMatrix based on its position, up and back vectors
@@ -50,7 +53,7 @@ public:
      */
     void update();
 
-    void moveTo(const glm::vec3 &start_pos, const glm::vec3 &end_pos, const glm::vec3 &rot);
+    void moveTo(const glm::vec3 &start_pos, const glm::vec3 &end_pos, const glm::vec3 &start_rot, const glm::vec3 &end_rot);
 
     /*!
      * Get direction vector in world coordinates through camera projection plane
