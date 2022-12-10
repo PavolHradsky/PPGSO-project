@@ -5,6 +5,9 @@
 #include <shaders/phong_vert_glsl.h>
 #include <shaders/phong_frag_glsl.h>
 #include <shaders/my_phong_frag_glsl.h>
+#include "shaders/convolution_frag_glsl.h"
+#include "shaders/convolution_vert_glsl.h"
+
 // shared resources
 std::unique_ptr<ppgso::Shader> Filter::shader;
 std::unique_ptr<ppgso::Mesh> Filter::mesh;
@@ -31,6 +34,9 @@ bool Filter::update(Scene &scene, float dt) {
 }
 
 void Filter::render(Scene &scene) {
+    if (scene.convolution){
+        if (!shader) shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
+    }
     shader->use();
 
     // Set up light

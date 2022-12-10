@@ -7,6 +7,8 @@
 #include "shaders/diffuse_frag_glsl.h"
 #include "shaders/phong_vert_glsl.h"
 #include "shaders/phong_frag_glsl.h"
+#include "shaders/convolution_frag_glsl.h"
+#include "shaders/convolution_vert_glsl.h"
 // shared resources
 std::unique_ptr<ppgso::Mesh> Rock::mesh;
 std::unique_ptr<ppgso::Texture> Rock::texture;
@@ -30,6 +32,9 @@ bool Rock::update(Scene &scene, float dt) {
 }
 
 void Rock::render(Scene &scene) {
+    if (scene.convolution){
+        shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
+    }
     shader->use();
     // Set up light
     shader->setUniform("LightDirection", {1.0f, -1.0f, -1.0f});

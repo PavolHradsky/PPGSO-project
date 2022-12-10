@@ -12,6 +12,8 @@
 #include "shaders/my_texture_frag_glsl.h"
 #include "shaders/phong_vert_glsl.h"
 #include "shaders/phong_frag_glsl.h"
+#include "shaders/convolution_frag_glsl.h"
+#include "shaders/convolution_vert_glsl.h"
 
 #define SEA_TURBULENCE 0.00f
 // shared resources
@@ -142,6 +144,9 @@ bool Fish::update(Scene &scene, float dt) {
 }
 
 void Fish::render(Scene &scene) {
+    if (scene.convolution){
+       shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
+    }
     for ( auto& obj : tails ) {
 
         // TODO> osvietenie napr delfinych chvostov

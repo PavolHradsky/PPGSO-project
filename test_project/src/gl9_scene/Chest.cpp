@@ -6,7 +6,8 @@
 #include <shaders/texture_vert_glsl.h>
 #include "shaders/convolution_frag_glsl.h"
 #include "shaders/convolution_vert_glsl.h"
-
+#include <shaders/phong_vert_glsl.h>
+#include <shaders/phong_frag_glsl.h>
 // shared resources
 std::unique_ptr<ppgso::Mesh> Chest::mesh;
 std::unique_ptr<ppgso::Texture> Chest::texture;
@@ -15,7 +16,7 @@ std::unique_ptr<ppgso::Shader> Chest::shader;
 Chest::Chest() {
     scale *= 0.1;
     // Initialize static resources if needed
-    if (!shader) shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
+    if (!shader) shader = std::make_unique<ppgso::Shader>(phong_vert_glsl, phong_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("Chest.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("Chest.obj");
 }
@@ -28,6 +29,9 @@ bool Chest::update(Scene &scene, float dt) {
 }
 
 void Chest::render(Scene &scene) {
+    if (scene.convolution){
+        shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
+    }
     shader->use();
 
     shader->setUniform("LightDirection", scene.lightDirection);

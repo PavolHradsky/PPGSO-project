@@ -6,7 +6,8 @@
 #include "shaders/phong_frag_glsl.h"
 #include "shaders/phong_vert_glsl.h"
 #include "bubbleGenerator.h"
-
+#include "shaders/convolution_frag_glsl.h"
+#include "shaders/convolution_vert_glsl.h"
 
 // Static resources
 std::unique_ptr<ppgso::Mesh> Boat::mesh;
@@ -107,6 +108,9 @@ bool Boat::update(Scene &scene, float dt) {
         if (!generator) {
             auto gen = std::make_unique<BubbleGenerator>();
             scene.objects.push_back(std::move(gen));
+            if (scene.convolution){
+                shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
+            }
             generator = true;
         }
     }

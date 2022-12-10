@@ -4,7 +4,8 @@
 #include <shaders/color_frag_glsl.h>
 #include <cmath>
 #include <glm/gtx/euler_angles.hpp>
-
+#include "shaders/convolution_frag_glsl.h"
+#include "shaders/convolution_vert_glsl.h"
 // Static resources
 std::unique_ptr<ppgso::Mesh> Bubble::mesh;
 std::unique_ptr<ppgso::Texture> Bubble::texture;
@@ -43,6 +44,9 @@ bool Bubble::update(Scene &scene, float dt) {
 }
 
 void Bubble::render(Scene &scene) {
+    if (scene.convolution){
+        shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
+    }
     shader->use();
 
     shader->setUniform("LightDirection", scene.lightDirection);

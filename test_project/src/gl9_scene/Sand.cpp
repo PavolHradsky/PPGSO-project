@@ -7,6 +7,8 @@
 #include <shaders/phong_vert_glsl.h>
 #include <shaders/my_phong_frag_glsl.h>
 #include <shaders/my_texture_frag_glsl.h>
+#include "shaders/convolution_frag_glsl.h"
+#include "shaders/convolution_vert_glsl.h"
 // shared resources
 std::unique_ptr<ppgso::Texture> Sand::texture;
 std::unique_ptr<ppgso::Shader> Sand::shader;
@@ -25,6 +27,9 @@ bool Sand::update(Scene &scene, float dt) {
 }
 
 void Sand::render(Scene &scene) {
+    if (scene.convolution){
+        shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
+    }
     shader->use();
 
     // Set up light

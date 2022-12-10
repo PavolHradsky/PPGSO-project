@@ -7,7 +7,8 @@
 #include <shaders/phong_vert_glsl.h>
 #include <shaders/phong_frag_glsl.h>
 #include "shaders/my_phong_frag_glsl.h"
-
+#include "shaders/convolution_frag_glsl.h"
+#include "shaders/convolution_vert_glsl.h"
 // shared resources
 std::unique_ptr<ppgso::Mesh> UnderWatterTerrain::mesh;
 std::unique_ptr<ppgso::Shader> UnderWatterTerrain::shader;
@@ -38,6 +39,9 @@ bool UnderWatterTerrain::update(Scene &scene, float dt) {
 }
 
 void UnderWatterTerrain::render(Scene &scene) {
+    if (scene.convolution){
+        if (!shader) shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
+    }
     shader->use();
 
     // Set up light

@@ -467,6 +467,10 @@ public:
                 case GLFW_KEY_RIGHT:
                     scene.camera->rotateRight = true;
                     break;
+                case GLFW_KEY_C:
+                    // set shader to convolution
+                    scene.convolution = true;
+                    break;
                 case GLFW_KEY_3:
                     // move camera to lighthouse
                     scene.camera->moveTo({7.69656, 4.88165, 7.65431},{18.6847, 9.22027, -2.41117},
