@@ -25,5 +25,6 @@ public:
     float direction = 1;
     float explosionTime = 0;
     float prevCamY = 10;
+    float cooldown = 0;
 };
 

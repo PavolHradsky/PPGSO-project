@@ -27,6 +27,7 @@ Dolphin::Dolphin() {
 bool Dolphin::update(Scene &scene, float dt) {
 
     age += dt;
+    cooldown += dt;
 
     position.z += speed * dt * direction;
     if(position.z > 120){
@@ -46,84 +47,97 @@ bool Dolphin::update(Scene &scene, float dt) {
     }
     //make collision between 2 dolphins
 
-    for (auto &object : scene.objects) {
-        // Ignore self in scene
-        if (object.get() == this)
-            continue;
-        // We only need to collide with boats
-        auto dolphin = dynamic_cast<Dolphin *>(object.get());
-        if (!dolphin)
-            continue;
+    if(cooldown > 2) {
 
-        // Check distance between objects
+        for (auto &object: scene.objects) {
+            // Ignore self in scene
+            if (object.get() == this)
+                continue;
+            // We only need to collide with boats
+            auto dolphin = dynamic_cast<Dolphin *>(object.get());
+            if (!dolphin)
+                continue;
 
-        auto distance = glm::distance(this->position, dolphin->position);
-        if (distance < 1) {
-            for(int j = 0; j < 5; j++){
-                scene.objects.push_back(std::make_unique<Star>(position));
+            // Check distance between objects
+
+            auto distance = glm::distance(this->position, dolphin->position);
+            if (distance < 1) {
+                cooldown = 0;
+                for (int j = 0; j < 10; j++) {
+                    scene.objects.push_back(std::make_unique<Star>(position));
+                }
+                std::cout << "Collision dolphin dolphin" << std::endl;
+                while (this->position.y > -80 || dolphin->position.y > -80) {
+                    //make dolphin falling down
+                    this->position.y -= 1;
+                    this->position.x = this->position.x;
+                    this->position.z = this->position.z;
+                    dolphin->position.y -= 1;
+                    dolphin->position.x = dolphin->position.x;
+                    dolphin->position.z = dolphin->position.z;
+                }
             }
-            std::cout << "Collision dolphin dolphin" << std::endl;
-            while (this->position.y>-80 || dolphin->position.y>-80) {
-                //make dolphin falling down
-                this->position.y -= 1;
-                this->position.x = this->position.x;
-                this->position.z = this->position.z;
-                dolphin->position.y -= 1;
-                dolphin->position.x = dolphin->position.x;
-                dolphin->position.z = dolphin->position.z;
+
+        }
+        // make collision of dolhpin and boat
+        for (auto &object: scene.objects) {
+            // Ignore self in scene
+            if (object.get() == this)
+                continue;
+            // We only need to collide with boats
+            auto boat = dynamic_cast<Boat *>(object.get());
+            if (!boat)
+                continue;
+
+            // Check distance between objects
+
+            auto distance = glm::distance(this->position, boat->position);
+            if (distance < 5) {
+                cooldown = 0;
+                for (int j = 0; j < 10; j++) {
+                    scene.objects.push_back(std::make_unique<Star>(position));
+                }
+                std::cout << "Collision dolphin boat" << std::endl;
+                if (direction == 1) {
+                    rotation.y = ppgso::PI;
+                }
+                if (direction == -1) {
+                    rotation.y = 0;
+                }
+                direction *= -1;
             }
+
         }
 
-    }
-    // make collision of dolhpin and boat
-    for (auto &object : scene.objects) {
-        // Ignore self in scene
-        if (object.get() == this)
-            continue;
-        // We only need to collide with boats
-        auto boat = dynamic_cast<Boat *>(object.get());
-        if (!boat)
-            continue;
-        // TODO make collision with lightHouse
-        auto lighthouse = dynamic_cast<LightHouse *>(object.get());
-        if (!lighthouse)
-            continue;
+        for (auto &object: scene.objects) {
+            // Ignore self in scene
+            if (object.get() == this)
+                continue;
+            // TODO make collision with lightHouse
+            auto lighthouse = dynamic_cast<LightHouse *>(object.get());
+            if (!lighthouse)
+                continue;
 
-        // Check distance between objects
-        auto distance = glm::distance(this->position, boat->position);
-        if (distance < 5) {
-            for(int j = 0; j < 5; j++){
-                scene.objects.push_back(std::make_unique<Star>(position));
+            // Check distance between objects
+            auto distance = glm::distance(this->position, lighthouse->position);
+            if (distance < 1) {
+                cooldown = 0;
+                for (int j = 0; j < 10; j++) {
+                    scene.objects.push_back(std::make_unique<Star>(position));
+                }
+
+                std::cout << "Collision dolphin lighthouse" << std::endl;
+
+                if (direction == 1) {
+                    rotation.y = ppgso::PI;
+                }
+                if (direction == -1) {
+                    rotation.y = 0;
+                }
+                direction *= -1;
             }
 
-            std::cout << "Collision dolphin boat" << std::endl;
-
-            if(direction == 1){
-                rotation.y = ppgso::PI;
-            }
-            if(direction == -1){
-                rotation.y = 0;
-            }
-            direction *= -1;
         }
-
-        auto distanceLightHouse = glm::distance(this->position, lighthouse->position);
-        if (distanceLightHouse < 5) {
-            for(int j = 0; j < 5; j++){
-                scene.objects.push_back(std::make_unique<Star>(position));
-            }
-
-            std::cout << "Collision dolphin lighthouse" << std::endl;
-
-            if(direction == 1){
-                rotation.y = ppgso::PI;
-            }
-            if(direction == -1){
-                rotation.y = 0;
-            }
-            direction *= -1;
-        }
-
     }
 
     generateModelMatrix();
