@@ -117,7 +117,6 @@ add_executable(gl9_scene
         src/gl9_scene/generator.cpp
         src/gl9_scene/Ocean.cpp
         src/gl9_scene/Dolphin.cpp
-        src/gl9_scene/explosion.cpp
         src/gl9_scene/Fish.cpp src/gl9_scene/UnderWatterTerrain.cpp src/gl9_scene/UnderWatterTerrain.h src/gl9_scene/Sand.cpp src/gl9_scene/Sand.h src/gl9_scene/Bubble.cpp src/gl9_scene/Bubble.h src/gl9_scene/Rock.cpp src/gl9_scene/Rock.h src/gl9_scene/Sun.cpp src/gl9_scene/Sun.h
         src/gl9_scene/Filter.cpp src/gl9_scene/Filter.h src/gl9_scene/FishTail.cpp src/gl9_scene/FishTail.h
         src/gl9_scene/surface.h

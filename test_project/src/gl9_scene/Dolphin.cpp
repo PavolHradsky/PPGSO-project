@@ -1,7 +1,6 @@
 #include <glm/gtc/random.hpp>
 #include "scene.h"
 #include "Dolphin.h"
-#include "explosion.h"
 #include "Boat.h"
 #include "LightHouse.h"
 #include <shaders/diffuse_vert_glsl.h>

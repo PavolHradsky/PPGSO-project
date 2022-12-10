@@ -2,7 +2,6 @@
 #include "scene.h"
 #include "Boat.h"
 #include "Dolphin.h"
-#include "explosion.h"
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
 #include <shaders/phong_vert_glsl.h>
