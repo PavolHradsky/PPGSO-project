@@ -28,7 +28,7 @@
 #include "Chest.h"
 #include "Star.h"
 
-const unsigned int SIZE = 980;
+const unsigned int SIZE = 1080;
 
 /*!
  * Custom windows for our simple game
