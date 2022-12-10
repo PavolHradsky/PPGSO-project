@@ -36,7 +36,7 @@ bool LightHouse::update(Scene &scene, float dt) {
     // rotate light around the lighthouse
     scene.lights.positions[0].x = position.x + 15 * sin(age);
     scene.lights.positions[0].z = position.z + 15 * cos(age);
-    shader->setUniform("lights.positions",scene.lights.positions[0].x);
+//    shader->setUniform("lights.positions[0]",scene.lights.positions[0].x);
     generateModelMatrix();
     return true;
 }

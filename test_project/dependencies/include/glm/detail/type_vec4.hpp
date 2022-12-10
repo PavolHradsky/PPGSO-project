@@ -48,7 +48,7 @@ namespace glm
 #				if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 					_GLM_SWIZZLE4_2_MEMBERS(T, P, glm::tvec2, x, y, z, w)
 					_GLM_SWIZZLE4_2_MEMBERS(T, P, glm::tvec2, r, g, b, a)
-					_GLM_SWIZZLE4_2_MEMBERS(T, P, glm::tvec2, s, timer, p, q)
+					_GLM_SWIZZLE4_2_MEMBERS(T, P, glm::tvec2, s, t, p, q)
 					_GLM_SWIZZLE4_3_MEMBERS(T, P, glm::tvec3, x, y, z, w)
 					_GLM_SWIZZLE4_3_MEMBERS(T, P, glm::tvec3, r, g, b, a)
 					_GLM_SWIZZLE4_3_MEMBERS(T, P, glm::tvec3, s, t, p, q)

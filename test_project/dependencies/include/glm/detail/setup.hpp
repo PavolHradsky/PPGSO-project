@@ -4,7 +4,7 @@
 #pragma once
 
 #if (defined(GLM_FORCE_SWIZZLE) || defined(GLM_SWIZZLE)) && defined(GLM_FORCE_UNRESTRICTED_GENTYPE)
-#	error "Both GLM_FORCE_SWIZZLE and GLM_FORCE_UNRESTRICTED_GENTYPE can'timer be defined at the same time"
+#	error "Both GLM_FORCE_SWIZZLE and GLM_FORCE_UNRESTRICTED_GENTYPE can't be defined at the same time"
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////

@@ -22,6 +22,8 @@
 #include "shaders/phong_vert_glsl.h"
 #include "shaders/phong_frag_glsl.h"
 #include "shaders/my_phong_frag_glsl.h"
+#include "shaders/convolution_frag_glsl.h"
+#include "shaders/convolution_vert_glsl.h"
 #include "Light.h"
 #include "Chest.h"
 #include "Star.h"
@@ -171,7 +173,7 @@ private:
         scene.global_lighting_on = false;
         // lighthouse light
         scene.lights.positions[0] = {50, 20, 50};
-        scene.lights.colors[0] = {1, 1, 1};
+        scene.lights.colors[0] = {1, 0, 0};
         scene.lights.ranges[0] = 40;
         scene.lights.strengths[0] = 6;
 
@@ -365,7 +367,7 @@ private:
         scene.global_lighting_on = false;
         // lighthouse light
         scene.lights.positions[0] = {50, 20, 50};
-        scene.lights.colors[0] = {1, 1, 1};
+        scene.lights.colors[0] = {1, 0, 0};
         scene.lights.ranges[0] = 40;
         scene.lights.strengths[0] = 6;
 
@@ -402,13 +404,14 @@ public:
      * Construct custom game window
      */
     SceneWindow() : Window{"Underwater world", SIZE, SIZE} {
+
         glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
         // Initialize OpenGL state
         // Enable Z-buffer
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LEQUAL);
-        glEnable(GL_FOG);
+
 
         // Enable polygon culling
         glEnable(GL_CULL_FACE);
@@ -488,6 +491,11 @@ public:
                     action = GLFW_RELEASE;
                     break;
                 case GLFW_KEY_5:
+                    // follow boat on ocean TODO
+                    scene.camera->enableAnimationBoat = !scene.camera->enableAnimationBoat;
+                    action = GLFW_RELEASE;
+                    break;
+                case GLFW_KEY_6:
                     // move camera to boat
                     scene.camera->moveTo({-18.6847, 9.22027, -2.41117},{60, -60, 0},
                                          {ppgso::PI/3, 0, 0.000000}, {0.000000, 0.000000, 0.000000});
@@ -495,17 +503,12 @@ public:
                     scene.camera->animate = true;
                     action = GLFW_RELEASE;
                     break;
-                case GLFW_KEY_6:
+                case GLFW_KEY_7:
                     // move camera to treasure
                     scene.camera->moveTo({-20, -60, -20},{-20, -75, -30},
                                          {0.000000, 0, 0.000000}, {0.000000, 0.000000, 0.000000});
                     scene.camera->t = -1;
                     scene.camera->animate = true;
-                    action = GLFW_RELEASE;
-                    break;
-                case GLFW_KEY_7:
-                    // follow boat on ocean TODO
-                    scene.camera->enableAnimationBoat = !scene.camera->enableAnimationBoat;
                     action = GLFW_RELEASE;
                     break;
                 case GLFW_KEY_8:
