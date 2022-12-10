@@ -108,7 +108,7 @@ bool Boat::update(Scene &scene, float dt) {
         if (!generator) {
             auto gen = std::make_unique<BubbleGenerator>();
             scene.objects.push_back(std::move(gen));
-            if (scene.convolution){
+            if (scene.convolution && !scene.prevConvolution){
                 shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
             }
             generator = true;

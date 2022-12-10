@@ -660,6 +660,8 @@ public:
         scene.update(dt);
         scene.render();
 
+        if(scene.convolution && !scene.prevConvolution)
+            scene.prevConvolution = true;
     }
 };
 

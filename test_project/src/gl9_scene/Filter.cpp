@@ -34,8 +34,8 @@ bool Filter::update(Scene &scene, float dt) {
 }
 
 void Filter::render(Scene &scene) {
-    if (scene.convolution){
-        if (!shader) shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
+    if (scene.convolution && !scene.prevConvolution){
+        shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
     }
     shader->use();
 

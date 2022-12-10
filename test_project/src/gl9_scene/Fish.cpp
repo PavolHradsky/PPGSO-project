@@ -144,8 +144,8 @@ bool Fish::update(Scene &scene, float dt) {
 }
 
 void Fish::render(Scene &scene) {
-    if (scene.convolution){
-       shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
+    if (scene.convolution && !scene.prevConvolution){
+        shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
     }
     for ( auto& obj : tails ) {
 

@@ -56,7 +56,7 @@ bool FishTail::update(Scene &scene, float dt) {
 }
 
 void FishTail::render(Scene &scene) {
-    if (scene.convolution){
+    if (scene.convolution && !scene.prevConvolution){
         shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
     }
     shader->use();
