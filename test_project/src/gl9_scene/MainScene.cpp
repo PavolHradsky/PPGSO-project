@@ -22,6 +22,8 @@
 #include "shaders/phong_vert_glsl.h"
 #include "shaders/phong_frag_glsl.h"
 #include "shaders/my_phong_frag_glsl.h"
+#include "shaders/convolution_frag_glsl.h"
+#include "shaders/convolution_vert_glsl.h"
 #include "Light.h"
 #include "Chest.h"
 #include "Star.h"
@@ -484,6 +486,11 @@ public:
                     action = GLFW_RELEASE;
                     break;
                 case GLFW_KEY_5:
+                    // follow boat on ocean TODO
+                    scene.camera->enableAnimationBoat = !scene.camera->enableAnimationBoat;
+                    action = GLFW_RELEASE;
+                    break;
+                case GLFW_KEY_6:
                     // move camera to boat
                     scene.camera->moveTo({-18.6847, 9.22027, -2.41117},{60, -60, 0},
                                          {ppgso::PI/3, 0, 0.000000}, {0.000000, 0.000000, 0.000000});
@@ -491,17 +498,12 @@ public:
                     scene.camera->animate = true;
                     action = GLFW_RELEASE;
                     break;
-                case GLFW_KEY_6:
+                case GLFW_KEY_7:
                     // move camera to treasure
                     scene.camera->moveTo({-20, -60, -20},{-20, -75, -30},
                                          {0.000000, 0, 0.000000}, {0.000000, 0.000000, 0.000000});
                     scene.camera->t = -1;
                     scene.camera->animate = true;
-                    action = GLFW_RELEASE;
-                    break;
-                case GLFW_KEY_7:
-                    // follow boat on ocean TODO
-                    scene.camera->enableAnimationBoat = !scene.camera->enableAnimationBoat;
                     action = GLFW_RELEASE;
                     break;
                 case GLFW_KEY_8:
