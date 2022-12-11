@@ -17,8 +17,6 @@ public:
     glm::vec3 position{0, 0, 0};
     glm::vec3 positionOffset{0, 0, 0};
     glm::vec3 back{0, 0, -1};
-    glm::vec3 offset{0, 2.5, 0};
-    glm::vec3 forward{0, 0, 1};
     float t;
     glm::vec3 starting_position;
     glm::vec3 ending_position;
@@ -35,7 +33,6 @@ public:
     float rotateSpeed = 0.02f;
     bool animate = false;
     bool moveW, moveS, moveA, moveD, moveQ, moveE, rotateUp, rotateDown, rotateLeft, rotateRight = false;
-    bool enableAnimation = true;
     bool enableAnimationBoat = false;
     bool enableAnimationFish = false;
 

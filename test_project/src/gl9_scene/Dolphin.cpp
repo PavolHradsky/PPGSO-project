@@ -5,9 +5,6 @@
 #include "LightHouse.h"
 #include <shaders/diffuse_vert_glsl.h>
 #include <shaders/diffuse_frag_glsl.h>
-#include "shaders/texture_vert_glsl.h"
-#include "shaders/texture_frag_glsl.h"
-#include "shaders/my_texture_frag_glsl.h"
 #include "Star.h"
 
 // shared resources
@@ -17,7 +14,7 @@ std::unique_ptr<ppgso::Texture> Dolphin::texture;
 
 Dolphin::Dolphin() {
     scale *= glm::linearRand(0.009f, 0.015f);
-    rotation.x = 5*ppgso::PI/3;
+    rotation.x = 5 * ppgso::PI / 3;
     if (!shader) shader = std::make_unique<ppgso::Shader>(diffuse_vert_glsl, diffuse_frag_glsl);
     if (!texture) texture = std::make_unique<ppgso::Texture>(ppgso::image::loadBMP("dolphin.bmp"));
     if (!mesh) mesh = std::make_unique<ppgso::Mesh>("dolphin.obj");
@@ -29,24 +26,25 @@ bool Dolphin::update(Scene &scene, float dt) {
     cooldown += dt;
 
     position.z += speed * dt * direction;
-    if(position.z > 120){
+    if (position.z > 120) {
         direction = -1;
         rotation.y = ppgso::PI;
     }
-    if(position.z < -120){
+    if (position.z < -120) {
         direction = 1;
         rotation.y = 0;
     }
-    if(direction == 1){
+    if (direction == 1) {
         position.y = std::cos(age * speed) * radius + posY;
-        rotation.x = std::sin(age * speed) * radius + 5*ppgso::PI/3; + posX;
-    }else{
+        rotation.x = std::sin(age * speed) * radius + 5 * ppgso::PI / 3;
+        +posX;
+    } else {
         position.y = std::sin(age * speed) * radius + posY;
-        rotation.x = std::cos(age * speed) * radius + 5*ppgso::PI/3 + posX;
+        rotation.x = std::cos(age * speed) * radius + 5 * ppgso::PI / 3 + posX;
     }
     //make collision between 2 dolphins
 
-    if(cooldown > 2) {
+    if (cooldown > 2) {
 
         for (auto &object: scene.objects) {
             // Ignore self in scene
@@ -65,7 +63,7 @@ bool Dolphin::update(Scene &scene, float dt) {
                 for (int j = 0; j < 10; j++) {
                     scene.objects.push_back(std::make_unique<Star>(position));
                 }
-                std::cout << "Collision dolphin dolphin" << std::endl;
+
                 while (this->position.y > -80 || dolphin->position.y > -80) {
                     //make dolphin falling down
                     this->position.y -= 1;
@@ -96,7 +94,6 @@ bool Dolphin::update(Scene &scene, float dt) {
                 for (int j = 0; j < 10; j++) {
                     scene.objects.push_back(std::make_unique<Star>(position));
                 }
-                std::cout << "Collision dolphin boat" << std::endl;
                 if (direction == 1) {
                     rotation.y = ppgso::PI;
                 }
@@ -144,7 +141,6 @@ bool Dolphin::update(Scene &scene, float dt) {
 }
 
 
-
 void Dolphin::render(Scene &scene) {
     shader->use();
 
@@ -168,8 +164,7 @@ void Dolphin::render(Scene &scene) {
         shader->setUniform("lights.ranges[" + std::to_string(i) + "]", scene.lights.ranges[i]);
         if (scene.lights.strengths[i] < 0) {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", 0.9f);
-        }
-        else {
+        } else {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", scene.lights.strengths[i]);
         }
     }

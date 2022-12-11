@@ -3,10 +3,8 @@
 #include "camera.h"
 #include "scene.h"
 #include "generator.h"
-#include "UnderWatterTerrain.h"
 #include "Ocean.h"
 #include "Cloud.h"
-#include "Dolphin.h"
 #include "Boat.h"
 #include "Sand.h"
 #include "Fish.h"
@@ -16,17 +14,10 @@
 #include "Filter.h"
 #include "Seaweed.h"
 #include "LightHouse.h"
-#include "shaders/texture_vert_glsl.h"
-#include "shaders/texture_frag_glsl.h"
-#include "shaders/my_texture_frag_glsl.h"
 #include "shaders/phong_vert_glsl.h"
 #include "shaders/phong_frag_glsl.h"
 #include "shaders/my_phong_frag_glsl.h"
-#include "shaders/convolution_frag_glsl.h"
-#include "shaders/convolution_vert_glsl.h"
-#include "Light.h"
 #include "Chest.h"
-#include "Star.h"
 
 const unsigned int SIZE = 1080;
 
@@ -39,13 +30,7 @@ private:
     bool animate = true;
     glm::vec3 points;
     std::vector<float> vertices;
-//    void switchedScene(){
-//        auto fish = std::make_unique<Fish>();
-//        if (fish) {
-//            fish->animate = true;
-//        }
-//        scene.camera->position = {0, -50, 0};
-//    }
+
     /*!
      * Reset and initialize the game scene
      * Creating unique smart pointers to objects that are stored in the scene object list
@@ -53,8 +38,6 @@ private:
     void initScene() {
         scene.objects.clear();
 
-
-//        scene.lightDirection = {0, -30, 0};
         scene.lightDirection = {0.25 , 1, 0.5};
 
         // Create a camera
@@ -97,7 +80,6 @@ private:
         // add boat to scene
         auto boat = std::make_unique<Boat>();
         boat->position = {-20, 0, -20};
-        boat->Boatposition = {-20, 0, -20};
         boat->scale = {0.005f, 0.005f, 0.005f};
         boat->rotation.x = -ppgso::PI / 2;
         boat->rotation.y = ppgso::PI;
@@ -121,17 +103,6 @@ private:
         lightHouse->position = {50, 0, 50};
         lightHouse->scale *= 10;
         scene.objects.push_back(std::move(lightHouse));
-
-
-//        auto treasure = std::make_unique<Treasure>();
-//        treasure->position = {-30, -78, -30};
-//        treasure->scale = {0.9f, 0.9f, 0.9f};
-//        scene.objects.push_back(std::move(treasure));
-
-//        auto upperWatter = std::make_unique<UnderWatterTerrain>();
-//        upperWatter->position = {0, 100, 0};
-//        upperWatter->scale.y = 1;
-//        scene.objects.push_back(std::move(upperWatter));
 
         auto sky = std::make_unique<Filter>();
         sky->position = {0, 200, 0};

@@ -82,9 +82,8 @@ bool Boat::update(Scene &scene, float dt) {
                                    controlPoints.at(3 * step + 2),
                                    controlPoints.at(3 * step + 3), (age + dt) / speed);
         if (scene.camera->enableAnimationBoat) {
-//            scene.camera->moveTo(position, position, {0.000000, 0, 0.000000}, {0.000000, 0, 0.000000});
             scene.camera->position = position + glm::vec3{-30, 15, 0};
-            scene.camera->rotation = glm::vec3{ppgso::PI/6, 10*ppgso::PI/10, 0};
+            scene.camera->rotation = glm::vec3{ppgso::PI / 6, 10 * ppgso::PI / 10, 0};
 
         }
 
@@ -108,7 +107,7 @@ bool Boat::update(Scene &scene, float dt) {
         if (!generator) {
             auto gen = std::make_unique<BubbleGenerator>();
             scene.objects.push_back(std::move(gen));
-            if (scene.convolution && !scene.prevConvolution){
+            if (scene.convolution && !scene.prevConvolution) {
                 shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
             }
             generator = true;
@@ -129,7 +128,6 @@ void Boat::render(Scene &scene) {
 
     shader->setUniform("MaterialShininess", 200.0f);
 
-
     // use camera
     shader->setUniform("ProjectionMatrix", scene.camera->projectionMatrix);
     shader->setUniform("ViewMatrix", scene.camera->viewMatrix);
@@ -137,7 +135,6 @@ void Boat::render(Scene &scene) {
     shader->setUniform("material.diffuse", {0.8f, 0.8f, 0.8f});
     shader->setUniform("material.specular", {0.9f, 0.9f, 0.9f});
     shader->setUniform("material.shininess", 100.0f);
-
     shader->setUniform("lights.count", 5);
     for (int i = 0; i < 5; i++) {
         shader->setUniform("lights.positions[" + std::to_string(i) + "]", scene.lights.positions[i]);
@@ -154,5 +151,4 @@ void Boat::render(Scene &scene) {
     shader->setUniform("ModelMatrix", modelMatrix);
     shader->setUniform("Texture", *texture);
     mesh->render();
-
 }

@@ -16,7 +16,6 @@ void Scene::update(float time) {
 
 void Scene::render() {
     // Simply render all objects
-    //light_positions.at(1) = player_position + glm::vec3(0, 2, 2);
     for (auto &obj: objects)
         obj->render(*this);
 }

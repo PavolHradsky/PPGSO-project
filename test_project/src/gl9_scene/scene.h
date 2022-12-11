@@ -68,7 +68,6 @@ class Scene {
     };
 
     Lights lights;
-    int rock_lights = 15;
     bool convolution = false;
     bool prevConvolution = false;
 };

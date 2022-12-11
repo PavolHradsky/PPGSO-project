@@ -10,12 +10,6 @@
  */
 class BubbleGenerator final : public Object {
 public:
-    /*!
-     * Generate new asteroids over time
-     * @param scene Scene to update
-     * @param dt Time delta
-     * @return true to delete the object
-     */
     bool update(Scene &scene, float dt) override;
 
     /*!

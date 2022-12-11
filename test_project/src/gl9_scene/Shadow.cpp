@@ -1,12 +1,7 @@
-//
-// Created by hrads on 9. 12. 2022.
-//
 #include "Shadow.h"
 #include "Ocean.h"
 #include <shaders/color_vert_glsl.h>
 #include <shaders/color_frag_glsl.h>
-#include <cmath>
-#include <glm/gtx/euler_angles.hpp>
 
 // Static resources
 std::unique_ptr<ppgso::Mesh> Shadow::mesh;
@@ -24,7 +19,6 @@ Shadow::Shadow() {
 }
 
 bool Shadow::update(Scene &scene, float dt) {
-
     generateModelMatrix();
     return true;
 }

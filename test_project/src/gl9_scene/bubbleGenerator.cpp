@@ -1,9 +1,5 @@
-//
-// Created by hrads on 5. 12. 2022.
-//
 #include <glm/gtc/random.hpp>
 #include <ppgso/ppgso.h>
-
 #include "bubbleGenerator.h"
 #include "Bubble.h"
 #include "shaders/texture_vert_glsl.h"

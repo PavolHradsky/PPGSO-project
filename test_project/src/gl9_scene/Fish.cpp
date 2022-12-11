@@ -1,21 +1,13 @@
-//
-// Created by hrads on 23. 11. 2022.
-//
 #include "Fish.h"
 #include "scene.h"
 #include "FishTail.h"
-#include "Bubble.h"
 #include <shaders/diffuse_vert_glsl.h>
-#include <shaders/diffuse_frag_glsl.h>
-#include <shaders/texture_vert_glsl.h>
-#include <shaders/texture_frag_glsl.h>
-#include "shaders/my_texture_frag_glsl.h"
 #include "shaders/phong_vert_glsl.h"
 #include "shaders/phong_frag_glsl.h"
 #include "shaders/convolution_frag_glsl.h"
 #include "shaders/convolution_vert_glsl.h"
 
-#define SEA_TURBULENCE 0.00f
+
 // shared resources
 std::unique_ptr<ppgso::Mesh> Fish::mesh;
 std::unique_ptr<ppgso::Texture> Fish::texture;
@@ -35,7 +27,7 @@ Fish::Fish() {
 
 bool Fish::update(Scene &scene, float dt) {
 
-    if(my_fish)
+    if (my_fish)
         scale = glm::vec3(4, 4, 4);
 
     auto tmp = this->position;
@@ -45,17 +37,9 @@ bool Fish::update(Scene &scene, float dt) {
     age += dt;
     // move of the fish
 
-
-//    position.z += speed * dt * direction;
-//    position.y = sin(age * speed) * radius + posY;
-//    position.x = cos(age * speed) * radius + posX;
-
-//     move in circle
-
     position.x = std::cos(age * speed) * radius + posX;
     position.z = std::sin(age * speed) * radius + posZ;
     position.y = std::sin(age) + posY;
-    // std::cout << position.x << std::endl;
     float nextX = std::cos((age + dt) * speed) * radius + posX;
     float nextZ = std::sin((age + dt) * speed) * radius + posZ;
 
@@ -71,20 +55,19 @@ bool Fish::update(Scene &scene, float dt) {
         rotation.z = ppgso::PI;
     }
 
-    if(my_fish && scene.camera->enableAnimationFish){
+    if (my_fish && scene.camera->enableAnimationFish) {
         scene.camera->position = position + glm::vec3{-15, 7, 0};
-        scene.camera->rotation = glm::vec3{ppgso::PI/6, 10*ppgso::PI/10, 0};
+        scene.camera->rotation = glm::vec3{ppgso::PI / 6, 10 * ppgso::PI / 10, 0};
     }
 
     generateModelMatrix();
 
-    for ( auto& obj : tails ) {
-        auto part = dynamic_cast<FishTail*>(obj.get());
-        part->updateTail(scene, posX, posY, posZ, speed, radius, position, scale, age-scale.x*0.09, dt);
+    for (auto &obj: tails) {
+        auto part = dynamic_cast<FishTail *>(obj.get());
+        part->updateTail(scene, posX, posY, posZ, speed, radius, position, scale, age - scale.x * 0.09, dt);
     }
 
-    // TODO pohyb viac specificky, pri naraze do inej ryby, nieco spravit, po nejakej dobe ryba uhyne a len spadne na zem
-    for (auto &object : scene.objects) {
+    for (auto &object: scene.objects) {
         // Ignore self in scene
         if (object.get() == this)
             continue;
@@ -97,61 +80,28 @@ bool Fish::update(Scene &scene, float dt) {
         auto distance = glm::distance(this->position, fish->position);
         if (distance < 10) {
 
-            while (fish->position.y>=-80){
+            while (fish->position.y >= -80) {
                 fish->position.y -= 1;
-
                 fish->position.x = fish->position.x;
                 fish->position.z = fish->position.z;
             }
-            if (fish->position.y == -80){
+            if (fish->position.y == -80) {
                 return false;
             }
 
         }
 
     }
-    /*
-    if (fishTail) {
-        fishTail->position = position + glm::vec3{offset, 0, 0};
-        std::cout << fishTail->position.x << std::endl;
-        fishTail->rotation = rotation;
-        fishTail->updateTail(scene, position,rotation,scale);
-    }*/
-//    for ( auto& obj : tails ) {
-//        auto part = dynamic_cast<FishTail*>(obj.get());
-//        part->updateTail(scene);
-//    }
-
-
-//    if(position.z > 120){
-//        direction = -1;
-//        rotation.y = 2*ppgso::PI;
-//        rotation.z = -ppgso::PI;
-//    }
-//    if(position.z < -120){
-//        direction = 1;
-//        rotation.y = 0;
-//    }
-
-    //position.y = std::cos(age * speed) * radius;
-    //position.z = std::sin(age * speed) * radius;
-
-    //rotation.x += dt*speed;
-    // die after 10 seconds
-
 
     return true;
 }
 
 void Fish::render(Scene &scene) {
-    if (scene.convolution && !scene.prevConvolution){
+    if (scene.convolution && !scene.prevConvolution) {
         shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
     }
-    for ( auto& obj : tails ) {
-
-        // TODO> osvietenie napr delfinych chvostov
-        //scene.light_positions.at(1) = obj->position + glm::vec3{2, 2, 2};
-        auto part = dynamic_cast<FishTail*>(obj.get());
+    for (auto &obj: tails) {
+        auto part = dynamic_cast<FishTail *>(obj.get());
         part->render(scene);
     }
     shader->use();
@@ -166,8 +116,6 @@ void Fish::render(Scene &scene) {
     shader->setUniform("global_lighting_on", scene.global_lighting_on);
     // rotate light
 
-
-
     shader->setUniform("material.ambient", {1, 1, 1});
     shader->setUniform("material.diffuse", {1, 1, 1});
     shader->setUniform("material.specular", {0.9f, 0.9f, 0.9f});
@@ -179,8 +127,7 @@ void Fish::render(Scene &scene) {
         shader->setUniform("lights.ranges[" + std::to_string(i) + "]", scene.lights.ranges[i]);
         if (scene.lights.strengths[i] < 0) {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", 0.0f);
-        }
-        else {
+        } else {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", scene.lights.strengths[i]);
         }
     }

@@ -4,6 +4,7 @@
 #include "shaders/texture_frag_glsl.h"
 #include "shaders/convolution_frag_glsl.h"
 #include "shaders/convolution_vert_glsl.h"
+
 // Static resources
 std::unique_ptr<ppgso::Mesh> Seaweed::mesh;
 std::unique_ptr<ppgso::Texture> Seaweed::texture;
@@ -25,7 +26,7 @@ bool Seaweed::update(Scene &scene, float dt) {
 }
 
 void Seaweed::render(Scene &scene) {
-    if (scene.convolution && !scene.prevConvolution){
+    if (scene.convolution && !scene.prevConvolution) {
         shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
     }
     shader->use();

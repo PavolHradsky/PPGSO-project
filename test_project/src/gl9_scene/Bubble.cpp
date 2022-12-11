@@ -3,7 +3,6 @@
 #include <shaders/color_vert_glsl.h>
 #include <shaders/color_frag_glsl.h>
 #include <cmath>
-#include <glm/gtx/euler_angles.hpp>
 #include "shaders/convolution_frag_glsl.h"
 #include "shaders/convolution_vert_glsl.h"
 // Static resources

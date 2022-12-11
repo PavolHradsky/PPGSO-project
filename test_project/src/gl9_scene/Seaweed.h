@@ -11,27 +11,14 @@ private:
 
 public:
     static std::unique_ptr<ppgso::Shader> shader;
-    /*!
-     * Create a new player
-     */
+
     Seaweed();
 
-    /*!
-     * Update player position considering keyboard inputs
-     * @param scene Scene to update
-     * @param dt Time delta
-     * @return true to delete the object
-     */
+
     bool update(Scene &scene, float dt) override;
 
-    /*!
-     * Render player
-     * @param scene Scene to render in
-     */
     void render(Scene &scene) override;
     float posY = 0;
-    float posX = 0;
-    float posZ = 0;
 
 };
 

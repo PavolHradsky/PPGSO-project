@@ -1,5 +1,4 @@
 #include <glm/glm.hpp>
-
 #include "camera.h"
 #include "scene.h"
 
@@ -31,7 +30,8 @@ void Camera::update() {
     viewMatrix = lookAt(position, position - back, up);
 }
 
-void Camera::moveTo(const glm::vec3 &start_pos, const glm::vec3 &end_pos, const glm::vec3 &start_rot, const glm::vec3 &end_rot) {
+void Camera::moveTo(const glm::vec3 &start_pos, const glm::vec3 &end_pos, const glm::vec3 &start_rot,
+                    const glm::vec3 &end_rot) {
     starting_position = start_pos;
     ending_position = end_pos;
     starting_rotation = start_rot;

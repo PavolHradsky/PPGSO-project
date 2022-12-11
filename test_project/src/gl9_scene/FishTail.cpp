@@ -2,14 +2,8 @@
 #include "scene.h"
 #include "FishTail.h"
 #include <shaders/diffuse_vert_glsl.h>
-#include <shaders/diffuse_frag_glsl.h>
-#include <shaders/texture_vert_glsl.h>
-#include <shaders/texture_frag_glsl.h>
-#include "shaders/my_texture_frag_glsl.h"
 #include "shaders/phong_vert_glsl.h"
 #include "shaders/phong_frag_glsl.h"
-#include <shaders/diffuse_vert_glsl.h>
-#include <shaders/diffuse_frag_glsl.h>
 #include "shaders/convolution_frag_glsl.h"
 #include "shaders/convolution_vert_glsl.h"
 
@@ -38,7 +32,6 @@ void FishTail::updateTail(Scene &scene, float posX, float posY, float posZ, floa
     // rotate fish
     rotation.z = std::atan2(nextX - position.x, nextZ - position.z) + ppgso::PI / 2 + sin(age*3)*0.5;
 
-    // TODO
     // if fish is tooclose to 118, 0, 0, rotate it to the other side
     if (glm::distance(position, glm::vec3(118, 0, 0)) < 10) {
         rotation.z = ppgso::PI;
@@ -70,8 +63,6 @@ void FishTail::render(Scene &scene) {
     shader->setUniform("CamPos", scene.camera->position);
     shader->setUniform("global_lighting_on", scene.global_lighting_on);
     // rotate light
-
-
 
     shader->setUniform("material.ambient", {1, 1, 1});
     shader->setUniform("material.diffuse", {1, 1, 1});

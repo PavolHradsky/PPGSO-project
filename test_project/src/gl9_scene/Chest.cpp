@@ -1,6 +1,3 @@
-//
-// Created by hrads on 7. 12. 2022.
-//
 #include "Chest.h"
 #include "scene.h"
 #include <shaders/texture_vert_glsl.h>
@@ -41,9 +38,6 @@ void Chest::render(Scene &scene) {
     shader->setUniform("ViewMatrix", scene.camera->viewMatrix);
     shader->setUniform("CamPos", scene.camera->position);
     shader->setUniform("global_lighting_on", scene.global_lighting_on);
-
-//    shader->setUniform("material.ambient", {1, 1, 1});
-//    shader->setUniform("material.diffuse", {1, 1, 1});
     shader->setUniform("material.diffuse", {1, 1, 1});
     shader->setUniform("material.specular", {0.9f, 0.9f, 0.9f});
     shader->setUniform("material.shininess", 32.0f);

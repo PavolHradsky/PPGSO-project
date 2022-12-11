@@ -1,14 +1,8 @@
-//
-// Created by hrads on 7. 12. 2022.
-//
 #include "Star.h"
 #include "scene.h"
 #include <shaders/texture_vert_glsl.h>
 #include <shaders/texture_frag_glsl.h>
-#include <shaders/phong_vert_glsl.h>
-#include <shaders/phong_frag_glsl.h>
-#include "shaders/my_phong_frag_glsl.h"
-#include "shaders/my_texture_frag_glsl.h"
+
 
 // shared resources
 std::unique_ptr<ppgso::Mesh> Star::mesh;
@@ -16,7 +10,7 @@ std::unique_ptr<ppgso::Texture> Star::texture;
 std::unique_ptr<ppgso::Shader> Star::shader;
 
 Star::Star(glm::vec3 pos) {
-//    color = {1, 1, 0};
+
     // Initialize static resources if needed
     scale *= 0.005;
     position = pos + glm::linearRand(-5.0f, 5.0f);
@@ -32,7 +26,7 @@ bool Star::update(Scene &scene, float dt) {
     position.y += dt;
     rotation.z += dt;
 
-    if(age > 3){
+    if (age > 3) {
         return false;
     }
 

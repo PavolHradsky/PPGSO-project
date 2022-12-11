@@ -1,7 +1,3 @@
-//
-// Created by hrads on 28. 11. 2022.
-//
-
 #include "Cloud.h"
 #include "scene.h"
 #include <shaders/texture_vert_glsl.h>

@@ -1,14 +1,12 @@
 #include "Sand.h"
 #include "scene.h"
-#include "Boat.h"
 #include "Dolphin.h"
 #include <shaders/texture_vert_glsl.h>
-#include <shaders/texture_frag_glsl.h>
 #include <shaders/phong_vert_glsl.h>
 #include <shaders/my_phong_frag_glsl.h>
-#include <shaders/my_texture_frag_glsl.h>
 #include "shaders/convolution_frag_glsl.h"
 #include "shaders/convolution_vert_glsl.h"
+
 // shared resources
 std::unique_ptr<ppgso::Texture> Sand::texture;
 std::unique_ptr<ppgso::Shader> Sand::shader;
@@ -27,7 +25,7 @@ bool Sand::update(Scene &scene, float dt) {
 }
 
 void Sand::render(Scene &scene) {
-    if (scene.convolution && !scene.prevConvolution){
+    if (scene.convolution && !scene.prevConvolution) {
         shader = std::make_unique<ppgso::Shader>(convolution_vert_glsl, convolution_frag_glsl);
     }
     shader->use();
@@ -42,8 +40,6 @@ void Sand::render(Scene &scene) {
     shader->setUniform("global_lighting_on", scene.global_lighting_on);
     // rotate light
 
-
-
     shader->setUniform("material.ambient", {1, 1, 1});
     shader->setUniform("material.diffuse", {1, 1, 1});
     shader->setUniform("material.specular", {0.9f, 0.9f, 0.9f});
@@ -55,8 +51,7 @@ void Sand::render(Scene &scene) {
         shader->setUniform("lights.ranges[" + std::to_string(i) + "]", scene.lights.ranges[i]);
         if (scene.lights.strengths[i] < 0) {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", 0.0f);
-        }
-        else {
+        } else {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", scene.lights.strengths[i]);
         }
     }

@@ -10,7 +10,6 @@
 #include "shaders/texture_frag_glsl.h"
 #include "shaders/my_texture_frag_glsl.h"
 
-//auto shaderDark = std::make_unique<ppgso::Shader>(texture_vert_glsl, my_texture_frag_glsl);
 
 bool Generator::update(Scene &scene, float dt) {
     // Accumulate time

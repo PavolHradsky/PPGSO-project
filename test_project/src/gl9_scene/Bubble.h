@@ -12,11 +12,8 @@
 
 class Bubble final : public Object {
 private:
-    float time;
-    glm::mat4 translateMatrix;
     static std::unique_ptr<ppgso::Mesh> mesh;
     static std::unique_ptr<ppgso::Texture> texture;
-    glm::mat4 offset;
 
 public:
     glm::vec3 color;

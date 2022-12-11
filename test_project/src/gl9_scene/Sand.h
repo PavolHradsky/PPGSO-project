@@ -30,23 +30,11 @@ public:
             {{ 120,  -80, -120}, { 120,  -80, -96}, { 120,  -80, -72}, { 120,  -80, -48}, { 120,  -80, -24}, { 120,  -80, 0}, { 120,  -80, 24}, { 120,  -80, 48}, { 120,  -80, 72}, { 120,  -80, 96}, {120, -80, 120}}
     };
     BezierPatch bezier = BezierPatch(controlPoints);
-    /*!
-     * Create a new player
-     */
+
     Sand();
 
-    /*!
-     * Update player position considering keyboard inputs
-     * @param scene Scene to update
-     * @param dt Time delta
-     * @return true to delete the object
-     */
     bool update(Scene &scene, float dt) override;
 
-    /*!
-     * Render player
-     * @param scene Scene to render in
-     */
     void render(Scene &scene) override;
     glm::vec3 globalPosition = {0, 0, 0};
     float age = 0;

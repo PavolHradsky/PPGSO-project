@@ -1,16 +1,7 @@
-//
-// Created by peter on 26. 11. 2022.
-//
-
 #include "LightHouse.h"
 #include "scene.h"
 #include <shaders/texture_vert_glsl.h>
-#include <shaders/texture_frag_glsl.h>
-
 #include <cmath>
-#include "shaders/my_texture_frag_glsl.h"
-#include "shaders/diffuse_vert_glsl.h"
-#include "shaders/diffuse_frag_glsl.h"
 #include "shaders/phong_vert_glsl.h"
 #include "shaders/phong_frag_glsl.h"
 // shared resources
@@ -30,31 +21,23 @@ LightHouse::LightHouse() {
 
 bool LightHouse::update(Scene &scene, float dt) {
     age += dt;
-    //rotate lightdirection
-//    scene.lights.positions[0].x += 5.0f * dt;
-
     // rotate light around the lighthouse
     scene.lights.positions[0].x = position.x + 15 * sin(age);
     scene.lights.positions[0].z = position.z + 15 * cos(age);
-//    shader->setUniform("lights.positions[0]",scene.lights.positions[0].x);
     generateModelMatrix();
     return true;
 }
 
 void LightHouse::render(Scene &scene) {
     shader->use();
-
     // Set up light
-    //shader->setUniform("LightDirection", scene.lightDirection);
     // use camera
     shader->setUniform("ProjectionMatrix", scene.camera->projectionMatrix);
     shader->setUniform("ViewMatrix", scene.camera->viewMatrix);
     shader->setUniform("CamPos", scene.camera->position);
-    //shader->setUniform("global_lighting_on", scene.global_lighting_on);
 
     shader->setUniform("material.ambient", {1, 1, 1});
     shader->setUniform("material.diffuse", {1, 1, 1});
-    //shader->setUniform("material.specular", {0.9f, 0.9f, 0.9f});
     shader->setUniform("material.shininess", 32.0f);
 
     for (int i = 0; i < scene.lights.count; i++) {

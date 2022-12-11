@@ -1,11 +1,8 @@
 #include "Ocean.h"
 #include "scene.h"
 #include <shaders/texture_vert_glsl.h>
-#include <shaders/texture_frag_glsl.h>
 #include <shaders/phong_vert_glsl.h>
 #include <shaders/phong_frag_glsl.h>
-#include "shaders/my_phong_frag_glsl.h"
-#include "shaders/my_texture_frag_glsl.h"
 
 // shared resources
 std::unique_ptr<ppgso::Mesh> Ocean::mesh;
@@ -54,8 +51,7 @@ void Ocean::render(Scene &scene) {
         shader->setUniform("lights.ranges[" + std::to_string(i) + "]", scene.lights.ranges[i]);
         if (scene.lights.strengths[i] < 0) {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", 0.0f);
-        }
-        else {
+        } else {
             shader->setUniform("lights.strengths[" + std::to_string(i) + "]", scene.lights.strengths[i]);
         }
     }
